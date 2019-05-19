@@ -1,6 +1,8 @@
-namespace ETModel
+using ETModel;
+
+namespace ETHotfix
 {
-	[Config(AppType.ClientH |  AppType.ClientM | AppType.Gate | AppType.Map)]
+	[Config((int)(AppType.ClientH |  AppType.ClientM | AppType.Gate | AppType.Map))]
 	public partial class BehaviorTreeConfigCategory : ACategory<BehaviorTreeConfig>
 	{
 	}
