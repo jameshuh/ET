@@ -60,9 +60,9 @@ public class ExcelExporterEditor : EditorWindow
 				this.isClient = true;
 				
 				ExportAll(clientPath);
-
-                ExportAllClass(@"./Assets/Model/Module/Demo", "namespace ETModel\n{\n");
-				ExportAllClass(@"./Assets/Hotfix/Entity/Config", "using ETModel;\n\nnamespace ETHotfix\n{\n");
+				
+				ExportAllClass(@"./Assets/Model/Module/Demo/Config", "namespace ETModel\n{\n");
+				ExportAllClass(@"./Assets/Hotfix/Module/Demo/Config", "using ETModel;\n\nnamespace ETHotfix\n{\n");
 				
 				Log.Info($"导出客户端配置完成!");
 			}
@@ -73,7 +73,7 @@ public class ExcelExporterEditor : EditorWindow
 				
 				ExportAll(ServerConfigPath);
 				
-				ExportAllClass(@"../Server/Model/Module/Demo", "namespace ETModel\n{\n");
+				ExportAllClass(@"../Server/Model/Module/Demo/Config", "namespace ETModel\n{\n");
 				
 				Log.Info($"导出服务端配置完成!");
 			}
@@ -121,7 +121,7 @@ public class ExcelExporterEditor : EditorWindow
 			ISheet sheet = xssfWorkbook.GetSheetAt(0);
 			sb.Append(csHead);
 
-			sb.Append($"\t[Config({GetCellString(sheet, 0, 0)})]\n");
+			sb.Append($"\t[Config((int)({GetCellString(sheet, 0, 0)}))]\n");
 			sb.Append($"\tpublic partial class {protoName}Category : ACategory<{protoName}>\n");
 			sb.Append("\t{\n");
 			sb.Append("\t}\n\n");
