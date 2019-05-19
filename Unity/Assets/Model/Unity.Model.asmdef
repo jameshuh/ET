@@ -2,7 +2,8 @@
     "name": "Unity.Model",
     "references": [
         "Unity.ThirdParty",
-        "BehaviorDesigner.Runtime"
+        "Unity.BehaviorDesigner.Runtime",
+        "Unity.FairyGUI.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
