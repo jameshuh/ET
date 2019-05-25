@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using FairyGUI;
+﻿using FairyGUI;
+using System.Collections.Generic;
 #if !UNITY_EDITOR
 using UnityEngine;
 #endif
@@ -37,10 +36,10 @@ namespace ETModel
             packages.Add(type, uiPackage);
 		}
         
-		public async Task AddPackageAsync(string type)
+		public async ETTask AddPackageAsync(string type)
 		{
 #if UNITY_EDITOR
-			await Task.CompletedTask;
+			await ETTask.CompletedTask;
             
 			UIPackage uiPackage = UIPackage.AddPackage($"{FUI_PACKAGE_DIR}/{type}");
 #else

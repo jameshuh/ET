@@ -1,10 +1,9 @@
 ﻿using FairyGUI;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ETHotfix
 {
-    public static class GComponentHelper
+	public static class GComponentHelper
     {
         /// <summary>
         /// 获取组件包围盒
