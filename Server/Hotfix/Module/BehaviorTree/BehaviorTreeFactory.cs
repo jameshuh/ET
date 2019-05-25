@@ -8,7 +8,7 @@ namespace ETHotfix
     {
         public static BehaviorTree Create(string name)
         {
-            string path = $"../BehaviorDesigner/{name}.json";
+            string path = $"../Config/BehaviorDesigner/{name}.json";
 
             try
             {
@@ -16,8 +16,10 @@ namespace ETHotfix
 
                 if(behavior != null)
                 {
-                    return ComponentFactory.Create<BehaviorTree, Behavior>(behavior);
-                }
+					var behaviorTree = ComponentFactory.Create<BehaviorTree, Behavior>(behavior);
+					behaviorTree.AddComponent<BehaviorTreeVariableComponent>();
+					return behaviorTree;
+				}
 
                 return null;
             }

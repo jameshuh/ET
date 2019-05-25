@@ -120,7 +120,8 @@ namespace App
 
                         // 行为树Demo
                         Game.Scene.AddComponent<BehaviorManagerComponent>();
-                        Game.EventSystem.Run(EventIdType.TestBehavior, "Demo");
+                        Game.Scene.AddComponent<BehaviorTreeVariableComponent>();
+						Game.EventSystem.Run(EventIdType.TestBehavior, "Demo");
 
                         // recast寻路组件
                         Game.Scene.AddComponent<PathfindingComponent>();
