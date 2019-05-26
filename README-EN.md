@@ -1,4 +1,4 @@
-# [中文](https://github.com/egametang/Egametang/blob/master/README-CN.md) 
+# [中文](https://github.com/egametang/Egametang/blob/master/README.md) 
 
 [ET BBS](https://bbs.honorworkroom.com/forum.php)  [DCET](https://www.dukechiang.com)    [DCET-FGUI Guide](https://www.lfzxb.top/et_fguilearn/) 
 
