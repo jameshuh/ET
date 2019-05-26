@@ -1,8 +1,8 @@
-# [English](https://github.com/egametang/Egametang/blob/master/README-EN.md) 
+# [English](https://github.com/DukeChiang/DCET/edit/dukechiang_master/README-EN.md) 
+
+[ET论坛](https://bbs.honorworkroom.com/forum.php)  [DCET](https://www.dukechiang.com)    [DCET-FGUI框架入门](https://www.lfzxb.top/et_fguilearn/) 
 
 __讨论QQ群 : 474643097__  
-
-[ET论坛](https://bbs.honorworkroom.com/forum.php)  
 
 # ET的介绍：
 ET是一个开源的游戏客户端（基于unity3d）服务端双端框架，服务端是使用C# .net core开发的分布式游戏服务端，其特点是开发效率高，性能强，双端共享逻辑代码，客户端服务端热更机制完善，同时支持可靠udp tcp websocket协议，支持服务端3D recast寻路等等  
@@ -42,7 +42,7 @@ erlang语言一大优势就是位置透明的消息机制，用户完全不用�
 ### 9.客户端服务端用同一种语言，并且共享代码  
 下载ET框架，打开服务端工程，可以看到服务端引用了客户端很多代码，通过引用客户端代码的方式实现了双端共享代码。例如客户端服务端之间的网络消息两边完全共用一个文件即可，添加一个消息只需要修改一遍。  
 ### 10.KCP ENET TCP Websocket协议无缝切换  
-ET框架不但支持TCP，而且支持可靠的UDP协议（ENET跟KCP），ENet是英雄联盟所使用的网络库，其特点是快速，并且网络丢包的情况下性能也非常好，这个我们做过测试TCP在丢包5%的情况下，moba游戏就卡的不行了，但是使用ENet，丢包20%仍然不会感到卡。非常强大。框架还支持使用KCP协议，KCP也是可靠UDP协议，据说比ENET性能更好，使用kcp请注意，需要自己加心跳机制，否则20秒没收到包，服务端将断开连接。协议可以无缝切换。  
+ET框架不但支持TCP，而且支持可靠的UDP协议（KCP），KCP是可靠UDP协议，据说比ENET性能更好，使用kcp请注意，需要自己加心跳机制，否则20秒没收到包，服务端将断开连接。协议可以无缝切换。  
 ### 11. 3D Recast寻路功能
 可以Unity导出场景数据，给服务端做recast寻路。做MMO非常方便，demo演示了服务端3d寻路功能
 
@@ -119,7 +119,6 @@ __讨论QQ群 : 474643097__
 5.升级了ILRuntime，Hotfix.dll目前完全支持Unity编译，并且mac上也能编译  
 6.增加了状态同步的demo，基本上就是一个简单的mmo demo，十分方便入门学习  
 7.增加了repl功能，可以在server进程的console中输入代码及时执行，调试服务器非常方便  
-......
 
 # ET 4.0发布! 4.0将是一个长期支持版本，之后发现的bug，4.0也会进行修复  
 1.net core升级为2.1  
@@ -129,8 +128,6 @@ __讨论QQ群 : 474643097__
 5.数据库方面: DBProxyComponent实现了lambda表达式查询, 修复了一个超级异步阻塞bug  
 6.客户端使用asmdef实现了Hotfix库自动编译功能，并且完美支持Unity2018，再也不用自己搞引用问题了  
 7.修复了一大批bug  
-1. ......  
-
 
 # ET 3.6发布! 
 1.kcp改成C版的，已经去掉所有gc，性能大幅提升，unity mono的socket udp收发还有少量gc，这个只能以后替换成C版的socket了，kcp增加了安全性检查，防止了第三方虚假包的攻击  
