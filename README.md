@@ -1,4 +1,4 @@
-# [English](https://github.com/DukeChiang/DCET/edit/dukechiang_master/README-EN.md) 
+# [English](https://github.com/DukeChiang/DCET/blob/dukechiang_master/README-EN.md) 
 
 [ET论坛](https://bbs.honorworkroom.com/forum.php)  [DCET](https://www.dukechiang.com)    [DCET-FGUI框架入门](https://www.lfzxb.top/et_fguilearn/) 
 
