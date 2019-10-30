@@ -5,7 +5,7 @@ namespace ETHotfix
     /// <summary>
     /// UI栈
     /// </summary>
-    public class FUIStackComponent: Component
+    public class FUIStackComponent: Entity
     {
         private readonly Stack<FUI> uis = new Stack<FUI>();
 

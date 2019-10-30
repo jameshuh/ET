@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace ETHotfix
 {
-    public class VariableComponent<T> : Component
-    {
+    public class VariableComponent<T> : Entity
+	{
         public string Name;
         public T Value;
 
@@ -22,9 +22,9 @@ namespace ETHotfix
         }
     }
 
-    public class BehaviorTreeVariableComponent : Component
+    public class BehaviorTreeVariableComponent : Entity
     {
-        private Dictionary<Type, Dictionary<string, Component>> behaviorTreeVariables = new Dictionary<Type, Dictionary<string, Component>>();
+        private Dictionary<Type, Dictionary<string, Entity>> behaviorTreeVariables = new Dictionary<Type, Dictionary<string, Entity>>();
 
         public VariableComponent<T> GetVariable<T>(string name)
         {
@@ -37,14 +37,14 @@ namespace ETHotfix
 
             if (!behaviorTreeVariables.ContainsKey(type))
             {
-                behaviorTreeVariables[type] = new Dictionary<string, Component>();
+                behaviorTreeVariables[type] = new Dictionary<string, Entity>();
             }
 
             var variables = behaviorTreeVariables[type];
 
             if (!variables.ContainsKey(name))
 			{
-				var variable = ComponentFactory.Create<VariableComponent<T>>();
+				var variable = EntityFactory.Create<VariableComponent<T>>(Game.Scene);
 				variable.Name = name;
 				variables[name] = variable;
 			}
@@ -63,14 +63,14 @@ namespace ETHotfix
 
             if (!behaviorTreeVariables.ContainsKey(type))
             {
-                behaviorTreeVariables[type] = new Dictionary<string, Component>();
+                behaviorTreeVariables[type] = new Dictionary<string, Entity>();
             }
 
             var variables = behaviorTreeVariables[type];
 
             if (!variables.ContainsKey(name))
             {
-                var variable = ComponentFactory.Create<VariableComponent<T>>();
+                var variable = EntityFactory.Create<VariableComponent<T>>(Game.Scene);
                 variable.Name = name;
                 variables[name] = variable;
             }

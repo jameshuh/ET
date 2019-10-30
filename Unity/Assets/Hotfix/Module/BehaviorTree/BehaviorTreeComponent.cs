@@ -14,12 +14,12 @@ namespace ETHotfix
         }
     }
 
-    public class BehaviorTreeComponent : Component
-    {
-        private Dictionary<HotfixAction, Component> behaviorTreeActionComponents = new Dictionary<HotfixAction, Component>();
-        private Dictionary<HotfixComposite, Component> behaviorTreeCompositeComponents = new Dictionary<HotfixComposite, Component>();
-        private Dictionary<HotfixConditional, Component> behaviorTreeConditionalComponents = new Dictionary<HotfixConditional, Component>();
-        private Dictionary<HotfixDecorator, Component> behaviorTreeDecoratorComponents = new Dictionary<HotfixDecorator, Component>();
+    public class BehaviorTreeComponent : Entity
+	{
+        private Dictionary<HotfixAction, Entity> behaviorTreeActionComponents = new Dictionary<HotfixAction, Entity>();
+        private Dictionary<HotfixComposite, Entity> behaviorTreeCompositeComponents = new Dictionary<HotfixComposite, Entity>();
+        private Dictionary<HotfixConditional, Entity> behaviorTreeConditionalComponents = new Dictionary<HotfixConditional, Entity>();
+        private Dictionary<HotfixDecorator, Entity> behaviorTreeDecoratorComponents = new Dictionary<HotfixDecorator, Entity>();
 
         public void Awake()
         {
@@ -44,10 +44,10 @@ namespace ETHotfix
 
             behaviorTreeController.Init();
 
-            BindHotfixActions(behaviorTreeController, behavior.Entity);
-            BindHotfixComposites(behaviorTreeController, behavior.Entity);
-            BindHotfixConditionals(behaviorTreeController, behavior.Entity);
-            BindHotfixDecorators(behaviorTreeController, behavior.Entity);
+            BindHotfixActions(behaviorTreeController, behavior.Parent);
+            BindHotfixComposites(behaviorTreeController, behavior.Parent);
+            BindHotfixConditionals(behaviorTreeController, behavior.Parent);
+            BindHotfixDecorators(behaviorTreeController, behavior.Parent);
 
             behaviorTree.EnableBehavior();
         }

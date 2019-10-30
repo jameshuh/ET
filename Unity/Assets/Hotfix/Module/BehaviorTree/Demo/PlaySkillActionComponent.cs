@@ -12,8 +12,8 @@ namespace ETHotfix
         }
     }
 
-    public class PlaySkillActionComponent : Component
-    {
+    public class PlaySkillActionComponent : Entity
+	{
         private HotfixAction hotfixAction;
 
         public void Awake(Entity behaviorTreeParent, HotfixAction hotfixAction, BehaviorTreeConfig behaviorTreeConfig)

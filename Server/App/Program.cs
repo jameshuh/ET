@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
-using ETModel;
+using CommandLine;
 using NLog;
 
-namespace App
+namespace ETModel
 {
 	internal static class Program
 	{
@@ -13,39 +15,60 @@ namespace App
 			SynchronizationContext.SetSynchronizationContext(OneThreadSynchronizationContext.Instance);
 			
 			try
-			{			
+			{		
 				Game.EventSystem.Add(DLLType.Model, typeof(Game).Assembly);
 				Game.EventSystem.Add(DLLType.Hotfix, DllHelper.GetHotfixAssembly());
+				
+				MongoHelper.Init();
+				
+				// 命令行参数
+				Parser.Default.ParseArguments<Options>(args)
+						.WithNotParsed(error => throw new Exception($"命令行格式错误!"))
+						.WithParsed(o => { Game.Options = o; });
 
-				Options options = Game.Scene.AddComponent<OptionComponent, string[]>(args).Options;
-				StartConfig startConfig = Game.Scene.AddComponent<StartConfigComponent, string, int>(options.Config, options.AppId).StartConfig;
+				IdGenerater.AppId = Game.Options.Id;
+				
+				// 启动配置
+				StartConfig allConfig = MongoHelper.FromJson<StartConfig>(File.ReadAllText(Path.Combine("../Config/StartConfig/", Game.Options.Config)));
 
-				if (!options.AppType.Is(startConfig.AppType))
-				{
-					Log.Error("命令行参数apptype与配置不一致");
-					return;
-				}
+				StartConfig startConfig = allConfig.Get(Game.Options.Id);
+				Game.Scene = EntityFactory.CreateScene(0, "Process", SceneType.Process);
+				
+				LogManager.Configuration.Variables["appIdFormat"] = $"{Game.Scene.Id:0000}";
+				
+				Game.Scene.AddComponent<StartConfigComponent, StartConfig, long>(allConfig, startConfig.Id);
 
-				IdGenerater.AppId = options.AppId;
-
-				LogManager.Configuration.Variables["appType"] = $"{startConfig.AppType}";
-				LogManager.Configuration.Variables["appId"] = $"{startConfig.AppId}";
-				LogManager.Configuration.Variables["appTypeFormat"] = $"{startConfig.AppType, -8}";
-				LogManager.Configuration.Variables["appIdFormat"] = $"{startConfig.AppId:0000}";
-
-				Log.Info($"server start........................ {startConfig.AppId} {startConfig.AppType}");
+				Log.Info($"server start........................ {Game.Scene.Id}");
 
 				Game.Scene.AddComponent<TimerComponent>();
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
+				Game.Scene.AddComponent<ConfigComponent>();
+				Game.Scene.AddComponent<CoroutineLockComponent>();
+				// 发送普通actor消息
+				Game.Scene.AddComponent<ActorMessageSenderComponent>();
+				// 发送location actor消息
+				Game.Scene.AddComponent<ActorLocationSenderComponent>();
+				// 访问location server的组件
+				Game.Scene.AddComponent<LocationProxyComponent>();
+				Game.Scene.AddComponent<ActorMessageDispatcherComponent>();
+				// 数值订阅组件
+				Game.Scene.AddComponent<NumericWatcherComponent>();
+				// 控制台组件
+				Game.Scene.AddComponent<ConsoleComponent>();
 
-				// 根据不同的AppType添加不同的组件
-				OuterConfig outerConfig = startConfig.GetComponent<OuterConfig>();
-				InnerConfig innerConfig = startConfig.GetComponent<InnerConfig>();
-				ClientConfig clientConfig = startConfig.GetComponent<ClientConfig>();
-				
-				switch (startConfig.AppType)
+
+                OuterConfig outerConfig = startConfig.GetComponent<OuterConfig>();
+				if (outerConfig != null)
 				{
+					// 外网消息组件
+					Game.Scene.AddComponent<NetOuterComponent, string>(outerConfig.Address);
+				}
+				
+				InnerConfig innerConfig = startConfig.GetComponent<InnerConfig>();
+				if (innerConfig != null)
+				{
+<<<<<<< HEAD
 					case AppType.Manager:
 						Game.Scene.AddComponent<AppManagerComponent>();
 						Game.Scene.AddComponent<NetInnerComponent, string>(innerConfig.Address);
@@ -145,7 +168,20 @@ namespace App
 						break;
 					default:
 						throw new Exception($"命令行参数没有设置正确的AppType: {startConfig.AppType}");
+=======
+					// 内网消息组件
+					Game.Scene.AddComponent<NetInnerComponent, string>(innerConfig.Address);
 				}
+
+				DBConfig dbConfig = startConfig.GetComponent<DBConfig>();
+				if (dbConfig != null)
+				{
+					Game.Scene.AddComponent<DBComponent, DBConfig>(dbConfig);
+>>>>>>> eec84eba36304f1236eac278a21297ade88df465
+				}
+				
+				// 先加这里，后面删掉
+				Game.EventSystem.Run(EventIdType.AfterScenesAdd);
 				
 				while (true)
 				{

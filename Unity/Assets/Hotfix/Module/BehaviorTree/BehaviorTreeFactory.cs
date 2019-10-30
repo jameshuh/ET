@@ -5,7 +5,7 @@ namespace ETHotfix
 {
     public class BehaviorTreeFactory
     {
-        public static Component Create(Entity behaviorTreeParent, HotfixAction hotfixAction)
+        public static Entity Create(Entity behaviorTreeParent, HotfixAction hotfixAction)
         {
             try
             {
@@ -13,16 +13,12 @@ namespace ETHotfix
                 
                 var type = Type.GetType($"ETHotfix.{behaviorTreeConfig.ComponentName}");
 
-                Component component = Game.ObjectPool.Fetch(type);
+                var component = Game.ObjectPool.Fetch(type);
 
-                ComponentWithId componentWithId = component as ComponentWithId;
+				component.Domain = behaviorTreeParent.Domain;
+				component.Id = behaviorTreeParent.Id;
 
-                if (componentWithId != null)
-                {
-                    componentWithId.Id = component.InstanceId;
-                }
-
-                Game.EventSystem.Awake(component, behaviorTreeParent, hotfixAction, behaviorTreeConfig);
+				Game.EventSystem.Awake(component, behaviorTreeParent, hotfixAction, behaviorTreeConfig);
 
                 if(string.Equals(hotfixAction.FriendlyName, "Hotfix Action"))
                 {
@@ -39,7 +35,7 @@ namespace ETHotfix
             return null;
         }
 
-        public static Component Create(Entity behaviorTreeParent, HotfixDecorator hotfixDecorator)
+        public static Entity Create(Entity behaviorTreeParent, HotfixDecorator hotfixDecorator)
         {
             try
             {
@@ -47,16 +43,12 @@ namespace ETHotfix
 
                 var type = Type.GetType($"ETHotfix.{behaviorTreeConfig.ComponentName}");
 
-                Component component = Game.ObjectPool.Fetch(type);
+                var component = Game.ObjectPool.Fetch(type);
 
-                ComponentWithId componentWithId = component as ComponentWithId;
+				component.Domain = behaviorTreeParent.Domain;
+				component.Id = behaviorTreeParent.Id;
 
-                if (componentWithId != null)
-                {
-                    componentWithId.Id = component.InstanceId;
-                }
-
-                Game.EventSystem.Awake(component, behaviorTreeParent, hotfixDecorator, behaviorTreeConfig);
+				Game.EventSystem.Awake(component, behaviorTreeParent, hotfixDecorator, behaviorTreeConfig);
 
                 if (string.Equals(hotfixDecorator.FriendlyName, "Hotfix Decorator"))
                 {
@@ -72,7 +64,7 @@ namespace ETHotfix
             return null;
         }
 
-        public static Component Create(Entity behaviorTreeParent, HotfixConditional hotfixConditional)
+        public static Entity Create(Entity behaviorTreeParent, HotfixConditional hotfixConditional)
         {
             try
             {
@@ -80,16 +72,12 @@ namespace ETHotfix
 
                 var type = Type.GetType($"ETHotfix.{behaviorTreeConfig.ComponentName}");
 
-                Component component = Game.ObjectPool.Fetch(type);
+                var component = Game.ObjectPool.Fetch(type);
 
-                ComponentWithId componentWithId = component as ComponentWithId;
+				component.Domain = behaviorTreeParent.Domain;
+				component.Id = behaviorTreeParent.Id;
 
-                if (componentWithId != null)
-                {
-                    componentWithId.Id = component.InstanceId;
-                }
-
-                Game.EventSystem.Awake(component, behaviorTreeParent, hotfixConditional, behaviorTreeConfig);
+				Game.EventSystem.Awake(component, behaviorTreeParent, hotfixConditional, behaviorTreeConfig);
 
                 if (string.Equals(hotfixConditional.FriendlyName, "Hotfix Conditional"))
                 {
@@ -106,7 +94,7 @@ namespace ETHotfix
             return null;
         }
 
-        public static Component Create(Entity behaviorTreeParent, HotfixComposite hotfixComposite)
+        public static Entity Create(Entity behaviorTreeParent, HotfixComposite hotfixComposite)
         {
             try
             {
@@ -114,16 +102,12 @@ namespace ETHotfix
 
                 var type = Type.GetType($"ETHotfix.{behaviorTreeConfig.ComponentName}");
 
-                Component component = Game.ObjectPool.Fetch(type);
+                var component = Game.ObjectPool.Fetch(type);
 
-                ComponentWithId componentWithId = component as ComponentWithId;
+				component.Domain = behaviorTreeParent.Domain;
+				component.Id = behaviorTreeParent.Id;
 
-                if (componentWithId != null)
-                {
-                    componentWithId.Id = component.InstanceId;
-                }
-
-                Game.EventSystem.Awake(component, behaviorTreeParent, hotfixComposite, behaviorTreeConfig);
+				Game.EventSystem.Awake(component, behaviorTreeParent, hotfixComposite, behaviorTreeConfig);
 
                 if (string.Equals(hotfixComposite.FriendlyName, "Hotfix Composite"))
                 {

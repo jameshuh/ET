@@ -12,8 +12,8 @@ namespace ETHotfix
         }
     }
 
-    public class LogActionComponent : Component
-    {
+    public class LogActionComponent : Entity
+	{
         private HotfixAction hotfixAction;
 
         public void Awake(Entity behaviorTreeParent, HotfixAction hotfixAction, BehaviorTreeConfig behaviorTreeConfig)

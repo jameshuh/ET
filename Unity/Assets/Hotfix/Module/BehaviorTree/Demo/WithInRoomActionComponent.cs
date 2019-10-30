@@ -12,8 +12,8 @@ namespace ETHotfix
         }
     }
 
-    public class WithInRoomActionComponent : Component
-    {
+    public class WithInRoomActionComponent : Entity
+	{
         private HotfixAction hotfixAction;
 
         public void Awake(Entity behaviorTreeParent, HotfixAction hotfixAction, BehaviorTreeConfig behaviorTreeConfig)

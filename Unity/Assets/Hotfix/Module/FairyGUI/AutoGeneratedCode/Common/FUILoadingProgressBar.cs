@@ -39,38 +39,38 @@ namespace ETHotfix.Common
             UIPackage.CreateObjectAsync(UIPackageName, UIResName, result);
         }
 
-        public static FUILoadingProgressBar CreateInstance()
+        public static FUILoadingProgressBar CreateInstance(Entity domain)
 		{			
-			return ComponentFactory.Create<FUILoadingProgressBar, GObject>(CreateGObject());
+			return EntityFactory.Create<FUILoadingProgressBar, GObject>(domain, CreateGObject());
 		}
 
-        public static Task<FUILoadingProgressBar> CreateInstanceAsync()
+        public static Task<FUILoadingProgressBar> CreateInstanceAsync(Entity domain)
         {
             TaskCompletionSource<FUILoadingProgressBar> tcs = new TaskCompletionSource<FUILoadingProgressBar>();
 
             CreateGObjectAsync((go) =>
             {
-                tcs.SetResult(ComponentFactory.Create<FUILoadingProgressBar, GObject>(go));
+                tcs.SetResult(EntityFactory.Create<FUILoadingProgressBar, GObject>(domain, go));
             });
 
             return tcs.Task;
         }
 
-        public static FUILoadingProgressBar Create(GObject go)
+        public static FUILoadingProgressBar Create(Entity domain, GObject go)
 		{
-			return ComponentFactory.Create<FUILoadingProgressBar, GObject>(go);
+			return EntityFactory.Create<FUILoadingProgressBar, GObject>(domain, go);
 		}
 		
         /// <summary>
         /// 通过此方法获取的FUI，在Dispose时不会释放GObject，需要自行管理（一般在配合FGUI的Pool机制时使用）。
         /// </summary>
-        public static FUILoadingProgressBar GetFormPool(GObject go)
+        public static FUILoadingProgressBar GetFormPool(Entity domain, GObject go)
         {
             var fui = go.Get<FUILoadingProgressBar>();
 
             if(fui == null)
             {
-                fui = Create(go);
+                fui = Create(domain, go);
             }
 
             fui.isFromFGUIPool = true;

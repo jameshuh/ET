@@ -8,14 +8,14 @@ namespace ETHotfix
 	{
 		public override void Awake(FUIComponent self)
 		{
-			self.Root = ComponentFactory.Create<FUI, GObject>(GRoot.inst);
+			self.Root = EntityFactory.Create<FUI, GObject>(Game.Scene, GRoot.inst);
 		}
 	}
 
 	/// <summary>
 	/// 管理所有顶层UI, 顶层UI都是GRoot的孩子
 	/// </summary>
-	public class FUIComponent: Component
+	public class FUIComponent: Entity
 	{
 		public FUI Root;
 		

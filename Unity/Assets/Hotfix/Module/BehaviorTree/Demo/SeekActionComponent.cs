@@ -13,8 +13,8 @@ namespace ETHotfix
         }
     }
 
-    public class SeekActionComponent : Component
-    {
+    public class SeekActionComponent : Entity
+	{
         private HotfixAction hotfixAction;
 
         public void Awake(Entity behaviorTreeParent, HotfixAction hotfixAction, BehaviorTreeConfig behaviorTreeConfig)

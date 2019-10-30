@@ -40,38 +40,38 @@ namespace ETHotfix.Common
             UIPackage.CreateObjectAsync(UIPackageName, UIResName, result);
         }
 
-        public static FUILoading CreateInstance()
+        public static FUILoading CreateInstance(Entity domain)
 		{			
-			return ComponentFactory.Create<FUILoading, GObject>(CreateGObject());
+			return EntityFactory.Create<FUILoading, GObject>(domain, CreateGObject());
 		}
 
-        public static Task<FUILoading> CreateInstanceAsync()
+        public static Task<FUILoading> CreateInstanceAsync(Entity domain)
         {
             TaskCompletionSource<FUILoading> tcs = new TaskCompletionSource<FUILoading>();
 
             CreateGObjectAsync((go) =>
             {
-                tcs.SetResult(ComponentFactory.Create<FUILoading, GObject>(go));
+                tcs.SetResult(EntityFactory.Create<FUILoading, GObject>(domain, go));
             });
 
             return tcs.Task;
         }
 
-        public static FUILoading Create(GObject go)
+        public static FUILoading Create(Entity domain, GObject go)
 		{
-			return ComponentFactory.Create<FUILoading, GObject>(go);
+			return EntityFactory.Create<FUILoading, GObject>(domain, go);
 		}
 		
         /// <summary>
         /// 通过此方法获取的FUI，在Dispose时不会释放GObject，需要自行管理（一般在配合FGUI的Pool机制时使用）。
         /// </summary>
-        public static FUILoading GetFormPool(GObject go)
+        public static FUILoading GetFormPool(Entity domain, GObject go)
         {
             var fui = go.Get<FUILoading>();
 
             if(fui == null)
             {
-                fui = Create(go);
+                fui = Create(domain, go);
             }
 
             fui.isFromFGUIPool = true;
@@ -103,7 +103,7 @@ namespace ETHotfix.Common
 			{	
 				bg = (GImage)com.GetChild("bg");
 				loadingText = (GTextField)com.GetChild("loadingText");
-				loadingBar = FUILoadingProgressBar.Create(com.GetChild("loadingBar"));
+				loadingBar = FUILoadingProgressBar.Create(Domain, com.GetChild("loadingBar"));
 			}
 		}
 		

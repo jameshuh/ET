@@ -21,7 +21,7 @@ namespace ETModel
 		}
 	}
 	
-	public class ABInfo : Component
+	public class ABInfo : Entity
 	{
 		public string Name { get; set; }
 
@@ -166,7 +166,7 @@ namespace ETModel
 	}
 	
 
-	public class ResourcesComponent : Component
+	public class ResourcesComponent : Entity
 	{
 		public static AssetBundleManifest AssetBundleManifestObject { get; set; }
 
@@ -312,8 +312,7 @@ namespace ETModel
 					AddResource(assetBundleName, assetName, resource);
 				}
 
-				abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
-				abInfo.Parent = this;
+				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
 				this.bundles[assetBundleName] = abInfo;
 #endif
 				return;
@@ -346,7 +345,7 @@ namespace ETModel
 				}
 			}
 
-			abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
+			abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
 			this.bundles[assetBundleName] = abInfo;
 		}
 
@@ -392,7 +391,7 @@ namespace ETModel
 					AddResource(assetBundleName, assetName, resource);
 				}
 
-				abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
+				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
 				this.bundles[assetBundleName] = abInfo;
 #endif
 				return;
@@ -405,7 +404,7 @@ namespace ETModel
 				p = Path.Combine(PathHelper.AppResPath, assetBundleName);
 			}
 			
-			using (AssetsBundleLoaderAsync assetsBundleLoaderAsync = ComponentFactory.Create<AssetsBundleLoaderAsync>())
+			using (AssetsBundleLoaderAsync assetsBundleLoaderAsync = EntityFactory.Create<AssetsBundleLoaderAsync>(this.Domain))
 			{
 				assetBundle = await assetsBundleLoaderAsync.LoadAsync(p);
 			}
@@ -419,7 +418,7 @@ namespace ETModel
 			{
 				// 异步load资源到内存cache住
 				UnityEngine.Object[] assets;
-				using (AssetsLoaderAsync assetsLoaderAsync = ComponentFactory.Create<AssetsLoaderAsync, AssetBundle>(assetBundle))
+				using (AssetsLoaderAsync assetsLoaderAsync = EntityFactory.Create<AssetsLoaderAsync, AssetBundle>(this.Domain, assetBundle))
 				{
 					assets = await assetsLoaderAsync.LoadAllAssetsAsync();
 				}
@@ -429,7 +428,7 @@ namespace ETModel
 				}
 			}
 
-			abInfo = ComponentFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
+			abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
 			this.bundles[assetBundleName] = abInfo;
 		}
 

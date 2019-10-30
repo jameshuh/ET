@@ -9,7 +9,7 @@ namespace ETModel
 	/// <summary>
 	/// 管理所有UI Package
 	/// </summary>
-	public class FUIPackageComponent: Component
+	public class FUIPackageComponent: Entity
     {
 #if UNITY_EDITOR
         public const string FUI_PACKAGE_DIR = "Assets/Bundles/FUI";

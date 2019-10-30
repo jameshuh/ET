@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace ETHotfix
 {
-	public class FUIInitComponent : Component
-    {
+	public class FUIInitComponent : Entity
+	{
         public async Task Init()
         {
             await ETModel.Game.Scene.GetComponent<FUIPackageComponent>().AddPackageAsync(FUIPackage.Common);

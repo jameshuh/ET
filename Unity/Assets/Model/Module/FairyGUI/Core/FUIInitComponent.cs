@@ -12,7 +12,7 @@ namespace ETModel
 		}
 	}
 
-	public class FUIInitComponent : Component
+	public class FUIInitComponent : Entity
     {
         public const string DefaultFont = "FZXuanZhenZhuanBianS-R-GB";
         public static string ModelPackageName = "FUI/Model";
