@@ -211,10 +211,14 @@ namespace ETHotfix
 		
 		public override string ToString()
 		{
+#if ILRuntime
+			return JsonHelper.ToJson(this);
+#else
 			return MongoHelper.ToJson(this);
+#endif
 		}
-		
-		
+
+
 		[BsonIgnoreIfDefault]
 		[BsonDefaultValue(0L)]
 		[BsonElement]
