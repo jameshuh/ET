@@ -1,0 +1,17 @@
+{
+    "name": "Unity.Game",
+    "references": [
+        "Unity.Model",
+        "Unity.ILRuntime.Runtime",
+        "Unity.BehaviorDesigner.Runtime",
+        "Unity.FairyGUI.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

@@ -28,7 +28,7 @@ namespace ETHotfix
 
 			base.Dispose();
 
-            Root.Dispose();
+            Root?.Dispose();
             Root = null;
 		}
 
