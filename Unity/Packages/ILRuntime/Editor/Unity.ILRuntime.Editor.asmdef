@@ -1,0 +1,15 @@
+{
+    "name": "Unity.ILRuntime.Editor",
+    "references": [
+        "Unity.ILRuntime.Runtime",
+        "Unity.Game"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

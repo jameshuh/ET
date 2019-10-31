@@ -1,0 +1,14 @@
+{
+    "name": "Unity.DCET.Pathfinding.Editor",
+    "references": [
+        "Unity.DCET.Pathfinding.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

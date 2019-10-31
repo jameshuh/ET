@@ -1,0 +1,16 @@
+{
+    "name": "Unity.DCET.AssetsBundle.Runtime",
+    "references": [
+        "Unity.DCET.Core.Runtime",
+        "Unity.MongoDB.Runtime",
+        "Unity.DCET.GlobalConfig.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

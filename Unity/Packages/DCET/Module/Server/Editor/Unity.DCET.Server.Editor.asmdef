@@ -1,0 +1,20 @@
+{
+    "name": "Unity.DCET.Server.Editor",
+    "references": [
+        "Unity.DCET.Core.Runtime",
+        "Unity.MongoDB.Runtime",
+        "Unity.DCET.Config.Runtime",
+        "Unity.DCET.Message.Runtime",
+        "Unity.ILRuntime.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

@@ -32,7 +32,7 @@ namespace ETModel
 				// 下载ab包
 				await BundleHelper.DownloadBundle();
 
-				Game.Hotfix.LoadHotfixAssembly();
+				Game.Hotfix.LoadHotfixAssembly(null, null);
 
 				// 加载配置
 				Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
@@ -41,6 +41,7 @@ namespace ETModel
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
+				ILHelper.InitILRuntime(Game.Hotfix.appDomain);
 				Game.Hotfix.GotoHotfix();
 
 				Game.EventSystem.Run(EventIdType.TestHotfixSubscribMonoEvent, "TestHotfixSubscribMonoEvent");

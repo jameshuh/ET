@@ -1,0 +1,17 @@
+{
+    "name": "Unity.DCET.Core.Runtime",
+    "references": [
+        "Unity.ILRuntime.Runtime",
+        "Unity.BehaviorDesigner.Runtime",
+        "Unity.FairyGUI.Runtime",
+        "Unity.MongoDB.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
