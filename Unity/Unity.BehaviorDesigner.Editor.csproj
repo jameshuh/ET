@@ -60,10 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Packages\Behavior Designer\Editor\Unity\BehaviorTreeInspector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Editor\Unity\ExternalBehaviorTreeInspector.cs" />
-    <None Include="Assets\Packages\Behavior Designer\Editor\Shader\GridShader.shader" />
-    <None Include="Assets\Packages\Behavior Designer\Editor\Unity.BehaviorDesigner.Editor.asmdef" />
+    <Compile Include="Packages\Behavior Designer\Editor\Unity\BehaviorTreeInspector.cs" />
+    <Compile Include="Packages\Behavior Designer\Editor\Unity\ExternalBehaviorTreeInspector.cs" />
+    <None Include="Packages\Behavior Designer\Editor\Shader\GridShader.shader" />
+    <None Include="Packages\Behavior Designer\Editor\Unity.BehaviorDesigner.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -298,12 +298,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -330,6 +324,12 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

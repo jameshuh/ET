@@ -1,9 +1,6 @@
 {
-    "name": "Unity.Model",
+    "name": "Unity.ILRuntime.Runtime",
     "references": [
-        "Unity.ILRuntime.Runtime",
-        "Unity.BehaviorDesigner.Runtime",
-        "Unity.FairyGUI.Runtime",
         "Unity.MongoDB.Runtime"
     ],
     "optionalUnityReferences": [],

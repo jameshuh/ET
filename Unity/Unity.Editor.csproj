@@ -355,12 +355,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -387,6 +381,12 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -748,9 +748,13 @@
       <Project>{B4BF9894-F5D9-41C4-13E3-3F26F7700E29}</Project>
       <Name>Unity.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ThirdParty.csproj">
-      <Project>{E15BADD2-3A26-309A-AB0F-DC5B08044350}</Project>
-      <Name>Unity.ThirdParty</Name>
+    <ProjectReference Include="Unity.ILRuntime.Runtime.csproj">
+      <Project>{11F81073-03CA-C623-F181-03D1CA5F8E1A}</Project>
+      <Name>Unity.ILRuntime.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
+      <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
+      <Name>Unity.MongoDB.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

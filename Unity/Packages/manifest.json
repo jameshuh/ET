@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "com.dcet.tool": "file:/./Packages/com.dcet.tool",
+    "com.fairygui.runtime": "file:/./Packages/com.fairygui.runtime",
+    "com.opsive.behaviordesigner": "file:/./Packages/com.opsive.behaviordesigner",
+    "com.ourpalm.ilruntime": "file:/./Packages/com.ourpalm.ilruntime",
+    "com.mongodb.bson": "file:/./Packages/com.mongodb.bson",
     "com.unity.assetbundlebrowser": "1.7.0",
     "com.unity.package-manager-ui": "2.0.8",
-    "com.unity.textmeshpro": "1.4.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",

@@ -2,9 +2,10 @@
     "name": "Unity.Hotfix",
     "references": [
         "Unity.Model",
-        "Unity.ThirdParty",
+        "Unity.ILRuntime.Runtime",
         "Unity.BehaviorDesigner.Runtime",
-        "Unity.FairyGUI.Runtime"
+        "Unity.FairyGUI.Runtime",
+        "Unity.MongoDB.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

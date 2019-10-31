@@ -60,34 +60,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Actions\HotfixAction.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Base\EntryTask.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\HotfixComposite.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\Parallel.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\ParallelComplete.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\ParallelSelector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\PrioritySelector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\RandomSelector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\RandomSequence.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\Selector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\SelectorEvaluator.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\Sequence.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Composites\UtilitySelector.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Conditionals\HotfixConditional.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\ConditionalEvaluator.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\HotfixDecorator.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\Interrupt.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\Inverter.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\Repeater.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\ReturnFailure.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\ReturnSuccess.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\TaskGuard.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\UntilFailure.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Decorators\UntilSuccess.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Unity\BehaviorTree.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Unity\BehaviorTreeController.cs" />
-    <Compile Include="Assets\Packages\Behavior Designer\Runtime\Unity\ExternalBehaviorTree.cs" />
-    <None Include="Assets\Packages\Behavior Designer\Runtime\Unity.BehaviorDesigner.Runtime.asmdef" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Actions\HotfixAction.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Base\EntryTask.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\HotfixComposite.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\Parallel.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\ParallelComplete.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\ParallelSelector.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\PrioritySelector.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\RandomSelector.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\RandomSequence.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\Selector.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\SelectorEvaluator.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\Sequence.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Composites\UtilitySelector.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Conditionals\HotfixConditional.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\ConditionalEvaluator.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\HotfixDecorator.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\Interrupt.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\Inverter.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\Repeater.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\ReturnFailure.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\ReturnSuccess.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\TaskGuard.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\UntilFailure.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Decorators\UntilSuccess.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Unity\BehaviorTree.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Unity\BehaviorTreeController.cs" />
+    <Compile Include="Packages\Behavior Designer\Runtime\Unity\ExternalBehaviorTree.cs" />
+    <None Include="Packages\Behavior Designer\Runtime\Unity.BehaviorDesigner.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -310,12 +310,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -342,6 +336,12 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
