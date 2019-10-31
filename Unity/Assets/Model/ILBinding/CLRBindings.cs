@@ -36,7 +36,6 @@ namespace ILRuntime.Runtime.Generated
             UnityEngine_Object_Binding.Register(app);
             UnityEngine_GameObject_Binding.Register(app);
             UnityEngine_Transform_Binding.Register(app);
-            ETModel_MongoHelper_Binding.Register(app);
             System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding.Register(app);
             System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_ValueCollection_Binding.Register(app);
             System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_ValueCollection_Binding_Enumerator_Binding.Register(app);
