@@ -60,12 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET\Module\AssetsBundle\AssetsBundleLoaderAsync.cs" />
-    <Compile Include="Packages\DCET\Module\AssetsBundle\AssetsLoaderAsync.cs" />
-    <Compile Include="Packages\DCET\Module\AssetsBundle\BundleDownloaderComponent.cs" />
-    <Compile Include="Packages\DCET\Module\AssetsBundle\ResourcesComponent.cs" />
-    <Compile Include="Packages\DCET\Module\AssetsBundle\VersionConfig.cs" />
-    <None Include="Packages\DCET\Module\AssetsBundle\Unity.DCET.AssetsBundle.Runtime.asmdef" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\AssetsBundleLoaderAsync.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\AssetsLoaderAsync.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\BundleDownloaderComponent.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\GlobalConfigComponent.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\GlobalProto.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\ResourcesComponent.cs" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Runtime\VersionConfig.cs" />
+    <None Include="Packages\DCET\Module\AssetsBundle\Runtime\Unity.DCET.AssetsBundle.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -684,10 +686,6 @@
     <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
       <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
       <Name>Unity.MongoDB.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.DCET.GlobalConfig.Runtime.csproj">
-      <Project>{E51B2946-FA52-2CF6-5B78-E3B29E8376D5}</Project>
-      <Name>Unity.DCET.GlobalConfig.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

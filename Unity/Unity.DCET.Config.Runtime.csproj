@@ -60,24 +60,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET\Module\Config\ACategory.cs" />
-    <Compile Include="Packages\DCET\Module\Config\AConfigComponent.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\ClientConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\CopyConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\DBConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\HttpConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\InnerConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\MapConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\OuterConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\ProcessConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\RunServerConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\SceneConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\Config\StartConfig.cs" />
-    <Compile Include="Packages\DCET\Module\Config\ConfigAttribute.cs" />
-    <Compile Include="Packages\DCET\Module\Config\ConfigComponent.cs" />
-    <Compile Include="Packages\DCET\Module\Config\ConfigHelper.cs" />
-    <Compile Include="Packages\DCET\Module\Config\IConfig.cs" />
-    <None Include="Packages\DCET\Module\Config\Unity.DCET.Config.Runtime.asmdef" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\ACategory.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\AConfigComponent.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\ClientConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\CopyConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\DBConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\HttpConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\InnerConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\MapConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\OuterConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\ProcessConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\RunServerConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\SceneConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\Config\StartConfig.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\ConfigAttribute.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\ConfigComponent.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\ConfigHelper.cs" />
+    <Compile Include="Packages\DCET\Module\Config\Runtime\IConfig.cs" />
+    <None Include="Packages\DCET\Module\Config\Runtime\Unity.DCET.Config.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

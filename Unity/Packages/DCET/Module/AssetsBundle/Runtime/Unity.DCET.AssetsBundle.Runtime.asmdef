@@ -2,8 +2,7 @@
     "name": "Unity.DCET.AssetsBundle.Runtime",
     "references": [
         "Unity.DCET.Core.Runtime",
-        "Unity.MongoDB.Runtime",
-        "Unity.DCET.GlobalConfig.Runtime"
+        "Unity.MongoDB.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

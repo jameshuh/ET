@@ -1,7 +1,8 @@
 {
-    "name": "Unity.DCET.GlobalConfig.Runtime",
+    "name": "Unity.DCET.AssetsBundle.Editor",
     "references": [
-        "Unity.DCET.Core.Runtime"
+        "Unity.DCET.Core.Runtime",
+        "Unity.DCET.AssetsBundle.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

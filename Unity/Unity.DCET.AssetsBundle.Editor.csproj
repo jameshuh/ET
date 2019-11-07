@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E51B2946-FA52-2CF6-5B78-E3B29E8376D5}</ProjectGuid>
+    <ProjectGuid>{21F9DFC7-D6CB-7CFE-9BB2-7AF6E1BE4061}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.DCET.GlobalConfig.Runtime</AssemblyName>
+    <AssemblyName>Unity.DCET.AssetsBundle.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.4.12f1</UnityVersion>
   </PropertyGroup>
@@ -60,9 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET\Module\GlobalConfig\Runtime\GlobalConfigComponent.cs" />
-    <Compile Include="Packages\DCET\Module\GlobalConfig\Runtime\GlobalProto.cs" />
-    <None Include="Packages\DCET\Module\GlobalConfig\Runtime\Unity.DCET.GlobalConfig.Runtime.asmdef" />
+    <Compile Include="Packages\DCET\Module\AssetsBundle\Editor\GlobalConfigEditor.cs" />
+    <None Include="Packages\DCET\Module\AssetsBundle\Editor\Unity.DCET.AssetsBundle.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -677,6 +676,10 @@
     <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
       <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
       <Name>Unity.DCET.Core.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.AssetsBundle.Runtime.csproj">
+      <Project>{040BE345-C522-2DBB-C622-1353992946D8}</Project>
+      <Name>Unity.DCET.AssetsBundle.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

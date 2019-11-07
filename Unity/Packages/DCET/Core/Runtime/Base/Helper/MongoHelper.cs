@@ -13,38 +13,45 @@ namespace ETModel
 	public static class MongoHelper
 	{
         static MongoHelper()
-        {
-	        // 自动注册IgnoreExtraElements
-	        
-	        ConventionPack conventionPack = new ConventionPack { new IgnoreExtraElementsConvention(true) };
-	        
-	        ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
-	        
-            Type[] types = typeof(Game).Assembly.GetTypes();
-           
-            foreach (Type type in types)
-            {
-                if (!type.IsSubclassOf(typeof(Entity)))
-                {
-                    continue;
-                }
+		{
+			// 自动注册IgnoreExtraElements
 
-                if (type.IsGenericType)
-                {
-                    continue;
-                }
+			ConventionPack conventionPack = new ConventionPack { new IgnoreExtraElementsConvention(true) };
 
-				BsonClassMap.LookupClassMap(type);
-			}
+			ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
+
+			LookupAssembly(typeof(Game));
+			LookupAssembly(typeof(Config));
+
 #if SERVER
             BsonSerializer.RegisterSerializer(typeof(Vector3), new StructBsonSerialize<Vector3>());
 #else
-            BsonSerializer.RegisterSerializer(typeof(Vector4), new StructBsonSerialize<Vector4>());
-            BsonSerializer.RegisterSerializer(typeof(Vector2Int), new StructBsonSerialize<Vector2Int>());
+			BsonSerializer.RegisterSerializer(typeof(Vector4), new StructBsonSerialize<Vector4>());
+			BsonSerializer.RegisterSerializer(typeof(Vector2Int), new StructBsonSerialize<Vector2Int>());
 #endif
-        }
-        
-        public static void Init()
+		}
+
+		private static void LookupAssembly(Type type)
+		{
+			Type[] types = type.Assembly.GetTypes();
+
+			foreach (Type type in types)
+			{
+				if (!type.IsSubclassOf(typeof(Entity)))
+				{
+					continue;
+				}
+
+				if (type.IsGenericType)
+				{
+					continue;
+				}
+
+				BsonClassMap.LookupClassMap(type);
+			}
+		}
+
+		public static void Init()
         {
 	        // 调用这个是为了调用MongoHelper的静态方法
         }

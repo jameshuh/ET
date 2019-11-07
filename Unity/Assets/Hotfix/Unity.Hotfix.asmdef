@@ -10,8 +10,7 @@
         "Unity.DCET.Message.Runtime",
         "Unity.DCET.FairyGUI.Runtime",
         "Unity.DCET.Config.Runtime",
-        "Unity.DCET.AssetsBundle.Runtime",
-        "Unity.DCET.GlobalConfig.Runtime"
+        "Unity.DCET.AssetsBundle.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

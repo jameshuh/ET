@@ -802,10 +802,6 @@
       <Project>{040BE345-C522-2DBB-C622-1353992946D8}</Project>
       <Name>Unity.DCET.AssetsBundle.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.GlobalConfig.Runtime.csproj">
-      <Project>{E51B2946-FA52-2CF6-5B78-E3B29E8376D5}</Project>
-      <Name>Unity.DCET.GlobalConfig.Runtime</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
