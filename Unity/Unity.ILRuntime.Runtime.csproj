@@ -288,6 +288,14 @@
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\Mono\Disposable.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\Mono\Empty.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\Mono\Type.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\ProjectInfo.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.Cecil.Mdb\MdbReader.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.Cecil.Mdb\MdbWriter.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolFile.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolTable.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\MonoSymbolWriter.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\SourceMethodBuilder.cs" />
+    <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\mdb\Mono.CompilerServices.SymbolWriter\SymbolWriterImpl.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\BitAccess.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\BitSet.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Microsoft.Cci.Pdb\CvInfo.cs" />
@@ -321,6 +329,7 @@
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\PdbHelper.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\SymDocumentWriter.cs" />
     <Compile Include="Packages\ILRuntime\Runtime\Mono.Cecil\symbols\pdb\Mono.Cecil.Pdb\SymWriter.cs" />
+    <None Include="Packages\ILRuntime\Runtime\Mono.Cecil\LICENSE.txt" />
     <None Include="Packages\ILRuntime\Runtime\Unity.ILRuntime.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

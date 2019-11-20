@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ETModel
+namespace DCET.Model
 {
     [ObjectSystem]
     public class CoroutineLockComponentSystem : AwakeSystem<CoroutineLockComponent>

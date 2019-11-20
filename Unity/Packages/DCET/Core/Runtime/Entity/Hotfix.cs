@@ -1,26 +1,58 @@
-﻿using System;
+﻿#if ILRuntime
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEngine;
-#if !ILRuntime
-using System.Reflection;
-#endif
 
-namespace ETModel
+namespace DCET.Model
 {
 	public sealed class Hotfix : Object
 	{
-#if ILRuntime
-		public ILRuntime.Runtime.Enviorment.AppDomain appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
-		private MemoryStream dllStream;
-		private MemoryStream pdbStream;
-#else
-		private Assembly assembly;
-#endif
+		public ILRuntime.Runtime.Enviorment.AppDomain appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();		
+		public Action Update;
+		public Action LateUpdate;
+		public Action OnApplicationQuit;
 
 		private IStaticMethod start;
 		private List<Type> hotfixTypes;
+
+		public void GotoHotfix()
+		{
+			Log.Debug($"当前使用的是ILRuntime模式");
+
+			hotfixTypes = appDomain.LoadedTypes.Values.Select(x => x.ReflectionType).ToList();
+			start = new ILStaticMethod(appDomain, "DCET.Hotfix.Init", "Start", 0);
+			start.Run();
+		}
+
+		public List<Type> GetHotfixTypes()
+		{
+			return hotfixTypes;
+		}
+
+		public void LoadHotfixAssembly(byte[] assBytes, byte[] pdbBytes)
+		{
+			appDomain.LoadAssembly(new MemoryStream(assBytes), new MemoryStream(pdbBytes), new ILRuntime.Mono.Cecil.Pdb.PdbReaderProvider());
+		}
+
+		public void LoadMainHotfixAssembly(byte[] assBytes, byte[] pdbBytes)
+		{
+			LoadHotfixAssembly(assBytes, pdbBytes);
+		}
+	}
+}
+#else
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+
+namespace DCET.Model
+{
+	public sealed class Hotfix : Object
+	{
+		private Assembly assembly;
+		private IStaticMethod start;
+		private List<Type> hotfixTypes = new List<Type>();
 
 		public Action Update;
 		public Action LateUpdate;
@@ -28,34 +60,36 @@ namespace ETModel
 
 		public void GotoHotfix()
 		{
-#if ILRuntime
-			Log.Debug($"当前使用的是ILRuntime模式");
-			this.start = new ILStaticMethod(this.appDomain, "ETHotfix.Init", "Start", 0);
-			this.hotfixTypes = this.appDomain.LoadedTypes.Values.Select(x => x.ReflectionType).ToList();
-#else
-			Type hotfixInit = this.assembly.GetType("ETHotfix.Init");
-			this.start = new MonoStaticMethod(hotfixInit, "Start");
-#endif
+			Log.Debug($"当前使用的是Mono模式");
 
-			this.start.Run();
+			start = new MonoStaticMethod(assembly?.GetType("DCET.Hotfix.Init"), "Start");
+			start.Run();
 		}
 
 		public List<Type> GetHotfixTypes()
 		{
-			return this.hotfixTypes;
+			return hotfixTypes;
 		}
 
 		public void LoadHotfixAssembly(byte[] assBytes, byte[] pdbBytes)
-		{			
-#if ILRuntime
-			this.dllStream = new MemoryStream(assBytes);
-			this.pdbStream = new MemoryStream(pdbBytes);
-			this.appDomain.LoadAssembly(this.dllStream, this.pdbStream, new Mono.Cecil.Pdb.PdbReaderProvider());
-#else
-			Log.Debug($"当前使用的是Mono模式");
+		{
+			var assembly = Assembly.Load(assBytes, pdbBytes);
 
-			this.assembly = Assembly.Load(assBytes, pdbBytes);
-#endif
+			if (assembly != null)
+			{
+				hotfixTypes.AddRange(assembly.GetTypes());
+			}
+		}
+
+		public void LoadMainHotfixAssembly(byte[] assBytes, byte[] pdbBytes)
+		{
+			assembly = Assembly.Load(assBytes, pdbBytes);
+
+			if (assembly != null)
+			{
+				hotfixTypes.AddRange(assembly.GetTypes());
+			}
 		}
 	}
 }
+#endif

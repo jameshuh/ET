@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace ETModel
+namespace DCET.Model
 {
 	[NoObjectPool]
 	[BsonIgnoreExtraElements]

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace ETModel
+namespace DCET.Model
 {
     public enum AwaiterStatus
     {

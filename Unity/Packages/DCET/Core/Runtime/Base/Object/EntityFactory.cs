@@ -1,6 +1,6 @@
 ﻿﻿using System;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class EntityFactory
 	{

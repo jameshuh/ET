@@ -5,7 +5,7 @@ using MongoDB.Bson.Serialization.Attributes;
 using UnityEngine;
 #endif
 
-namespace ETModel
+namespace DCET.Model
 {
 #if !SERVER
 	[HideInHierarchy]

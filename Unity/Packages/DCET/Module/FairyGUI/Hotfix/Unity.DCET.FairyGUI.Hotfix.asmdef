@@ -1,0 +1,17 @@
+{
+    "name": "Unity.DCET.FairyGUI.Hotfix",
+    "references": [
+        "Unity.DCET.Core.Runtime",
+        "Unity.DCET.FairyGUI.Runtime",
+        "Unity.FairyGUI.Runtime",
+        "Unity.DCET.Core.Hotfix"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

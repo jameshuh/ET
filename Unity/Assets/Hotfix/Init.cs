@@ -1,39 +1,27 @@
-﻿using System;
-using BehaviorDesigner.Runtime;
-using ETModel;
+﻿using BehaviorDesigner.Runtime;
+using DCET.Model;
+using System;
 
-namespace ETHotfix
+namespace DCET.Hotfix
 {
 	public static class Init
 	{
 		public async static void Start()
 		{
-#if ILRuntime
-			if (!Define.IsILRuntime)
-			{
-				Log.Error("mono层是mono模式, 但是Hotfix层是ILRuntime模式");
-			}
-#else
-			if (Define.IsILRuntime)
-			{
-				Log.Error("mono层是ILRuntime模式, Hotfix层是mono模式");
-			}
-#endif
-			
 			try
 			{
 				// 注册热更层回调
-				ETModel.Game.Hotfix.Update = () => { Update(); };
-				ETModel.Game.Hotfix.LateUpdate = () => { LateUpdate(); };
-				ETModel.Game.Hotfix.OnApplicationQuit = () => { OnApplicationQuit(); };
-				
+				Model.Game.Hotfix.Update = () => { Update(); };
+				Model.Game.Hotfix.LateUpdate = () => { LateUpdate(); };
+				Model.Game.Hotfix.OnApplicationQuit = () => { OnApplicationQuit(); };
+
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
 				// 加载热更配置
-				ETModel.Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+				Model.Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
-				ETModel.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
+				Model.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
 				// 演示行为树用法
 				TestBehaviorTree();

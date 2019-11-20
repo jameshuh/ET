@@ -1,4 +1,4 @@
-﻿namespace ETModel
+﻿namespace DCET.Model
 {
     [ObjectSystem]
     public class CoroutineLockSystem : AwakeSystem<CoroutineLock, CoroutineLockType, long>

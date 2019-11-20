@@ -677,10 +677,6 @@
       <Project>{11F81073-03CA-C623-F181-03D1CA5F8E1A}</Project>
       <Name>Unity.ILRuntime.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Game.csproj">
-      <Project>{DAFC6A91-B8C9-1A5F-12B3-D8D515D9FF43}</Project>
-      <Name>Unity.Game</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

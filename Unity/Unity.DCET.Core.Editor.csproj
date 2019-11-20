@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packages\DCET\Core\Editor\CopyHotfixDll.cs" />
     <Compile Include="Packages\DCET\Core\Editor\EditorResHelper.cs" />
     <Compile Include="Packages\DCET\Core\Editor\ReferenceCollectorEditor.cs" />
     <None Include="Packages\DCET\Core\Editor\Unity.DCET.Core.Editor.asmdef" />

@@ -63,8 +63,9 @@ namespace ILRuntime.Runtime.Enviorment
         }
 
         public IMethod GetConstructor(List<IType> param)
-        {
-            return type.GetConstructor(param);
+		{
+			UnityEngine.Debug.Log(type.FullName);
+			return type.GetConstructor(param);
         }
 
         public bool CanAssignTo(IType type)

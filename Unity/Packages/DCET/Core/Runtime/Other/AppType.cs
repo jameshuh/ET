@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ETModel
+namespace DCET.Model
 {
 	[Flags]
 	public enum AppType

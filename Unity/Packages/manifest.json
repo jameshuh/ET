@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.dcet.tool": "file:/./Packages/com.dcet.tool",
     "com.fairygui.runtime": "file:/./Packages/com.fairygui.runtime",
     "com.opsive.behaviordesigner": "file:/./Packages/com.opsive.behaviordesigner",
     "com.ourpalm.ilruntime": "file:/./Packages/com.ourpalm.ilruntime",

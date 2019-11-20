@@ -714,8 +714,6 @@ namespace LitJson
             };
             RegisterImporter (base_importers_table, typeof (string),
                               typeof (DateTime), importer);
-            
-            RegisterImporter<double, float>(input => Convert.ToSingle(input));
         }
 
         private static void RegisterImporter (
@@ -754,11 +752,6 @@ namespace LitJson
 
             if (obj is String) {
                 writer.Write ((string) obj);
-                return;
-            }
-            
-            if (obj is Single) {
-                writer.Write((float)obj);
                 return;
             }
 
@@ -932,17 +925,18 @@ namespace LitJson
         }
 
         public static T ToObject<T> (string json)
-        {
-            JsonReader reader = new JsonReader (json);
+		{
+			JsonReader reader = new JsonReader(json);
 
-            return (T) ReadValue (typeof (T), reader);
-        }
+			return (T)ReadValue(typeof(T), reader);
+		}
 
-	    public static object ToObject(Type type, string json)
-	    {
-		    JsonReader reader = new JsonReader(json);
-			return ReadValue(type, reader);
-	    }
+		public static Type ToObject(Type type, string json)
+		{
+			JsonReader reader = new JsonReader(json);
+
+			return (Type)ReadValue(type, reader);
+		}
 
 		public static IJsonWrapper ToWrapper (WrapperFactory factory,
                                               JsonReader reader)

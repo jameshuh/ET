@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ETModel
+namespace DCET.Model
 {
     public class ComponentView: MonoBehaviour
     {

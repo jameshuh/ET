@@ -1,4 +1,4 @@
-﻿namespace ETModel
+﻿namespace DCET.Model
 {
     public sealed class Scene: Entity
     {

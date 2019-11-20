@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ETModel;
+using DCET.Model;
 using UnityEditor;
 
-namespace ETEditor
+namespace DCET.Editor
 {
 	[Flags]
 	public enum HeadFlag

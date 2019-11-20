@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using System.IO;
-using ETModel;
+using DCET.Model;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETEditor
+namespace DCET.Editor
 {
 	public class RsyncEditor: EditorWindow
 	{

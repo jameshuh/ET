@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ETModel;
+using DCET.Model;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ETEditor
+namespace DCET.Editor
 {
 	public class BundleInfo
 	{

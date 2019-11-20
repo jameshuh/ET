@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-using Mono.Cecil;
+using ILRuntime.Mono.Cecil;
 using ILRuntime.CLR.Method;
 using ILRuntime.Reflection;
 using ILRuntime.Runtime.Enviorment;
@@ -441,8 +441,9 @@ namespace ILRuntime.CLR.TypeSystem
                 lst.Add(new CLRMethod(i, this, appdomain));
             }
             foreach (var i in clrType.GetConstructors())
-            {
-                constructors.Add(new CLRMethod(i, this, appdomain));
+			{
+				UnityEngine.Debug.Log(i.Name);
+				constructors.Add(new CLRMethod(i, this, appdomain));
             }
         }
         public List<IMethod> GetMethods()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class FileHelper
 	{

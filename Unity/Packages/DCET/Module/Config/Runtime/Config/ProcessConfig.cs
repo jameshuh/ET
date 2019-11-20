@@ -1,4 +1,4 @@
-﻿namespace ETModel
+﻿namespace DCET.Model
 {
     [NoObjectPool]
     public class ProcessConfig: AConfigComponent

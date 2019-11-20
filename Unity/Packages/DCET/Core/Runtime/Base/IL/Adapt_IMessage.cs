@@ -1,5 +1,5 @@
 ﻿using System;
-using ETModel;
+using DCET.Model;
 using Google.Protobuf;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;

@@ -1,0 +1,28 @@
+{
+    "name": "Unity.DCET.Hotfix",
+    "references": [
+        "Unity.DCET.Core.Runtime",
+        "Unity.ILRuntime.Runtime",
+        "Unity.BehaviorDesigner.Runtime",
+        "Unity.FairyGUI.Runtime",
+        "Unity.MongoDB.Runtime",
+        "Unity.DCET.Model",
+        "Unity.DCET.Message.Runtime",
+        "Unity.DCET.FairyGUI.Runtime",
+        "Unity.DCET.Config.Runtime",
+        "Unity.DCET.AssetsBundle.Runtime",
+        "Unity.DCET.FairyGUI.Hotfix",
+        "Unity.DCET.Core.Hotfix",
+        "Unity.DCET.Message.Hotfix",
+        "Unity.DCET.BehaviorTree.Hotfix",
+        "Unity.DCET.Config.Hotfix"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

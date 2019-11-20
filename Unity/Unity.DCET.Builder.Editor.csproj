@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Packages\DCET\Module\Builder\Editor\BuildEditor.cs" />
     <Compile Include="Packages\DCET\Module\Builder\Editor\BuildHelper.cs" />
-    <Compile Include="Packages\DCET\Module\Builder\Editor\BuildHotfixEditor.cs" />
     <None Include="Packages\DCET\Module\Builder\Editor\Unity.DCET.Builder.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

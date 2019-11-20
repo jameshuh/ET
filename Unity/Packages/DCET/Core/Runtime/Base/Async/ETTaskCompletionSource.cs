@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 
-namespace ETModel
+namespace DCET.Model
 {
     public class ETTaskCompletionSource: IAwaiter
     {

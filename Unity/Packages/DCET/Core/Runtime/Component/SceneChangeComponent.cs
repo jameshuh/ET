@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ETModel
+namespace DCET.Model
 {
     [ObjectSystem]
     public class SceneChangeComponentUpdateSystem: UpdateSystem<SceneChangeComponent>

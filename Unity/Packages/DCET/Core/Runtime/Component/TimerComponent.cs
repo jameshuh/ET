@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public interface ITimer
 	{

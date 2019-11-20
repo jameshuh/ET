@@ -1,0 +1,17 @@
+{
+    "name": "Unity.DCET.Config.Hotfix",
+    "references": [
+        "Unity.DCET.Config.Runtime",
+        "Unity.DCET.Core.Runtime",
+        "Unity.DCET.Core.Hotfix",
+        "Unity.DCET.AssetsBundle.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

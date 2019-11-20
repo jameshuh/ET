@@ -1,0 +1,17 @@
+{
+    "name": "Unity.DCET.View.Editor",
+    "references": [
+        "Unity.DCET.Core.Runtime",
+        "Unity.ILRuntime.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

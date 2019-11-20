@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace ETModel
+namespace DCET.Model
  {
      public class MonoStaticMethod : IStaticMethod
      {

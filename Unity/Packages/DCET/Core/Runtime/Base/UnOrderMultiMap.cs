@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public class UnOrderMultiMap<T, K>
 	{

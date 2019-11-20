@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public abstract class Object: ISupportInitialize
 	{

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using ETModel;
+using DCET.Model;
 using MongoDB.Bson;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETEditor
+namespace DCET.Editor
 {
 	public class ServerManagerEditor: EditorWindow
 	{

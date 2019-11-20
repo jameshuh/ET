@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ETModel
+namespace DCET.Model
 {
 	[ObjectSystem]
 	public class GlobalConfigComponentAwakeSystem : AwakeSystem<GlobalConfigComponent>

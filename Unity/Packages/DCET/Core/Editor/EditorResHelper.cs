@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using DCET.Model;
+using System.Collections.Generic;
 using System.IO;
 
-namespace ETModel
+namespace DCET.Editor
 {
     public class EditorResHelper
     {

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Conventions;
 using UnityEngine;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class MongoHelper
 	{
@@ -21,7 +21,6 @@ namespace ETModel
 			ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
 
 			LookupAssembly(typeof(Game));
-			LookupAssembly(typeof(Config));
 
 #if SERVER
             BsonSerializer.RegisterSerializer(typeof(Vector3), new StructBsonSerialize<Vector3>());
@@ -31,23 +30,23 @@ namespace ETModel
 #endif
 		}
 
-		private static void LookupAssembly(Type type)
+		public static void LookupAssembly(Type type)
 		{
 			Type[] types = type.Assembly.GetTypes();
 
-			foreach (Type type in types)
+			foreach (Type item in types)
 			{
-				if (!type.IsSubclassOf(typeof(Entity)))
+				if (!item.IsSubclassOf(typeof(Entity)))
 				{
 					continue;
 				}
 
-				if (type.IsGenericType)
+				if (item.IsGenericType)
 				{
 					continue;
 				}
 
-				BsonClassMap.LookupClassMap(type);
+				BsonClassMap.LookupClassMap(item);
 			}
 		}
 

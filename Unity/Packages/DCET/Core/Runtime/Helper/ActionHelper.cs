@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.UI;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class ActionHelper
 	{

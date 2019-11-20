@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class MethodInfoHelper
 	{

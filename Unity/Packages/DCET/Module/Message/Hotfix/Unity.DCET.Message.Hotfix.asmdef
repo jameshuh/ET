@@ -1,0 +1,17 @@
+{
+    "name": "Unity.DCET.Message.Hotfix",
+    "references": [
+        "Unity.ILRuntime.Runtime",
+        "Unity.DCET.Core.Runtime",
+        "Unity.DCET.Message.Runtime",
+        "Unity.DCET.Core.Hotfix"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

@@ -6,7 +6,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETModel
+namespace DCET.Model
 {
 	enum StartConfigComponentType
 	{
@@ -305,13 +305,13 @@ namespace ETModel
 		[MenuItem("Tools/命令行配置")]
 		private static void ShowWindow()
 		{
-			Game.EventSystem.Add(DLLType.Editor, typeof(ServerCommandLineEditor).Assembly);
+			Game.EventSystem.Add(typeof(ServerCommandLineEditor).Assembly);
 			GetWindow(typeof (ServerCommandLineEditor));
 		}
 
 		private void OnEnable()
 		{
-			Game.EventSystem.Add(DLLType.Editor, typeof(ServerCommandLineEditor).Assembly);
+			Game.EventSystem.Add(typeof(ServerCommandLineEditor).Assembly);
 			this.files = this.GetConfigFiles();
 			if (this.files.Count > 0)
 			{

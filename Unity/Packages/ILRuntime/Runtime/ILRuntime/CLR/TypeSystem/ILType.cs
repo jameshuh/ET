@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Mono.Cecil;
+using ILRuntime.Mono.Cecil;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.CLR.Method;
 using ILRuntime.Runtime.Intepreter;
@@ -662,8 +662,11 @@ namespace ILRuntime.CLR.TypeSystem
                 {
                     if (i.IsStatic)
                         staticConstructor = new ILMethod(i, this, appdomain);
-                    else
-                        constructors.Add(new ILMethod(i, this, appdomain));
+					else
+					{
+						UnityEngine.Debug.Log(i.FullName);
+						constructors.Add(new ILMethod(i, this, appdomain));
+					}
                 }
                 else
                 {
@@ -677,8 +680,7 @@ namespace ILRuntime.CLR.TypeSystem
                     lst.Add(m);
                 }
             }
-
-            if (staticConstructor != null && (!TypeReference.HasGenericParameters || IsGenericInstance))
+			if (staticConstructor != null && (!TypeReference.HasGenericParameters || IsGenericInstance))
             {
                 appdomain.Invoke(staticConstructor, null, null);
             }

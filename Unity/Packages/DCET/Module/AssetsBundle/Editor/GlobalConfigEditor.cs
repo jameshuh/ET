@@ -1,11 +1,12 @@
-﻿using System.IO;
-using ETModel;
+﻿using DCET.Model;
+using DCET.Model;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETEditor
+namespace DCET.Editor
 {
-    public class GlobalProtoEditor: EditorWindow
+	public class GlobalProtoEditor: EditorWindow
     {
         const string path = @"./Assets/Res/GlobalProto.txt";
 

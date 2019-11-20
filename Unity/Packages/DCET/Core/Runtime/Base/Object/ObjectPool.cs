@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public class ComponentQueue: IDisposable
 	{

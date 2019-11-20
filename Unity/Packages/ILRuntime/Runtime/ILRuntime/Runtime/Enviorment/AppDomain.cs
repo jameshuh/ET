@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using Mono.Cecil;
+using ILRuntime.Mono.Cecil;
 using System.Reflection;
-using Mono.Cecil.Cil;
+using ILRuntime.Mono.Cecil.Cil;
 
 using ILRuntime.CLR.TypeSystem;
 using ILRuntime.CLR.Method;
@@ -362,14 +362,15 @@ namespace ILRuntime.Runtime.Enviorment
             LoadAssembly(stream, null, null);
         }
 
-        /// <summary>
-        /// 从流加载Assembly,以及symbol符号文件(pdb)
-        /// </summary>
-        /// <param name="stream">Assembly Stream</param>
-        /// <param name="symbol">symbol Stream</param>
-        /// <param name="symbolReader">symbol 读取器</param>
-        /// <param name="inMemory">是否完整读入内存</param>
-        public void LoadAssembly(System.IO.Stream stream, System.IO.Stream symbol, ISymbolReaderProvider symbolReader)
+		List<IType> moudleList = new List<IType>();
+		/// <summary>
+		/// 从流加载Assembly,以及symbol符号文件(pdb)
+		/// </summary>
+		/// <param name="stream">Assembly Stream</param>
+		/// <param name="symbol">symbol Stream</param>
+		/// <param name="symbolReader">symbol 读取器</param>
+		/// <param name="inMemory">是否完整读入内存</param>
+		public void LoadAssembly(System.IO.Stream stream, System.IO.Stream symbol, ISymbolReaderProvider symbolReader)
         {
             var module = ModuleDefinition.ReadModule(stream); //从MONO中加载模块
 
@@ -389,19 +390,42 @@ namespace ILRuntime.Runtime.Enviorment
                 }
                 */
             }
-
             if (module.HasTypes)
             {
-                List<ILType> types = new List<ILType>();
-
                 foreach (var t in module.GetTypes()) //获取所有此模块定义的类型
                 {
                     ILType type = new ILType(t, this);
 
-                    mapType[t.FullName] = type;
-                    types.Add(type);
+					if (string.Equals(t.FullName,"<Module>"))
+					{
+						mapType[module.Name] = type;
+					}
+					else
+					{
+						mapType[t.FullName] = type;
+					}
+					
+					/*if (type.FullName.Contains("AwakeSystem"))
+					{
+						moudleList.Add(type);
+					}
 
-                }
+					if (type.TypeReference.FullName.Contains("AwakeSystem"))
+					{
+						moudleList.Add(type);
+					}
+
+					if (moudleList.Count > 10)
+					{
+						var moudle_1 = moudleList[2];
+						var moudle_2 = moudleList[10];
+						if (moudle_1 == moudle_2.BaseType)
+						{
+							UnityEngine.Debug.Log("");
+						}
+						UnityEngine.Debug.Log("");
+					}*/
+				}
             }
 
             if (voidType == null)

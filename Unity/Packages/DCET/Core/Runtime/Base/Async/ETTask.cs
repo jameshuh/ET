@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace ETModel
+namespace DCET.Model
 {
-    /// <summary>
-    /// Lightweight unity specified task-like object.
-    /// </summary>
-    [AsyncMethodBuilder(typeof (AsyncETTaskMethodBuilder))]
+	/// <summary>
+	/// Lightweight unity specified task-like object.
+	/// </summary>
+	[AsyncMethodBuilder(typeof (AsyncETTaskMethodBuilder))]
     public partial struct ETTask: IEquatable<ETTask>
     {
         private readonly IAwaiter awaiter;

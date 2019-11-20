@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace ETModel
+namespace DCET.Model
 {
 	public static class ByteHelper
 	{

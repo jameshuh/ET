@@ -1,4 +1,4 @@
-﻿namespace ETModel
+﻿namespace DCET.Model
 {
 	/// <summary>
 	/// 一般使用事件名+变量名

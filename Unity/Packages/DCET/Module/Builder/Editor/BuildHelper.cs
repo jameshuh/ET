@@ -1,8 +1,9 @@
 ﻿using System.IO;
-using ETModel;
+using DCET.Model;
+using DCET.Model;
 using UnityEditor;
 
-namespace ETEditor
+namespace DCET.Editor
 {
 	public static class BuildHelper
 	{

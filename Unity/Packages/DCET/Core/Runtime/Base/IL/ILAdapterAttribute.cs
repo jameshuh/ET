@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ETModel
+namespace DCET.Model
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class ILAdapterAttribute : Attribute

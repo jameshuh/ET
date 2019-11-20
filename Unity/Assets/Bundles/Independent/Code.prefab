@@ -44,7 +44,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-  - key: Hotfix.dll
-    gameObject: {fileID: 4900000, guid: ae44b218243cfc347af99a6875e9e11c, type: 3}
-  - key: Hotfix.pdb
-    gameObject: {fileID: 4900000, guid: dd08ff64f788e7a4ba0f918632ff8d0f, type: 3}
+  - key: Unity.DCET.BehaviorTree.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: 0f20f984ec15d0d48a971362fff3d6b4, type: 3}
+  - key: Unity.DCET.BehaviorTree.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: 93e257c8697c6cc4baee1cd868ef3f75, type: 3}
+  - key: Unity.DCET.Config.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: 969863ff6a1a0b5409c924ea5fdcd845, type: 3}
+  - key: Unity.DCET.Config.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: 25fcb69dc22218d4d85c8f7a287e6ae6, type: 3}
+  - key: Unity.DCET.Core.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: 195f5c10a4b5f554eaab1e36252cc060, type: 3}
+  - key: Unity.DCET.Core.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: a44cf63b7108e9a4eaa13b3ef192de26, type: 3}
+  - key: Unity.DCET.FairyGUI.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: 31a75d4b1e7ca8b4495f3d758b65d7ca, type: 3}
+  - key: Unity.DCET.FairyGUI.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: bdc7b1836f6ed8940a301936171068c0, type: 3}
+  - key: Unity.DCET.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: b431ffd16b9da244185c03fc2b0e91b4, type: 3}
+  - key: Unity.DCET.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: 100ae3d9df7e003489ce0d65cb69d038, type: 3}
+  - key: Unity.DCET.Message.Hotfix.dll
+    gameObject: {fileID: 4900000, guid: b8e41c9b61d5aa643bf2649824ced47a, type: 3}
+  - key: Unity.DCET.Message.Hotfix.pdb
+    gameObject: {fileID: 4900000, guid: 6fa09da1eafebb946bef8b56eb0446c1, type: 3}

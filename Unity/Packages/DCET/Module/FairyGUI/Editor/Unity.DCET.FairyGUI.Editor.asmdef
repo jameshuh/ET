@@ -1,0 +1,16 @@
+{
+    "name": "Unity.DCET.FairyGUI.Editor",
+    "references": [
+        "Unity.DCET.Core.Editor"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

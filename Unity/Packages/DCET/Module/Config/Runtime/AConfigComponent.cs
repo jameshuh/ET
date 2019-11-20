@@ -2,7 +2,7 @@
 using UnityEngine;
 #endif
 
-namespace ETModel
+namespace DCET.Model
 {
 	/// <summary>
 	/// 每个Config的基类

@@ -4,20 +4,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace ETModel
+namespace DCET.Model
 {
-	public enum DLLType
-	{
-		Model,
-		Hotfix,
-		Editor,
-	}
-
 	public sealed class EventSystem
 	{
 		private readonly Dictionary<long, Entity> allComponents = new Dictionary<long, Entity>();
 
-		private readonly Dictionary<DLLType, Assembly> assemblies = new Dictionary<DLLType, Assembly>();
+		private readonly List<Assembly> assemblies = new List<Assembly>();
 		
 		private readonly UnOrderMultiMapSet<Type, Type> types = new UnOrderMultiMapSet<Type, Type>();
 
@@ -50,28 +43,30 @@ namespace ETModel
 		private Queue<long> lateUpdates = new Queue<long>();
 		private Queue<long> lateUpdates2 = new Queue<long>();
 
-		public void Add(DLLType dllType, Assembly assembly)
+		public void Add(Assembly assembly)
 		{
-			this.assemblies[dllType] = assembly;
-			this.types.Clear();
-			foreach (Assembly value in this.assemblies.Values)
+			if (assembly == null || this.assemblies.Contains(assembly))
 			{
-				foreach (Type type in value.GetTypes())
+				return;
+			}
+
+			this.assemblies.Add(assembly);
+
+			foreach (Type type in assembly.GetTypes())
+			{
+				if (type.IsAbstract)
 				{
-					if (type.IsAbstract)
-					{
-						continue;
-					}
-
-					object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
-					if (objects.Length == 0)
-					{
-						continue;
-					}
-
-					BaseAttribute baseAttribute = (BaseAttribute) objects[0];
-					this.types.Add(baseAttribute.AttributeType, type);
+					continue;
 				}
+
+				object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
+				if (objects.Length == 0)
+				{
+					continue;
+				}
+
+				BaseAttribute baseAttribute = (BaseAttribute)objects[0];
+				this.types.Add(baseAttribute.AttributeType, type);
 			}
 
 			this.awakeSystems.Clear();
@@ -149,11 +144,6 @@ namespace ETModel
 			this.allEvents[eventId].Add(e);
 		}
 
-		public Assembly Get(DLLType dllType)
-		{
-			return this.assemblies[dllType];
-		}
-		
 		public HashSet<Type> GetTypes(Type systemAttributeType)
 		{
 			if (!this.types.ContainsKey(systemAttributeType))
@@ -163,16 +153,6 @@ namespace ETModel
 			return this.types[systemAttributeType];
 		}
 		
-		public List<Type> GetTypes()
-		{
-			List<Type> allTypes = new List<Type>();
-			foreach (Assembly assembly in this.assemblies.Values)
-			{
-				allTypes.AddRange(assembly.GetTypes());
-			}
-			return allTypes;
-		}
-
 		public void RegisterSystem(Entity component, bool isRegister = true)
 		{
 			if (!isRegister)

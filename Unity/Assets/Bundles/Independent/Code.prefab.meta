@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 3b43dd0baf9d83c4894a9b47b019a45b
-timeCreated: 1474946800
-licenseType: Pro
-NativeFormatImporter:
-  mainObjectFileID: 0
+guid: ca1382ceb17bdb845aefeae108e19cd0
+PrefabImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: code.unity3d
   assetBundleVariant: 
