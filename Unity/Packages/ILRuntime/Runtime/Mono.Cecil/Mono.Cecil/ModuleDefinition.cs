@@ -1034,7 +1034,7 @@ namespace ILRuntime.Mono.Cecil {
 				assembly.main_module = module;
 			}
 
-			module.Types.Add (new TypeDefinition (string.Empty, "<Module>", TypeAttributes.NotPublic));
+			module.Types.Add (new TypeDefinition (string.Empty, name, TypeAttributes.NotPublic));
 
 			return module;
 		}

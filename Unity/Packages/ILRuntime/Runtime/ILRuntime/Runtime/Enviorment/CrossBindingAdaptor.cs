@@ -64,7 +64,6 @@ namespace ILRuntime.Runtime.Enviorment
 
         public IMethod GetConstructor(List<IType> param)
 		{
-			UnityEngine.Debug.Log(type.FullName);
 			return type.GetConstructor(param);
         }
 

@@ -442,7 +442,6 @@ namespace ILRuntime.CLR.TypeSystem
             }
             foreach (var i in clrType.GetConstructors())
 			{
-				UnityEngine.Debug.Log(i.Name);
 				constructors.Add(new CLRMethod(i, this, appdomain));
             }
         }

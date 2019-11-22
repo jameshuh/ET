@@ -379,52 +379,13 @@ namespace ILRuntime.Runtime.Enviorment
                 module.ReadSymbols(symbolReader.GetSymbolReader(module, symbol)); //加载符号表
             }
 
-            if (module.HasAssemblyReferences) //如果此模块引用了其他模块
-            {
-                /*foreach (var ar in module.AssemblyReferences)
-                {
-                    if (moduleref.Contains(ar.Name) == false)
-                        moduleref.Add(ar.Name);
-                    if (moduleref.Contains(ar.FullName) == false)
-                        moduleref.Add(ar.FullName);
-                }
-                */
-            }
             if (module.HasTypes)
             {
                 foreach (var t in module.GetTypes()) //获取所有此模块定义的类型
                 {
                     ILType type = new ILType(t, this);
 
-					if (string.Equals(t.FullName,"<Module>"))
-					{
-						mapType[module.Name] = type;
-					}
-					else
-					{
-						mapType[t.FullName] = type;
-					}
-					
-					/*if (type.FullName.Contains("AwakeSystem"))
-					{
-						moudleList.Add(type);
-					}
-
-					if (type.TypeReference.FullName.Contains("AwakeSystem"))
-					{
-						moudleList.Add(type);
-					}
-
-					if (moudleList.Count > 10)
-					{
-						var moudle_1 = moudleList[2];
-						var moudle_2 = moudleList[10];
-						if (moudle_1 == moudle_2.BaseType)
-						{
-							UnityEngine.Debug.Log("");
-						}
-						UnityEngine.Debug.Log("");
-					}*/
+					mapType[t.FullName] = type;
 				}
             }
 

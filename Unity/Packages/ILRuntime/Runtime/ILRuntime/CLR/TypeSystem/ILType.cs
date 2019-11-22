@@ -289,9 +289,20 @@ namespace ILRuntime.CLR.TypeSystem
                     else
                         RetriveDefinitino(((TypeSpecification)def).ElementType);
                 }
-                else
-                    definition = def as TypeDefinition;
-            }
+                else if(def is TypeDefinition)
+				{
+					definition = def as TypeDefinition;
+				}
+				else
+				{
+					var ilType = appdomain.GetType(def.FullName) as ILType;
+
+					if(ilType != null)
+					{
+						definition = ilType.definition;
+					}
+				}
+			}
         }
 
         public bool IsGenericInstance
@@ -664,7 +675,6 @@ namespace ILRuntime.CLR.TypeSystem
                         staticConstructor = new ILMethod(i, this, appdomain);
 					else
 					{
-						UnityEngine.Debug.Log(i.FullName);
 						constructors.Add(new ILMethod(i, this, appdomain));
 					}
                 }

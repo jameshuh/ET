@@ -40,15 +40,15 @@ public static class ILRuntimeCLRBinding
 		//用新的分析热更dll调用引用来生成绑定代码
 		ILRuntime.Runtime.Enviorment.AppDomain domain = new ILRuntime.Runtime.Enviorment.AppDomain();
 
-		//Crossbind Adapter is needed to generate the correct binding code
-		ILHelper.InitILRuntime(domain);
-
 		LoadAssembly(domain, HotfixAssembly.CoreDllAssetBytes);
 		LoadAssembly(domain, HotfixAssembly.ConfigDllAssetBytes);
 		LoadAssembly(domain, HotfixAssembly.MessageDllAssetBytes);
 		LoadAssembly(domain, HotfixAssembly.BehaviorTreeDllAssetBytes);
 		LoadAssembly(domain, HotfixAssembly.FairyGUIDllAssetBytes);
 		LoadAssembly(domain, HotfixAssembly.HotfixDllAssetBytes);
+
+		//Crossbind Adapter is needed to generate the correct binding code
+		ILHelper.InitILRuntime(domain);
 
 		ILRuntime.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(domain, OutputPath);
 
