@@ -79,9 +79,6 @@ namespace DCET.Model
 
 			Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(codeAssetName);
 
-#if ILRuntime
-			ILHelper.InitILRuntime(Game.Hotfix.appDomain);
-#endif
 			Game.Hotfix.GotoHotfix();
 		}
 

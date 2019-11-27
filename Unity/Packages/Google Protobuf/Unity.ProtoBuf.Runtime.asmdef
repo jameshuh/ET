@@ -1,0 +1,14 @@
+{
+    "name": "Unity.ProtoBuf.Runtime",
+    "references": [
+        "Unity.MongoDB.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

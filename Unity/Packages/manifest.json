@@ -2,9 +2,10 @@
   "dependencies": {
     "com.fairygui.runtime": "file:/./Packages/com.fairygui.runtime",
     "com.opsive.behaviordesigner": "file:/./Packages/com.opsive.behaviordesigner",
-    "com.ourpalm.ilruntime": "file:/./Packages/com.ourpalm.ilruntime",
     "com.mongodb.bson": "file:/./Packages/com.mongodb.bson",
-    "com.dukechiang.dcet": "file:/./Packages/com.dukechiang.dcet",
+    "com.google.protobuf": "file:/./Packages/com.google.protobuf",
+    "net.litjson.runtime": "file:/./Packages/net.litjson.runtime",
+    "com.dukechiang.dcet": "file:/./Packages/com.dukechiang.dcet",	
     "com.unity.assetbundlebrowser": "1.7.0",
     "com.unity.package-manager-ui": "2.0.8",
     "com.unity.modules.ai": "1.0.0",

@@ -2,7 +2,7 @@
 
 namespace DCET.Hotfix
 {
-	public interface IMessage: Google.Protobuf.IMessage
+	public interface IMessage : Google.Protobuf.IMessage
 	{
 	}
 	

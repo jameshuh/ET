@@ -2,7 +2,6 @@
     "name": "Unity.DCET.Model",
     "references": [
         "Unity.DCET.Core.Runtime",
-        "Unity.ILRuntime.Runtime",
         "Unity.BehaviorDesigner.Runtime",
         "Unity.FairyGUI.Runtime",
         "Unity.DCET.Config.Runtime",
@@ -10,7 +9,8 @@
         "Unity.DCET.FairyGUI.Runtime",
         "Unity.DCET.AssetsBundle.Runtime",
         "Unity.DCET.Numeric.Runtime",
-        "Unity.DCET.CoroutineLock.Runtime"
+        "Unity.DCET.CoroutineLock.Runtime",
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

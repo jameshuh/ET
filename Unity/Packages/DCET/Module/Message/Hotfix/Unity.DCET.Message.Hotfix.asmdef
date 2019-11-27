@@ -1,10 +1,10 @@
 {
     "name": "Unity.DCET.Message.Hotfix",
     "references": [
-        "Unity.ILRuntime.Runtime",
         "Unity.DCET.Core.Runtime",
         "Unity.DCET.Message.Runtime",
-        "Unity.DCET.Core.Hotfix"
+        "Unity.DCET.Core.Hotfix",
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

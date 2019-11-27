@@ -1,8 +1,7 @@
 {
     "name": "Unity.DCET.View.Editor",
     "references": [
-        "Unity.DCET.Core.Runtime",
-        "Unity.ILRuntime.Runtime"
+        "Unity.DCET.Core.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

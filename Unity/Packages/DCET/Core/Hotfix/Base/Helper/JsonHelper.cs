@@ -22,18 +22,6 @@ namespace DCET.Hotfix
 			return t;
 		}
 
-		public static object FromJson(Type type, string str)
-		{
-			object t = JsonMapper.ToObject(type, str);
-			ISupportInitialize iSupportInitialize = t as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return t;
-			}
-			iSupportInitialize.EndInit();
-			return t;
-		}
-
 		public static T Clone<T>(T t)
 		{
 			return FromJson<T>(ToJson(t));

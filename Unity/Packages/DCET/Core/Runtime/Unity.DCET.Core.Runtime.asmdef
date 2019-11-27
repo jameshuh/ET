@@ -1,8 +1,9 @@
 {
     "name": "Unity.DCET.Core.Runtime",
     "references": [
-        "Unity.ILRuntime.Runtime",
-        "Unity.MongoDB.Runtime"
+        "Unity.MongoDB.Runtime",
+        "Unity.ProtoBuf.Runtime",
+        "Unity.LitJson.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

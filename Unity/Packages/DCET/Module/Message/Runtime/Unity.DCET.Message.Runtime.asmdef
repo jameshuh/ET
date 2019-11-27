@@ -2,7 +2,7 @@
     "name": "Unity.DCET.Message.Runtime",
     "references": [
         "Unity.DCET.Core.Runtime",
-        "Unity.ILRuntime.Runtime"
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

@@ -22,10 +22,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_12;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;NET452;ILRuntime;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_12;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;NET452;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>0169;CS0649;IDE0051</NoWarn>
+    <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <OutputPath>Temp\bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>0169;CS0649;IDE0051</NoWarn>
+    <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
@@ -52,6 +52,9 @@
     <UnityVersion>2018.4.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>H:\Program Files\Unity2018.4.12f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -61,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Model\Config\BehaviorTreeConfig.cs" />
-    <Compile Include="Assets\Model\Config\UnitConfig.cs" />
     <Compile Include="Assets\Model\Entity\AnimatorComponent.cs" />
     <Compile Include="Assets\Model\Entity\CameraComponent.cs" />
     <Compile Include="Assets\Model\Entity\MoveComponent.cs" />
@@ -79,210 +81,7 @@
     <Compile Include="Assets\Model\FairyGUI\AutoGeneratedCode\Model\ModelBinder.cs" />
     <Compile Include="Assets\Model\FairyGUI\FUIInitComponent.cs" />
     <Compile Include="Assets\Model\Helper\BundleHelper.cs" />
-    <Compile Include="Assets\Model\Helper\ILHelper.cs" />
     <Compile Include="Assets\Model\HotfixAssembly.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Behavior_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_BehaviorTreeController_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_ExternalBehavior_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Tasks_HotfixAction_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Tasks_HotfixComposite_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Tasks_HotfixConditional_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Tasks_HotfixDecorator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\BehaviorDesigner_Runtime_Tasks_Task_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\CLRBindings.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_AnimatorComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_AppTypeHelper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_AsyncETTaskMethodBuilder_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_AsyncETVoidMethodBuilder_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ByteHelper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_C2G_EnterMap_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ComponentView_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ConfigAttribute_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_DoubleMap_2_UInt16_Type_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Entity_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_EntityFactory_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ErrorCode_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_1_Google_Protobuf_Adapt_IMessage_Binding_Adaptor_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_1_Google_Protobuf_Adapt_IMessage_Binding_Adaptor_Binding_Aw_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_1_IResponse_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_1_IResponse_Binding_Awaiter_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTask_Binding_Awaiter_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETTaskCompletionSource_1_Google_Protobuf_Adapt_IMessage_Binding_Ad_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ETVoid_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_EventAttribute_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_EventProxy_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_EventSystem_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Frame_ClickMap_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_FUIPackageComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_G2C_EnterMap_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Game_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_GameObjectHelper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_GizmosDebug_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_GlobalConfigComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_GlobalProto_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_GWindow_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Hotfix_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_IdGenerater_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_IMessagePacker_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_LayerNames_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Log_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_M2C_CreateUnits_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_M2C_PathfindingResult_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_MessageAttribute_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_MessageDispatcherComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_MessageInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_MessageProxy_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_MultiMapSet_2_String_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_NetworkComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_OpcodeHelper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_OpcodeTypeComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Player_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_PlayerComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Pool_1_Dictionary_2_Int64_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Pool_1_Dictionary_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Pool_1_HashSet_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_ResourcesComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_RpcException_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_SceneChangeComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Session_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_SessionCallbackComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_SessionComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_StringHelper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_Unit_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_UnitComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_UnitFactory_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_UnitInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_UnitPathComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\DCET_Model_UnOrderMultiMap_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\FairyGUI_GComponent_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\FairyGUI_GObject_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\FairyGUI_GRoot_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\FairyGUI_UIPackage_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\FairyGUI_Window_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_ByteString_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_CodedInputStream_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_CodedOutputStream_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_Google_Protobuf_Adapt_IMessage_Bi_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_Int32_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_Int64_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_Single_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_Collections_RepeatedField_1_UnitInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_FieldCodec_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_MessageParser_1_Google_Protobuf_Adapt_IMessage_Binding_Adapto_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\Google_Protobuf_ProtoPreconditions_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\LitJson_JsonMapper_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Action_1_Google_Protobuf_Adapt_IMessage_Binding_Adaptor_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Activator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Array_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_GObject_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixAction_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixAction_ILTypeInstance_Binding_E_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixComposite_ILTypeInstance_Bindin_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixComposite_ILTypeInstance_Bindin_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixConditional_ILTypeInstance_Bind_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixConditional_ILTypeInstance_Bind_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixDecorator_ILTypeInstance_Bindin_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_HotfixDecorator_ILTypeInstance_Bindin_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Int32_Action_1_Google_Protobuf_Adapt__t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_Enumerat_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_ValueCol_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_ValueCol_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding_ValueCo_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding_ValueCo_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_String_List_1_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_Dictionary_2_String_ILTypeInstan_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_Dictionary_2_String_ILTypeInstan_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_Dictionary_2_String_ILTypeInstan_t_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_Enumerato_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_ValueColl_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_ValueColl_t_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_Type_Queue_1_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_UInt16_List_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Dictionary_2_UInt16_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_ILTypeInstance_Binding_Enumerator_Bindin_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_String_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_Type_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_HashSet_1_Type_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_IEnumerable_1_KeyValuePair_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_IEnumerator_1_KeyValuePair_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_IEnumerator_1_UnitInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_HotfixAction_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_HotfixComposite_ILTypeInstance_Bind_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_HotfixConditional_ILTypeInstance_Bi_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_HotfixDecorator_ILTypeInstance_Bind_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_Int64_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_String_HashSet_1_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_KeyValuePair_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixAction_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixAction_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixComposite_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixComposite_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixConditional_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixConditional_Binding_Enumerator_Bindin_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixDecorator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_HotfixDecorator_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_ILTypeInstance_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_Object_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_Type_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_Type_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_List_1_Vector3_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Queue_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Queue_1_ILTypeInstance_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Queue_1_Int64_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Queue_1_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_SortedDictionary_2_String_HashSet_1_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_SortedDictionary_2_String_HashSet_1_String_Binding_t.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_Generic_Stack_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_ICollection_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_IDictionary_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_IEnumerable_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Collections_IEnumerator_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Exception_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_IDisposable_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Int64_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Linq_Enumerable_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Math_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_NotImplementedException_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Reflection_CustomAttributeExtensions_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Reflection_FieldInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Reflection_MemberInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Reflection_MethodBase_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Reflection_PropertyInfo_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Runtime_CompilerServices_AsyncTaskMethodBuilder_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Runtime_CompilerServices_AsyncVoidMethodBuilder_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Runtime_CompilerServices_TaskAwaiter_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_String_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Text_StringBuilder_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Threading_CancellationToken_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Threading_Tasks_Task_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Threading_Tasks_TaskCompletionSource_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\System_Type_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Camera_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Component_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Debug_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_GameObject_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Input_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_LayerMask_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Mathf_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Object_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Physics_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_RaycastHit_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Rect_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_TextAsset_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Transform_Binding.cs" />
-    <Compile Include="Assets\Model\ILBinding\UnityEngine_Vector3_Binding.cs" />
     <Compile Include="Assets\Model\Init.cs" />
     <None Include="Assets\Model\Unity.DCET.Model.asmdef" />
     <Reference Include="UnityEngine.AIModule">
@@ -900,10 +699,6 @@
       <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
       <Name>Unity.DCET.Core.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ILRuntime.Runtime.csproj">
-      <Project>{11F81073-03CA-C623-F181-03D1CA5F8E1A}</Project>
-      <Name>Unity.ILRuntime.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.BehaviorDesigner.Runtime.csproj">
       <Project>{B04BF23E-2EA0-221F-942C-19DFE6549B89}</Project>
       <Name>Unity.BehaviorDesigner.Runtime</Name>
@@ -935,6 +730,10 @@
     <ProjectReference Include="Unity.DCET.CoroutineLock.Runtime.csproj">
       <Project>{FDC63EBC-BD08-7738-E64E-62C5BA5F6EA4}</Project>
       <Name>Unity.DCET.CoroutineLock.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
+      <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
+      <Name>Unity.ProtoBuf.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

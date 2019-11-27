@@ -1,6 +1,6 @@
-﻿using System;
+﻿using LitJson;
+using System;
 using System.ComponentModel;
-using LitJson;
 
 namespace DCET.Model
 {
@@ -14,18 +14,6 @@ namespace DCET.Model
 		public static T FromJson<T>(string str)
 		{
 			T t = JsonMapper.ToObject<T>(str);
-			ISupportInitialize iSupportInitialize = t as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return t;
-			}
-			iSupportInitialize.EndInit();
-			return t;
-		}
-
-		public static object FromJson(Type type, string str)
-		{
-			object t = JsonMapper.ToObject(type, str);
 			ISupportInitialize iSupportInitialize = t as ISupportInitialize;
 			if (iSupportInitialize == null)
 			{
