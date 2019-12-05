@@ -2,7 +2,8 @@
     "name": "Unity.DCET.Editor",
     "references": [
         "Unity.DCET.Core.Editor",
-        "Unity.DCET.Model"
+        "Unity.DCET.Model",
+        "Unity.DCET.Core.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

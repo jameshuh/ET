@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -61,7 +62,37 @@ namespace DCET.Editor
             RemoveUnusedAssetBundleNames();
         }
 
-        [MenuItem("Tools/AssetBundle/设置选中项的AB名为None，并重设依赖AB名")]
+		[MenuItem("Tools/AssetBundle/设置选中Lua文件夹的子文件的AB名为文件夹名，并重设依赖AB名")]
+		public static void SetSelectionLuaABName()
+		{
+			var assetGUIDs = Selection.assetGUIDs;
+
+			foreach (var guid in assetGUIDs)
+			{
+				var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+
+				if (Directory.Exists(assetPath))
+				{
+					var dirName = assetPath.Substring(assetPath.LastIndexOf("/") + 1);
+					var filePath = Directory.GetFiles(assetPath, "*.lua.txt", SearchOption.AllDirectories);
+
+					if(filePath != null)
+					{
+						foreach(var item in filePath)
+						{
+							var assetImporter = AssetImporter.GetAtPath(item);
+							assetImporter.assetBundleName = $"{dirName.ToLower()}_lua{unity3dEx}";
+						}
+					} 
+				}
+			}
+
+			AnalysisAssetBundleNames();
+
+			RemoveUnusedAssetBundleNames();
+		}
+
+		[MenuItem("Tools/AssetBundle/设置选中项的AB名为None，并重设依赖AB名")]
         public static void SetSelectionABNameNone()
         {
             var gameObjects = Selection.objects;

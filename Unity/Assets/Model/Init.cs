@@ -7,8 +7,6 @@ namespace DCET.Model
 	public class Init : MonoBehaviour
 	{
 		private const string configAssetName = "config.unity3d";
-		private const string codeAssetName = "code.unity3d";
-		private const string codePrefabName = "Code";
 
 		private void Start()
 		{
@@ -54,7 +52,7 @@ namespace DCET.Model
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
-				InitHotfixAssemblys();
+				LuaHelper.StartHotfix();
 
 				Game.EventSystem.Run(EventIdType.TestHotfixSubscribMonoEvent, "TestHotfixSubscribMonoEvent");
 			}
@@ -62,24 +60,6 @@ namespace DCET.Model
 			{
 				Log.Error(e);
 			}
-		}
-
-		private static void InitHotfixAssemblys()
-		{
-			Game.Scene.GetComponent<ResourcesComponent>().LoadBundle(codeAssetName);
-
-			GameObject code = (GameObject)Game.Scene.GetComponent<ResourcesComponent>().GetAsset(codeAssetName, codePrefabName);
-			
-			Game.Hotfix.LoadHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.CoreDll).bytes, code.Get<TextAsset>(HotfixAssembly.CorePdb).bytes);
-			Game.Hotfix.LoadHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.MessageDll).bytes, code.Get<TextAsset>(HotfixAssembly.MessagePdb).bytes);
-			Game.Hotfix.LoadHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.ConfigDll).bytes, code.Get<TextAsset>(HotfixAssembly.ConfigPdb).bytes);
-			Game.Hotfix.LoadHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.BehaviorTreeDll).bytes, code.Get<TextAsset>(HotfixAssembly.BehaviorTreePdb).bytes);
-			Game.Hotfix.LoadHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.FairyGUIDll).bytes, code.Get<TextAsset>(HotfixAssembly.FairyGUIPdb).bytes);
-			Game.Hotfix.LoadMainHotfixAssembly(code.Get<TextAsset>(HotfixAssembly.HotfixDll).bytes, code.Get<TextAsset>(HotfixAssembly.HotfixPdb).bytes);
-
-			Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(codeAssetName);
-
-			Game.Hotfix.GotoHotfix();
 		}
 
 		private void Update()

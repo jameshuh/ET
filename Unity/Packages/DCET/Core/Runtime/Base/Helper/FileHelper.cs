@@ -34,6 +34,29 @@ namespace DCET.Model
 			}
 		}
 
+		public static void CleanDirectory(string srcDir, string extensionName)
+		{
+			if (Directory.Exists(srcDir))
+			{
+				string[] fls = Directory.GetFiles(srcDir);
+
+				foreach (string fl in fls)
+				{
+					if (fl.EndsWith(extensionName))
+					{
+						File.Delete(fl);
+					}
+				}
+
+				string[] subDirs = Directory.GetDirectories(srcDir);
+
+				foreach (string subDir in subDirs)
+				{
+					CleanDirectory(subDir, extensionName);
+				}
+			}
+		}
+
 		public static void CopyDirectory(string srcDir, string tgtDir)
 		{
 			DirectoryInfo source = new DirectoryInfo(srcDir);
@@ -66,6 +89,30 @@ namespace DCET.Model
 			for (int j = 0; j < dirs.Length; j++)
 			{
 				CopyDirectory(dirs[j].FullName, Path.Combine(target.FullName, dirs[j].Name));
+			}
+		}
+
+		public static void RenameAllFileSuffix(string srcDir, string extensionName, string suffixName)
+		{
+			if (Directory.Exists(srcDir))
+			{
+				string[] fls = Directory.GetFiles(srcDir);
+
+				foreach (string fl in fls)
+				{
+					if (fl.EndsWith(extensionName))
+					{
+						File.Move(fl, fl + suffixName);
+						File.Delete(fl);
+					}
+				}
+
+				string[] subDirs = Directory.GetDirectories(srcDir);
+
+				foreach (string subDir in subDirs)
+				{
+					RenameAllFileSuffix(subDir, extensionName, suffixName);
+				}
 			}
 		}
 	}

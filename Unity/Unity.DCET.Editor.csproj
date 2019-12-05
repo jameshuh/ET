@@ -63,8 +63,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\CopyHotfixDll.cs" />
+    <Compile Include="Assets\Editor\GenHotfix.cs" />
+    <Compile Include="Assets\Editor\LuaProfiler\StartUp.cs" />
+    <Compile Include="Assets\Editor\LuaProfiler\Window\LuaDiffScrollView.cs" />
+    <Compile Include="Assets\Editor\LuaProfiler\Window\LuaProfilerWindow.cs" />
+    <Compile Include="Assets\Editor\XLua\GenConfig.cs" />
+    <Compile Include="Assets\Editor\XLua\Generator.cs" />
+    <Compile Include="Assets\Editor\XLua\Hotfix.cs" />
+    <Compile Include="Assets\Editor\XLua\LinkXmlGen\LinkXmlGen.cs" />
+    <Compile Include="Assets\Editor\XLua\TemplateRef.cs" />
+    <None Include="Assets\Editor\XLua\LinkXmlGen\LinkXmlGen.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaClassWrapGCM.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaWrapPusher.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaDelegateBridge.tpl.txt" />
     <None Include="Assets\Editor\Unity.DCET.Editor.asmdef" />
+    <None Include="Assets\Editor\XLua\Template\TemplateCommon.lua.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaEnumWrap.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaDelegateWrap.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaRegisterGCM.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaRegister.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaClassWrap.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\LuaEnumWrapGCM.tpl.txt" />
+    <None Include="Assets\Editor\XLua\Template\PackUnpack.tpl.txt" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -286,6 +307,15 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Miku.Cecil">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Editor/LuaProfiler/CECIL/Miku.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="MikuBinary">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuBinary.dll</HintPath>
+    </Reference>
+    <Reference Include="MikuHook">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
@@ -683,6 +713,10 @@
     <ProjectReference Include="Unity.DCET.Model.csproj">
       <Project>{9BABF9DA-17AF-082D-4EEA-2B60145D3B75}</Project>
       <Name>Unity.DCET.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
+      <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
+      <Name>Unity.DCET.Core.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

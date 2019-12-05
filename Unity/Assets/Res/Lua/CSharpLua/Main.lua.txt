@@ -1,0 +1,15 @@
+setmetatable(_G, { __index = CS })
+
+require("CSharpLua.Classloader")
+require("Core.manifest")("Core")
+require("Message.manifest")("Message")
+require("Config.manifest")("Config")
+require("BehaviorTree.manifest")("BehaviorTree")
+require("FairyGUI.manifest")("FairyGUI")
+require("Hotfix.manifest")("Hotfix")
+
+--主入口函数。从这里开始lua逻辑
+function Main()		
+	DCET.Hotfix.Init.Start()
+	print("当前使用的是Lua模式")	 		
+end

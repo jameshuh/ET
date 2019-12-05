@@ -10,7 +10,11 @@
         "Unity.DCET.AssetsBundle.Runtime",
         "Unity.DCET.Numeric.Runtime",
         "Unity.DCET.CoroutineLock.Runtime",
-        "Unity.ProtoBuf.Runtime"
+        "Unity.ProtoBuf.Runtime",
+        "Unity.MongoDB.Runtime",
+        "Unity.DCET.Pathfinding.Runtime",
+        "Unity.LitJson.Runtime",
+        "Unity.DCET.Tool.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
