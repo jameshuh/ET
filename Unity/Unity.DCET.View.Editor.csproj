@@ -63,29 +63,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET\Module\View\Editor\ComponentViewEditor.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\Entity\EditorLayout.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\Entity\SerializationTypeExtension.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\ITypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\ITypeDrawerAttribute.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\AnimationCurveTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\BoolTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\BoundsTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\CharTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\ColorTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\DateTimeTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\DoubleTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\EnumTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\FloatTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\IntTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\LongTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\RectTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\StringTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\UnityObjectTypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\Vector2TypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\Vector3TypeDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\View\Editor\TypeDrawer\Vector4TypeDrawer.cs" />
-    <None Include="Packages\DCET\Module\View\Editor\Unity.DCET.View.Editor.asmdef" />
+    <Compile Include="Packages\DCET.View\Editor\ComponentViewEditor.cs" />
+    <Compile Include="Packages\DCET.View\Editor\Entity\EditorLayout.cs" />
+    <Compile Include="Packages\DCET.View\Editor\Entity\SerializationTypeExtension.cs" />
+    <Compile Include="Packages\DCET.View\Editor\ITypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\ITypeDrawerAttribute.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\AnimationCurveTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\BoolTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\BoundsTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\CharTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\ColorTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\DateTimeTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\DoubleTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\EnumTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\FloatTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\IntTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\LongTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\RectTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\StringTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\UnityObjectTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\Vector2TypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\Vector3TypeDrawer.cs" />
+    <Compile Include="Packages\DCET.View\Editor\TypeDrawer\Vector4TypeDrawer.cs" />
+    <None Include="Packages\DCET.View\Editor\Unity.DCET.View.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -329,38 +329,38 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
     <Reference Include="BehaviorDesignerEditor">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
     </Reference>
     <Reference Include="BehaviorDesignerRuntime">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

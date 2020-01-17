@@ -63,31 +63,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\AIBaseEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\AILerpEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\AstarPathEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\AstarUpdateChecker.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\AstarUpdateWindow.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\CustomGraphEditorAttribute.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\GraphEditors\GraphEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\GraphEditors\RecastGraphEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\GraphUpdateSceneEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\ModifierEditors\RaycastModifierEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\ModifierEditors\SmoothModifierEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\PackageTools\EditorBase.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\PackageTools\EditorGUIx.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\PackageTools\EnumFlagDrawer.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\PackageTools\OptimizationHandler.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\RecastMeshObjEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\RVOControllerEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\RVONavmeshEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\RVOSimulatorEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\RVOSquareObstacleEditor.cs" />
-    <Compile Include="Packages\DCET\Module\Pathfinding\Editor\SeekerEditor.cs" />
-    <None Include="Packages\DCET\Module\Pathfinding\Editor\EditorAssets\Materials\Navmesh.cginc" />
-    <None Include="Packages\DCET\Module\Pathfinding\Editor\EditorAssets\Materials\Navmesh.shader" />
-    <None Include="Packages\DCET\Module\Pathfinding\Editor\Unity.DCET.Pathfinding.Editor.asmdef" />
-    <None Include="Packages\DCET\Module\Pathfinding\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\AIBaseEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\AILerpEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\AstarPathEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\AstarUpdateChecker.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\AstarUpdateWindow.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\CustomGraphEditorAttribute.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\GraphEditors\GraphEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\GraphEditors\RecastGraphEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\GraphUpdateSceneEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\ModifierEditors\RaycastModifierEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\ModifierEditors\SmoothModifierEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\PackageTools\EditorBase.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\PackageTools\EditorGUIx.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\PackageTools\EnumFlagDrawer.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\PackageTools\OptimizationHandler.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\RecastMeshObjEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\RVOControllerEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\RVONavmeshEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\RVOSimulatorEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\RVOSquareObstacleEditor.cs" />
+    <Compile Include="Packages\DCET.Pathfinding\Editor\SeekerEditor.cs" />
+    <None Include="Packages\DCET.Pathfinding\Editor\EditorAssets\Materials\Navmesh.cginc" />
+    <None Include="Packages\DCET.Pathfinding\Editor\EditorAssets\Materials\Navmesh.shader" />
+    <None Include="Packages\DCET.Pathfinding\Editor\Unity.DCET.Pathfinding.Editor.asmdef" />
+    <None Include="Packages\DCET.Pathfinding\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -331,38 +331,38 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
     <Reference Include="BehaviorDesignerEditor">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
     </Reference>
     <Reference Include="BehaviorDesignerRuntime">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
