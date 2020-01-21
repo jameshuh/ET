@@ -6,7 +6,7 @@
     "com.google.protobuf": "file:/./Packages/com.google.protobuf",
     "net.litjson.runtime": "file:/./Packages/net.litjson.runtime",
     "com.dukechiang.dcet.core": "file:/./Packages/com.dukechiang.dcet.core",	
-    "com.dukechiang.dcet.assetbundle": "file:/./Packages/com.dukechiang.dcet.assetbundle",
+    "com.dukechiang.dcet.downloader": "file:/./Packages/com.dukechiang.dcet.downloader",
     "com.dukechiang.dcet.behaviortree": "file:/./Packages/com.dukechiang.dcet.behaviortree",
     "com.dukechiang.dcet.config": "file:/./Packages/com.dukechiang.dcet.config",
     "com.dukechiang.dcet.fairygui": "file:/./Packages/com.dukechiang.dcet.fairygui",

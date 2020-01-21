@@ -625,23 +625,17 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI.OOXML">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
@@ -649,14 +643,20 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

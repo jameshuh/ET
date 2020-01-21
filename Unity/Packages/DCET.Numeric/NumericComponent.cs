@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DCET.Model
+namespace DCET.Hotfix
 {
 	[ObjectSystem]
 	public class NumericComponentAwakeSystem : AwakeSystem<NumericComponent>

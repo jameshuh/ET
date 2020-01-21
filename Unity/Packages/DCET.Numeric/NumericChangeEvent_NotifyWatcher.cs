@@ -1,4 +1,4 @@
-﻿namespace DCET.Model
+﻿namespace DCET.Hotfix
 {
 	// 分发数值监听
 	[Event(EventIdType.NumbericChange)]

@@ -1,4 +1,6 @@
-﻿namespace DCET.Hotfix
+﻿using UnityEngine;
+
+namespace DCET.Hotfix
 {
 	public static class Game
 	{
@@ -22,7 +24,7 @@
 				{
 					return scene;
 				}
-				scene = new Scene() { Name = "ClientH" };
+				scene = new Scene() { Name = "ClientM" };
 				return scene;
 			}
 		}
@@ -37,8 +39,18 @@
 				{
 					return objectPool;
 				}
-				objectPool = new ObjectPool() { Name = "ClientH" };
+				objectPool = new ObjectPool() { Name = "ClientM" };
 				return objectPool;
+			}
+		}
+
+		private static Hotfix hotfix;
+
+		public static Hotfix Hotfix
+		{
+			get
+			{
+				return hotfix ?? (hotfix = new Hotfix());
 			}
 		}
 
@@ -49,6 +61,8 @@
 			
 			objectPool?.Dispose();
 			objectPool = null;
+			
+			hotfix = null;
 			
 			eventSystem = null;
 		}

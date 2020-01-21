@@ -1,4 +1,4 @@
-﻿namespace DCET.Model
+﻿namespace DCET.Hotfix
 {
     [ObjectSystem]
     public class CoroutineLockSystem : AwakeSystem<CoroutineLock, CoroutineLockType, long>

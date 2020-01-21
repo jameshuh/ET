@@ -1,5 +1,4 @@
-﻿// 不要在这个文件加[ProtoInclude]跟[BsonKnowType]标签,加到InnerMessage.cs或者OuterMessage.cs里面去
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	// 不需要返回消息
 	public interface IActorMessage: IMessage
@@ -7,9 +6,8 @@ namespace DCET.Hotfix
 		long ActorId { get; set; }
 	}
 
-	public interface IActorRequest : IRequest
+	public interface IActorRequest : IActorMessage, IRequest
 	{
-		long ActorId { get; set; }
 	}
 
 	public interface IActorResponse : IResponse

@@ -10,7 +10,7 @@ namespace DCET.Hotfix
             try
             {
                 // 创建一个ETModel层的Session
-                DCET.Model.Session session = DCET.Model.Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
+                /*Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(GlobalConfigComponent.Instance.GlobalProto.Address);
 				
                 // 创建一个ETHotfix层的Session, ETHotfix的Session会通过ETModel层的Session发送消息
                 Session realmSession = EntityFactory.Create<Session, DCET.Model.Session>(domain, session);
@@ -37,7 +37,7 @@ namespace DCET.Hotfix
                 Game.EventSystem.Run(EventIdType.LoginFinish);
 
                 // 测试消息有成员是class类型
-                G2C_PlayerInfo g2CPlayerInfo = (G2C_PlayerInfo) await SessionComponent.Instance.Session.Call(new C2G_PlayerInfo());
+                G2C_PlayerInfo g2CPlayerInfo = (G2C_PlayerInfo) await SessionComponent.Instance.Session.Call(new C2G_PlayerInfo());*/
             }
             catch (Exception e)
             {

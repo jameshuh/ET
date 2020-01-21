@@ -313,23 +313,17 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI.OOXML">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
@@ -337,14 +331,20 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -710,10 +710,6 @@
       <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
       <Name>Unity.MongoDB.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.Config.Runtime.csproj">
-      <Project>{91ED74EF-147C-4780-E1B4-60A7A84E863D}</Project>
-      <Name>Unity.DCET.Config.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.DCET.Message.Runtime.csproj">
       <Project>{464E5413-897E-9A0C-198D-4BF4295325D1}</Project>
       <Name>Unity.DCET.Message.Runtime</Name>
@@ -721,6 +717,18 @@
     <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
       <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
       <Name>Unity.ProtoBuf.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.Message.Hotfix.csproj">
+      <Project>{E6C2B0CA-8B2B-5B5C-F7B7-8471A9817C7A}</Project>
+      <Name>Unity.DCET.Message.Hotfix</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.Core.Hotfix.csproj">
+      <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>
+      <Name>Unity.DCET.Core.Hotfix</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.Config.Hotfix.csproj">
+      <Project>{A3E35FCC-C3CE-0A6C-0DA4-05D04E78720F}</Project>
+      <Name>Unity.DCET.Config.Hotfix</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

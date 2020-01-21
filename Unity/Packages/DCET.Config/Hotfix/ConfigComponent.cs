@@ -25,9 +25,9 @@ namespace DCET.Hotfix
 	/// <summary>
 	/// Config组件会扫描所有的有ConfigAttribute标签的配置,加载进来
 	/// </summary>
-	public class ConfigComponent : Entity
+	public class ConfigComponent: Entity
 	{
-		private readonly Dictionary<Type, ACategory> allConfig = new Dictionary<Type, ACategory>();
+		private Dictionary<Type, ACategory> allConfig = new Dictionary<Type, ACategory>();
 
 		public void Awake()
 		{
@@ -37,7 +37,7 @@ namespace DCET.Hotfix
 		public void Load()
 		{
 			this.allConfig.Clear();
-			List<Type> types = Game.EventSystem.GetTypes();
+			HashSet<Type> types = Game.EventSystem.GetTypes(typeof(ConfigAttribute));
 
 			foreach (Type type in types)
 			{
@@ -49,7 +49,7 @@ namespace DCET.Hotfix
 				
 				ConfigAttribute configAttribute = attrs[0] as ConfigAttribute;
 				// 只加载指定的配置
-				if (!configAttribute.Type.Is(AppType.ClientH))
+				if (!configAttribute.Type.Is(AppType.ClientM))
 				{
 					continue;
 				}
@@ -113,7 +113,7 @@ namespace DCET.Hotfix
 		{
 			ACategory configCategory;
 			bool ret = this.allConfig.TryGetValue(type, out configCategory);
-			return ret? configCategory : null;
+			return ret ? configCategory : null;
 		}
 	}
 }

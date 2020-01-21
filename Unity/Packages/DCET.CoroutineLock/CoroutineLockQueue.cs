@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DCET.Model
+namespace DCET.Hotfix
 {
     public class CoroutineLockQueue: Entity
     {

@@ -8,6 +8,7 @@ namespace DCET.Hotfix
 	{
 		public override void Awake(FUIComponent self)
 		{
+			GRoot.inst.SetContentScaleFactor(1920, 1080, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
 			self.Root = EntityFactory.Create<FUI, GObject>(Game.Scene, GRoot.inst);
 		}
 	}

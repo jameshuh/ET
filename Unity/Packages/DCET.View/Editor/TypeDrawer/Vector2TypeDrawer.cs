@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETEditor
+namespace DCET.Editor
 {
     [TypeDrawer]
     public class Vector2TypeDrawer: ITypeDrawer

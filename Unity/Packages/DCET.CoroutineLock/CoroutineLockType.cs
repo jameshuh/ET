@@ -1,4 +1,4 @@
-﻿namespace DCET.Model
+﻿namespace DCET.Hotfix
 {
     public enum CoroutineLockType
     {

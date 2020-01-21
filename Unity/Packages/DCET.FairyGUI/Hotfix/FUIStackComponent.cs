@@ -6,8 +6,8 @@ namespace DCET.Hotfix
 	/// UI栈
 	/// </summary>
 	public class FUIStackComponent: Entity
-    {
-        private readonly Stack<FUI> uis = new Stack<FUI>();
+	{
+		private readonly Stack<FUI> uis = new Stack<FUI>();
 
 		public int Count
 		{
@@ -41,5 +41,5 @@ namespace DCET.Hotfix
 				fui.Dispose();
 			}
 		}
-    }
+	}
 }

@@ -244,5 +244,35 @@ namespace DCET.Hotfix
         {
             return children.Values.ToArray();
         }
-    }
+
+		public void Show()
+		{
+			if (Visible)
+			{
+				return;
+			}
+
+			Visible = true;
+
+			if (IsWindow)
+			{
+				GObject.asGWindow().Show();
+			}
+		}
+
+		public void Hide()
+		{
+			if (!Visible)
+			{
+				return;
+			}
+
+			Visible = true;
+
+			if (IsWindow)
+			{
+				GObject.asGWindow().Hide();
+			}
+		}
+	}
 }

@@ -20,8 +20,6 @@ namespace DCET.Model
 
 			ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
 
-			LookupAssembly(typeof(Game));
-
 #if SERVER
             BsonSerializer.RegisterSerializer(typeof(Vector3), new StructBsonSerialize<Vector3>());
 #else
@@ -36,11 +34,6 @@ namespace DCET.Model
 
 			foreach (Type item in types)
 			{
-				if (!item.IsSubclassOf(typeof(Entity)))
-				{
-					continue;
-				}
-
 				if (item.IsGenericType)
 				{
 					continue;

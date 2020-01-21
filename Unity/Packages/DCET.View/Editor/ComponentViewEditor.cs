@@ -1,15 +1,15 @@
+using DCET.Hotfix;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using DCET.Model;
 using UnityEditor;
 using UnityEngine;
 
-namespace ETEditor
+namespace DCET.Editor
 {
-    [CustomEditor(typeof (ComponentView))]
-    public class ComponentViewEditor: Editor
-    {
+	[CustomEditor(typeof (ComponentView))]
+    public class ComponentViewEditor: UnityEditor.Editor
+	{
         public override void OnInspectorGUI()
         {
             ComponentView componentView = (ComponentView) target;
@@ -83,7 +83,7 @@ namespace ETEditor
             }
             catch (Exception e)
             {
-                Log.Error($"component view error: {obj.GetType().FullName}");
+				Model.Log.Error($"component view error: {obj.GetType().FullName}");
             }
         }
     }

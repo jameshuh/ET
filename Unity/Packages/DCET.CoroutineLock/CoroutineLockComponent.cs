@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DCET.Model
+namespace DCET.Hotfix
 {
     [ObjectSystem]
     public class CoroutineLockComponentSystem : AwakeSystem<CoroutineLockComponent>

@@ -68,7 +68,7 @@
     <Compile Include="Packages\DCET.CoroutineLock\CoroutineLockQueue.cs" />
     <Compile Include="Packages\DCET.CoroutineLock\CoroutineLockQueueType.cs" />
     <Compile Include="Packages\DCET.CoroutineLock\CoroutineLockType.cs" />
-    <None Include="Packages\DCET.CoroutineLock\Unity.DCET.CoroutineLock.Runtime.asmdef" />
+    <None Include="Packages\DCET.CoroutineLock\Unity.DCET.CoroutineLock.Hotfix.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -689,9 +689,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
-      <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
-      <Name>Unity.DCET.Core.Runtime</Name>
+    <ProjectReference Include="Unity.DCET.Core.Hotfix.csproj">
+      <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>
+      <Name>Unity.DCET.Core.Hotfix</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

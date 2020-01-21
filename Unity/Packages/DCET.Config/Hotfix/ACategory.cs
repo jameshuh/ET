@@ -16,7 +16,7 @@ namespace DCET.Hotfix
 	/// 管理该所有的配置
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public abstract class ACategory<T>: ACategory where T : IConfig
+	public abstract class ACategory<T> : ACategory where T : IConfig
 	{
 		protected Dictionary<long, IConfig> dict;
 
@@ -24,7 +24,7 @@ namespace DCET.Hotfix
 		{
 			this.dict = new Dictionary<long, IConfig>();
 
-			string configStr = ConfigHelper.GetText(typeof (T).Name);
+			string configStr = ConfigHelper.GetText(typeof(T).Name);
 
 			foreach (string str in configStr.Split(new[] { "\n" }, StringSplitOptions.None))
 			{
@@ -49,14 +49,14 @@ namespace DCET.Hotfix
 		{
 			get
 			{
-				return typeof (T);
+				return typeof(T);
 			}
 		}
 
 		public override void EndInit()
 		{
 		}
-		
+
 		public override IConfig TryGet(int type)
 		{
 			IConfig t;

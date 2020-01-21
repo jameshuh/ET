@@ -10,7 +10,7 @@ namespace DCET.Model
 		public long Size;
 	}
 
-	public class VersionConfig : Object
+	public class VersionConfig
 	{
 		public int Version;
 		
@@ -19,10 +19,8 @@ namespace DCET.Model
 		[BsonIgnore]
 		public Dictionary<string, FileVersionInfo> FileInfoDict = new Dictionary<string, FileVersionInfo>();
 
-		public override void EndInit()
+		public void EndInit()
 		{
-			base.EndInit();
-
 			foreach (FileVersionInfo fileVersionInfo in this.FileInfoDict.Values)
 			{
 				this.TotalSize += fileVersionInfo.Size;

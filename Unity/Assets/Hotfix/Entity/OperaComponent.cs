@@ -47,7 +47,7 @@ namespace DCET.Hotfix
 		            frameClickMap.X = this.ClickPoint.x;
 		            frameClickMap.Y = this.ClickPoint.y;
 		            frameClickMap.Z = this.ClickPoint.z;
-		            DCET.Model.SessionComponent.Instance.Session.Send(frameClickMap);
+		            SessionComponent.Instance.Session.Send(frameClickMap);
 
 					// 测试actor rpc消息
 					this.TestActor().Coroutine();
@@ -57,7 +57,7 @@ namespace DCET.Hotfix
 
 	    public async ETVoid TestActor()
 	    {
-		    try
+		    /*try
 		    {
 			    M2C_TestActorResponse response = (M2C_TestActorResponse)await SessionComponent.Instance.Session.Call(
 						new C2M_TestActorRequest() { Info = "actor rpc request" });
@@ -66,7 +66,7 @@ namespace DCET.Hotfix
 		    catch (Exception e)
 		    {
 				Log.Error(e);
-		    }
+		    }*/
 		}
     }
 }

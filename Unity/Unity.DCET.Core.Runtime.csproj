@@ -63,94 +63,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET.Core\Runtime\Async\AsyncETTaskMethodBuilder.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\AsyncETVoidMethodBuilder.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\AsyncMethodBuilderAttribute.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETCancellationToken.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETCancellationTokenSource.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETTask.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETTaskCompletionSource.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETTaskFactory.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\ETVoid.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\IAwaiter.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Async\MoveNextRunner.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\DoubleMap.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\ListComponent.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\Log.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\LogType.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\MultiMap.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\MultiMapSet.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Base\OneThreadSynchronizationContext.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\Pool.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\ProcessHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\QueueDictionary.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Base\StructBsonSerialize.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\TryLocker.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\UnOrderMultiMap.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Base\UnOrderMultiMapSet.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Component\SceneChangeComponent.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Component\TimerComponent.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Entity\Game.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Entity\Hotfix.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Entity\Scene.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Entity\SceneType.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Entity\UnityWebRequestAsync.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Event\Env.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Event\EnvKey.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Event\EventAttribute.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Event\EventIdType.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Event\IEvent.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\ActionHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ByteHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\Dumper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\EnumHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\FileHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\GameObjectHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\IdGenerater.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\JsonHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\MD5Helper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\MethodInfoHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\MongoHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\NetHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\ObjectHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\NetworkHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\PathHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\PositionHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\RandomHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\ProcessHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ResourcesHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\StringHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\TimeHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ZipHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\BaseAttribute.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ComponentView.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\Entity.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\EntityCreateComponet.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\EntityEventAttribute.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\EntityFactory.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\EventProxy.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\EventSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\HideInHierarchy.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IAwakeSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IChangeSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IDeserializeSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IDestroySystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ILateUpdateSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ILoadSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ISerializeToEntity.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IStartSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\IUpdateSystem.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\NoMemoryCheck.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\NoObjectPool.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\Object.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ObjectPool.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Object\ObjectSystemAttribute.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\AppType.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\Define.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\GizmosDebug.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\IInstanceMethod.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\LayerNames.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Other\IStaticMethod.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Other\Log.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Other\LogType.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\MonoStaticMethod.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\MotionType.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\ReferenceCollector.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Other\UnityWebRequestAsync.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Other\VersionConfig.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\Events.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStream.cs" />
@@ -387,23 +322,17 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="BehaviorDesignerEditor">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI.OOXML">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXml4Net.dll</HintPath>
@@ -411,14 +340,20 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    <Reference Include="Pathfinding.ClipperLib">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.dll</HintPath>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Poly2Tri/Pathfinding.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerEditor">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Editor/Core/BehaviorDesignerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/Behavior Designer/Runtime/Core/BehaviorDesignerRuntime.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

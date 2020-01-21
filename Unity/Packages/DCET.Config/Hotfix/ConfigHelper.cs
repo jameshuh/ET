@@ -10,7 +10,7 @@ namespace DCET.Hotfix
 		{
 			try
 			{
-				GameObject config = (GameObject)Model.Game.Scene.GetComponent<ResourcesComponent>().GetAsset("config.unity3d", "Config");
+				GameObject config = (GameObject)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("config.unity3d", "Config");
 				string configStr = config.Get<TextAsset>(key).text;
 				return configStr;
 			}
@@ -19,7 +19,7 @@ namespace DCET.Hotfix
 				throw new Exception($"load config file fail, key: {key}", e);
 			}
 		}
-
+		
 		public static T ToObject<T>(string str)
 		{
 			return JsonHelper.FromJson<T>(str);

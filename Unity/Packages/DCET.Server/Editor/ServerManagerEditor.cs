@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
+﻿using DCET.Hotfix;
 using DCET.Model;
-using MongoDB.Bson;
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -39,7 +35,7 @@ namespace DCET.Editor
 			{
 				if (!Application.isPlaying)
 				{
-					Log.Error($"Reload必须先启动客户端!");
+					Model.Log.Error($"Reload必须先启动客户端!");
 					return;
 				}
 
@@ -55,12 +51,12 @@ namespace DCET.Editor
 			{
 				try
 				{
-					await session.Call(new C2M_Reload() {Account = account, Password = password});	
-					Log.Info($"Reload服务端成功!");
+					await session.Call(new C2M_Reload() {Account = account, Password = password});
+					Model.Log.Info($"Reload服务端成功!");
 				}
 				catch (Exception e)
 				{
-					Log.Error(e);
+					Model.Log.Error(e);
 				}
 			}
 		}
