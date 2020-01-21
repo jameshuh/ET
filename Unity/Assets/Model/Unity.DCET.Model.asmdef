@@ -9,8 +9,7 @@
         "Unity.ProtoBuf.Runtime",
         "Unity.MongoDB.Runtime",
         "Unity.DCET.Pathfinding.Runtime",
-        "Unity.LitJson.Runtime",
-        "Unity.DCET.Tool.Runtime"
+        "Unity.LitJson.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

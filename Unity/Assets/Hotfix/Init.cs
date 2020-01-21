@@ -11,17 +11,17 @@ namespace DCET.Hotfix
 			try
 			{
 				// 注册热更层回调
-				//Model.Game.Hotfix.Update = () => { Update(); };
-				//Model.Game.Hotfix.LateUpdate = () => { LateUpdate(); };
-				//Model.Game.Hotfix.OnApplicationQuit = () => { OnApplicationQuit(); };
+				GameLoop.onUpdate = Update;
+				GameLoop.onLateUpdate = LateUpdate;
+				GameLoop.onApplicationQuit = OnApplicationQuit;
 
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
 				// 加载热更配置
-				//Model.Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+				Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
-				//Model.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
+				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
 				// 演示行为树用法
 				TestBehaviorTree();
@@ -80,26 +80,12 @@ namespace DCET.Hotfix
 
 		public static void Update()
 		{
-			try
-			{
-				Game.EventSystem.Update();
-			}
-			catch (Exception e)
-			{
-				Log.Error(e);
-			}
+			Game.EventSystem.Update();
 		}
 
 		public static void LateUpdate()
 		{
-			try
-			{
-				Game.EventSystem.LateUpdate();
-			}
-			catch (Exception e)
-			{
-				Log.Error(e);
-			}
+			Game.EventSystem.LateUpdate();
 		}
 
 		public static void OnApplicationQuit()

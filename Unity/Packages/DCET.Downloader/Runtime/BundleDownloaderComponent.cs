@@ -8,7 +8,7 @@ namespace DCET.Model
 	/// <summary>
 	/// 用来对比web端的资源，比较md5，对比下载资源
 	/// </summary>
-	public class BundleDownloaderComponent
+	public class BundleDownloaderComponent : IDisposable
 	{
 		private VersionConfig remoteVersionConfig;
 

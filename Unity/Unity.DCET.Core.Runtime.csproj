@@ -63,8 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packages\DCET.Core\Runtime\Base\AppType.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Base\Define.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Base\GameLoop.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Base\IStaticMethod.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Base\MonoStaticMethod.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Base\OneThreadSynchronizationContext.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Base\StructBsonSerialize.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Base\VersionConfig.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ByteHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\FileHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\GameObjectHelper.cs" />
@@ -77,19 +83,18 @@
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ResourcesHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\StringHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ZipHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\AppType.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\Define.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\GizmosDebug.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\IStaticMethod.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\Log.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\LogType.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\MonoStaticMethod.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\ReferenceCollector.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\UnityWebRequestAsync.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Other\VersionConfig.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\Events.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStream.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStreamManager.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\CameraDepthTexture.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\GizmosDebug.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\Log.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\LogType.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\MonoBehaviourBridge.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\PrefabLightmapData.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\ReferenceCollector.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\ReferenceLoader.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Unity\UnityWebRequestAsync.cs" />
     <None Include="Packages\DCET.Core\Runtime\Unity.DCET.Core.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

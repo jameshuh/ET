@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Packages\DCET.Downloader\Runtime\BundleDownloaderComponent.cs" />
+    <Compile Include="Packages\DCET.Downloader\Runtime\BundleHelper.cs" />
     <Compile Include="Packages\DCET.Downloader\Runtime\GlobalConfigComponent.cs" />
     <Compile Include="Packages\DCET.Downloader\Runtime\GlobalProto.cs" />
     <None Include="Packages\DCET.Downloader\Runtime\Unity.DCET.Downloader.Runtime.asmdef" />

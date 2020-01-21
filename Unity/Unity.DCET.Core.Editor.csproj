@@ -63,12 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packages\DCET.Core\Editor\ABNameEditor.cs" />
     <Compile Include="Packages\DCET.Core\Editor\BuildEditor.cs" />
     <Compile Include="Packages\DCET.Core\Editor\BuildHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\CameraDepthTextureInspector.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\ClearEditor.cs" />
     <Compile Include="Packages\DCET.Core\Editor\EditorResHelper.cs" />
     <Compile Include="Packages\DCET.Core\Editor\GenCoreHotfix.cs" />
     <Compile Include="Packages\DCET.Core\Editor\LuaCompiler.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\PrefabLightmapDataInspector.cs" />
     <Compile Include="Packages\DCET.Core\Editor\ReferenceCollectorEditor.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\ReferenceLoaderInspector.cs" />
     <None Include="Packages\DCET.Core\Editor\Unity.DCET.Core.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
