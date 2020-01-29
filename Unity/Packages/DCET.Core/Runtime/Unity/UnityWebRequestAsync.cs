@@ -20,10 +20,11 @@ namespace DCET.Model
 
 		public bool isCancel;
 
-		public TaskCompletionSource<bool> tcs;
-		
+		public TaskCompletionSource<string> tcs;
+
 		public void Dispose()
 		{
+			GameLoop.onUpdate -= Update;
 			this.Request?.Dispose();
 			this.Request = null;
 			this.isCancel = false;
@@ -57,7 +58,7 @@ namespace DCET.Model
 		{
 			if (this.isCancel)
 			{
-				this.tcs.SetException(new Exception($"request error: {this.Request.error}"));
+				this.tcs.SetResult($"request error: {this.Request.error}");
 				return;
 			}
 			
@@ -67,22 +68,25 @@ namespace DCET.Model
 			}
 			if (!string.IsNullOrEmpty(this.Request.error))
 			{
-				this.tcs.SetException(new Exception($"request error: {this.Request.error}"));
+				this.tcs.SetResult($"request error: {this.Request.error}");
 				return;
 			}
 
-			this.tcs.SetResult(true);
+			this.tcs.SetResult(string.Empty);
 		}
 
-		public Task DownloadAsync(string url)
+		public Task<string> DownloadAsync(string url)
 		{
-			this.tcs = new TaskCompletionSource<bool>();
+			this.tcs = new TaskCompletionSource<string>();
 			
 			url = url.Replace(" ", "%20");
 			this.Request = UnityWebRequest.Get(url);
 			this.Request.certificateHandler = certificateHandler;
 			this.Request.SendWebRequest();
-			
+
+			GameLoop.onUpdate -= Update;
+			GameLoop.onUpdate += Update;
+
 			return this.tcs.Task;
 		}
 	}

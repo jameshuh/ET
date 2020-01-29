@@ -75,8 +75,8 @@ namespace DCET.Hotfix
 #if !UNITY_EDITOR
             string uiBundleDesName = $"{type}_fui".StringToAB();
             string uiBundleResName = type.StringToAB();
-			ETModel.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(uiBundleDesName);
-			ETModel.Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(uiBundleResName);
+			Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(uiBundleDesName);
+			Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle(uiBundleResName);
 #endif
         }
     }

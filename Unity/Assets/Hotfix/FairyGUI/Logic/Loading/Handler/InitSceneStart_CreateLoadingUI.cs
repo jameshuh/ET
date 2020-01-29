@@ -1,9 +1,6 @@
-﻿using DCET.Hotfix.Common;
-using DCET.Model;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
-    [Event(EventIdType.InitSceneStart)]
+	[Event(EventIdType.InitSceneStart)]
 	public class InitSceneStart_CreateLoadingUI : AEvent
 	{
         public override void Run()

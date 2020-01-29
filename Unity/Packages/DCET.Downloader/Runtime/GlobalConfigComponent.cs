@@ -5,15 +5,17 @@ namespace DCET.Model
 {
 	public class GlobalConfigComponent
 	{
-		public static GlobalConfigComponent Instance;
+		public static GlobalConfigComponent Instance { get; private set; } = new GlobalConfigComponent();
+
 		public GlobalProto GlobalProto;
 
-		public void Awake()
+		public GlobalConfigComponent()
 		{
 			Instance = this;
 			string configStr = GetGlobal();
 			this.GlobalProto = JsonHelper.FromJson<GlobalProto>(configStr);
 		}
+
 		public static string GetGlobal()
 		{
 			try
@@ -27,6 +29,5 @@ namespace DCET.Model
 				throw new Exception($"load global config file fail", e);
 			}
 		}
-
 	}
 }

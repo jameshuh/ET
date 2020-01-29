@@ -4,7 +4,6 @@ namespace DCET.Model
 {
 	public static class GameLoop
 	{
-		public static Action onAwake;
 		public static Action onStart;
 		public static Action onEnable;
 		public static Action onDisable;

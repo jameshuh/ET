@@ -30,7 +30,7 @@ namespace DCET.Hotfix
 		public long InstanceId { get; set; }
 		
 #if !SERVER
-		public static GameObject Global { get; } = GameObject.Find("/Global");
+		public static GameObject Global { get; } = GameObject.Find("Game");
 		
 		[BsonIgnore]
 		public GameObject ViewGO { get; set; }

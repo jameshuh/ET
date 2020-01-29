@@ -1,6 +1,7 @@
 ﻿using BehaviorDesigner.Runtime;
 using DCET.Model;
 using System;
+using UnityEngine;
 
 namespace DCET.Hotfix
 {
@@ -10,16 +11,39 @@ namespace DCET.Hotfix
 		{
 			try
 			{
+				var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+				if(assemblies != null)
+				{
+					foreach(var assembly in assemblies)
+					{
+						if(assembly != null && !string.IsNullOrWhiteSpace(assembly.FullName) && assembly.FullName.Contains("Hotfix"))
+						{
+							var types = assembly.GetTypes();
+
+							if (types != null)
+							{
+								foreach (var item in types)
+								{
+									Game.Hotfix.AddHotfixType(item);
+								}
+							}
+
+							Game.EventSystem.Add(assembly);
+						}
+					}
+				}
+
 				// 注册热更层回调
-				GameLoop.onUpdate = Update;
-				GameLoop.onLateUpdate = LateUpdate;
-				GameLoop.onApplicationQuit = OnApplicationQuit;
+				GameLoop.onUpdate += Update;
+				GameLoop.onLateUpdate += LateUpdate;
+				GameLoop.onApplicationQuit += OnApplicationQuit;
 
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
 				// 加载热更配置
-				Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+				Game.Scene.AddComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
@@ -27,6 +51,7 @@ namespace DCET.Hotfix
 				TestBehaviorTree();
 
 				// 演示FGUI用法
+				Game.Scene.AddComponent<FUIPackageComponent>();
 				Game.Scene.AddComponent<FUIComponent>();
 				await Game.Scene.AddComponent<FUIInitComponent>().Init();
 				Game.EventSystem.Run(EventIdType.InitSceneStart);
@@ -45,7 +70,7 @@ namespace DCET.Hotfix
 			// 全局共享变量用法
 			Game.Scene.AddComponent<BehaviorTreeVariableComponent>().SetVariable("全局变量", 1);
 
-			var runtimeBehaivorTree = UnityEngine.GameObject.Find("Cube").GetComponent<BehaviorDesigner.Runtime.BehaviorTree>();
+			var runtimeBehaivorTree = UnityEngine.Object.Instantiate(ResourcesHelper.Load("Cube") as GameObject).GetComponent<BehaviorDesigner.Runtime.BehaviorTree>();
 
 			if (runtimeBehaivorTree)
 			{

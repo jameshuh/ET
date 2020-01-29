@@ -18,7 +18,7 @@ namespace DCET.Hotfix
 
 			base.Dispose();
 
-			Game.Scene.GetComponent<FUIPackageComponent>().RemovePackage(FUIPackage.Common);
+			Game.Scene.GetComponent<FUIPackageComponent>()?.RemovePackage(FUIPackage.Common);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DCET.Hotfix
 	{
 		public long Id;
 #if !SERVER
-		public static GameObject Global { get; } = GameObject.Find("/Global");
+		public static GameObject Game { get; } = GameObject.Find("Game");
 		
 		public GameObject ViewGO { get; set; }
 #endif
@@ -29,7 +29,7 @@ namespace DCET.Hotfix
 			this.ViewGO = new GameObject();
 			this.ViewGO.name = this.GetType().Name;
 			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
-			this.ViewGO.transform.SetParent(Global.transform, false);
+			this.ViewGO.transform.SetParent(Game.transform, false);
 			this.ViewGO.AddComponent<ComponentView>().Component = this;
 #endif
 		}
@@ -78,7 +78,7 @@ namespace DCET.Hotfix
     public class ObjectPool: IDisposable
     {
 #if !SERVER
-		public static GameObject Global { get; } = GameObject.Find("/Global");
+		public static GameObject Game { get; } = GameObject.Find("Game");
 		
 		public GameObject ViewGO { get; set; }
 #endif
@@ -93,7 +93,7 @@ namespace DCET.Hotfix
 			this.ViewGO = new GameObject();
 			this.ViewGO.name = this.GetType().Name;
 			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
-			this.ViewGO.transform.SetParent(Global.transform, false);
+			this.ViewGO.transform.SetParent(Game.transform, false);
 			this.ViewGO.AddComponent<ComponentView>().Component = this;
 #endif
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ETModel.Model;
+using FairyGUI;
+using System;
 using System.Threading;
 using UnityEngine;
 
@@ -16,7 +18,7 @@ namespace DCET.Model
 
 				DownloadBundle();
 
-				GameLoop.onAwake?.Invoke();
+				StartHotfix();
 			}
 			catch (Exception e)
 			{
@@ -24,9 +26,32 @@ namespace DCET.Model
 			}
 		}
 
-		private void DownloadBundle()
+		private async void StartHotfix()
 		{
+			var assets = await ResourcesHelper.LoadAssets("code.unity3d");
 
+			if(assets != null)
+			{
+				foreach(var asset in assets)
+				{
+					MonoHelper.StartHotfix(asset as GameObject);
+				}
+			}
+		}
+
+		private async void DownloadBundle()
+		{
+			GRoot.inst.SetContentScaleFactor(1920, 1080);
+
+			ModelBinder.BindAll();
+
+			using (FUIPackage fuiPackage = new FUIPackage("FUI/Model"))
+			{
+				using (FUIDownloader fuiDownloader = new FUIDownloader())
+				{
+					await fuiDownloader.DownloadAsync();
+				}
+			}
 		}
 
 		private void Start()
