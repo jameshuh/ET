@@ -2,9 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using PF;
 
-namespace Pathfinding {
-	using Pathfinding.Util;
-
+namespace Pathfinding
+{
 	/** Manager for blocker scripts such as SingleNodeBlocker.
 	 *
 	 * This is part of the turn based utilities. It can be used for

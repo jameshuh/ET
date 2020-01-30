@@ -14,17 +14,13 @@
 */
 
 using System;
-using System.IO;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Guids.
-    /// </summary>
-    public class GuidSerializer : StructSerializerBase<Guid>, IRepresentationConfigurable<GuidSerializer>
+	/// <summary>
+	/// Represents a serializer for Guids.
+	/// </summary>
+	public class GuidSerializer : StructSerializerBase<Guid>, IRepresentationConfigurable<GuidSerializer>
     {
         // private fields
         private readonly BsonType _representation;

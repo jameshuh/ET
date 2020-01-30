@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	/** Sets the destination of an AI to the position of a specified object.
 	 * This component should be attached to a GameObject together with a movement script such as AIPath, RichAI or AILerp.
 	 * This component will then make the AI move towards the #target set on this component.

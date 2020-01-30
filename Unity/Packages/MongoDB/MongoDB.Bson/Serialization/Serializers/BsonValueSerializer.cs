@@ -13,15 +13,12 @@
 * limitations under the License.
 */
 
-
-using System.Collections.Generic;
-using System.Linq;
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for BsonValues.
-    /// </summary>
-    public class BsonValueSerializer : BsonValueSerializerBase<BsonValue>, IBsonArraySerializer, IBsonDocumentSerializer
+	/// <summary>
+	/// Represents a serializer for BsonValues.
+	/// </summary>
+	public class BsonValueSerializer : BsonValueSerializerBase<BsonValue>, IBsonArraySerializer, IBsonDocumentSerializer
     {
         // private static fields
         private static BsonValueSerializer __instance = new BsonValueSerializer();

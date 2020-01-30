@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using DCET.Model;
+using System.Threading.Tasks;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -51,65 +52,11 @@ namespace DCET.Hotfix
 		}
 	}
 	
-	// 用于字符串转换，减少GC
-	public static class AssetBundleHelper
+	public static class DependenciesHelper
 	{
-		public static readonly Dictionary<int, string> IntToStringDict = new Dictionary<int, string>();
-		
-		public static readonly Dictionary<string, string> StringToABDict = new Dictionary<string, string>();
-
-		public static readonly Dictionary<string, string> BundleNameToLowerDict = new Dictionary<string, string>() 
-		{
-			{ "StreamingAssets", "StreamingAssets" }
-		};
-		
 		// 缓存包依赖，不用每次计算
 		public static Dictionary<string, string[]> DependenciesCache = new Dictionary<string, string[]>();
 
-		public static string IntToString(this int value)
-		{
-			string result;
-			if (IntToStringDict.TryGetValue(value, out result))
-			{
-				return result;
-			}
-
-			result = value.ToString();
-			IntToStringDict[value] = result;
-			return result;
-		}
-		
-		public static string StringToAB(this string value)
-		{
-			string result;
-			if (StringToABDict.TryGetValue(value, out result))
-			{
-				return result;
-			}
-
-			result = value + ".unity3d";
-			StringToABDict[value] = result;
-			return result;
-		}
-
-		public static string IntToAB(this int value)
-		{
-			return value.IntToString().StringToAB();
-		}
-		
-		public static string BundleNameToLower(this string value)
-		{
-			string result;
-			if (BundleNameToLowerDict.TryGetValue(value, out result))
-			{
-				return result;
-			}
-
-			result = value.ToLower();
-			BundleNameToLowerDict[value] = result;
-			return result;
-		}
-		
 		public static string[] GetDependencies(string assetBundleName)
 		{
 			string[] dependencies = new string[0];
@@ -196,7 +143,7 @@ namespace DCET.Hotfix
 		public UnityEngine.Object GetAsset(string bundleName, string prefab)
 		{
 			Dictionary<string, UnityEngine.Object> dict;
-			if (!this.resourceCache.TryGetValue(bundleName.BundleNameToLower(), out dict))
+			if (!this.resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
 			{
 				throw new Exception($"not found asset: {bundleName} {prefab}");
 			}
@@ -213,7 +160,7 @@ namespace DCET.Hotfix
 		public AssetBundle GetAssetBundle(string abName)
 		{
 			ABInfo abInfo;
-			if (!this.bundles.TryGetValue(abName.BundleNameToLower(), out abInfo))
+			if (!this.bundles.TryGetValue(AssetBundleHelper.BundleNameToLower(abName), out abInfo))
 			{
 				throw new Exception($"not found bundle: {abName}");
 			}
@@ -222,9 +169,9 @@ namespace DCET.Hotfix
 
 		public void UnloadBundle(string assetBundleName)
 		{
-			assetBundleName = assetBundleName.BundleNameToLower();
+			assetBundleName = AssetBundleHelper.BundleNameToLower(assetBundleName);
 
-			string[] dependencies = AssetBundleHelper.GetSortedDependencies(assetBundleName);
+			string[] dependencies = DependenciesHelper.GetSortedDependencies(assetBundleName);
 
 			//Log.Debug($"-----------dep unload {assetBundleName} dep: {dependencies.ToList().ListToString()}");
 			foreach (string dependency in dependencies)
@@ -235,7 +182,7 @@ namespace DCET.Hotfix
 
 		private void UnloadOneBundle(string assetBundleName)
 		{
-			assetBundleName = assetBundleName.BundleNameToLower();
+			assetBundleName = AssetBundleHelper.BundleNameToLower(assetBundleName);
 
 			ABInfo abInfo;
 			if (!this.bundles.TryGetValue(assetBundleName, out abInfo))
@@ -267,7 +214,7 @@ namespace DCET.Hotfix
 		public void LoadBundle(string assetBundleName)
 		{
 			assetBundleName = assetBundleName.ToLower();
-			string[] dependencies = AssetBundleHelper.GetSortedDependencies(assetBundleName);
+			string[] dependencies = DependenciesHelper.GetSortedDependencies(assetBundleName);
 			//Log.Debug($"-----------dep load {assetBundleName} dep: {dependencies.ToList().ListToString()}");
 			foreach (string dependency in dependencies)
 			{
@@ -282,7 +229,7 @@ namespace DCET.Hotfix
 		public void AddResource(string bundleName, string assetName, UnityEngine.Object resource)
 		{
 			Dictionary<string, UnityEngine.Object> dict;
-			if (!this.resourceCache.TryGetValue(bundleName.BundleNameToLower(), out dict))
+			if (!this.resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
 			{
 				dict = new Dictionary<string, UnityEngine.Object>();
 				this.resourceCache[bundleName] = dict;
@@ -355,10 +302,10 @@ namespace DCET.Hotfix
 		/// </summary>
 		/// <param name="assetBundleName"></param>
 		/// <returns></returns>
-		public async ETTask LoadBundleAsync(string assetBundleName)
+		public async Task LoadBundleAsync(string assetBundleName)
 		{
             assetBundleName = assetBundleName.ToLower();
-			string[] dependencies = AssetBundleHelper.GetSortedDependencies(assetBundleName);
+			string[] dependencies = DependenciesHelper.GetSortedDependencies(assetBundleName);
             // Log.Debug($"-----------dep load {assetBundleName} dep: {dependencies.ToList().ListToString()}");
             foreach (string dependency in dependencies)
 			{
@@ -370,7 +317,7 @@ namespace DCET.Hotfix
 			}
         }
 
-		public async ETTask LoadOneBundleAsync(string assetBundleName)
+		public async Task LoadOneBundleAsync(string assetBundleName)
 		{
 			ABInfo abInfo;
 			if (this.bundles.TryGetValue(assetBundleName, out abInfo))

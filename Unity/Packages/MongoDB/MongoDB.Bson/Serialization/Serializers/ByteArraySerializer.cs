@@ -15,14 +15,13 @@
 
 using System;
 using System.Globalization;
-using System.Text;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for ByteArrays.
-    /// </summary>
-    public class ByteArraySerializer : SealedClassSerializerBase<byte[]>, IRepresentationConfigurable<ByteArraySerializer>
+	/// <summary>
+	/// Represents a serializer for ByteArrays.
+	/// </summary>
+	public class ByteArraySerializer : SealedClassSerializerBase<byte[]>, IRepresentationConfigurable<ByteArraySerializer>
     {
         // private fields
         private readonly BsonType _representation;

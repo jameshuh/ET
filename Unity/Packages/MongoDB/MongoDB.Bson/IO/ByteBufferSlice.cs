@@ -14,14 +14,13 @@
 */
 
 using System;
-using System.IO;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a slice of a byte buffer.
-    /// </summary>
-    public class ByteBufferSlice : IByteBuffer
+	/// <summary>
+	/// Represents a slice of a byte buffer.
+	/// </summary>
+	public class ByteBufferSlice : IByteBuffer
     {
         private readonly IByteBuffer _buffer;
         private bool _disposed;

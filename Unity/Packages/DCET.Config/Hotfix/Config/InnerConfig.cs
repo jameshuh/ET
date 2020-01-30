@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using DCET.Model;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace DCET.Hotfix

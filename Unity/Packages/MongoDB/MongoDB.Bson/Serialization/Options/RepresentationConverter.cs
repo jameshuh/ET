@@ -14,14 +14,13 @@
 */
 
 using System;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoDB.Bson.Serialization.Options
 {
-    /// <summary>
-    /// Represents the external representation of a field or property.
-    /// </summary>
-    public class RepresentationConverter
+	/// <summary>
+	/// Represents the external representation of a field or property.
+	/// </summary>
+	public class RepresentationConverter
     {
         // private fields
         private bool _allowOverflow;

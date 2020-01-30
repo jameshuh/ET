@@ -1,9 +1,8 @@
-﻿using DCET.Model;
-using FairyGUI;
+﻿using FairyGUI;
 
 namespace DCET.Hotfix
 {
-    [ObjectSystem]
+	[ObjectSystem]
 	public class FUIComponentAwakeSystem : AwakeSystem<FUIComponent>
 	{
 		public override void Awake(FUIComponent self)

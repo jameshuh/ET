@@ -1,7 +1,7 @@
-using UnityEngine;
 using UnityEditor;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	[CustomEditor(typeof(SimpleSmoothModifier))]
 	[CanEditMultipleObjects]
 	public class SmoothModifierEditor : EditorBase {

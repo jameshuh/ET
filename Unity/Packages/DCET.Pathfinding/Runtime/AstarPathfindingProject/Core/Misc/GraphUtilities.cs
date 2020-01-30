@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using PF;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
-	using Pathfinding.Util;
-
+namespace Pathfinding
+{
 	/** Contains utility methods for getting useful information out of graph.
 	 * This class works a lot with the #Pathfinding.GraphNode class, a useful function to get nodes is #AstarPath.GetNearest.
 	 *

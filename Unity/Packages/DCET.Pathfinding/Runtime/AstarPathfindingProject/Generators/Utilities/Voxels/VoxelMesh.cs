@@ -1,9 +1,8 @@
 using PF;
 using UnityEngine;
 
-namespace Pathfinding.Voxels {
-	using Pathfinding.Util;
-
+namespace Pathfinding.Voxels
+{
 	public partial class Voxelize {
 		/** Returns T iff (v_i, v_j) is a proper internal
 		 * diagonal of P.

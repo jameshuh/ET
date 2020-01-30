@@ -13,15 +13,13 @@
 * limitations under the License.
 */
 
-using System;
-using System.IO;
 using System.Text;
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a UTF8 name decoder.
-    /// </summary>
-    public class Utf8NameDecoder : INameDecoder
+	/// <summary>
+	/// Represents a UTF8 name decoder.
+	/// </summary>
+	public class Utf8NameDecoder : INameDecoder
     {
         // private static fields
         private static readonly Utf8NameDecoder __instance = new Utf8NameDecoder();

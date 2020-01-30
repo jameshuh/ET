@@ -14,14 +14,13 @@
 */
 
 using System;
-using System.Reflection;
 
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that sets the element name the same as the member name with the first character lower cased.
-    /// </summary>
-    public class CamelCaseElementNameConvention : ConventionBase, IMemberMapConvention
+	/// <summary>
+	/// A convention that sets the element name the same as the member name with the first character lower cased.
+	/// </summary>
+	public class CamelCaseElementNameConvention : ConventionBase, IMemberMapConvention
     {
         // public methods
         /// <summary>

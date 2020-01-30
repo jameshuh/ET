@@ -1,6 +1,4 @@
-﻿using DCET.Model;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	[ObjectSystem]
 	public class SessionComponentAwakeSystem : AwakeSystem<SessionComponent>

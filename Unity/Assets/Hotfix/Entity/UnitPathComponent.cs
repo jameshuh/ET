@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DCET.Hotfix
@@ -12,7 +13,7 @@ namespace DCET.Hotfix
 
 		public CancellationTokenSource CancellationTokenSource;
 		
-		public async ETTask StartMove(CancellationToken cancellationToken)
+		public async Task StartMove(CancellationToken cancellationToken)
 		{
 			for (int i = 0; i < this.Path.Count; ++i)
 			{
@@ -37,7 +38,7 @@ namespace DCET.Hotfix
 			}
 		}
 
-		public async ETVoid StartMove(M2C_PathfindingResult message)
+		public async void StartMove(M2C_PathfindingResult message)
 		{
 			// 取消之前的移动协程
 			this.CancellationTokenSource?.Cancel();

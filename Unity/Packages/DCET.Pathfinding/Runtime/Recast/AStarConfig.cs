@@ -1,9 +1,8 @@
-using DCET.Model;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace PF
 {
-    public class AStarConfig
+	public class AStarConfig
     {
         public static AStarConfig Instance { get; private set; }
 

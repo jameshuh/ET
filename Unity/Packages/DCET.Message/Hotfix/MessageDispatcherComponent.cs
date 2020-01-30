@@ -88,7 +88,7 @@ namespace DCET.Hotfix
 			{
 				try
 				{
-					ev.Handle(session, messageInfo.Message).Coroutine();
+					ev.Handle(session, messageInfo.Message);
 				}
 				catch (Exception e)
 				{

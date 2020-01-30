@@ -13,15 +13,14 @@
 * limitations under the License.
 */
 
-using System;
 using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// Extensions methods for IBsonSerializer.
-    /// </summary>
-    public static class IBsonSerializerExtensions
+	/// <summary>
+	/// Extensions methods for IBsonSerializer.
+	/// </summary>
+	public static class IBsonSerializerExtensions
     {
         // methods
         /// <summary>

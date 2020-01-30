@@ -15,15 +15,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// An IByteBuffer that is backed by multiple chunks.
-    /// </summary>
-    public sealed class MultiChunkBuffer : IByteBuffer
+	/// <summary>
+	/// An IByteBuffer that is backed by multiple chunks.
+	/// </summary>
+	public sealed class MultiChunkBuffer : IByteBuffer
     {
         // private fields
         private int _capacity;

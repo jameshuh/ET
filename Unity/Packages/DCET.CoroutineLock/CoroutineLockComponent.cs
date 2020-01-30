@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
@@ -41,7 +42,7 @@ namespace DCET.Hotfix
             this.list.Clear();
         }
 
-        public ETTask<CoroutineLock> Wait(CoroutineLockType coroutineLockType, long key)
+        public Task<CoroutineLock> Wait(CoroutineLockType coroutineLockType, long key)
         {
             CoroutineLockQueueType coroutineLockQueueType = this.list[(int) coroutineLockType];
             if (!coroutineLockQueueType.TryGetValue(key, out CoroutineLockQueue queue))
@@ -49,10 +50,10 @@ namespace DCET.Hotfix
                 queue = EntityFactory.Create<CoroutineLockQueue>(this.Domain);
                 coroutineLockQueueType.Add(key, queue);
                 
-                return ETTask.FromResult(EntityFactory.CreateWithParent<CoroutineLock, CoroutineLockType, long>(this, coroutineLockType, key));
+                return Task.FromResult(EntityFactory.CreateWithParent<CoroutineLock, CoroutineLockType, long>(this, coroutineLockType, key));
             }
             
-            ETTaskCompletionSource<CoroutineLock> tcs = new ETTaskCompletionSource<CoroutineLock>();
+            TaskCompletionSource<CoroutineLock> tcs = new TaskCompletionSource<CoroutineLock>();
             queue.Enqueue(tcs);
             return tcs.Task;
         }
@@ -71,7 +72,7 @@ namespace DCET.Hotfix
                 return;
             }
 
-            ETTaskCompletionSource<CoroutineLock> tcs = queue.Dequeue();
+            TaskCompletionSource<CoroutineLock> tcs = queue.Dequeue();
             tcs.SetResult(EntityFactory.CreateWithParent<CoroutineLock, CoroutineLockType, long>(this, coroutineLockType, key));
         }
     }

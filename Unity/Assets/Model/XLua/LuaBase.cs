@@ -13,14 +13,13 @@ using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
 using LuaAPI = XLua.LuaDLL.Lua;
 using RealStatePtr = System.IntPtr;
-using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
 
 using System;
 
 namespace XLua
 {
-    public abstract class LuaBase : IDisposable
+	public abstract class LuaBase : IDisposable
     {
         protected bool disposed;
         protected readonly int luaReference;

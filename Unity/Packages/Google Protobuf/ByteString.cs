@@ -34,17 +34,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using Google.Protobuf.Compatibility;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Google.Protobuf
 {
-    /// <summary>
-    /// Immutable array of bytes.
-    /// </summary>
-    public sealed class ByteString : IEnumerable<byte>, IEquatable<ByteString>
+	/// <summary>
+	/// Immutable array of bytes.
+	/// </summary>
+	public sealed class ByteString : IEnumerable<byte>, IEquatable<ByteString>
     {
         private static readonly ByteString empty = new ByteString(new byte[0]);
 

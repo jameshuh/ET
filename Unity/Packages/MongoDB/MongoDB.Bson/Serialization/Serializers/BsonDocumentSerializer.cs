@@ -14,17 +14,15 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for BsonDocuments.
-    /// </summary>
-    public class BsonDocumentSerializer : BsonValueSerializerBase<BsonDocument>, IBsonDocumentSerializer, IBsonIdProvider
+	/// <summary>
+	/// Represents a serializer for BsonDocuments.
+	/// </summary>
+	public class BsonDocumentSerializer : BsonValueSerializerBase<BsonDocument>, IBsonDocumentSerializer, IBsonIdProvider
     {
         // private static fields
         private static BsonDocumentSerializer __instance = new BsonDocumentSerializer();

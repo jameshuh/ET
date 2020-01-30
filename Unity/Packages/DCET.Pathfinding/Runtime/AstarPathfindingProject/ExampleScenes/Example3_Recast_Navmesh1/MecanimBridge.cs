@@ -1,8 +1,7 @@
 using UnityEngine;
 
-namespace Pathfinding.Examples {
-	using Pathfinding.Util;
-
+namespace Pathfinding.Examples
+{
 	/** Example of how to use Mecanim with the included movement scripts.
 	 *
 	 * This script will use Mecanim to apply root motion to move the character

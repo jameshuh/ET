@@ -14,21 +14,15 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Wraps a serializer and projects using a function.
-    /// </summary>
-    /// <typeparam name="TFrom">The type of from.</typeparam>
-    /// <typeparam name="TTo">The type of to.</typeparam>
-    public class ProjectingDeserializer<TFrom, TTo> : SerializerBase<TTo>
+	/// <summary>
+	/// Wraps a serializer and projects using a function.
+	/// </summary>
+	/// <typeparam name="TFrom">The type of from.</typeparam>
+	/// <typeparam name="TTo">The type of to.</typeparam>
+	public class ProjectingDeserializer<TFrom, TTo> : SerializerBase<TTo>
     {
         // private fields
         private readonly IBsonSerializer<TFrom> _fromSerializer;

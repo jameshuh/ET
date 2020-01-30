@@ -13,7 +13,7 @@ System.namespace("DCET.Hotfix.Common", function (namespace)
       self:Awake(go)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_2(out.DCET.Hotfix.Common.FUILoadingProgressBar, out.FairyGUI.GObject)
         }
@@ -96,7 +96,7 @@ System.namespace("DCET.Hotfix.Common", function (namespace)
       this.bar = nil
     end
     class = {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.FUI
         }

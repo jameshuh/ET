@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
 	public abstract class AMHandler<Message> : IMHandler where Message: class
 	{
-		protected abstract ETTask Run(Session session, Message message);
+		protected abstract Task Run(Session session, Message message);
 
-		public async ETVoid Handle(Session session, object msg)
+		public async void Handle(Session session, object msg)
 		{
 			Message message = msg as Message;
 			if (message == null)

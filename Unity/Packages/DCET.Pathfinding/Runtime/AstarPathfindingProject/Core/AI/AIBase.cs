@@ -1,12 +1,12 @@
 using UnityEngine;
-using System.Collections;
 using PF;
 using Mathf = UnityEngine.Mathf;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	using Pathfinding.RVO;
 	using Pathfinding.Util;
 

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Net;
 
 namespace DCET.Hotfix
 {
-    public enum ChannelType
+	public enum ChannelType
     {
         Connect,
         Accept,

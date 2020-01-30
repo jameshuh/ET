@@ -10,14 +10,13 @@
 
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 
 namespace LitJson
 {
-    internal class FsmContext
+	internal class FsmContext
     {
         public bool  Return;
         public int   NextState;

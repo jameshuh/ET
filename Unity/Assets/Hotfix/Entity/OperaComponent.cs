@@ -1,10 +1,8 @@
-﻿using System;
-using DCET.Model;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DCET.Hotfix
 {
-    [ObjectSystem]
+	[ObjectSystem]
     public class OperaComponentAwakeSystem : AwakeSystem<OperaComponent>
     {
 	    public override void Awake(OperaComponent self)
@@ -50,12 +48,12 @@ namespace DCET.Hotfix
 		            SessionComponent.Instance.Session.Send(frameClickMap);
 
 					// 测试actor rpc消息
-					this.TestActor().Coroutine();
+					this.TestActor();
 				}
             }
         }
 
-	    public async ETVoid TestActor()
+	    public async void TestActor()
 	    {
 		    /*try
 		    {

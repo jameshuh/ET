@@ -11,7 +11,6 @@ using LuaAPI = UniLua.Lua;
 using RealStatePtr = UniLua.ILuaState;
 using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
-using LuaAPI = XLua.LuaDLL.Lua;
 using RealStatePtr = System.IntPtr;
 using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
@@ -22,7 +21,7 @@ using System.Reflection;
 
 namespace XLua
 {
-    internal partial class InternalGlobals
+	internal partial class InternalGlobals
     {
 #if !THREAD_SAFE && !HOTFIX_ENABLE
         internal static byte[] strBuff = new byte[256];

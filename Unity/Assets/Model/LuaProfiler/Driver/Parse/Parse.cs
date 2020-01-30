@@ -33,12 +33,11 @@ __________#_______####_______####______________
 * ==============================================================================
 */
 #if UNITY_EDITOR || USE_LUA_PROFILER
-using System;
 using System.Collections.Generic;
 
 namespace MikuLuaProfiler
 {
-    public static class Parse
+	public static class Parse
     {
         public static readonly string LOCAL_PROFILER =
             "local BeginMikuSample = MikuLuaProfiler.LuaProfiler.BeginSample "

@@ -9,7 +9,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       DCETHotfix.Log.Info(info)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AEvent_1(System.String)
         }

@@ -3,6 +3,7 @@ local System = System
 local BehaviorDesignerRuntime = BehaviorDesigner.Runtime
 local DCETHotfix = DCET.Hotfix
 local DCETModel = DCET.Model
+local SystemReflection = System.Reflection
 local UnityEngine = UnityEngine
 System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("Init", function (namespace)
@@ -10,29 +11,42 @@ System.namespace("DCET.Hotfix", function (namespace)
     Start = function ()
       System.async(function (async)
         System.try(function ()
+          local assemblies = System.AppDomain.getCurrentDomain():GetAssemblies()
+
+          if assemblies ~= nil then
+            for _, assembly in System.each(assemblies) do
+              if SystemReflection.Assembly.op_Inequality(assembly, nil) and not System.String.IsNullOrWhiteSpace(assembly:getFullName()) and assembly:getFullName():Contains("Hotfix") then
+                local types = assembly:GetTypes()
+
+                if types ~= nil then
+                  for _, item in System.each(types) do
+                    DCETHotfix.Game.getHotfix():AddHotfixType(item)
+                  end
+                end
+
+                DCETHotfix.Game.getEventSystem():Add(assembly)
+              end
+            end
+          end
+
           -- 注册热更层回调
-          DCETModel.Game.getHotfix().Update = function ()
-            Update()
-          end
-          DCETModel.Game.getHotfix().LateUpdate = function ()
-            LateUpdate()
-          end
-          DCETModel.Game.getHotfix().OnApplicationQuit = function ()
-            OnApplicationQuit()
-          end
+          DCETModel.GameLoop.onUpdate = DCETModel.GameLoop.onUpdate + Update
+          DCETModel.GameLoop.onLateUpdate = DCETModel.GameLoop.onLateUpdate + LateUpdate
+          DCETModel.GameLoop.onApplicationQuit = DCETModel.GameLoop.onApplicationQuit + OnApplicationQuit
 
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.OpcodeTypeComponent)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.MessageDispatcherComponent)
 
           -- 加载热更配置
-          DCETModel.Game.getScene():GetComponent(DCETModel.ResourcesComponent):LoadBundle("config.unity3d")
+          DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ResourcesComponent):LoadBundle("config.unity3d")
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ConfigComponent)
-          DCETModel.Game.getScene():GetComponent(DCETModel.ResourcesComponent):UnloadBundle("config.unity3d")
+          DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):UnloadBundle("config.unity3d")
 
           -- 演示行为树用法
           TestBehaviorTree()
 
           -- 演示FGUI用法
+          DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIPackageComponent)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIComponent)
           async:await(DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIInitComponent):Init())
           DCETHotfix.Game.getEventSystem():Run("InitSceneStart" --[[EventIdType.InitSceneStart]])
@@ -49,7 +63,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       -- 全局共享变量用法
       DCETHotfix.Game.getScene():AddComponent(DCETHotfix.BehaviorTreeVariableComponent):SetVariable("全局变量", 1, System.Int32)
 
-      local runtimeBehaivorTree = UnityEngine.GameObject.Find("Cube"):GetComponent(BehaviorDesignerRuntime.BehaviorTree)
+      local runtimeBehaivorTree = UnityEngine.Object.Instantiate(System.as(DCETModel.ResourcesHelper.Load("Cube"), UnityEngine.GameObject)):GetComponent(BehaviorDesignerRuntime.BehaviorTree)
 
       if UnityEngine.op_Implicit(runtimeBehaivorTree) then
         --建议在资源预加载时进行初始化，以免游戏对局中反序列化GC卡顿
@@ -81,20 +95,10 @@ System.namespace("DCET.Hotfix", function (namespace)
       behaviorTree:GetComponent(DCETHotfix.BehaviorTreeVariableComponent):SetVariable("变量4", runtimeBehaivorTree, BehaviorDesignerRuntime.BehaviorTree)
     end
     Update = function ()
-      System.try(function ()
-        DCETHotfix.Game.getEventSystem():Update()
-      end, function (default)
-        local e = default
-        DCETHotfix.Log.Error(e)
-      end)
+      DCETHotfix.Game.getEventSystem():Update()
     end
     LateUpdate = function ()
-      System.try(function ()
-        DCETHotfix.Game.getEventSystem():LateUpdate()
-      end, function (default)
-        local e = default
-        DCETHotfix.Log.Error(e)
-      end)
+      DCETHotfix.Game.getEventSystem():LateUpdate()
     end
     OnApplicationQuit = function ()
       DCETHotfix.Game.Close()

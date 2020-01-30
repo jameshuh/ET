@@ -1,9 +1,9 @@
-using System.Collections;
 using PF;
 using Mathf = UnityEngine.Mathf;
 using Vector2 = UnityEngine.Vector2;
 
-namespace Pathfinding.Util {
+namespace Pathfinding.Util
+{
 	public static class MovementUtilities {
 		/** Clamps the velocity to the max speed and optionally the forwards direction.
 		 * \param velocity Desired velocity of the character. In world units per second.

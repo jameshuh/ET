@@ -14,18 +14,14 @@
 */
 
 using System;
-using System.Globalization;
-using System.IO;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for DateTimes.
-    /// </summary>
-    public class DateTimeSerializer : StructSerializerBase<DateTime>, IRepresentationConfigurable<DateTimeSerializer>
+	/// <summary>
+	/// Represents a serializer for DateTimes.
+	/// </summary>
+	public class DateTimeSerializer : StructSerializerBase<DateTime>, IRepresentationConfigurable<DateTimeSerializer>
     {
         // private constants
         private static class Flags

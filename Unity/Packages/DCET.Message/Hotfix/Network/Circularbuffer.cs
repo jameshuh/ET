@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
@@ -94,7 +95,7 @@ namespace DCET.Hotfix
 		/// </summary>
 		/// <param name="stream"></param>
 		/// <returns></returns>
-		public async ETTask ReadAsync(Stream stream)
+		public async Task ReadAsync(Stream stream)
 	    {
 		    long buffLength = this.Length;
 			int sendSize = this.ChunkSize - this.FirstIndex;
@@ -177,7 +178,7 @@ namespace DCET.Hotfix
 		/// </summary>
 		/// <param name="stream"></param>
 		/// <returns></returns>
-		public async ETTask<int> WriteAsync(Stream stream)
+		public async Task<int> WriteAsync(Stream stream)
 	    {
 		    int size = this.ChunkSize - this.LastIndex;
 		    

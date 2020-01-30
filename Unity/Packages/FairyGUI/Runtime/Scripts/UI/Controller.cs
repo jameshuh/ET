@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using FairyGUI.Utils;
 using System;
-using UnityEngine;
 
 namespace FairyGUI
 {

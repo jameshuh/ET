@@ -6,9 +6,8 @@ using Vector3 = UnityEngine.Vector3;
 using UnityEngine.Profiling;
 #endif
 
-namespace Pathfinding.RVO {
-	using Pathfinding.Util;
-
+namespace Pathfinding.RVO
+{
 	/** Adds a navmesh as RVO obstacles.
 	 * Add this to a scene in which has a navmesh or grid based graph, when scanning (or loading from cache) the graph
 	 * it will be added as RVO obstacles to the RVOSimulator (which must exist in the scene).

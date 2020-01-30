@@ -13,13 +13,12 @@
 * limitations under the License.
 */
 
-using System.Collections.Generic;
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// Contract for composite serializers that contain a number of named serializers.
-    /// </summary>
-    public interface IBsonDocumentSerializer : IBsonSerializer
+	/// <summary>
+	/// Contract for composite serializers that contain a number of named serializers.
+	/// </summary>
+	public interface IBsonDocumentSerializer : IBsonSerializer
     {
         /// <summary>
         /// Tries to get the serialization info for a member.

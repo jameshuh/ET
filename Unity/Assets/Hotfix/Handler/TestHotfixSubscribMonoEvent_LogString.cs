@@ -1,6 +1,4 @@
-﻿using DCET.Model;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	// 分发数值监听
 	[Event(EventIdType.TestHotfixSubscribMonoEvent)]

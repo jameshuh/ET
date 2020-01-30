@@ -15,17 +15,16 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// A Stream that wraps another Stream while implementing the BsonStream abstract methods.
-    /// </summary>
-    public sealed class BsonStreamAdapter : BsonStream
+	/// <summary>
+	/// A Stream that wraps another Stream while implementing the BsonStream abstract methods.
+	/// </summary>
+	public sealed class BsonStreamAdapter : BsonStream
     {
         // fields
         private bool _disposed;

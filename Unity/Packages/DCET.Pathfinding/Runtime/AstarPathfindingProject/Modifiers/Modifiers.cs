@@ -1,7 +1,7 @@
 using PF;
-using UnityEngine;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	/** Base for all path modifiers.
 	 * \see MonoModifier
 	 * Modifier */

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace DCET.Hotfix
@@ -10,7 +11,7 @@ namespace DCET.Hotfix
         {
             if (self.loadMapOperation.isDone)
             {
-                self.tcs.SetResult();
+                self.tcs.SetResult(true);
             }
            
         }
@@ -29,11 +30,11 @@ namespace DCET.Hotfix
     public class SceneChangeComponent: Entity
     {
         public AsyncOperation loadMapOperation;
-        public ETTaskCompletionSource tcs;
+        public TaskCompletionSource<bool> tcs;
 
-        public ETTask ChangeSceneAsync(string sceneName)
+        public Task ChangeSceneAsync(string sceneName)
         {
-            this.tcs = new ETTaskCompletionSource();
+            this.tcs = new TaskCompletionSource<bool>();
             // 加载map
             this.loadMapOperation = SceneManager.LoadSceneAsync(sceneName);
             //this.loadMapOperation.allowSceneActivation = false;
@@ -54,7 +55,7 @@ namespace DCET.Hotfix
 
         public void Finish()
         {
-            this.tcs.SetResult();
+            this.tcs.SetResult(true);
         }
     }
 }

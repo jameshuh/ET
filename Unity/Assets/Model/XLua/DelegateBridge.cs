@@ -12,17 +12,14 @@ using RealStatePtr = UniLua.ILuaState;
 using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
 using LuaAPI = XLua.LuaDLL.Lua;
-using RealStatePtr = System.IntPtr;
-using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 namespace XLua
 {
-    public abstract class DelegateBridgeBase : LuaBase
+	public abstract class DelegateBridgeBase : LuaBase
     {
         private Type firstKey = null;
 

@@ -30,32 +30,31 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endregion
 
-using Google.Protobuf.Collections;
 using System;
 using System.IO;
 using System.Text;
 
 namespace Google.Protobuf
 {
-    /// <summary>
-    /// Encodes and writes protocol message fields.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// This class is generally used by generated code to write appropriate
-    /// primitives to the stream. It effectively encapsulates the lowest
-    /// levels of protocol buffer format. Unlike some other implementations,
-    /// this does not include combined "write tag and value" methods. Generated
-    /// code knows the exact byte representations of the tags they're going to write,
-    /// so there's no need to re-encode them each time. Manually-written code calling
-    /// this class should just call one of the <c>WriteTag</c> overloads before each value.
-    /// </para>
-    /// <para>
-    /// Repeated fields and map fields are not handled by this class; use <c>RepeatedField&lt;T&gt;</c>
-    /// and <c>MapField&lt;TKey, TValue&gt;</c> to serialize such fields.
-    /// </para>
-    /// </remarks>
-    public sealed partial class CodedOutputStream : IDisposable
+	/// <summary>
+	/// Encodes and writes protocol message fields.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// This class is generally used by generated code to write appropriate
+	/// primitives to the stream. It effectively encapsulates the lowest
+	/// levels of protocol buffer format. Unlike some other implementations,
+	/// this does not include combined "write tag and value" methods. Generated
+	/// code knows the exact byte representations of the tags they're going to write,
+	/// so there's no need to re-encode them each time. Manually-written code calling
+	/// this class should just call one of the <c>WriteTag</c> overloads before each value.
+	/// </para>
+	/// <para>
+	/// Repeated fields and map fields are not handled by this class; use <c>RepeatedField&lt;T&gt;</c>
+	/// and <c>MapField&lt;TKey, TValue&gt;</c> to serialize such fields.
+	/// </para>
+	/// </remarks>
+	public sealed partial class CodedOutputStream : IDisposable
     {
         // "Local" copy of Encoding.UTF8, for efficiency. (Yes, it makes a difference.)
         internal static readonly Encoding Utf8Encoding = Encoding.UTF8;

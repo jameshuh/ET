@@ -13,16 +13,15 @@
 * limitations under the License.
 */
 
-using System.Collections.Generic;
 using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for a BsonValue that can round trip C# null.
-    /// </summary>
-    /// <typeparam name="TBsonValue">The type of the BsonValue.</typeparam>
-    public class BsonValueCSharpNullSerializer<TBsonValue> : SerializerBase<TBsonValue> where TBsonValue : BsonValue
+	/// <summary>
+	/// Represents a serializer for a BsonValue that can round trip C# null.
+	/// </summary>
+	/// <typeparam name="TBsonValue">The type of the BsonValue.</typeparam>
+	public class BsonValueCSharpNullSerializer<TBsonValue> : SerializerBase<TBsonValue> where TBsonValue : BsonValue
     {
         // private fields
         private readonly IBsonSerializer<TBsonValue> _wrappedSerializer;

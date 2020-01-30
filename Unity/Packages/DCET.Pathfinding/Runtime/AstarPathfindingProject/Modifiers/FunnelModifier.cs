@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Pathfinding.Util;
 using PF;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	[AddComponentMenu("Pathfinding/Modifiers/Funnel")]
 	[System.Serializable]
 	/** Simplifies paths on navmesh graphs using the funnel algorithm.

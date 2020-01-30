@@ -11,7 +11,7 @@ end)
 System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("ACategory", function (namespace)
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Object
         }
@@ -73,7 +73,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return Linq.First(this.dict:getValues())
       end
       return {
-        __inherits__ = function (out)
+        base = function (out)
           return {
             out.DCET.Hotfix.ACategory
           }

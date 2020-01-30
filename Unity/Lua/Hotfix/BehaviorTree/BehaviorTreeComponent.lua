@@ -14,7 +14,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Awake()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_1(out.DCET.Hotfix.BehaviorTreeComponent)
         }
@@ -127,7 +127,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       this.behaviorTreeDecoratorComponents:Clear()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

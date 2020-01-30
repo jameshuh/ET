@@ -14,19 +14,17 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Interfaces.
-    /// </summary>
-    /// <typeparam name="TInterface">The type of the interface.</typeparam>
-    /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-    public class ImpliedImplementationInterfaceSerializer<TInterface, TImplementation> :
+	/// <summary>
+	/// Represents a serializer for Interfaces.
+	/// </summary>
+	/// <typeparam name="TInterface">The type of the interface.</typeparam>
+	/// <typeparam name="TImplementation">The type of the implementation.</typeparam>
+	public class ImpliedImplementationInterfaceSerializer<TInterface, TImplementation> :
         SerializerBase<TInterface>,
         IBsonArraySerializer,
         IBsonDictionarySerializer,

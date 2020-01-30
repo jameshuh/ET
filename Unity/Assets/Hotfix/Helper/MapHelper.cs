@@ -1,11 +1,10 @@
 using System;
-using DCET.Model;
 
 namespace DCET.Hotfix
 {
-    public static class MapHelper
+	public static class MapHelper
     {
-        public static async ETVoid EnterMapAsync(string sceneName)
+        public static async void EnterMapAsync(string sceneName)
         {
             try
             {

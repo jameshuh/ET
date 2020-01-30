@@ -16,16 +16,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for a class that implements IDictionary.
-    /// </summary>
-    /// <typeparam name="TDictionary">The type of the dictionary.</typeparam>
-    public class DictionaryInterfaceImplementerSerializer<TDictionary> :
+	/// <summary>
+	/// Represents a serializer for a class that implements IDictionary.
+	/// </summary>
+	/// <typeparam name="TDictionary">The type of the dictionary.</typeparam>
+	public class DictionaryInterfaceImplementerSerializer<TDictionary> :
         DictionarySerializerBase<TDictionary>,
         IChildSerializerConfigurable,
         IDictionaryRepresentationConfigurable

@@ -1,11 +1,10 @@
 using System;
-using DCET.Model;
 
 namespace DCET.Hotfix
 {
-    public static class LoginHelper
+	public static class LoginHelper
     {
-        public static async ETVoid OnLoginAsync(Entity domain, string account)
+        public static async void OnLoginAsync(Entity domain, string account)
         {
             try
             {

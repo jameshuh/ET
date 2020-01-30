@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
     public class CoroutineLockQueue: Entity
     {
-        private readonly Queue<ETTaskCompletionSource<CoroutineLock>> queue = new Queue<ETTaskCompletionSource<CoroutineLock>>();
+        private readonly Queue<TaskCompletionSource<CoroutineLock>> queue = new Queue<TaskCompletionSource<CoroutineLock>>();
 
-        public void Enqueue(ETTaskCompletionSource<CoroutineLock> tcs)
+        public void Enqueue(TaskCompletionSource<CoroutineLock> tcs)
         {
             this.queue.Enqueue(tcs);
         }
 
-        public ETTaskCompletionSource<CoroutineLock> Dequeue()
+        public TaskCompletionSource<CoroutineLock> Dequeue()
         {
             return this.queue.Dequeue();
         }

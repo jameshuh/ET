@@ -1,7 +1,7 @@
-using UnityEngine;
 using UnityEditor;
 
-namespace Pathfinding.RVO {
+namespace Pathfinding.RVO
+{
 	[CustomEditor(typeof(RVOController))]
 	[CanEditMultipleObjects]
 	public class RVOControllerEditor : EditorBase {

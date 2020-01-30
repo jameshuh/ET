@@ -14,17 +14,15 @@
 */
 
 using System;
-using System.IO;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for UInt16s.
-    /// </summary>
-    [CLSCompliant(false)]
+	/// <summary>
+	/// Represents a serializer for UInt16s.
+	/// </summary>
+	[CLSCompliant(false)]
     public class UInt16Serializer : StructSerializerBase<ushort>, IRepresentationConfigurable<UInt16Serializer>, IRepresentationConverterConfigurable<UInt16Serializer>
     {
         // private fields

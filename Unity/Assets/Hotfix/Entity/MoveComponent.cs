@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DCET.Hotfix
@@ -25,7 +26,7 @@ namespace DCET.Hotfix
 
 		public long needTime;
 		
-		public ETTaskCompletionSource moveTcs;
+		public TaskCompletionSource<bool> moveTcs;
 
 
 		public void Update()
@@ -41,9 +42,9 @@ namespace DCET.Hotfix
 			if (timeNow - this.StartTime >= this.needTime)
 			{
 				unit.Position = this.Target;
-				ETTaskCompletionSource tcs = this.moveTcs;
+				var tcs = this.moveTcs;
 				this.moveTcs = null;
-				tcs.SetResult();
+				tcs.SetResult(true);
 				return;
 			}
 
@@ -51,13 +52,13 @@ namespace DCET.Hotfix
 			unit.Position = Vector3.Lerp(this.StartPos, this.Target, amount);
 		}
 
-		public ETTask MoveToAsync(Vector3 target, float speedValue, CancellationToken cancellationToken)
+		public Task MoveToAsync(Vector3 target, float speedValue, CancellationToken cancellationToken)
 		{
 			Unit unit = this.GetParent<Unit>();
 			
 			if ((target - this.Target).magnitude < 0.1f)
 			{
-				return ETTask.CompletedTask;
+				return Task.CompletedTask;
 			}
 			
 			this.Target = target;
@@ -68,12 +69,12 @@ namespace DCET.Hotfix
 			float distance = (this.Target - this.StartPos).magnitude;
 			if (Math.Abs(distance) < 0.1f)
 			{
-				return ETTask.CompletedTask;
+				return Task.CompletedTask;
 			}
             
 			this.needTime = (long)(distance / speedValue * 1000);
 			
-			this.moveTcs = new ETTaskCompletionSource();
+			this.moveTcs = new TaskCompletionSource<bool>();
 			
 			cancellationToken.Register(() =>
 			{

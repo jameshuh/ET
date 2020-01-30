@@ -14,9 +14,7 @@
 */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
@@ -24,10 +22,10 @@ using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson
 {
-    /// <summary>
-    /// Represents a BSON array that is deserialized lazily.
-    /// </summary>
-    [BsonSerializer(typeof(LazyBsonArraySerializer))]
+	/// <summary>
+	/// Represents a BSON array that is deserialized lazily.
+	/// </summary>
+	[BsonSerializer(typeof(LazyBsonArraySerializer))]
     public class LazyBsonArray : MaterializedOnDemandBsonArray
     {
         // private fields

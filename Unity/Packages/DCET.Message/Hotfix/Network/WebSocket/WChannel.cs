@@ -79,8 +79,8 @@ namespace DCET.Hotfix
                 return;
             }
 
-            this.StartRecv().Coroutine();
-            this.StartSend().Coroutine();
+            this.StartRecv();
+            this.StartSend();
         }
 
         private WService GetService()
@@ -88,7 +88,7 @@ namespace DCET.Hotfix
             return (WService) this.Service;
         }
 
-        public async ETVoid ConnectAsync(string url)
+        public async void ConnectAsync(string url)
         {
             try
             {
@@ -111,11 +111,11 @@ namespace DCET.Hotfix
 
             if (this.isConnected)
             {
-                this.StartSend().Coroutine();
+                this.StartSend();
             }
         }
 
-        public async ETVoid StartSend()
+        public async void StartSend()
         {
             if (this.IsDisposed)
             {
@@ -162,7 +162,7 @@ namespace DCET.Hotfix
             }
         }
 
-        public async ETVoid StartRecv()
+        public async void StartRecv()
         {
             if (this.IsDisposed)
             {

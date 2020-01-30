@@ -13,16 +13,15 @@
 * limitations under the License.
 */
 
-using System;
 using System.Globalization;
 using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for CultureInfos.
-    /// </summary>
-    public class CultureInfoSerializer : ClassSerializerBase<CultureInfo>
+	/// <summary>
+	/// Represents a serializer for CultureInfos.
+	/// </summary>
+	public class CultureInfoSerializer : ClassSerializerBase<CultureInfo>
     {
         // private constants
         private static class Flags

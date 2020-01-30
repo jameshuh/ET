@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	/** Simple patrol behavior.
 	 * This will set the destination on the agent so that it moves through the sequence of objects in the #targets array.
 	 * Upon reaching a target it will wait for #delay seconds.

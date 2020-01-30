@@ -1,6 +1,4 @@
-﻿using DCET.Model;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	[ObjectSystem]
     public class BehaviorTreeAwakeSystem : AwakeSystem<BehaviorTree, BehaviorDesigner.Runtime.BehaviorTree>

@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using PF;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding.Voxels {
-	using Pathfinding.Util;
-
+namespace Pathfinding.Voxels
+{
 	/** Various utilities for voxel rasterization.
 	 * \astarpro
 	 */

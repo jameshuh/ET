@@ -14,17 +14,15 @@
 */
 
 using System;
-using System.IO;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Int32.
-    /// </summary>
-    public class Int32Serializer : StructSerializerBase<int>, IRepresentationConfigurable<Int32Serializer>, IRepresentationConverterConfigurable<Int32Serializer>
+	/// <summary>
+	/// Represents a serializer for Int32.
+	/// </summary>
+	public class Int32Serializer : StructSerializerBase<int>, IRepresentationConfigurable<Int32Serializer>, IRepresentationConverterConfigurable<Int32Serializer>
     {
         // private fields
         private readonly BsonType _representation;

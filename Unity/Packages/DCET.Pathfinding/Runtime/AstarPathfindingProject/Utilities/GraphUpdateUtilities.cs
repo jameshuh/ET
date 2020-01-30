@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Pathfinding.Util;
 using PF;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	/** Contains useful functions for updating graphs.
 	 * This class works a lot with the GraphNode class, a useful function to get nodes is #AstarPath.GetNearest.
 	 *

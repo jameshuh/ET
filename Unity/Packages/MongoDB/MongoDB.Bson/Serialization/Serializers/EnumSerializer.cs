@@ -14,20 +14,15 @@
 */
 
 using System;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for enums.
-    /// </summary>
-    /// <typeparam name="TEnum">The type of the enum.</typeparam>
-    public class EnumSerializer<TEnum> : StructSerializerBase<TEnum>, IRepresentationConfigurable<EnumSerializer<TEnum>> where TEnum : struct
+	/// <summary>
+	/// Represents a serializer for enums.
+	/// </summary>
+	/// <typeparam name="TEnum">The type of the enum.</typeparam>
+	public class EnumSerializer<TEnum> : StructSerializerBase<TEnum>, IRepresentationConfigurable<EnumSerializer<TEnum>> where TEnum : struct
     {
         // private fields
         private readonly BsonType _representation;

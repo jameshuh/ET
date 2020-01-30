@@ -36,12 +36,9 @@ __________#_______####_______####______________
 #if UNITY_EDITOR || USE_LUA_PROFILER
 namespace MikuLuaProfiler
 {
-    using System.Diagnostics;
-    using System.IO;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using UnityEngine;
-    public class LuaDeepProfilerSetting
+	using System.IO;
+	using System.Text;
+	public class LuaDeepProfilerSetting
     {
         public static LuaDeepProfilerSetting MakeInstance()
         {

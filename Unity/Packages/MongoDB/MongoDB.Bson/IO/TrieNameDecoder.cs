@@ -13,19 +13,15 @@
 * limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a Trie-based name decoder that also provides a value.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-    public class TrieNameDecoder<TValue> : INameDecoder
+	/// <summary>
+	/// Represents a Trie-based name decoder that also provides a value.
+	/// </summary>
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+	public class TrieNameDecoder<TValue> : INameDecoder
     {
         // private fields
         private bool _found;

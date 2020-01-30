@@ -1,9 +1,8 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
-using DCET.Model;
 
 namespace DCET.Hotfix
 {
-    [ObjectSystem]
+	[ObjectSystem]
     public class LogActionComponentAwakeSystem : AwakeSystem<LogActionComponent, Entity, HotfixAction, BehaviorTreeConfig>
     {
         public override void Awake(LogActionComponent self, Entity behaviorTreeParent, HotfixAction hotfixAction, BehaviorTreeConfig behaviorTreeConfig)

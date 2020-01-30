@@ -14,18 +14,15 @@
 */
 
 using System;
-using System.Globalization;
-using System.IO;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Singles.
-    /// </summary>
-    public class SingleSerializer : StructSerializerBase<float>, IRepresentationConfigurable<SingleSerializer>, IRepresentationConverterConfigurable<SingleSerializer>
+	/// <summary>
+	/// Represents a serializer for Singles.
+	/// </summary>
+	public class SingleSerializer : StructSerializerBase<float>, IRepresentationConfigurable<SingleSerializer>, IRepresentationConverterConfigurable<SingleSerializer>
     {
         // private fields
         private readonly BsonType _representation;

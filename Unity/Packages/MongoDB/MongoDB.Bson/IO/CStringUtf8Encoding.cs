@@ -14,12 +14,11 @@
 */
 
 using System;
-using System.IO;
 using System.Text;
 
 namespace MongoDB.Bson.IO
 {
-    internal static class CStringUtf8Encoding
+	internal static class CStringUtf8Encoding
     {
         public static int GetBytes(string value, byte[] bytes, int byteIndex, UTF8Encoding fallbackEncoding)
         {

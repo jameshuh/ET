@@ -7,12 +7,11 @@
 */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace XLua
 {
-    public class ObjectPool
+	public class ObjectPool
     {
         const int LIST_END = -1;
         const int ALLOCED = -2;

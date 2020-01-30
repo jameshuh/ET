@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using PF;
 using Mathf = UnityEngine.Mathf;
 using Matrix4x4 = UnityEngine.Matrix4x4;
@@ -8,8 +6,8 @@ using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
-	using Pathfinding.RVO;
+namespace Pathfinding
+{
 	using Pathfinding.Util;
 
 	/** AI for following paths.

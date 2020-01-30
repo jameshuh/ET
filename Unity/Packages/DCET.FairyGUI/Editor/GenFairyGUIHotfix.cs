@@ -18,7 +18,7 @@ namespace DCET.Editor
 		[MenuItem("CSharpLua/Compile FairyGUIHotfix")]
 		public static void CompileLua()
 		{
-			GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET/Module/FairyGUI/Hotfix", "FairyGUI");
+			GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI");
 		}
 	}
 }

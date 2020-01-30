@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-namespace Pathfinding.RVO {
+namespace Pathfinding.RVO
+{
 	using Pathfinding.Util;
 
 	/** RVO Character Controller.

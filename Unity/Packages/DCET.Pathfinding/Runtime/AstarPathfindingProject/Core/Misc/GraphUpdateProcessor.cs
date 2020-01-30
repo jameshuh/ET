@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Threading;
 using PF;
 using UnityEngine;
 
-namespace Pathfinding {
-	using UnityEngine.Assertions;
+namespace Pathfinding
+{
 
 #if NETFX_CORE
 	using Thread = Pathfinding.WindowsStore.Thread;

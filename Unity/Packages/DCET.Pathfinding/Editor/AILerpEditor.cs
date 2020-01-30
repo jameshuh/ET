@@ -1,7 +1,7 @@
 using UnityEditor;
-using UnityEngine;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	[CustomEditor(typeof(AILerp), true)]
 	[CanEditMultipleObjects]
 	public class AILerpEditor : EditorBase {

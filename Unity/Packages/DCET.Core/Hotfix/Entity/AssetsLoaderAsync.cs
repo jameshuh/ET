@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DCET.Hotfix
@@ -28,7 +27,7 @@ namespace DCET.Hotfix
 
 		private AssetBundleRequest request;
 
-		private ETTaskCompletionSource tcs;
+		private TaskCompletionSource<bool> tcs;
 
 		public void Awake(AssetBundle ab)
 		{
@@ -42,8 +41,8 @@ namespace DCET.Hotfix
 				return;
 			}
 
-			ETTaskCompletionSource t = tcs;
-			t.SetResult();
+			var t = tcs;
+			t.SetResult(true);
 		}
 
 		public override void Dispose()
@@ -58,15 +57,15 @@ namespace DCET.Hotfix
 			this.request = null;
 		}
 
-		public async ETTask<UnityEngine.Object[]> LoadAllAssetsAsync()
+		public async Task<UnityEngine.Object[]> LoadAllAssetsAsync()
 		{
 			await InnerLoadAllAssetsAsync();
 			return this.request.allAssets;
 		}
 
-		private ETTask InnerLoadAllAssetsAsync()
+		private Task InnerLoadAllAssetsAsync()
 		{
-			this.tcs = new ETTaskCompletionSource();
+			this.tcs = new TaskCompletionSource<bool>();
 			this.request = assetBundle.LoadAllAssetsAsync();
 			return this.tcs.Task;
 		}

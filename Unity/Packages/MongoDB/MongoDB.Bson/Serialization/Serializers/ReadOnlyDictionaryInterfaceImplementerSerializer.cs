@@ -14,21 +14,18 @@
 */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Reflection;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for a class that implements <see cref="IDictionary{TKey, TValue}"/>.
-    /// </summary>
-    /// <typeparam name="TDictionary">The type of the dictionary.</typeparam>
-    /// <typeparam name="TKey">The type of the key.</typeparam>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-    public class ReadOnlyDictionaryInterfaceImplementerSerializer<TDictionary, TKey, TValue> :
+	/// <summary>
+	/// Represents a serializer for a class that implements <see cref="IDictionary{TKey, TValue}"/>.
+	/// </summary>
+	/// <typeparam name="TDictionary">The type of the dictionary.</typeparam>
+	/// <typeparam name="TKey">The type of the key.</typeparam>
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+	public class ReadOnlyDictionaryInterfaceImplementerSerializer<TDictionary, TKey, TValue> :
         DictionarySerializerBase<TDictionary, TKey, TValue>,
         IChildSerializerConfigurable,
         IDictionaryRepresentationConfigurable<ReadOnlyDictionaryInterfaceImplementerSerializer<TDictionary, TKey, TValue>>

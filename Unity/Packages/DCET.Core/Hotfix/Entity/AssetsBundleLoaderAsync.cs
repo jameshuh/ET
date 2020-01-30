@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DCET.Hotfix
@@ -17,7 +16,7 @@ namespace DCET.Hotfix
 	{
 		private AssetBundleCreateRequest request;
 
-		private ETTaskCompletionSource<AssetBundle> tcs;
+		private TaskCompletionSource<AssetBundle> tcs;
 
 		public void Update()
 		{
@@ -26,7 +25,7 @@ namespace DCET.Hotfix
 				return;
 			}
 
-			ETTaskCompletionSource<AssetBundle> t = tcs;
+			TaskCompletionSource<AssetBundle> t = tcs;
 			t.SetResult(this.request.assetBundle);
 		}
 
@@ -39,9 +38,9 @@ namespace DCET.Hotfix
 			base.Dispose();
 		}
 
-		public ETTask<AssetBundle> LoadAsync(string path)
+		public Task<AssetBundle> LoadAsync(string path)
 		{
-			this.tcs = new ETTaskCompletionSource<AssetBundle>();
+			this.tcs = new TaskCompletionSource<AssetBundle>();
 			this.request = AssetBundle.LoadFromFileAsync(path);
 			return this.tcs.Task;
 		}

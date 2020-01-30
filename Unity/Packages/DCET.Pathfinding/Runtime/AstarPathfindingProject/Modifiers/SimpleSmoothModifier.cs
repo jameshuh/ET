@@ -1,12 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
-
-using Pathfinding.Util;
 using PF;
 using Mathf = UnityEngine.Mathf;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	[AddComponentMenu("Pathfinding/Modifiers/Simple Smooth")]
 	[System.Serializable]
 	[RequireComponent(typeof(Seeker))]

@@ -37,7 +37,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       end
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

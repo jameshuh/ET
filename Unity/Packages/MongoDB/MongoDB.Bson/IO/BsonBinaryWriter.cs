@@ -14,15 +14,14 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a BSON writer to a BSON Stream.
-    /// </summary>
-    public class BsonBinaryWriter : BsonWriter
+	/// <summary>
+	/// Represents a BSON writer to a BSON Stream.
+	/// </summary>
+	public class BsonBinaryWriter : BsonWriter
     {
         // private fields
         private readonly Stream _baseStream;

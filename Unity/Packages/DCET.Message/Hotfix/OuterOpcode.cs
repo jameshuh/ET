@@ -1,4 +1,3 @@
-using DCET.Model;
 namespace DCET.Hotfix
 {
 	[Message(OuterOpcode.C2M_TestRequest)]

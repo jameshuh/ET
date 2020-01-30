@@ -14,17 +14,16 @@
 */
 
 using System;
-using System.Globalization;
 using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson
 {
-    /// <summary>
-    /// Represents a BSON double value.
-    /// </summary>
-    /// <seealso cref="MongoDB.Bson.BsonValue" />
+	/// <summary>
+	/// Represents a BSON double value.
+	/// </summary>
+	/// <seealso cref="MongoDB.Bson.BsonValue" />
 #if NET452
-    [Serializable]
+	[Serializable]
 #endif
     public class BsonDouble : BsonValue, IComparable<BsonDouble>, IEquatable<BsonDouble>
     {

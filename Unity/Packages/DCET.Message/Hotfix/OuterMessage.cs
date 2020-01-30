@@ -5,11 +5,11 @@
 
 using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
-using scg = global::System.Collections.Generic;
-namespace DCET.Hotfix {
+namespace DCET.Hotfix
+{
 
-  #region Messages
-  public partial class C2M_TestRequest : pb::IMessage {
+	#region Messages
+	public partial class C2M_TestRequest : pb::IMessage {
     private static readonly pb::MessageParser<C2M_TestRequest> _parser = new pb::MessageParser<C2M_TestRequest>(() => (C2M_TestRequest)MessagePool.Instance.Fetch(typeof(C2M_TestRequest)));
     public static pb::MessageParser<C2M_TestRequest> Parser { get { return _parser; } }
 

@@ -13,17 +13,15 @@ using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
 using LuaAPI = XLua.LuaDLL.Lua;
 using RealStatePtr = System.IntPtr;
-using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Collections;
 
 namespace XLua
 {
-    public partial class LuaTable : LuaBase
+	public partial class LuaTable : LuaBase
     {
         public LuaTable(int reference, LuaEnv luaenv) : base(reference, luaenv)
         {

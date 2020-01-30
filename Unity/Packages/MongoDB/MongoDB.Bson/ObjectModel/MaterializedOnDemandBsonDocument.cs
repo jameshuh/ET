@@ -16,19 +16,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson
 {
-    /// <summary>
-    /// Represents a BSON document that is not materialized until you start using it.
-    /// </summary>
-    [BsonSerializer(typeof(MaterializedOnDemandBsonDocumentSerializer))]
+	/// <summary>
+	/// Represents a BSON document that is not materialized until you start using it.
+	/// </summary>
+	[BsonSerializer(typeof(MaterializedOnDemandBsonDocumentSerializer))]
     public abstract class MaterializedOnDemandBsonDocument : BsonDocument, IDisposable
     {
         // private fields

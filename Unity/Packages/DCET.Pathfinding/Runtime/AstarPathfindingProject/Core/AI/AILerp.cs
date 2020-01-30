@@ -1,12 +1,11 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using PF;
 using Mathf = UnityEngine.Mathf;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
+namespace Pathfinding
+{
 	using Pathfinding.Util;
 
 	/** Linearly interpolating movement script.

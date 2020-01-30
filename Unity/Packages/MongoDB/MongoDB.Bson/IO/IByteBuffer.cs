@@ -14,14 +14,13 @@
 */
 
 using System;
-using System.IO;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a byte buffer (backed by various means depending on the implementation).
-    /// </summary>
-    public interface IByteBuffer : IDisposable
+	/// <summary>
+	/// Represents a byte buffer (backed by various means depending on the implementation).
+	/// </summary>
+	public interface IByteBuffer : IDisposable
     {
         // properties
         /// <summary>

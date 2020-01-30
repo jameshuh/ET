@@ -1,7 +1,4 @@
-﻿using System.Net;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	public class ClientConfig: AConfigComponent
 	{

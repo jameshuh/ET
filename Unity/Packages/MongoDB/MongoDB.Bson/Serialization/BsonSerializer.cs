@@ -16,7 +16,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Threading;
 
@@ -25,14 +24,13 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.IdGenerators;
-using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// A static class that represents the BSON serialization functionality.
-    /// </summary>
-    public static class BsonSerializer
+	/// <summary>
+	/// A static class that represents the BSON serialization functionality.
+	/// </summary>
+	public static class BsonSerializer
     {
         // private static fields
         private static ReaderWriterLockSlim __configLock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);

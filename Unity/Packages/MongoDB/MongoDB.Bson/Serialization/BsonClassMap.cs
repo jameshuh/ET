@@ -21,17 +21,16 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 #if NET452
-using System.Runtime.Serialization;
 #endif
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.Conventions;
 
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// Represents a mapping between a class and a BSON document.
-    /// </summary>
-    public class BsonClassMap
+	/// <summary>
+	/// Represents a mapping between a class and a BSON document.
+	/// </summary>
+	public class BsonClassMap
     {
         // private static fields
         private readonly static Dictionary<Type, BsonClassMap> __classMaps = new Dictionary<Type, BsonClassMap>();

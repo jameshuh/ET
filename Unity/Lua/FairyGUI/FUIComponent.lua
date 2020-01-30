@@ -6,10 +6,11 @@ System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("FUIComponentAwakeSystem", function (namespace)
     local Awake
     Awake = function (this, self)
+      FairyGUI.GRoot.getinst():SetContentScaleFactor(1920, 1080, 0 --[[ScreenMatchMode.MatchWidthOrHeight]])
       self.Root = DCETHotfix.EntityFactory.Create(DCETHotfix.Game.getScene(), FairyGUI.GRoot.getinst(), DCETHotfix.FUI, FairyGUI.GObject)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_1(out.DCET.Hotfix.FUIComponent)
         }
@@ -75,7 +76,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       end
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

@@ -13,17 +13,15 @@
 * limitations under the License.
 */
 
-using System;
-using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization.Conventions;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer that serializes values as a discriminator/value pair.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-    public class DiscriminatedWrapperSerializer<TValue> : SerializerBase<TValue>
+	/// <summary>
+	/// Represents a serializer that serializes values as a discriminator/value pair.
+	/// </summary>
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+	public class DiscriminatedWrapperSerializer<TValue> : SerializerBase<TValue>
     {
         // private constants
         private static class Flags

@@ -15,14 +15,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a factory for IBsonBuffers.
-    /// </summary>
-    public static class ByteBufferFactory
+	/// <summary>
+	/// Represents a factory for IBsonBuffers.
+	/// </summary>
+	public static class ByteBufferFactory
     {
         /// <summary>
         /// Creates a buffer of the specified length. Depending on the length, either a SingleChunkBuffer or a MultiChunkBuffer will be created.

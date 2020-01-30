@@ -14,16 +14,14 @@
 */
 
 using System;
-using System.IO;
-using System.Text;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a mapping from a set of UTF8 encoded strings to a set of elementName/value pairs, implemented as a trie.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the BsonTrie values.</typeparam>
-    public class BsonTrie<TValue>
+	/// <summary>
+	/// Represents a mapping from a set of UTF8 encoded strings to a set of elementName/value pairs, implemented as a trie.
+	/// </summary>
+	/// <typeparam name="TValue">The type of the BsonTrie values.</typeparam>
+	public class BsonTrie<TValue>
     {
         // private fields
         private readonly BsonTrieNode<TValue> _root;

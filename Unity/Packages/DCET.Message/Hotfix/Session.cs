@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
@@ -189,10 +190,10 @@ namespace DCET.Hotfix
 			action(response);
 		}
 		
-		public ETTask<IResponse> CallWithoutException(IRequest request)
+		public Task<IResponse> CallWithoutException(IRequest request)
 		{
 			int rpcId = ++RpcId;
-			var tcs = new ETTaskCompletionSource<IResponse>();
+			var tcs = new TaskCompletionSource<IResponse>();
 			this.requestCallback[rpcId] = (response) =>
 			{
 				if (response is ErrorResponse)
@@ -209,10 +210,10 @@ namespace DCET.Hotfix
 			return tcs.Task;
 		}
 
-		public ETTask<IResponse> Call(IRequest request)
+		public Task<IResponse> Call(IRequest request)
 		{
 			int rpcId = ++RpcId;
-			var tcs = new ETTaskCompletionSource<IResponse>();
+			var tcs = new TaskCompletionSource<IResponse>();
 			this.requestCallback[rpcId] = (response) =>
 			{
 				if (response is ErrorResponse)

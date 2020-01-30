@@ -13,16 +13,12 @@
 * limitations under the License.
 */
 
-using System;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Serializers;
-
 namespace MongoDB.Bson.Serialization.Options
 {
-    /// <summary>
-    /// Represents the representation to use for dictionaries.
-    /// </summary>
-    public enum DictionaryRepresentation
+	/// <summary>
+	/// Represents the representation to use for dictionaries.
+	/// </summary>
+	public enum DictionaryRepresentation
     {
         /// <summary>
         /// Represent the dictionary as a Document.

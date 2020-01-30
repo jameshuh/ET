@@ -13,16 +13,14 @@
 * limitations under the License.
 */
 
-using System;
-using System.IO;
 using System.Text;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a name decoder.
-    /// </summary>
-    public interface INameDecoder
+	/// <summary>
+	/// Represents a name decoder.
+	/// </summary>
+	public interface INameDecoder
     {
         /// <summary>
         /// Decodes the name.

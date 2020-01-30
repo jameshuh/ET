@@ -1,5 +1,4 @@
 ﻿using DCET.Hotfix;
-using DCET.Model;
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -39,13 +38,13 @@ namespace DCET.Editor
 					return;
 				}
 
-				ReloadAsync(this.managerAddress, this.account, this.password).Coroutine();
+				ReloadAsync(this.managerAddress, this.account, this.password);
 			}
 			
 			GUILayout.EndHorizontal();
 		}
 		
-		private static async ETVoid ReloadAsync(string address, string account, string password)
+		private static async void ReloadAsync(string address, string account, string password)
 		{
 			using (Session session = Game.Scene.GetComponent<NetOuterComponent>().Create(address))
 			{

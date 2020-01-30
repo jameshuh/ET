@@ -14,7 +14,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Awake()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_1(out.DCET.Hotfix.ConfigComponent)
         }
@@ -29,7 +29,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Load()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.LoadSystem_1(out.DCET.Hotfix.ConfigComponent)
         }
@@ -52,20 +52,20 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     Load = function (this)
       this.allConfig:Clear()
-      local types = DCETHotfix.Game.getEventSystem():GetTypes()
+      local types = DCETHotfix.Game.getEventSystem():GetTypes(System.typeof(DCETHotfix.ConfigAttribute))
 
       for _, type in System.each(types) do
         local continue
         repeat
-          local attrs = type:GetCustomAttributes(System.typeof(DCETModel.ConfigAttribute), false)
+          local attrs = type:GetCustomAttributes(System.typeof(DCETHotfix.ConfigAttribute), false)
           if #attrs == 0 then
             continue = true
             break
           end
 
-          local configAttribute = System.as(attrs:get(0), DCETModel.ConfigAttribute)
+          local configAttribute = System.as(attrs:get(0), DCETHotfix.ConfigAttribute)
           -- 只加载指定的配置
-          if not DCETModel.AppTypeHelper.Is(configAttribute:getType(), 1073741824 --[[AppType.ClientH]]) then
+          if not DCETModel.AppTypeHelper.Is(configAttribute.Type, -2147483648 --[[AppType.ClientM]]) then
             continue = true
             break
           end
@@ -138,7 +138,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       return extern
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

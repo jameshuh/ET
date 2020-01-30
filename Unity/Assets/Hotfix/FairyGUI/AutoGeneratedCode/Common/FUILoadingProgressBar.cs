@@ -2,12 +2,10 @@
 
 using System.Threading.Tasks;
 using FairyGUI;
-using DCET.Model;
-using DCET.Hotfix;
 
 namespace DCET.Hotfix.Common
 {
-    [ObjectSystem]
+	[ObjectSystem]
     public class FUILoadingProgressBarAwakeSystem : AwakeSystem<FUILoadingProgressBar, GObject>
     {
         public override void Awake(FUILoadingProgressBar self, GObject go)

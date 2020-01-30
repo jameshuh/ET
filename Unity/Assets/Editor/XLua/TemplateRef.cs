@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 namespace XLua
 {
-    public class TemplateRef : ScriptableObject
+	public class TemplateRef : ScriptableObject
     {
         public TextAsset LuaClassWrap;
         public TextAsset LuaClassWrapGCM;

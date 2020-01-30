@@ -1732,9 +1732,9 @@ namespace CSObjectWrapEditor
             clear(GeneratorConfig.common_path);
         }
 
-        public delegate IEnumerable<CustomGenTask> GetTasks(LuaEnv lua_env, UserConfig user_cfg);
+        public delegate IEnumerable<CustomGenTask> GTasks(LuaEnv lua_env, UserConfig user_cfg);
 
-        public static void CustomGen(string template_src, GetTasks get_tasks)
+        public static void CustomGen(string template_src, GTasks get_tasks)
         {
             GetGenConfig(XLua.Utils.GetAllTypes());
 

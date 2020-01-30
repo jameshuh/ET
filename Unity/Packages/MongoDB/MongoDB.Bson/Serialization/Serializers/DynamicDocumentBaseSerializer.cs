@@ -15,17 +15,16 @@
 
 using System;
 using System.Dynamic;
-using System.IO;
 using System.Linq.Expressions;
 using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Base serializer for dynamic types.
-    /// </summary>
-    /// <typeparam name="T">The dynamic type.</typeparam>
-    public abstract class DynamicDocumentBaseSerializer<T> : SerializerBase<T> where T : IDynamicMetaObjectProvider
+	/// <summary>
+	/// Base serializer for dynamic types.
+	/// </summary>
+	/// <typeparam name="T">The dynamic type.</typeparam>
+	public abstract class DynamicDocumentBaseSerializer<T> : SerializerBase<T> where T : IDynamicMetaObjectProvider
     {
         // private static fields
         private static readonly IBsonSerializer<object> _objectSerializer = BsonSerializer.LookupSerializer<object>();

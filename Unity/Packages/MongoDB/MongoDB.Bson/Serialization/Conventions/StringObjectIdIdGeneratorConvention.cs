@@ -14,15 +14,14 @@
 */
 
 using MongoDB.Bson.Serialization.IdGenerators;
-using MongoDB.Bson.Serialization.Options;
 using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that sets the id generator for a string member with a BSON representation of ObjectId.
-    /// </summary>
-    public class StringObjectIdIdGeneratorConvention : ConventionBase, IPostProcessingConvention
+	/// <summary>
+	/// A convention that sets the id generator for a string member with a BSON representation of ObjectId.
+	/// </summary>
+	public class StringObjectIdIdGeneratorConvention : ConventionBase, IPostProcessingConvention
     {
         // public methods
         /// <summary>

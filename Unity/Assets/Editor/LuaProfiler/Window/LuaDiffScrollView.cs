@@ -1,14 +1,13 @@
 ﻿#if (UNITY_5 || UNITY_2017_1_OR_NEWER)
 namespace MikuLuaProfiler
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-    using UnityEditor;
-    using UnityEngine;
-    using MikuLuaProfiler;
-    public class LuaDiffScrollView
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Text;
+	using UnityEditor;
+	using UnityEngine;
+	public class LuaDiffScrollView
     {
         private bool m_isRecord = false;
         private string m_dateTime = "";

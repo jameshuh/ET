@@ -2,13 +2,14 @@
 using FairyGUI;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DCET.Model
 {
 	public class Init : MonoBehaviour
 	{
-		private void Awake()
+		private async void Awake()
 		{
 			try
 			{
@@ -16,9 +17,9 @@ namespace DCET.Model
 
 				DontDestroyOnLoad(gameObject);
 
-				DownloadBundle();
+				await DownloadBundle();
 
-				StartHotfix();
+				HotfixHelper.StartHotfix();
 			}
 			catch (Exception e)
 			{
@@ -26,32 +27,22 @@ namespace DCET.Model
 			}
 		}
 
-		private async void StartHotfix()
-		{
-			var assets = await ResourcesHelper.LoadAssets("code.unity3d");
-
-			if(assets != null)
-			{
-				foreach(var asset in assets)
-				{
-					MonoHelper.StartHotfix(asset as GameObject);
-				}
-			}
-		}
-
-		private async void DownloadBundle()
+		private async Task DownloadBundle()
 		{
 			GRoot.inst.SetContentScaleFactor(1920, 1080);
 
 			ModelBinder.BindAll();
 
-			using (FUIPackage fuiPackage = new FUIPackage("FUI/Model"))
+			if (!Define.IsEditorMode)
 			{
-				using (FUIDownloader fuiDownloader = new FUIDownloader())
+				using (FUIPackage fuiPackage = new FUIPackage("FUI/Model"))
 				{
-					await fuiDownloader.DownloadAsync();
+					using (FUIDownloader fuiDownloader = new FUIDownloader())
+					{
+						await fuiDownloader.DownloadAsync();
+					}
 				}
-			}
+			}			
 		}
 
 		private void Start()
@@ -168,6 +159,9 @@ namespace DCET.Model
 			try
 			{
 				GameLoop.onApplicationQuit?.Invoke();
+
+				Lua.Default.Dispose();
+				AssetBundles.Default.Dispose();
 			}
 			catch (Exception e)
 			{

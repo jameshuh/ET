@@ -3,7 +3,7 @@ local System = System
 System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("BehaviorTreeConfigCategory", function (namespace)
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.ACategory_1(out.DCET.Hotfix.BehaviorTreeConfig)
         }
@@ -15,7 +15,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     local getId, setId
     getId, setId = System.property("Id")
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.IConfig
         }

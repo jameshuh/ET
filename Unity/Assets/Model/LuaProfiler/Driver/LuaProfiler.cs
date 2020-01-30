@@ -33,18 +33,16 @@ __________#_______####_______####______________
 * ==============================================================================
 */
 
-#if UNITY_EDITOR  || USE_LUA_PROFILER
+#if UNITY_EDITOR || USE_LUA_PROFILER
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using RefDict = System.Collections.Generic.Dictionary<string, System.Collections.Generic.HashSet<string>>;
 #if UNITY_5_5_OR_NEWER
-using UnityEngine.Profiling;
 #endif
 
 namespace MikuLuaProfiler
 {
-    public static class LuaProfiler
+	public static class LuaProfiler
     {
         #region member
         private static IntPtr _mainL = IntPtr.Zero;

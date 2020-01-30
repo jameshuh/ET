@@ -20,7 +20,7 @@ namespace DCET.Hotfix
             
             this.httpListener = new HttpListener();
 
-            StartAccept(prefixs).Coroutine();
+            StartAccept(prefixs);
         }
         
         public WService()
@@ -44,7 +44,7 @@ namespace DCET.Hotfix
 			ClientWebSocket webSocket = new ClientWebSocket();
             WChannel channel = new WChannel(webSocket, this);
             this.channels[channel.Id] = channel;
-            channel.ConnectAsync(address).Coroutine();
+            channel.ConnectAsync(address);
             return channel;
         }
 
@@ -65,7 +65,7 @@ namespace DCET.Hotfix
             
         }
 
-        public async ETVoid StartAccept(IEnumerable<string> prefixs)
+        public async void StartAccept(IEnumerable<string> prefixs)
         {
             try
             {

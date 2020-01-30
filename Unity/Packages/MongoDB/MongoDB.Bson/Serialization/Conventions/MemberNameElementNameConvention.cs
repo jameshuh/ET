@@ -13,15 +13,12 @@
 * limitations under the License.
 */
 
-using System;
-using System.Reflection;
-
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that sets the element name the same as the member name.
-    /// </summary>
-    public class MemberNameElementNameConvention : ConventionBase, IMemberMapConvention
+	/// <summary>
+	/// A convention that sets the element name the same as the member name.
+	/// </summary>
+	public class MemberNameElementNameConvention : ConventionBase, IMemberMapConvention
     {
         // public methods
         /// <summary>

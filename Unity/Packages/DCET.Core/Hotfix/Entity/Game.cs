@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
 	public static class Game
 	{

@@ -22,7 +22,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         this.Value = System.default(T)
       end
       return {
-        __inherits__ = function (out)
+        base = function (out)
           return {
             out.DCET.Hotfix.Entity
           }
@@ -100,7 +100,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       this.behaviorTreeVariables:Clear()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

@@ -14,17 +14,14 @@
 */
 
 using System;
-using System.IO;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Timespans.
-    /// </summary>
-    public class TimeSpanSerializer : StructSerializerBase<TimeSpan>, IRepresentationConfigurable<TimeSpanSerializer>
+	/// <summary>
+	/// Represents a serializer for Timespans.
+	/// </summary>
+	public class TimeSpanSerializer : StructSerializerBase<TimeSpan>, IRepresentationConfigurable<TimeSpanSerializer>
     {
         // private fields
         private readonly BsonType _representation;

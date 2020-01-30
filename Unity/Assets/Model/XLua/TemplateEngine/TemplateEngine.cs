@@ -20,13 +20,11 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Collections;
 using System.Text;
-using XLua;
 
 namespace XLua.TemplateEngine
 {
-    public enum TokenType
+	public enum TokenType
     {
         Code, Eval, Text
     }

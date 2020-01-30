@@ -14,18 +14,15 @@
 */
 
 using System;
-using System.Globalization;
-using System.IO;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Doubles.
-    /// </summary>
-    public class DoubleSerializer : StructSerializerBase<double>, IRepresentationConfigurable<DoubleSerializer>, IRepresentationConverterConfigurable<DoubleSerializer>
+	/// <summary>
+	/// Represents a serializer for Doubles.
+	/// </summary>
+	public class DoubleSerializer : StructSerializerBase<double>, IRepresentationConfigurable<DoubleSerializer>, IRepresentationConverterConfigurable<DoubleSerializer>
     {
         // private fields
         private readonly BsonType _representation;

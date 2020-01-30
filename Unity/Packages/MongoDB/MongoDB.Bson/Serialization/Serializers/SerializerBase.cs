@@ -15,15 +15,14 @@
 
 using System;
 using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Conventions;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents an abstract base class for serializers.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-    public abstract class SerializerBase<TValue> : IBsonSerializer<TValue>
+	/// <summary>
+	/// Represents an abstract base class for serializers.
+	/// </summary>
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+	public abstract class SerializerBase<TValue> : IBsonSerializer<TValue>
     {
         // public properties
         /// <summary>

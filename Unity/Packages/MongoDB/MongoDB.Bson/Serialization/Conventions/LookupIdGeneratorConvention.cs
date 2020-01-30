@@ -13,15 +13,12 @@
 * limitations under the License.
 */
 
-using System;
-using System.Reflection;
-
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that looks up an id generator for the id member.
-    /// </summary>
-    public class LookupIdGeneratorConvention : ConventionBase, IPostProcessingConvention
+	/// <summary>
+	/// A convention that looks up an id generator for the id member.
+	/// </summary>
+	public class LookupIdGeneratorConvention : ConventionBase, IPostProcessingConvention
     {
         // public methods
         /// <summary>

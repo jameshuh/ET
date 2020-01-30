@@ -8,7 +8,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     local GetText, ToObject
     GetText = function (key)
       local default, extern = System.try(function ()
-        local config = System.cast(UnityEngine.GameObject, DCETModel.Game.getScene():GetComponent(DCETModel.ResourcesComponent):GetAsset("config.unity3d", "Config"))
+        local config = System.cast(UnityEngine.GameObject, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):GetAsset("config.unity3d", "Config"))
         local configStr = DCETModel.GameObjectHelper.Get(config, key, UnityEngine.TextAsset):gettext()
         return true, configStr
       end, function (default)
@@ -20,7 +20,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       end
     end
     ToObject = function (str, T)
-      return DCETHotfix.JsonHelper.FromJson(str, T)
+      return DCETModel.JsonHelper.FromJson(str, T)
     end
     return {
       GetText = GetText,

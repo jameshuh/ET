@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 
 namespace XLua
 {
 
-    internal static class TypeExtensions
+	internal static class TypeExtensions
     {
         public static bool IsValueType(this Type type)
         {

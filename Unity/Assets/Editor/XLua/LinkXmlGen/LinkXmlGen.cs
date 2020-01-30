@@ -10,7 +10,7 @@ public class LinkXmlGen : ScriptableObject
 {
     public TextAsset Template;
 
-    public static IEnumerable<CustomGenTask> GetTasks(LuaEnv lua_env, UserConfig user_cfg)
+    public static IEnumerable<CustomGenTask> GTasks(LuaEnv lua_env, UserConfig user_cfg)
     {
         LuaTable data = lua_env.NewTable();
         var assembly_infos = (from type in (user_cfg.ReflectionUse.Concat(user_cfg.LuaCallCSharp))
@@ -29,6 +29,6 @@ public class LinkXmlGen : ScriptableObject
     [GenCodeMenu]//加到Generate Code菜单里头
     public static void GenLinkXml()
     {
-        Generator.CustomGen(ScriptableObject.CreateInstance<LinkXmlGen>().Template.text, GetTasks);
+        Generator.CustomGen(ScriptableObject.CreateInstance<LinkXmlGen>().Template.text, GTasks);
     }
 }

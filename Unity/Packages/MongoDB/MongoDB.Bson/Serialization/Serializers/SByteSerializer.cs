@@ -15,17 +15,13 @@
 
 using System;
 using System.Globalization;
-using System.IO;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for SBytes.
-    /// </summary>
-    [CLSCompliant(false)]
+	/// <summary>
+	/// Represents a serializer for SBytes.
+	/// </summary>
+	[CLSCompliant(false)]
     public class SByteSerializer : StructSerializerBase<sbyte>, IRepresentationConfigurable<SByteSerializer>
     {
         // private fields

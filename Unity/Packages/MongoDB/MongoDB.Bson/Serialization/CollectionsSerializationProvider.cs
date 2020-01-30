@@ -20,15 +20,14 @@ using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// Provides serializers for collections.
-    /// </summary>
-    public class CollectionsSerializationProvider : BsonSerializationProviderBase
+	/// <summary>
+	/// Provides serializers for collections.
+	/// </summary>
+	public class CollectionsSerializationProvider : BsonSerializationProviderBase
     {
         private static readonly Dictionary<Type, Type> __serializerTypes;
 

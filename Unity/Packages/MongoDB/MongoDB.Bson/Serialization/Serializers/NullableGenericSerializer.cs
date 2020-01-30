@@ -14,16 +14,14 @@
 */
 
 using System;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for nullable values.
-    /// </summary>
-    /// <typeparam name="T">The underlying type.</typeparam>
-    public class NullableSerializer<T> :
+	/// <summary>
+	/// Represents a serializer for nullable values.
+	/// </summary>
+	/// <typeparam name="T">The underlying type.</typeparam>
+	public class NullableSerializer<T> :
         SerializerBase<Nullable<T>>,
         IChildSerializerConfigurable
             where T : struct

@@ -13,7 +13,7 @@ namespace DCET.Editor
 		[MenuItem("CSharpLua/Compile BehaviorTreeHotfix")]
 		public static void CompileLua()
 		{
-			GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET/Module/BehaviorTree/Hotfix", "BehaviorTree");
+			GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree");
 		}
 
 		public static void CopyDll()

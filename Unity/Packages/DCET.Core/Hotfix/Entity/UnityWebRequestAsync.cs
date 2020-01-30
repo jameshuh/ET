@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine.Networking;
 
 namespace DCET.Hotfix
@@ -28,7 +29,7 @@ namespace DCET.Hotfix
 
 		public bool isCancel;
 
-		public ETTaskCompletionSource tcs;
+		public TaskCompletionSource<bool> tcs;
 		
 		public override void Dispose()
 		{
@@ -86,12 +87,12 @@ namespace DCET.Hotfix
 				return;
 			}
 
-			this.tcs.SetResult();
+			this.tcs.SetResult(true);
 		}
 
-		public ETTask DownloadAsync(string url)
+		public Task DownloadAsync(string url)
 		{
-			this.tcs = new ETTaskCompletionSource();
+			this.tcs = new TaskCompletionSource<bool>();
 			
 			url = url.Replace(" ", "%20");
 			this.Request = UnityWebRequest.Get(url);

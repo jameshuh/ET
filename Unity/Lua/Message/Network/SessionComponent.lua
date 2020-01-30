@@ -7,7 +7,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Awake()
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_1(out.DCET.Hotfix.SessionComponent)
         }
@@ -46,7 +46,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       class.Instance = nil
     end
     class = {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

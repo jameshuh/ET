@@ -16,8 +16,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
@@ -25,10 +23,10 @@ using MongoDB.Bson.Serialization.Serializers;
 
 namespace MongoDB.Bson
 {
-    /// <summary>
-    /// Represents an immutable BSON document that is represented using only the raw bytes.
-    /// </summary>
-    [BsonSerializer(typeof(RawBsonDocumentSerializer))]
+	/// <summary>
+	/// Represents an immutable BSON document that is represented using only the raw bytes.
+	/// </summary>
+	[BsonSerializer(typeof(RawBsonDocumentSerializer))]
     public class RawBsonDocument : BsonDocument, IDisposable
     {
         // private fields

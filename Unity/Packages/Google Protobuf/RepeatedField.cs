@@ -33,20 +33,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Google.Protobuf.Collections
 {
-    /// <summary>
-    /// The contents of a repeated field: essentially, a collection with some extra
-    /// restrictions (no null values) and capabilities (deep cloning).
-    /// </summary>
-    /// <remarks>
-    /// This implementation does not generally prohibit the use of types which are not
-    /// supported by Protocol Buffers but nor does it guarantee that all operations will work in such cases.
-    /// </remarks>
-    /// <typeparam name="T">The element type of the repeated field.</typeparam>
-    public sealed class RepeatedField<T> : IList<T>, IList 
+	/// <summary>
+	/// The contents of a repeated field: essentially, a collection with some extra
+	/// restrictions (no null values) and capabilities (deep cloning).
+	/// </summary>
+	/// <remarks>
+	/// This implementation does not generally prohibit the use of types which are not
+	/// supported by Protocol Buffers but nor does it guarantee that all operations will work in such cases.
+	/// </remarks>
+	/// <typeparam name="T">The element type of the repeated field.</typeparam>
+	public sealed class RepeatedField<T> : IList<T>, IList 
     {
         private static readonly T[] EmptyArray = new T[0];
         private const int MinArraySize = 8;

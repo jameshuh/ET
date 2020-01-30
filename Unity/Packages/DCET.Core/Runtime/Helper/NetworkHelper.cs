@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace DCET.Hotfix
+namespace DCET.Model
 {
 	public static class NetworkHelper
 	{

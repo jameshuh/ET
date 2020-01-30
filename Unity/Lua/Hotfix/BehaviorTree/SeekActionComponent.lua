@@ -8,7 +8,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Awake(behaviorTreeParent, hotfixAction, behaviorTreeConfig)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_4(out.DCET.Hotfix.SeekActionComponent, out.DCET.Hotfix.Entity, out.BehaviorDesigner.Runtime.Tasks.HotfixAction, out.DCET.Hotfix.BehaviorTreeConfig)
         }
@@ -48,7 +48,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       this.hotfixAction = nil
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

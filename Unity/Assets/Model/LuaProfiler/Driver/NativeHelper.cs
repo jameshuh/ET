@@ -35,16 +35,12 @@ __________#_______####_______####______________
 #if UNITY_EDITOR || USE_LUA_PROFILER
 namespace MikuLuaProfiler
 {
-    using System;
-    using System.Diagnostics;
-    using System.Runtime.InteropServices;
-    using UnityEngine;
 
 #if UNITY_5_5_OR_NEWER
-    using UnityEngine.Profiling;
+	using UnityEngine.Profiling;
 #endif
 
-    public static class NativeHelper
+	public static class NativeHelper
     {
         public static int GetPass()
         {

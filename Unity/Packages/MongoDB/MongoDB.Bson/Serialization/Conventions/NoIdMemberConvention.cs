@@ -13,17 +13,12 @@
 * limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that sets a class's IdMember to null.
-    /// </summary>
-    public class NoIdMemberConvention : ConventionBase, IPostProcessingConvention
+	/// <summary>
+	/// A convention that sets a class's IdMember to null.
+	/// </summary>
+	public class NoIdMemberConvention : ConventionBase, IPostProcessingConvention
     {
         // public methods
         /// <summary>

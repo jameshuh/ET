@@ -13,7 +13,7 @@ namespace DCET.Hotfix
 			this.action = action;
 		}
 		
-		public async ETVoid Handle(Session session, object message)
+		public void Handle(Session session, object message)
 		{
 			this.action.Invoke(session, message);
 		}

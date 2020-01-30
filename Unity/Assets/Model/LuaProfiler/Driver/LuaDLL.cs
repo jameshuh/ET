@@ -47,14 +47,13 @@ using OldLuaDLL = XLua.LuaDLL.Lua;
 #elif SLUA
 using OldLuaDLL = SLua.LuaDLL;
 #else
-using OldLuaDLL = MikuLuaProfiler.LuaDLL;
 #endif
 
 
 namespace MikuLuaProfiler
 {
-#region 通用结构体
-    public enum LuaTypes
+	#region 通用结构体
+	public enum LuaTypes
     {
         LUA_TNONE = -1,
         LUA_TNIL = 0,

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DCET.Model;
+using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace DCET.Hotfix
 {
@@ -10,9 +12,9 @@ namespace DCET.Hotfix
 	}
     
     [ObjectSystem]
-	public class OnceWaitTimerAwakeSystem : AwakeSystem<OnceWaitTimer, ETTaskCompletionSource>
+	public class OnceWaitTimerAwakeSystem : AwakeSystem<OnceWaitTimer, TaskCompletionSource<bool>>
 	{
-		public override void Awake(OnceWaitTimer self, ETTaskCompletionSource callback)
+		public override void Awake(OnceWaitTimer self, TaskCompletionSource<bool> callback)
 		{
 			self.Callback = callback;
 		}
@@ -20,13 +22,13 @@ namespace DCET.Hotfix
 	
 	public class OnceWaitTimer: Entity, ITimer
 	{
-		public ETTaskCompletionSource Callback { get; set; }
+		public TaskCompletionSource<bool> Callback { get; set; }
 		
 		public void Run()
 		{
-			ETTaskCompletionSource tcs = this.Callback;
+			var tcs = this.Callback;
 			this.GetParent<TimerComponent>().Remove(this.Id);
-			tcs.SetResult();
+			tcs.SetResult(true);
 		}
 	}
 	
@@ -209,55 +211,57 @@ namespace DCET.Hotfix
 			}
 		}
 
-		public ETTask WaitTillAsync(long tillTime, ETCancellationToken cancellationToken)
+		public Task WaitTillAsync(long tillTime, CancellationToken cancellationToken)
 		{
 			if (TimeHelper.Now() > tillTime)
 			{
-				return ETTask.CompletedTask;
+				return Task.CompletedTask;
 			}
-			ETTaskCompletionSource tcs = new ETTaskCompletionSource();
-			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, ETTaskCompletionSource>(this, tcs);
+
+			var tcs = new TaskCompletionSource<bool>();
+
+			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
 			this.timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			cancellationToken.Register(() => { this.Remove(timer.Id); });
 			return tcs.Task;
 		}
 
-		public ETTask WaitTillAsync(long tillTime)
+		public Task WaitTillAsync(long tillTime)
 		{
 			if (TimeHelper.Now() > tillTime)
 			{
-				return ETTask.CompletedTask;
+				return Task.CompletedTask;
 			}
-			ETTaskCompletionSource tcs = new ETTaskCompletionSource();
-			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, ETTaskCompletionSource>(this, tcs);
+			var tcs = new TaskCompletionSource<bool>();
+			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
 			this.timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return tcs.Task;
 		}
 
-		public ETTask WaitAsync(long time, ETCancellationToken cancellationToken)
+		public Task WaitAsync(long time, CancellationToken cancellationToken)
 		{
 			long tillTime = TimeHelper.Now() + time;
 
             if (TimeHelper.Now() > tillTime)
             {
-                return ETTask.CompletedTask;
+                return Task.CompletedTask;
             }
 
-            ETTaskCompletionSource tcs = new ETTaskCompletionSource();
-			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, ETTaskCompletionSource>(this, tcs);
+            var tcs = new TaskCompletionSource<bool>();
+			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
 			this.timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			cancellationToken.Register(() => { this.Remove(timer.Id); });
 			return tcs.Task;
 		}
 
-		public ETTask WaitAsync(long time)
+		public Task WaitAsync(long time)
 		{
 			long tillTime = TimeHelper.Now() + time;
-			ETTaskCompletionSource tcs = new ETTaskCompletionSource();
-			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, ETTaskCompletionSource>(this, tcs);
+			var tcs = new TaskCompletionSource<bool>();
+			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
 			this.timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return tcs.Task;

@@ -16,7 +16,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
@@ -25,11 +24,11 @@ using MongoDB.Shared;
 
 namespace MongoDB.Bson
 {
-    /// <summary>
-    /// Represents a BSON document.
-    /// </summary>
+	/// <summary>
+	/// Represents a BSON document.
+	/// </summary>
 #if NET452
-    [Serializable]
+	[Serializable]
 #endif
     public class BsonDocument : BsonValue, IComparable<BsonDocument>, IConvertibleToBsonDocument, IEnumerable<BsonElement>, IEquatable<BsonDocument>
     {

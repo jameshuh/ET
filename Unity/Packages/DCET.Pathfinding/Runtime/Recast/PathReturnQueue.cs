@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
 #if UNITY_5_5_OR_NEWER
-using UnityEngine.Profiling;
 #endif
 
-namespace PF {
+namespace PF
+{
 	public class PathReturnQueue {
 		/**
 		 * Holds all paths which are waiting to be flagged as completed.

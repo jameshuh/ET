@@ -6,7 +6,8 @@ System.import(function (out)
 end)
 System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("Game", function (namespace)
-    local eventSystem, getEventSystem, scene, getScene, objectPool, getObjectPool, Close
+    local eventSystem, getEventSystem, scene, getScene, objectPool, getObjectPool, hotfix, getHotfix, 
+    Close
     getEventSystem = function ()
       local default = eventSystem
       if default == nil then
@@ -20,7 +21,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return scene
       end
       local default = DCETHotfix.Scene()
-      default.Name = "ClientH"
+      default.Name = "ClientM"
       scene = default
       return scene
     end
@@ -29,9 +30,17 @@ System.namespace("DCET.Hotfix", function (namespace)
         return objectPool
       end
       local default = DCETHotfix.ObjectPool()
-      default.Name = "ClientH"
+      default.Name = "ClientM"
       objectPool = default
       return objectPool
+    end
+    getHotfix = function ()
+      local default = hotfix
+      if default == nil then
+        hotfix = DCETHotfix.Hotfix()
+        default = hotfix
+      end
+      return default
     end
     Close = function ()
       local default = scene
@@ -46,12 +55,15 @@ System.namespace("DCET.Hotfix", function (namespace)
       end
       objectPool = nil
 
+      hotfix = nil
+
       eventSystem = nil
     end
     return {
       getEventSystem = getEventSystem,
       getScene = getScene,
       getObjectPool = getObjectPool,
+      getHotfix = getHotfix,
       Close = Close
     }
   end)

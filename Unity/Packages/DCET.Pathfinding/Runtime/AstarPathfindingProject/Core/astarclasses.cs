@@ -5,11 +5,10 @@ using Mathf = UnityEngine.Mathf;
 
 // Empty namespace declaration to avoid errors in the free version
 // Which does not have any classes in the RVO namespace
-namespace Pathfinding.RVO {}
+namespace Pathfinding.RVO { }
 
-namespace Pathfinding {
-	using Pathfinding.Util;
-
+namespace Pathfinding
+{
 #if UNITY_5_0
 	/** Used in Unity 5.0 since the HelpURLAttribute was first added in Unity 5.1 */
 	public class HelpURLAttribute : Attribute {

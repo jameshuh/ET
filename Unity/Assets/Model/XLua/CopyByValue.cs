@@ -12,15 +12,13 @@ using RealStatePtr = UniLua.ILuaState;
 using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
 using LuaAPI = XLua.LuaDLL.Lua;
-using RealStatePtr = System.IntPtr;
-using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
 
 using System;
 
 namespace XLua
 {
-    public static partial class CopyByValue
+	public static partial class CopyByValue
     {
         // for int 8
         public static bool Pack(IntPtr buff, int offset, byte field)

@@ -13,15 +13,12 @@
 * limitations under the License.
 */
 
-using System;
-using MongoDB.Bson.IO;
-
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// An interface implemented by a polymorphic serializer.
-    /// </summary>
-    public interface IBsonPolymorphicSerializer
+	/// <summary>
+	/// An interface implemented by a polymorphic serializer.
+	/// </summary>
+	public interface IBsonPolymorphicSerializer
     {
         /// <summary>
         /// Gets a value indicating whether this serializer's discriminator is compatible with the object serializer.

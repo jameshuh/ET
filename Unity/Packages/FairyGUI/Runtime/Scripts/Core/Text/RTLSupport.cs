@@ -11,13 +11,12 @@
 	概	述：		新建
 
 *********************************************************************/
-using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FairyGUI
 {
-    public class RTLSupport
+	public class RTLSupport
     {
         internal enum CharState
         {

@@ -23,7 +23,7 @@ namespace DCET.Editor
 		[MenuItem("CSharpLua/Compile CoreHotfix")]
 		public static void CompileLua()
 		{
-			CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET/Core/Hotfix", "Core");
+			CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core");
 		}
 
 		public static void CopyDll()

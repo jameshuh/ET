@@ -13,7 +13,6 @@ using LuaCSFunction = UniLua.CSharpFunctionDelegate;
 #else
 using LuaAPI = XLua.LuaDLL.Lua;
 using RealStatePtr = System.IntPtr;
-using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 #endif
 
 using System.Collections;
@@ -23,7 +22,7 @@ using System.Reflection;
 
 namespace XLua
 {
-    public delegate bool ObjectCheck(RealStatePtr L, int idx);
+	public delegate bool ObjectCheck(RealStatePtr L, int idx);
 
     public delegate object ObjectCast(RealStatePtr L, int idx, object target); // if target is null, will new one
 

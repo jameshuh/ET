@@ -18,7 +18,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       DCETHotfix.Game.getScene():GetComponent(DCETHotfix.FUIComponent):Add(fui, true)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AEvent
         }

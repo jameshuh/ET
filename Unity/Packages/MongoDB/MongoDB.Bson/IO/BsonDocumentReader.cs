@@ -14,14 +14,13 @@
 */
 
 using System;
-using System.IO;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// Represents a BSON reader for a BsonDocument.
-    /// </summary>
-    public class BsonDocumentReader : BsonReader
+	/// <summary>
+	/// Represents a BSON reader for a BsonDocument.
+	/// </summary>
+	public class BsonDocumentReader : BsonReader
     {
         // private fields
         private BsonDocumentReaderContext _context;

@@ -19,5 +19,11 @@
 #else
 		public static bool IsDevelopmentBuild = false;
 #endif
+
+#if XLUA
+		public static bool IsLua = true;
+#else
+		public static bool IsLua = false;
+#endif
 	}
 }

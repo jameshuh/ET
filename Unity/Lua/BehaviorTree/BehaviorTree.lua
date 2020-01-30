@@ -7,7 +7,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       self:Awake(behaviorTree)
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.AwakeSystem_2(out.DCET.Hotfix.BehaviorTree, out.BehaviorDesigner.Runtime.BehaviorTree)
         }
@@ -46,7 +46,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       this.Behavior = nil
     end
     return {
-      __inherits__ = function (out)
+      base = function (out)
         return {
           out.DCET.Hotfix.Entity
         }

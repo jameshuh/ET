@@ -14,15 +14,14 @@
 */
 
 using System;
-using System.IO;
 using System.Text;
 
 namespace MongoDB.Bson.IO
 {
-    /// <summary>
-    /// A static class that represents a JSON scanner.
-    /// </summary>
-    internal static class JsonScanner
+	/// <summary>
+	/// A static class that represents a JSON scanner.
+	/// </summary>
+	internal static class JsonScanner
     {
         // public static methods
         /// <summary>

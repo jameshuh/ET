@@ -35,13 +35,10 @@ __________#_______####_______####______________
 
 #if UNITY_EDITOR || USE_LUA_PROFILER
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MikuLuaProfiler
 {
-    public class MList<T>
+	public class MList<T>
     {
         private const int DefaultCapacity = 4;
         private T[] _items;

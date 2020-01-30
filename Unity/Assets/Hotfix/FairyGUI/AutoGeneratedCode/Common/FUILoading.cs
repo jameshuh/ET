@@ -2,11 +2,10 @@
 
 using System.Threading.Tasks;
 using FairyGUI;
-using DCET.Model;
 
 namespace DCET.Hotfix.Common
 {
-    [ObjectSystem]
+	[ObjectSystem]
     public class FUILoadingAwakeSystem : AwakeSystem<FUILoading, GObject>
     {
         public override void Awake(FUILoading self, GObject go)

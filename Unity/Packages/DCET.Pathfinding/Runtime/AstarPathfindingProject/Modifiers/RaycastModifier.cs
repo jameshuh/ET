@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using PF;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Pathfinding {
-	using Pathfinding.Util;
-
+namespace Pathfinding
+{
 	/** Simplifies a path using raycasting.
 	 * \ingroup modifiers
 	 * This modifier will try to remove as many nodes as possible from the path using raycasting (linecasting) to validate the node removal.

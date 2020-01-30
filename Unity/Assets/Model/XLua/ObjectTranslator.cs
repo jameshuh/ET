@@ -19,14 +19,13 @@ using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 
 namespace XLua
 {
-    using System;
-    using System.Collections;
-    using System.Reflection;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
+	using System;
+	using System.Collections;
+	using System.Reflection;
+	using System.Collections.Generic;
+	using System.Linq;
 
-    class ReferenceEqualsComparer : IEqualityComparer<object>
+	class ReferenceEqualsComparer : IEqualityComparer<object>
     {
         public new bool Equals(object o1, object o2)
         {

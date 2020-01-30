@@ -14,14 +14,13 @@
 */
 
 using System;
-using MongoDB.Bson.IO;
 
 namespace MongoDB.Bson.Serialization
 {
-    /// <summary>
-    /// Represents args common to all serializers.
-    /// </summary>
-    public struct BsonDeserializationArgs
+	/// <summary>
+	/// Represents args common to all serializers.
+	/// </summary>
+	public struct BsonDeserializationArgs
     {
         // private fields
         private Type _nominalType;

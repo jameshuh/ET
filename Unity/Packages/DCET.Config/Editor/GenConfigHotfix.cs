@@ -18,7 +18,7 @@ namespace DCET.Editor
 		[MenuItem("CSharpLua/Compile ConfigHotfix")]
 		public static void CompileLua()
 		{
-			GenCoreHotfix.CompileLua("Unity.DCET.Config.Hotfix", "./Packages/DCET/Module/Config/Hotfix", "Config");
+			GenCoreHotfix.CompileLua("Unity.DCET.Config.Hotfix", "./Packages/DCET.Config/Hotfix", "Config");
 		}
 	}
 }

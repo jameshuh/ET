@@ -15,14 +15,13 @@
 
 using System;
 using System.Reflection;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Conventions
 {
-    /// <summary>
-    /// A convention that allows you to set the Enum serialization representation
-    /// </summary>
-    public class EnumRepresentationConvention : ConventionBase, IMemberMapConvention
+	/// <summary>
+	/// A convention that allows you to set the Enum serialization representation
+	/// </summary>
+	public class EnumRepresentationConvention : ConventionBase, IMemberMapConvention
     {
         // private fields
         private readonly BsonType _representation;

@@ -13,17 +13,13 @@
 * limitations under the License.
 */
 
-using System;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Conventions;
-
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents an abstract base class for struct serializers.
-    /// </summary>
-    /// <typeparam name="TValue">The type of the value.</typeparam>
-    public abstract class StructSerializerBase<TValue> : SerializerBase<TValue> where TValue : struct
+	/// <summary>
+	/// Represents an abstract base class for struct serializers.
+	/// </summary>
+	/// <typeparam name="TValue">The type of the value.</typeparam>
+	public abstract class StructSerializerBase<TValue> : SerializerBase<TValue> where TValue : struct
     {
     }
 }

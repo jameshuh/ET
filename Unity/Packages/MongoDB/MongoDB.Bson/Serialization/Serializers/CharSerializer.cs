@@ -14,17 +14,13 @@
 */
 
 using System;
-using System.IO;
-using MongoDB.Bson.IO;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
 
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for Chars.
-    /// </summary>
-    public class CharSerializer : StructSerializerBase<char>, IRepresentationConfigurable<CharSerializer>
+	/// <summary>
+	/// Represents a serializer for Chars.
+	/// </summary>
+	public class CharSerializer : StructSerializerBase<char>, IRepresentationConfigurable<CharSerializer>
     {
         // private fields
         private readonly BsonType _representation;

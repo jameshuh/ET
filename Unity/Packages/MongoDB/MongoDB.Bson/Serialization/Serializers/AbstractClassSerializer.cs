@@ -13,19 +13,13 @@
 * limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MongoDB.Bson.Serialization.Serializers
 {
-    /// <summary>
-    /// Represents a serializer for an abstract class.
-    /// </summary>
-    /// <typeparam name="TClass">The type of the class.</typeparam>
-    public class AbstractClassSerializer<TClass> : ClassSerializerBase<TClass> where TClass : class
+	/// <summary>
+	/// Represents a serializer for an abstract class.
+	/// </summary>
+	/// <typeparam name="TClass">The type of the class.</typeparam>
+	public class AbstractClassSerializer<TClass> : ClassSerializerBase<TClass> where TClass : class
     {
     }
 }
