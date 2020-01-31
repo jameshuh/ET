@@ -13,42 +13,39 @@ namespace DCET.Editor
 
 		private const string ScriptAssembliesDir = "Library/ScriptAssemblies";
         private const string CodeDir = "Assets/Res/Code/";
-		private const string MetaExtensionName = ".meta";
 
 		static GenCoreHotfix()
 		{
-			CopyDll();
+			if (CopyDll("Unity.DCET.Core.Hotfix") && Define.IsLua)
+			{
+				CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core");
+			}
 		}
-
-		[MenuItem("CSharpLua/Compile CoreHotfix")]
-		public static void CompileLua()
+		
+		public static bool CopyDll(string dllName)
 		{
-			CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core");
-		}
+			var result = FileHelper.CopyFile(Path.Combine(ScriptAssembliesDir, $"{dllName}.dll"), Path.Combine(CodeDir, $"{dllName}.dll.bytes"), true);
+			
+			result = result || FileHelper.CopyFile(Path.Combine(ScriptAssembliesDir, $"{dllName}.pdb"), Path.Combine(CodeDir, $"{dllName}.pdb.bytes"), true);
 
-		public static void CopyDll()
-		{
-			CopyDll("Unity.DCET.Core.Hotfix");
-		}
+			if (result)
+			{
+				Log.Info($"复制{dllName}.dll, {dllName}.pdb到Res/Code完成");
+				AssetDatabase.Refresh();
+			}
 
-		public static void CopyDll(string dllName)
-		{
-			File.Copy(Path.Combine(ScriptAssembliesDir, $"{dllName}.dll"), Path.Combine(CodeDir, $"{dllName}.dll.bytes"), true);
-			File.Copy(Path.Combine(ScriptAssembliesDir, $"{dllName}.pdb"), Path.Combine(CodeDir, $"{dllName}.pdb.bytes"), true);
-			Log.Info($"复制{dllName}.dll, {dllName}.pdb到Res/Code完成");
-			AssetDatabase.Refresh();
+			return result;
 		}
 
 		public static void CompileLua(string dllName, string dllDir, string outDirName)
 		{
 			LuaCompiler.Compile(dllName, dllDir, outDirName);
-			FileHelper.CopyDirectory(LuaCompiler.outDir + outDirName, LuaDir + outDirName);
-			FileHelper.RenameAllFileSuffix(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
+			FileHelper.AppendSuffixName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
 			AssetDatabase.Refresh();
 		}
 
-		[MenuItem("CSharpLua/Rename All Files In Selected Folder")]
-		public static void RenameSelectedFolder()
+		[MenuItem("XLua/Append the all lua file of the selected folder with \".txt\"")]
+		public static void AppendSelectedFolder()
 		{
 			var assetGUIDs = Selection.assetGUIDs;
 
@@ -60,10 +57,7 @@ namespace DCET.Editor
 				{
 					var outDirName = assetPath.Substring(assetPath.LastIndexOf("/") + 1);
 
-					FileHelper.CleanDirectory(LuaDir + outDirName);
-					FileHelper.CopyDirectory(LuaCompiler.outDir + outDirName, LuaDir + outDirName);
-					FileHelper.CleanDirectory(LuaDir + outDirName, MetaExtensionName);
-					FileHelper.RenameAllFileSuffix(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
+					FileHelper.AppendSuffixName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
 				}
 			}
 

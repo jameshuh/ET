@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using DCET.Model;
+using UnityEditor;
 
 namespace DCET.Editor
 {
@@ -7,18 +8,10 @@ namespace DCET.Editor
 	{
 		static GenBehaviorTreeHotfix()
 		{
-			CopyDll();
-		}
-
-		[MenuItem("CSharpLua/Compile BehaviorTreeHotfix")]
-		public static void CompileLua()
-		{
-			GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree");
-		}
-
-		public static void CopyDll()
-		{
-			GenCoreHotfix.CopyDll("Unity.DCET.BehaviorTree.Hotfix");
+			if (GenCoreHotfix.CopyDll("Unity.DCET.BehaviorTree.Hotfix") && Define.IsLua)
+			{
+				GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree");
+			}
 		}
 	}
 }

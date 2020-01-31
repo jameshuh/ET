@@ -125,11 +125,10 @@ namespace DCET.Editor
 
             foreach (var go in gameObjects)
             {
-                if (PrefabUtility.GetPrefabParent(go))
-                {
-                    PrefabUtility.ReplacePrefab(go as GameObject, PrefabUtility.GetPrefabParent(go), ReplacePrefabOptions.ConnectToPrefab);
-                }
+                PrefabUtility.ApplyPrefabInstance(go as GameObject, InteractionMode.AutomatedAction);
             }
+
+            AssetDatabase.Refresh();
         }
     }
 }

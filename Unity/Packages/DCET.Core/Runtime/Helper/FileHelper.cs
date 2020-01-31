@@ -57,6 +57,20 @@ namespace DCET.Model
 			}
 		}
 
+		public static bool CopyFile(string sourcePath, string targetPath, bool overwrite)
+		{
+			var sourceText = File.ReadAllText(sourcePath);
+			var targetText = File.ReadAllText(sourcePath);
+
+			if(sourceText != targetText)
+			{
+				File.Copy(sourcePath, targetPath, overwrite);
+				return true;
+			}
+
+			return false;
+		}
+
 		public static void CopyDirectory(string srcDir, string tgtDir)
 		{
 			DirectoryInfo source = new DirectoryInfo(srcDir);
@@ -92,7 +106,7 @@ namespace DCET.Model
 			}
 		}
 
-		public static void RenameAllFileSuffix(string srcDir, string extensionName, string suffixName)
+		public static void AppendSuffixName(string srcDir, string extensionName, string suffixName)
 		{
 			if (Directory.Exists(srcDir))
 			{
@@ -111,7 +125,7 @@ namespace DCET.Model
 
 				foreach (string subDir in subDirs)
 				{
-					RenameAllFileSuffix(subDir, extensionName, suffixName);
+					AppendSuffixName(subDir, extensionName, suffixName);
 				}
 			}
 		}

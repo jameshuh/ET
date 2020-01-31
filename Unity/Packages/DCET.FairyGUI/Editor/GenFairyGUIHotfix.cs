@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using DCET.Model;
+using UnityEditor;
 
 namespace DCET.Editor
 {
@@ -7,18 +8,10 @@ namespace DCET.Editor
 	{
 		static GenFairyGUIHotfix()
 		{
-			CopyDll();
-		}
-
-		public static void CopyDll()
-		{
-			GenCoreHotfix.CopyDll("Unity.DCET.FairyGUI.Hotfix");
-		}
-
-		[MenuItem("CSharpLua/Compile FairyGUIHotfix")]
-		public static void CompileLua()
-		{
-			GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI");
+			if (GenCoreHotfix.CopyDll("Unity.DCET.FairyGUI.Hotfix") && Define.IsLua)
+			{
+				GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI");
+			}
 		}
 	}
 }

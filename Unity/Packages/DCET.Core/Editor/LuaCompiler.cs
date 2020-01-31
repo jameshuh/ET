@@ -76,6 +76,7 @@ namespace DCET.Editor
 				RedirectStandardError = true,
 				StandardOutputEncoding = Encoding.UTF8,
 				StandardErrorEncoding = Encoding.UTF8,
+				CreateNoWindow = true
 			};
 			using (var p = Process.Start(info))
 			{

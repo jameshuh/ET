@@ -101,6 +101,7 @@ namespace DCET.Hotfix
 			behaviorTree.GetComponent<BehaviorTreeVariableComponent>().SetVariable("变量2", "");
 			behaviorTree.GetComponent<BehaviorTreeVariableComponent>().SetVariable("变量3", behaviorTree);
 			behaviorTree.GetComponent<BehaviorTreeVariableComponent>().SetVariable("变量4", runtimeBehaivorTree);
+
 		}
 
 		public static void Update()

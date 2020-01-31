@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using DCET.Model;
+using UnityEditor;
 using UnityEngine;
 
 namespace DCET.Editor
@@ -8,18 +9,10 @@ namespace DCET.Editor
 	{
 		static GenHotfix()
 		{
-			CopyDll(); 
-		}
-
-		public static void CopyDll()
-		{
-			GenCoreHotfix.CopyDll("Unity.DCET.Hotfix");
-		}
-
-		[MenuItem("CSharpLua/Compile Hotfix")]
-		public static void CompileLua()
-		{
-			GenCoreHotfix.CompileLua("Unity.DCET.Hotfix", Application.dataPath + "/Hotfix", "Hotfix");
+			if (GenCoreHotfix.CopyDll("Unity.DCET.Hotfix") && Define.IsLua)
+			{
+				GenCoreHotfix.CompileLua("Unity.DCET.Hotfix", Application.dataPath + "/Hotfix", "Hotfix");
+			}
 		}
 	}
 }

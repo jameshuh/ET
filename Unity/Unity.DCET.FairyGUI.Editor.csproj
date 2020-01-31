@@ -701,6 +701,10 @@
       <Project>{5BC53247-AB6C-0B59-23B1-0085B66E6AE1}</Project>
       <Name>Unity.DCET.Core.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
+      <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
+      <Name>Unity.DCET.Core.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
