@@ -89,6 +89,7 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Component\ResourcesComponent.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Component\SceneChangeComponent.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Component\TimerComponent.cs" />
+    <Compile Include="Packages\DCET.Core\Hotfix\Entity\ABInfo.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\AssetsBundleLoaderAsync.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\AssetsLoaderAsync.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\Game.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Generic\UnOrderMultiMap.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Generic\UnOrderMultiMapSet.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\ComponentHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Hotfix\Helper\DependenciesHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\Dumper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\EnumHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\ExceptionHelper.cs" />

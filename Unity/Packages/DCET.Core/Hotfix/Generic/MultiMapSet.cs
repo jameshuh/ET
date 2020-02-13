@@ -86,7 +86,7 @@ namespace DCET.Hotfix
 
 		public bool Remove(T t)
 		{
-			HashSet<K> list = null;
+			HashSet<K> list;
 			this.dictionary.TryGetValue(t, out list);
 			if (list != null)
 			{

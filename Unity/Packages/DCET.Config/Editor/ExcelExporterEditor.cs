@@ -63,8 +63,7 @@ namespace DCET.Editor
 
 					ExportAll(clientPath);
 
-					ExportAllClass(@"./Assets/Model/Module/Demo/Config", "namespace ETModel\n{\n");
-					ExportAllClass(@"./Assets/Hotfix/Module/Demo/Config", "using ETModel;\n\nnamespace ETHotfix\n{\n");
+					ExportAllClass(@"./Assets/Hotfix/Config", "using DCET.Model;\n\nnamespace DCET.Hotfix\n{\n");
 
 					Log.Info($"导出客户端配置完成!");
 				}

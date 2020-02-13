@@ -73,6 +73,7 @@
     <Compile Include="Packages\DCET.Core\Runtime\Base\StructBsonSerialize.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Base\VersionConfig.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\AssetBundleHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\AssetDatabaseHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ByteHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\FileHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\GameObjectHelper.cs" />

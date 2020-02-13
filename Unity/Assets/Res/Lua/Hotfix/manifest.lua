@@ -11,6 +11,7 @@ return function (path)
       "BehaviorTree.SeekActionComponent",
       "BehaviorTree.WithInRoomActionComponent",
       "Config.BehaviorTreeConfig",
+      "Config.UnitConfig",
       "Entity.AnimatorComponent",
       "Entity.CameraComponent",
       "Entity.MoveComponent",
@@ -52,6 +53,7 @@ return function (path)
       "DCET.Hotfix.TurnComponent",
       "DCET.Hotfix.Unit",
       "DCET.Hotfix.UnitComponent",
+      "DCET.Hotfix.UnitConfig",
       "DCET.Hotfix.WithInRoomActionComponent",
       "DCET.Hotfix.AnimatorComponentAwakeSystem",
       "DCET.Hotfix.AnimatorComponentUpdateSystem",
@@ -84,6 +86,7 @@ return function (path)
       "DCET.Hotfix.TypeHelper",
       "DCET.Hotfix.UnitAwakeSystem",
       "DCET.Hotfix.UnitComponentSystem",
+      "DCET.Hotfix.UnitConfigCategory",
       "DCET.Hotfix.UnitFactory",
       "DCET.Hotfix.UnitPathComponent",
       "DCET.Hotfix.WithInRoomActionComponentAwakeSystem"

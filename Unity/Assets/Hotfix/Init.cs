@@ -20,13 +20,9 @@ namespace DCET.Hotfix
 
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
-
-				Game.Scene.AddComponent<ResourcesComponent>();
-				Game.Scene.GetComponent<ResourcesComponent>().LoadOneBundle("StreamingAssets");
-				ResourcesComponent.AssetBundleManifestObject = (AssetBundleManifest)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("StreamingAssets", "AssetBundleManifest");
-
+								
 				// 加载热更配置
-				Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+				Game.Scene.AddComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 

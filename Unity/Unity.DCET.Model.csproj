@@ -202,6 +202,7 @@
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_AssetBundleHelperWrap.cs" />
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_AssetBundleLoaderAsyncWrap.cs" />
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_AssetBundlesWrap.cs" />
+    <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_AssetDatabaseHelperWrap.cs" />
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_AssetLoaderAsyncWrap.cs" />
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_BundleDownloaderWrap.cs" />
     <Compile Include="Assets\Model\ToLua\Source\Generate\DCET_Model_ByteHelperWrap.cs" />

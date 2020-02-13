@@ -84,7 +84,7 @@ namespace DCET.Hotfix
 
 		public bool Remove(T t)
 		{
-			List<K> list = null;
+			List<K> list;
 			this.dictionary.TryGetValue(t, out list);
 			if (list != null)
 			{

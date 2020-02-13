@@ -177,7 +177,7 @@ namespace DCET.Hotfix
 
 		public Entity Get(long instanceId)
 		{
-			Entity component = null;
+			Entity component;
 			this.allComponents.TryGetValue(instanceId, out component);
 			return component;
 		}

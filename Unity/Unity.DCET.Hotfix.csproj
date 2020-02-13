@@ -71,6 +71,7 @@
     <Compile Include="Assets\Hotfix\BehaviorTree\SeekActionComponent.cs" />
     <Compile Include="Assets\Hotfix\BehaviorTree\WithInRoomActionComponent.cs" />
     <Compile Include="Assets\Hotfix\Config\BehaviorTreeConfig.cs" />
+    <Compile Include="Assets\Hotfix\Config\UnitConfig.cs" />
     <Compile Include="Assets\Hotfix\Entity\AnimatorComponent.cs" />
     <Compile Include="Assets\Hotfix\Entity\CameraComponent.cs" />
     <Compile Include="Assets\Hotfix\Entity\MoveComponent.cs" />

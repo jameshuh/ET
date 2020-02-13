@@ -66,7 +66,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return true
       end
       Remove1 = function (this, t)
-        local list = nil
+        local list
         local _
         _, list = this.dictionary:TryGetValue(t)
         if list ~= nil then

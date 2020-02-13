@@ -24,12 +24,8 @@ System.namespace("DCET.Hotfix", function (namespace)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.OpcodeTypeComponent)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.MessageDispatcherComponent)
 
-          DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ResourcesComponent)
-          DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):LoadOneBundle("StreamingAssets")
-          DCETHotfix.ResourcesComponent.AssetBundleManifestObject = System.cast(UnityEngine.AssetBundleManifest, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):GetAsset("StreamingAssets", "AssetBundleManifest"))
-
           -- 加载热更配置
-          DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):LoadBundle("config.unity3d")
+          DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ResourcesComponent):LoadBundle("config.unity3d")
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ConfigComponent)
           DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):UnloadBundle("config.unity3d")
 

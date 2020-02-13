@@ -208,6 +208,7 @@ public static class LuaBinder
 		DCET_Model_FileVersionInfoWrap.Register(L);
 		DCET_Model_VersionConfigWrap.Register(L);
 		DCET_Model_AssetBundleHelperWrap.Register(L);
+		DCET_Model_AssetDatabaseHelperWrap.Register(L);
 		DCET_Model_ByteHelperWrap.Register(L);
 		DCET_Model_FileHelperWrap.Register(L);
 		DCET_Model_GameObjectHelperWrap.Register(L);

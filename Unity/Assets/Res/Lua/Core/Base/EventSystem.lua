@@ -174,7 +174,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       this.allComponents:RemoveKey(instanceId)
     end
     Get = function (this, instanceId)
-      local component = nil
+      local component
       local _
       _, component = this.allComponents:TryGetValue(instanceId)
       return component
