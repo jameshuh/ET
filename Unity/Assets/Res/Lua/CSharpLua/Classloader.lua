@@ -33,7 +33,12 @@ local config = {
       return isUserdataType
     end
   end,
-  customTypeof = typeof
+  customTypeof = function (T)
+    if isFromCSharp(T) then
+      return typeof(T)
+    end
+    return nil
+  end
 }
 
 UnityEngine.isFromCSharp = isFromCSharp
