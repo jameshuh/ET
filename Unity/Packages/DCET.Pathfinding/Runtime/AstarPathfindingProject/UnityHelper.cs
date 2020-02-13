@@ -172,8 +172,8 @@ namespace Pathfinding
         /** Creates a mesh of the surfaces of the navmesh for use in OnDrawGizmos in the editor */
 		public static void CreateNavmeshSurfaceVisualization (this NavmeshBase navmeshBase, NavmeshTile tile, GraphGizmoHelper helper) {
 			// Vertex array might be a bit larger than necessary, but that's ok
-			var vertices = ArrayPool<Vector3>.Claim(tile.nodes.Length*3);
-			var colors = ArrayPool<Color>.Claim(tile.nodes.Length*3);
+			var vertices = PF.ArrayPool<Vector3>.Claim(tile.nodes.Length*3);
+			var colors = PF.ArrayPool<Color>.Claim(tile.nodes.Length*3);
 
 			for (int j = 0; j < tile.nodes.Length; j++) {
 				var node = tile.nodes[j];
@@ -191,8 +191,8 @@ namespace Pathfinding
 			if (navmeshBase.showMeshOutline) helper.DrawWireTriangles(vertices, colors, tile.nodes.Length);
 
 			// Return lists to the pool
-			ArrayPool<Vector3>.Release(ref vertices);
-			ArrayPool<Color>.Release(ref colors);
+			PF.ArrayPool<Vector3>.Release(ref vertices);
+			PF.ArrayPool<Color>.Release(ref colors);
 		}
 
 		/** Creates an outline of the navmesh for use in OnDrawGizmos in the editor */
@@ -575,7 +575,7 @@ namespace Pathfinding
 		public static Bounds Transform (this GraphTransform self, Bounds bounds) {
 			if (self.onlyTranslational) return new Bounds(bounds.center + self.translation.ToUnityV3(), bounds.size);
 
-			var corners = ArrayPool<Vector3>.Claim(8);
+			var corners = PF.ArrayPool<Vector3>.Claim(8);
 			var extents = bounds.extents;
 			corners[0] = self.Transform(bounds.center + new Vector3(extents.x, extents.y, extents.z));
 			corners[1] = self.Transform(bounds.center + new Vector3(extents.x, extents.y, -extents.z));
@@ -592,14 +592,14 @@ namespace Pathfinding
 				min = Vector3.Min(min, corners[i]);
 				max = Vector3.Max(max, corners[i]);
 			}
-			ArrayPool<Vector3>.Release(ref corners);
+			PF.ArrayPool<Vector3>.Release(ref corners);
 			return new Bounds((min+max)*0.5f, max - min);
 		}
 
 		public static Bounds InverseTransform (this GraphTransform self, Bounds bounds) {
 			if (self.onlyTranslational) return new Bounds(bounds.center - self.translation.ToUnityV3(), bounds.size);
 
-			var corners = ArrayPool<Vector3>.Claim(8);
+			var corners = PF.ArrayPool<Vector3>.Claim(8);
 			var extents = bounds.extents;
 			corners[0] = self.InverseTransform(bounds.center + new Vector3(extents.x, extents.y, extents.z));
 			corners[1] = self.InverseTransform(bounds.center + new Vector3(extents.x, extents.y, -extents.z));
@@ -616,7 +616,7 @@ namespace Pathfinding
 				min = Vector3.Min(min, corners[i]);
 				max = Vector3.Max(max, corners[i]);
 			}
-			ArrayPool<Vector3>.Release(ref corners);
+			PF.ArrayPool<Vector3>.Release(ref corners);
 			return new Bounds((min+max)*0.5f, max - min);
 		}
 	    

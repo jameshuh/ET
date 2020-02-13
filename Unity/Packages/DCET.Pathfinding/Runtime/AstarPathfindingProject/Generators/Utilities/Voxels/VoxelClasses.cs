@@ -408,8 +408,8 @@ namespace Pathfinding.Voxels {
 		/** Pool the #vertices and #triangles arrays if the #pool field is true */
 		public void Pool () {
 			if (pool) {
-				ArrayPool<int>.Release(ref triangles);
-				ArrayPool<Vector3>.Release(ref vertices);
+				PF.ArrayPool<int>.Release(ref triangles);
+				PF.ArrayPool<Vector3>.Release(ref vertices);
 			}
 		}
 	}

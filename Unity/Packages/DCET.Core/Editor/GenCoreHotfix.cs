@@ -8,7 +8,7 @@ namespace DCET.Editor
     public static class GenCoreHotfix
 	{
 		public const string LuaDir = "./Lua/";
-		public const string LuaSuffixName = ".txt";
+		public const string LuaTxtExtensionName = ".lua.txt";
 		public const string LuaExtensionName = ".lua";
 
 		private const string ScriptAssembliesDir = "Library/ScriptAssemblies";
@@ -18,7 +18,7 @@ namespace DCET.Editor
 		{
 			if (CopyDll("Unity.DCET.Core.Hotfix") && Define.IsLua)
 			{
-				CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core");
+				CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core", true);
 			}
 		}
 		
@@ -37,14 +37,14 @@ namespace DCET.Editor
 			return result;
 		}
 
-		public static void CompileLua(string dllName, string dllDir, string outDirName)
+		public static void CompileLua(string dllName, string dllDir, string outDirName, bool isModule)
 		{
-			LuaCompiler.Compile(dllName, dllDir, outDirName);
-			FileHelper.AppendSuffixName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
+			LuaCompiler.Compile(dllName, dllDir, outDirName, isModule);
+			ABNameEditor.SetFolderLuaABName(LuaCompiler.outDir + outDirName);
 			AssetDatabase.Refresh();
 		}
 
-		[MenuItem("XLua/Append the all lua file of the selected folder with \".txt\"")]
+		[MenuItem("Lua/Append the all lua file of the selected folder with \".txt\"")]
 		public static void AppendSelectedFolder()
 		{
 			var assetGUIDs = Selection.assetGUIDs;
@@ -57,7 +57,27 @@ namespace DCET.Editor
 				{
 					var outDirName = assetPath.Substring(assetPath.LastIndexOf("/") + 1);
 
-					FileHelper.AppendSuffixName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaSuffixName);
+					FileHelper.ReplaceExtensionName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaTxtExtensionName);
+				}
+			}
+
+			AssetDatabase.Refresh();
+		}
+
+		[MenuItem("Lua/Replace the all \".lua.txt\" file of the selected folder with \".lua\"")]
+		public static void ReplaceSelectedFolder()
+		{
+			var assetGUIDs = Selection.assetGUIDs;
+
+			foreach (var guid in assetGUIDs)
+			{
+				var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+
+				if (Directory.Exists(assetPath))
+				{
+					var outDirName = assetPath.Substring(assetPath.LastIndexOf("/") + 1);
+
+					FileHelper.ReplaceExtensionName(LuaCompiler.outDir + outDirName, LuaTxtExtensionName, LuaExtensionName);
 				}
 			}
 

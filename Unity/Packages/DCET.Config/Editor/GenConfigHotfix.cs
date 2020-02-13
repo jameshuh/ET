@@ -10,7 +10,7 @@ namespace DCET.Editor
 		{
 			if (GenCoreHotfix.CopyDll("Unity.DCET.Config.Hotfix") && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.Config.Hotfix", "./Packages/DCET.Config/Hotfix", "Config");
+				GenCoreHotfix.CompileLua("Unity.DCET.Config.Hotfix", "./Packages/DCET.Config/Hotfix", "Config", true);
 			}
 		}
 	}

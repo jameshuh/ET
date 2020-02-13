@@ -1,7 +1,11 @@
-﻿using System.ComponentModel;
-
-namespace DCET.Hotfix
+﻿namespace DCET.Hotfix
 {
+	public interface ISupportInitialize
+	{
+		void BeginInit();
+		void EndInit();
+	}
+
 	public abstract class Object: ISupportInitialize
 	{
 		public virtual void BeginInit()

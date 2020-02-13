@@ -265,7 +265,7 @@ namespace Pathfinding.Recast {
 
 			// Create a mesh from the heightmap
 			var numVerts = resultWidth * resultDepth;
-			var terrainVertices = ArrayPool<Vector3>.Claim(numVerts);
+			var terrainVertices = PF.ArrayPool<Vector3>.Claim(numVerts);
 
 			// Create lots of vertices
 			for (int z = 0; z < resultDepth; z++) {
@@ -279,7 +279,7 @@ namespace Pathfinding.Recast {
 
 			// Create the mesh by creating triangles in a grid like pattern
 			int numTris = (resultWidth-1)*(resultDepth-1)*2*3;
-			var tris = ArrayPool<int>.Claim(numTris);
+			var tris = PF.ArrayPool<int>.Claim(numTris);
 			int triangleIndex = 0;
 			for (int z = 0; z < resultDepth-1; z++) {
 				for (int x = 0; x < resultWidth-1; x++) {

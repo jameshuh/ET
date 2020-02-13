@@ -1,5 +1,6 @@
 ﻿using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using DCET.Model;
 using System.Collections.Generic;
 
 namespace DCET.Hotfix
@@ -39,7 +40,7 @@ namespace DCET.Hotfix
             behaviorTree.StartWhenEnabled = false;
             behaviorTree.ResetValuesOnRestart = false;
 
-            var behaviorTreeController = behaviorTree.Ensure<BehaviorTreeController>();
+            var behaviorTreeController = behaviorTree.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController;
 
             behaviorTreeController.Init();
 

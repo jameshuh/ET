@@ -269,8 +269,8 @@ namespace PF {
 			if (funnel.left.Count != funnel.right.Count) throw new System.ArgumentException("funnel.left.Count != funnel.right.Count");
 
 			// Get arrays at least as large as the number of portals
-			var leftArr = ArrayPool<Vector2>.Claim(funnel.left.Count);
-			var rightArr = ArrayPool<Vector2>.Claim(funnel.left.Count);
+			var leftArr = PF.ArrayPool<Vector2>.Claim(funnel.left.Count);
+			var rightArr = PF.ArrayPool<Vector2>.Claim(funnel.left.Count);
 
 			if (unwrap) {
 				Unwrap(funnel, leftArr, rightArr);
@@ -322,8 +322,8 @@ namespace PF {
 
 			// Release lists back to the pool
 			ListPool<int>.Release(ref intermediateResult);
-			ArrayPool<Vector2>.Release(ref leftArr);
-			ArrayPool<Vector2>.Release(ref rightArr);
+			PF.ArrayPool<Vector2>.Release(ref leftArr);
+			PF.ArrayPool<Vector2>.Release(ref rightArr);
 			return result;
 		}
 

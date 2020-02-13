@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Google.Protobuf;
+using System;
 using System.IO;
-using Google.Protobuf;
 
 namespace DCET.Hotfix
 {
@@ -21,12 +20,6 @@ namespace DCET.Hotfix
 		{
 			object message = Activator.CreateInstance(type);
 			((Google.Protobuf.IMessage)message).MergeFrom(bytes, index, count);
-			ISupportInitialize iSupportInitialize = message as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return message;
-			}
-			iSupportInitialize.EndInit();
 			return message;
 		}
 		
@@ -34,12 +27,6 @@ namespace DCET.Hotfix
 		{
 			object message = instance;
 			((Google.Protobuf.IMessage)message).MergeFrom(bytes, index, count);
-			ISupportInitialize iSupportInitialize = message as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return message;
-			}
-			iSupportInitialize.EndInit();
 			return message;
 		}
 		
@@ -47,12 +34,6 @@ namespace DCET.Hotfix
 		{
 			object message = Activator.CreateInstance(type);
 			((Google.Protobuf.IMessage)message).MergeFrom(stream.GetBuffer(), (int)stream.Position, (int)stream.Length);
-			ISupportInitialize iSupportInitialize = message as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return message;
-			}
-			iSupportInitialize.EndInit();
 			return message;
 		}
 		
@@ -60,12 +41,6 @@ namespace DCET.Hotfix
 		{
 			// 这个message可以从池中获取，减少gc
 			((Google.Protobuf.IMessage)message).MergeFrom(stream.GetBuffer(), (int)stream.Position, (int)stream.Length);
-			ISupportInitialize iSupportInitialize = message as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return message;
-			}
-			iSupportInitialize.EndInit();
 			return message;
 		}
 	}

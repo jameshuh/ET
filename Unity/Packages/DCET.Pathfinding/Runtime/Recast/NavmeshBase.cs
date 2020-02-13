@@ -582,7 +582,7 @@ namespace PF {
 								connectionsToKeep.Add(node.connections[j]);
 							}
 						}
-						ArrayPool<Connection>.Release(ref node.connections, true);
+						PF.ArrayPool<Connection>.Release(ref node.connections, true);
 						if (connectionsToKeep.Count > 0) {
 							node.connections = connectionsToKeep.ToArrayFromPool();
 							connectionsToKeep.Clear();

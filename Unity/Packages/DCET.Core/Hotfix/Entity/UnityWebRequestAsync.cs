@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DCET.Model;
+using System;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 
@@ -15,14 +16,6 @@ namespace DCET.Hotfix
 	
 	public class UnityWebRequestAsync : Entity
 	{
-		public class AcceptAllCertificate: CertificateHandler
-		{
-			protected override bool ValidateCertificate(byte[] certificateData)
-			{
-				return true;
-			}
-		}
-		
 		public static AcceptAllCertificate certificateHandler = new AcceptAllCertificate();
 		
 		public UnityWebRequest Request;

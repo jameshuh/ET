@@ -523,7 +523,7 @@ namespace MikuLuaProfiler
         {
 #if XLUA || TOLUA || SLUA
             var luaPath = (typeof(LuaDLL).Assembly).ManifestModule.FullyQualifiedName;
-            var projectPath = System.Reflection.Assembly.Load("Assembly-CSharp").ManifestModule.FullyQualifiedName;
+            var projectPath = System.Reflection.Assembly.Load("Unity.DCET.Model").ManifestModule.FullyQualifiedName;
             var profilerPath = (typeof(MikuLuaProfiler.LuaProfiler).Assembly).ManifestModule.FullyQualifiedName;
             if (LuaDeepProfilerSetting.Instance.isDeepMonoProfiler)
             {

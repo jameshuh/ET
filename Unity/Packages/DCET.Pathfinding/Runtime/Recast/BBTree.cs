@@ -25,14 +25,14 @@ namespace PF {
 		public void Clear () {
 			count = 0;
 			leafNodes = 0;
-			if (tree != null) ArrayPool<BBTreeBox>.Release(ref tree);
+			if (tree != null) PF.ArrayPool<BBTreeBox>.Release(ref tree);
 			if (nodeLookup != null) {
 				// Prevent memory leaks as the pool does not clear the array
 				for (int i = 0; i < nodeLookup.Length; i++) nodeLookup[i] = null;
-				ArrayPool<TriangleMeshNode>.Release(ref nodeLookup);
+				PF.ArrayPool<TriangleMeshNode>.Release(ref nodeLookup);
 			}
-			tree = ArrayPool<BBTreeBox>.Claim(0);
-			nodeLookup = ArrayPool<TriangleMeshNode>.Claim(0);
+			tree = PF.ArrayPool<BBTreeBox>.Claim(0);
+			nodeLookup = PF.ArrayPool<TriangleMeshNode>.Claim(0);
 		}
 
 		void IAstarPooledObject.OnEnterPool () {
@@ -41,18 +41,18 @@ namespace PF {
 
 		void EnsureCapacity (int c) {
 			if (c > tree.Length) {
-				var newArr = ArrayPool<BBTreeBox>.Claim(c);
+				var newArr = PF.ArrayPool<BBTreeBox>.Claim(c);
 				tree.CopyTo(newArr, 0);
-				ArrayPool<BBTreeBox>.Release(ref tree);
+				PF.ArrayPool<BBTreeBox>.Release(ref tree);
 				tree = newArr;
 			}
 		}
 
 		void EnsureNodeCapacity (int c) {
 			if (c > nodeLookup.Length) {
-				var newArr = ArrayPool<TriangleMeshNode>.Claim(c);
+				var newArr = PF.ArrayPool<TriangleMeshNode>.Claim(c);
 				nodeLookup.CopyTo(newArr, 0);
-				ArrayPool<TriangleMeshNode>.Release(ref nodeLookup);
+				PF.ArrayPool<TriangleMeshNode>.Release(ref nodeLookup);
 				nodeLookup = newArr;
 			}
 		}
@@ -83,7 +83,7 @@ namespace PF {
 			// instead of 4 bytes (sizeof(int)).
 			// It also means we don't have to make a copy of the nodes array since
 			// we do not modify it
-			var permutation = ArrayPool<int>.Claim(nodes.Length);
+			var permutation = PF.ArrayPool<int>.Claim(nodes.Length);
 			for (int i = 0; i < nodes.Length; i++) {
 				permutation[i] = i;
 			}
@@ -91,7 +91,7 @@ namespace PF {
 			// Precalculate the bounds of the nodes in XZ space.
 			// It turns out that calculating the bounds is a bottleneck and precalculating
 			// the bounds makes it around 3 times faster to build a tree
-			var nodeBounds = ArrayPool<IntRect>.Claim(nodes.Length);
+			var nodeBounds = PF.ArrayPool<IntRect>.Claim(nodes.Length);
 			for (int i = 0; i < nodes.Length; i++) {
 				Int3 v0, v1, v2;
 				nodes[i].GetVertices(out v0, out v1, out v2);
@@ -104,8 +104,8 @@ namespace PF {
 
 			RebuildFromInternal(nodes, permutation, nodeBounds, 0, nodes.Length, false);
 
-			ArrayPool<int>.Release(ref permutation);
-			ArrayPool<IntRect>.Release(ref nodeBounds);
+			PF.ArrayPool<int>.Release(ref permutation);
+			PF.ArrayPool<IntRect>.Release(ref nodeBounds);
 		}
 
 		static int SplitByX (TriangleMeshNode[] nodes, int[] permutation, int from, int to, int divider) {

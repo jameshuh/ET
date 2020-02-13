@@ -8,13 +8,12 @@ using UnityEngine;
 
 namespace DCET.Hotfix
 {
-	[Flags]
-	public enum EntityStatus: byte
+	public class EntityStatus
 	{
-		None = 0,
-		IsFromPool = 0x01,
-		IsRegister = 0x02,
-		IsComponent = 0x04
+		public static int None = 0;
+		public static int IsFromPool = 1;
+		public static int IsRegister = 2;
+		public static int IsComponent = 4;
 	}
 	
 	public partial class Entity : Object, IDisposable
@@ -37,7 +36,7 @@ namespace DCET.Hotfix
 #endif
 
 		[BsonIgnore]
-		private EntityStatus status = EntityStatus.None;
+		private int status = EntityStatus.None;
 
 		[BsonIgnore]
 		public bool IsFromPool
@@ -386,7 +385,12 @@ namespace DCET.Hotfix
 				this.ViewGO.name = this.GetType().Name;
 				this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
 				this.ViewGO.transform.SetParent(Global.transform, false);
-				this.ViewGO.AddComponent<ComponentView>().Component = this;
+				var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+
+				if (componentView)
+				{
+					componentView.Component = this;
+				}
 			}
 #endif
 		}
@@ -462,7 +466,7 @@ namespace DCET.Hotfix
 
 			if (this.IsComponent)
 			{
-				this.parent?.RemoveComponent(this);
+				this.parent?.RemoveComponentWithInstance(this);
 			}
 			else
 			{
@@ -575,7 +579,7 @@ namespace DCET.Hotfix
 			this.RemoveFromComponentsDB(component);
 		}
 		
-		public Entity AddComponent(Entity component)
+		public Entity AddComponentWithInstance(Entity component)
 		{
 			component.ComponentParent = this;
 			
@@ -586,7 +590,7 @@ namespace DCET.Hotfix
 			return component;
 		}
 
-		public Entity AddComponent(Type type)
+		public Entity AddComponentWithType(Type type)
 		{
 			Entity component = CreateWithComponentParent(type);
 
@@ -696,7 +700,7 @@ namespace DCET.Hotfix
 			}
 			
 			Type type = typeof (K);
-			Entity c = this.GetComponent(type);
+			Entity c = this.GetComponentWithType(type);
 			if (c == null)
 			{
 				return;
@@ -706,7 +710,7 @@ namespace DCET.Hotfix
 			c.Dispose();
 		}
 		
-		public void RemoveComponent(Entity component)
+		public void RemoveComponentWithInstance(Entity component)
 		{
 			if (this.IsDisposed)
 			{
@@ -719,7 +723,7 @@ namespace DCET.Hotfix
 			}
 
 			Type type = component.GetType();
-			Entity c = this.GetComponent(component.GetType());
+			Entity c = this.GetComponentWithType(component.GetType());
 			if (c == null)
 			{
 				return;
@@ -733,14 +737,14 @@ namespace DCET.Hotfix
 			c.Dispose();
 		}
 
-		public void RemoveComponent(Type type)
+		public void RemoveComponentWithType(Type type)
 		{
 			if (this.IsDisposed)
 			{
 				return;
 			}
 			
-			Entity c = this.GetComponent(type);
+			Entity c = this.GetComponentWithType(type);
 			if (c == null)
 			{
 				return;
@@ -764,7 +768,7 @@ namespace DCET.Hotfix
 			return (K)component;
 		}
 
-		public Entity GetComponent(Type type)
+		public Entity GetComponentWithType(Type type)
 		{
 			if (this.components == null)
 			{

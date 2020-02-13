@@ -94,7 +94,7 @@ namespace Pathfinding.RVO.Sampled {
 		public float Priority { get; set; }
 
 		/** \copydoc Pathfinding::RVO::IAgent::PreCalculationCallback */
-		public System.Action PreCalculationCallback { private get; set; }
+		public System.Action PreCalculationCallback { get; set; }
 
 		#endregion
 

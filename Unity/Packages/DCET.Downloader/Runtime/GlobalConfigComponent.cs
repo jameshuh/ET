@@ -21,7 +21,7 @@ namespace DCET.Model
 			try
 			{
 				GameObject config = (GameObject)ResourcesHelper.Load("KV");
-				string configStr = config.Get<TextAsset>("GlobalProto").text;
+				string configStr = config.GetTextAsset("GlobalProto").text;
 				return configStr;
 			}
 			catch (Exception e)

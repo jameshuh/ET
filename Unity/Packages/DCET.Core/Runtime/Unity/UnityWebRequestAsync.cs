@@ -4,16 +4,16 @@ using UnityEngine.Networking;
 
 namespace DCET.Model
 {
+	public class AcceptAllCertificate : CertificateHandler
+	{
+		protected override bool ValidateCertificate(byte[] certificateData)
+		{
+			return true;
+		}
+	}
+
 	public class UnityWebRequestAsync : IDisposable
 	{
-		public class AcceptAllCertificate: CertificateHandler
-		{
-			protected override bool ValidateCertificate(byte[] certificateData)
-			{
-				return true;
-			}
-		}
-		
 		public static AcceptAllCertificate certificateHandler = new AcceptAllCertificate();
 		
 		public UnityWebRequest Request;

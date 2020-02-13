@@ -5,12 +5,12 @@ namespace DCET.Hotfix
 {
 	public class MultiMap<T, K>
 	{
-		private readonly SortedDictionary<T, List<K>> dictionary = new SortedDictionary<T, List<K>>();
+		private readonly Dictionary<T, List<K>> dictionary = new Dictionary<T, List<K>>();
 
 		// 重用list
 		private readonly Queue<List<K>> queue = new Queue<List<K>>();
 
-		public SortedDictionary<T, List<K>> GetDictionary()
+		public Dictionary<T, List<K>> GetDictionary()
 		{
 			return this.dictionary;
 		}

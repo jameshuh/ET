@@ -64,15 +64,15 @@ namespace DCET.Hotfix
 			{
 				return dependencies;
 			}
-			if (!Define.IsAsync)
+			if (Define.IsAsync || Define.IsLua)
+			{
+				dependencies = ResourcesComponent.AssetBundleManifestObject.GetAllDependencies(assetBundleName);
+			}
+			else
 			{
 #if UNITY_EDITOR
 				dependencies = AssetDatabase.GetAssetBundleDependencies(assetBundleName, true);
 #endif
-			}
-			else
-			{
-				dependencies = ResourcesComponent.AssetBundleManifestObject.GetAllDependencies(assetBundleName);
 			}
 			DependenciesCache.Add(assetBundleName, dependencies);
 			return dependencies;
@@ -83,8 +83,9 @@ namespace DCET.Hotfix
 			Dictionary<string, int> info = new Dictionary<string, int>();
 			List<string> parents = new List<string>();
 			CollectDependencies(parents, assetBundleName, info);
-			string[] ss = info.OrderBy(x => x.Value).Select(x => x.Key).ToArray();
-			return ss;
+			var orderResult = info.OrderBy(x => x.Value);
+			var selectResult = orderResult.Select(x => x.Key);
+			return selectResult.ToArray();
 		}
 
 		public static void CollectDependencies(List<string> parents, string assetBundleName, Dictionary<string, int> info)
@@ -117,6 +118,7 @@ namespace DCET.Hotfix
 	public class ResourcesComponent : Entity
 	{
 		public static AssetBundleManifest AssetBundleManifestObject { get; set; }
+
 
 		private readonly Dictionary<string, Dictionary<string, UnityEngine.Object>> resourceCache = new Dictionary<string, Dictionary<string, UnityEngine.Object>>();
 
@@ -248,7 +250,7 @@ namespace DCET.Hotfix
 				return;
 			}
 
-			if (!Define.IsAsync)
+			if (!Define.IsAsync && !Define.IsLua)
 			{
 				string[] realPath = null;
 #if UNITY_EDITOR

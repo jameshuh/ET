@@ -1,5 +1,5 @@
 {
-    "name": "Unity.DCET.AssetsBundle.Editor",
+    "name": "Unity.DCET.Downloader.Editor",
     "references": [
         "Unity.DCET.Core.Runtime",
         "Unity.DCET.Downloader.Runtime"

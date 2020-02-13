@@ -25,7 +25,7 @@ namespace DCET.Editor
 				if (_searchKey != value)
 				{
 					_searchKey = value;
-					heroPrefab = referenceCollector.Get<Object>(searchKey);
+					heroPrefab = referenceCollector.GetObject(searchKey);
 				}
 			}
 		}

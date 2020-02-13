@@ -68,31 +68,40 @@ namespace DCET.Editor
 			var assetGUIDs = Selection.assetGUIDs;
 
 			foreach (var guid in assetGUIDs)
-			{
-				var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            {
+                var assetPath = AssetDatabase.GUIDToAssetPath(guid);
 
-				if (Directory.Exists(assetPath))
-				{
-					var dirName = assetPath.Substring(assetPath.LastIndexOf("/") + 1);
-					var filePath = Directory.GetFiles(assetPath, "*.lua.txt", SearchOption.AllDirectories);
+                SetFolderLuaABName(assetPath);
+            }
 
-					if(filePath != null)
-					{
-						foreach(var item in filePath)
-						{
-							var assetImporter = AssetImporter.GetAtPath(item);
-							assetImporter.assetBundleName = $"{dirName.ToLower()}_lua{unity3dEx}";
-						}
-					} 
-				}
-			}
-
-			AnalysisAssetBundleNames();
+            AnalysisAssetBundleNames();
 
 			RemoveUnusedAssetBundleNames();
 		}
 
-		[MenuItem("Tools/AssetBundle/设置选中项的AB名为None，并重设依赖AB名")]
+        public static void SetFolderLuaABName(string folderPath)
+        {
+            if (Directory.Exists(folderPath))
+            {
+                var dirName = folderPath.Substring(folderPath.LastIndexOf("/") + 1);
+                var filePath = Directory.GetFiles(folderPath, "*.lua.txt", SearchOption.AllDirectories);
+
+                if (filePath != null)
+                {
+                    foreach (var item in filePath)
+                    {
+                        var assetImporter = AssetImporter.GetAtPath(item);
+
+                        if (assetImporter)
+                        {
+                            assetImporter.assetBundleName = $"{dirName.ToLower()}_lua{unity3dEx}";
+                        }
+                    }
+                }
+            }
+        }
+
+        [MenuItem("Tools/AssetBundle/设置选中项的AB名为None，并重设依赖AB名")]
         public static void SetSelectionABNameNone()
         {
             var gameObjects = Selection.objects;

@@ -3,7 +3,9 @@
     "references": [
         "Unity.DCET.Core.Editor",
         "Unity.DCET.Model",
-        "Unity.DCET.Core.Runtime"
+        "Unity.DCET.Core.Runtime",
+        "Unity.DCET.Pathfinding.Runtime",
+        "Unity.BehaviorDesigner.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

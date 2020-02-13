@@ -105,7 +105,7 @@ namespace Pathfinding.Voxels {
 						RemoveDegenerateSegments(simplified);
 
 						VoxelContour contour = new VoxelContour();
-						contour.verts = ArrayPool<int>.Claim(simplified.Count);//simplified.ToArray ();
+						contour.verts = PF.ArrayPool<int>.Claim(simplified.Count);//simplified.ToArray ();
 						for (int j = 0; j < simplified.Count; j++) contour.verts[j] = simplified[j];
 #if ASTAR_RECAST_INCLUDE_RAW_VERTEX_CONTOUR
 						//Not used at the moment, just debug stuff
@@ -304,8 +304,8 @@ namespace Pathfinding.Voxels {
 		static void ReleaseContours (VoxelContourSet cset) {
 			for (int i = 0; i < cset.conts.Count; i++) {
 				VoxelContour cont = cset.conts[i];
-				ArrayPool<int>.Release(ref cont.verts);
-				ArrayPool<int>.Release(ref cont.rverts);
+				PF.ArrayPool<int>.Release(ref cont.verts);
+				PF.ArrayPool<int>.Release(ref cont.rverts);
 			}
 			cset.conts = null;
 		}
@@ -313,7 +313,7 @@ namespace Pathfinding.Voxels {
 		public static bool MergeContours (ref VoxelContour ca, ref VoxelContour cb, int ia, int ib) {
 			int maxVerts = ca.nverts + cb.nverts + 2;
 
-			int[] verts = ArrayPool<int>.Claim(maxVerts*4);
+			int[] verts = PF.ArrayPool<int>.Claim(maxVerts*4);
 
 			//if (!verts)
 			//	return false;
@@ -342,13 +342,13 @@ namespace Pathfinding.Voxels {
 				nv++;
 			}
 
-			ArrayPool<int>.Release(ref ca.verts);
-			ArrayPool<int>.Release(ref cb.verts);
+			PF.ArrayPool<int>.Release(ref ca.verts);
+			PF.ArrayPool<int>.Release(ref cb.verts);
 
 			ca.verts = verts;
 			ca.nverts = nv;
 
-			cb.verts = ArrayPool<int>.Claim(0);
+			cb.verts = PF.ArrayPool<int>.Claim(0);
 			cb.nverts = 0;
 
 			return true;

@@ -11,28 +11,7 @@ namespace DCET.Hotfix
 		{
 			try
 			{
-				var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-				if(assemblies != null)
-				{
-					foreach(var assembly in assemblies)
-					{
-						if(assembly != null && !string.IsNullOrWhiteSpace(assembly.FullName) && assembly.FullName.Contains("Hotfix"))
-						{
-							var types = assembly.GetTypes();
-
-							if (types != null)
-							{
-								foreach (var item in types)
-								{
-									Game.Hotfix.AddHotfixType(item);
-								}
-							}
-
-							Game.EventSystem.Add(assembly);
-						}
-					}
-				}
+				TypeHelper.InitHotfixType();
 
 				// 注册热更层回调
 				GameLoop.onUpdate += Update;
@@ -42,8 +21,12 @@ namespace DCET.Hotfix
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
 
+				Game.Scene.AddComponent<ResourcesComponent>();
+				Game.Scene.GetComponent<ResourcesComponent>().LoadOneBundle("StreamingAssets");
+				ResourcesComponent.AssetBundleManifestObject = (AssetBundleManifest)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("StreamingAssets", "AssetBundleManifest");
+
 				// 加载热更配置
-				Game.Scene.AddComponent<ResourcesComponent>().LoadBundle("config.unity3d");
+				Game.Scene.GetComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
@@ -82,7 +65,7 @@ namespace DCET.Hotfix
 				//BehaviorTreeHelper.Init(externalBehavior);
 				//runtimeBehaivorTree.Ensure<BehaviorTreeController>().SetExternalBehavior(externalBehavior);
 
-				runtimeBehaivorTree.Ensure<BehaviorTreeController>().Init();
+				(runtimeBehaivorTree.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
 			}
 
 			var behaviorTree = BehaviorTreeFactory.Create(Game.Scene, runtimeBehaivorTree);

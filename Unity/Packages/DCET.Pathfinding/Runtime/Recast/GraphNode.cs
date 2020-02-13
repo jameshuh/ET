@@ -430,7 +430,7 @@ namespace PF {
 				}
 			}
 
-			ArrayPool<Connection>.Release(ref connections, true);
+			PF.ArrayPool<Connection>.Release(ref connections, true);
 		}
 
 		public override void GetConnections (System.Action<GraphNode> action) {
@@ -518,7 +518,7 @@ namespace PF {
 			// Create new arrays which include the new connection
 			int connLength = connections != null ? connections.Length : 0;
 
-			var newconns = ArrayPool<Connection>.ClaimWithExactLength(connLength+1);
+			var newconns = PF.ArrayPool<Connection>.ClaimWithExactLength(connLength+1);
 			for (int i = 0; i < connLength; i++) {
 				newconns[i] = connections[i];
 			}
@@ -526,7 +526,7 @@ namespace PF {
 			newconns[connLength] = new Connection(node, cost, (byte)shapeEdge);
 
 			if (connections != null) {
-				ArrayPool<Connection>.Release(ref connections, true);
+				PF.ArrayPool<Connection>.Release(ref connections, true);
 			}
 
 			connections = newconns;
@@ -548,7 +548,7 @@ namespace PF {
 					// Create new arrays which have the specified node removed
 					int connLength = connections.Length;
 
-					var newconns = ArrayPool<Connection>.ClaimWithExactLength(connLength-1);
+					var newconns = PF.ArrayPool<Connection>.ClaimWithExactLength(connLength-1);
 					for (int j = 0; j < i; j++) {
 						newconns[j] = connections[j];
 					}
@@ -557,7 +557,7 @@ namespace PF {
 					}
 
 					if (connections != null) {
-						ArrayPool<Connection>.Release(ref connections, true);
+						PF.ArrayPool<Connection>.Release(ref connections, true);
 					}
 
 					connections = newconns;
@@ -618,7 +618,7 @@ namespace PF {
 			if (count == -1) {
 				connections = null;
 			} else {
-				connections = ArrayPool<Connection>.ClaimWithExactLength(count);
+				connections = PF.ArrayPool<Connection>.ClaimWithExactLength(count);
 
 				for (int i = 0; i < count; i++) {
 					connections[i] = new Connection(

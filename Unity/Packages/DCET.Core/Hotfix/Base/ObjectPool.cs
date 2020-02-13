@@ -31,7 +31,12 @@ namespace DCET.Hotfix
 			this.ViewGO.name = this.GetType().Name;
 			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
 			this.ViewGO.transform.SetParent(Game.transform, false);
-			this.ViewGO.AddComponent<ComponentView>().Component = this;
+			var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+
+			if (componentView)
+			{
+				componentView.Component = this;
+			}
 #endif
 		}
 
@@ -95,9 +100,14 @@ namespace DCET.Hotfix
 			this.ViewGO.name = this.GetType().Name;
 			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
 			this.ViewGO.transform.SetParent(Game.transform, false);
-			this.ViewGO.AddComponent<ComponentView>().Component = this;
+			var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+
+			if (componentView)
+			{
+				componentView.Component = this;
+			}
 #endif
-        }
+		}
 
         public Entity Fetch(Type type)
         {

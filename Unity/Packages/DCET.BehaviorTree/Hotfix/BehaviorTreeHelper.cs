@@ -1,4 +1,5 @@
 ﻿using BehaviorDesigner.Runtime;
+using DCET.Model;
 using UnityEngine;
 
 namespace DCET.Hotfix
@@ -21,7 +22,7 @@ namespace DCET.Hotfix
                         {
                             if (bt)
                             {
-                                bt.gameObject.Ensure<BehaviorTreeController>().Init();
+                                (bt.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
                             }
                         }
                     }

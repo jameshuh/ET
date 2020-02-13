@@ -1600,7 +1600,7 @@ namespace PF {
 			firstVerts.Clear();
 
 			// Use cached array to reduce memory allocations
-			int[] compressedPointers = ArrayPool<int>.Claim(vertices.Count);
+			int[] compressedPointers = PF.ArrayPool<int>.Claim(vertices.Count);
 
 			// Map positions to the first index they were encountered at
 			int count = 0;
@@ -1634,7 +1634,7 @@ namespace PF {
 			for (int i = 0; i < count; i++)
 				outVertices[i] = vertices[i];
 
-			ArrayPool<int>.Release(ref compressedPointers);
+			PF.ArrayPool<int>.Release(ref compressedPointers);
 		}
 
 		/** Given a set of edges between vertices, follows those edges and returns them as chains and cycles.

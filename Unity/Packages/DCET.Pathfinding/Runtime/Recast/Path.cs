@@ -80,7 +80,7 @@ namespace PF {
 	}
 
 	/** Indicates the side of a line that a point lies on */
-	public enum Side : byte {
+	public enum Side : int {
 		/** The point lies exactly on the line */
 		Colinear = 0,
 		/** The point lies on the left side of the line */

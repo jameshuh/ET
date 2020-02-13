@@ -20,7 +20,7 @@
 		public static bool IsDevelopmentBuild = false;
 #endif
 
-#if XLUA
+#if TOLUA
 		public static bool IsLua = true;
 #else
 		public static bool IsLua = false;

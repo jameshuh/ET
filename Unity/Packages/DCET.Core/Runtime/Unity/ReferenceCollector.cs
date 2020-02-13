@@ -118,16 +118,6 @@ public class ReferenceCollector: MonoBehaviour, ISerializationCallbackReceiver
 		serializedObject.UpdateIfRequiredOrScript();
 	}
 #endif
-    //使用泛型返回对应key的gameobject
-	public T Get<T>(string key) where T : class
-	{
-		Object dictGo;
-		if (!dict.TryGetValue(key, out dictGo))
-		{
-			return null;
-		}
-		return dictGo as T;
-	}
 
 	public Object GetObject(string key)
 	{

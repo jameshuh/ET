@@ -1,5 +1,4 @@
 ﻿using LitJson;
-using System.ComponentModel;
 
 namespace DCET.Model
 {
@@ -13,18 +12,8 @@ namespace DCET.Model
 		public static T FromJson<T>(string str)
 		{
 			T t = JsonMapper.ToObject<T>(str);
-			ISupportInitialize iSupportInitialize = t as ISupportInitialize;
-			if (iSupportInitialize == null)
-			{
-				return t;
-			}
-			iSupportInitialize.EndInit();
-			return t;
-		}
 
-		public static T Clone<T>(T t)
-		{
-			return FromJson<T>(ToJson(t));
+			return t;
 		}
 	}
 }

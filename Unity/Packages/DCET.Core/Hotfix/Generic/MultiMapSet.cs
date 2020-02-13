@@ -5,14 +5,14 @@ namespace DCET.Hotfix
 {
 	public class MultiMapSet<T, K>
 	{
-		private readonly SortedDictionary<T, HashSet<K>> dictionary = new SortedDictionary<T, HashSet<K>>();
+		private readonly Dictionary<T, HashSet<K>> dictionary = new Dictionary<T, HashSet<K>>();
 
 		// 重用list
 		private static readonly Queue<HashSet<K>> queue = new Queue<HashSet<K>>();
 		
 		private static HashSet<K> Empty = new HashSet<K>();
 
-		public SortedDictionary<T, HashSet<K>> GetDictionary()
+		public Dictionary<T, HashSet<K>> GetDictionary()
 		{
 			return this.dictionary;
 		}

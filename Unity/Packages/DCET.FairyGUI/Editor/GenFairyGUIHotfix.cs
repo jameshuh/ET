@@ -10,7 +10,7 @@ namespace DCET.Editor
 		{
 			if (GenCoreHotfix.CopyDll("Unity.DCET.FairyGUI.Hotfix") && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI");
+				GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI", true);
 			}
 		}
 	}

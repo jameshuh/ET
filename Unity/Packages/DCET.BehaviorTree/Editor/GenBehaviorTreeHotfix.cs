@@ -10,7 +10,7 @@ namespace DCET.Editor
 		{
 			if (GenCoreHotfix.CopyDll("Unity.DCET.BehaviorTree.Hotfix") && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree");
+				GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree", true);
 			}
 		}
 	}

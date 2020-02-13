@@ -38,7 +38,7 @@ namespace DCET.Hotfix
 			}
 		}
 
-		public async void StartMove(M2C_PathfindingResult message)
+		/*public async void StartMove(M2C_PathfindingResult message)
 		{
 			// 取消之前的移动协程
 			this.CancellationTokenSource?.Cancel();
@@ -54,6 +54,6 @@ namespace DCET.Hotfix
 			await StartMove(this.CancellationTokenSource.Token);
 			this.CancellationTokenSource.Dispose();
 			this.CancellationTokenSource = null;
-		}
+		}*/
 	}
 }

@@ -3,7 +3,7 @@
 using System.Threading.Tasks;
 using FairyGUI;
 
-namespace DCET.Hotfix.Common
+namespace DCET.Hotfix
 {
 	[ObjectSystem]
     public class FUILoadingProgressBarAwakeSystem : AwakeSystem<FUILoadingProgressBar, GObject>

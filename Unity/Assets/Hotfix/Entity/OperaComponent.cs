@@ -31,7 +31,7 @@ namespace DCET.Hotfix
 		    this.mapMask = LayerMask.GetMask("Map");
 	    }
 
-	    private readonly Frame_ClickMap frameClickMap = new Frame_ClickMap();
+	    //private readonly Frame_ClickMap frameClickMap = new Frame_ClickMap();
 
         public void Update()
         {
@@ -42,10 +42,10 @@ namespace DCET.Hotfix
 	            if (Physics.Raycast(ray, out hit, 1000, this.mapMask))
 	            {
 					this.ClickPoint = hit.point;
-		            frameClickMap.X = this.ClickPoint.x;
+		            /*frameClickMap.X = this.ClickPoint.x;
 		            frameClickMap.Y = this.ClickPoint.y;
 		            frameClickMap.Z = this.ClickPoint.z;
-		            SessionComponent.Instance.Session.Send(frameClickMap);
+		            SessionComponent.Instance.Session.Send(frameClickMap);*/
 
 					// 测试actor rpc消息
 					this.TestActor();

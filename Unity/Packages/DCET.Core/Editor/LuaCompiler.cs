@@ -25,7 +25,7 @@ namespace DCET.Editor
 		private static readonly string toolsDir = "./Tools/CSharpLua";
 		private static readonly string csharpLua = toolsDir + "/CSharp.lua/CSharp.lua.Launcher.dll";
 
-		public static void Compile(string dllName, string dllDir, string outDirName)
+		public static void Compile(string dllName, string dllDir, string outDirName, bool isModule)
 		{
 			if (!CheckDotnetInstall())
 			{
@@ -53,6 +53,12 @@ namespace DCET.Editor
 				if (referenced.Name != "mscorlib" && !referenced.Name.StartsWith("System"))
 				{
 					string libPath = Assembly.Load(referenced).Location;
+
+					if (!string.IsNullOrWhiteSpace(libPath) && libPath.EndsWith(".Hotfix.dll"))
+					{
+						libPath += "!";
+					}
+
 					libs.Add(libPath);
 				}
 			}
@@ -60,7 +66,13 @@ namespace DCET.Editor
 			string[] metas = new string[] { toolsDir + "/UnityEngine.xml" };
 			string lib = string.Join(";", libs.ToArray());
 			string meta = string.Join(";", metas);
-			string args = $"{csharpLua}  -s \"{dllDir}\" -d \"{outputDir}\" -l \"{lib}\" -m {meta} -c";
+			string args = $"{csharpLua}  -s \"{dllDir}\" -d \"{outputDir}\" -l \"{lib}\" -m {meta} -c -a";
+			UnityEngine.Debug.Log(args);
+			if (isModule)
+			{
+				args += " -module";
+			}
+
 			string definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
 			if (!string.IsNullOrEmpty(definesString))
 			{

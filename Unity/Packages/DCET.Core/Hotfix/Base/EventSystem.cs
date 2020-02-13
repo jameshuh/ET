@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
 namespace DCET.Hotfix
@@ -10,8 +9,6 @@ namespace DCET.Hotfix
 	{
 		private readonly Dictionary<long, Entity> allComponents = new Dictionary<long, Entity>();
 
-		private readonly List<Assembly> assemblies = new List<Assembly>();
-		
 		private readonly UnOrderMultiMapSet<Type, Type> types = new UnOrderMultiMapSet<Type, Type>();
 
 		private readonly Dictionary<string, List<object>> allEvents = new Dictionary<string, List<object>>();
@@ -43,22 +40,10 @@ namespace DCET.Hotfix
 		private Queue<long> lateUpdates = new Queue<long>();
 		private Queue<long> lateUpdates2 = new Queue<long>();
 
-		public void Add(Assembly assembly)
+		public EventSystem()
 		{
-			if (assembly == null || this.assemblies.Contains(assembly))
+			foreach (Type type in Game.Hotfix.GetHotfixTypes())
 			{
-				return;
-			}
-
-			this.assemblies.Add(assembly);
-
-			foreach (Type type in assembly.GetTypes())
-			{
-				if (type.IsAbstract)
-				{
-					continue;
-				}
-
 				object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
 				if (objects.Length == 0)
 				{

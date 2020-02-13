@@ -46,7 +46,7 @@ namespace Google.Protobuf
         /// <summary>
         /// Wire types within protobuf encoding.
         /// </summary>
-        public enum WireType : uint
+        public enum WireType : int
         {
             /// <summary>
             /// Variable-length integer.
