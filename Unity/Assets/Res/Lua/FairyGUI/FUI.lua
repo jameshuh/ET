@@ -35,7 +35,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     Add, MakeFullScreen, Remove, RemoveNoDispose, RemoveChildren, Get, GetAll, class, 
     __ctor__
     __ctor__ = function (this)
-      this.children = DictStringFUI()
+      this.fuiChildren = DictStringFUI()
       DCETHotfix.Entity.__ctor__(this)
     end
     getName = function (this)
@@ -89,11 +89,11 @@ System.namespace("DCET.Hotfix", function (namespace)
       end
 
       -- 删除所有的孩子
-      for _, ui in System.each(Linq.ToArray(this.children:getValues())) do
+      for _, ui in System.each(Linq.ToArray(this.fuiChildren:getValues())) do
         ui:Dispose()
       end
 
-      this.children:Clear()
+      this.fuiChildren:Clear()
 
       -- 删除自己的UI
       if not getIsRoot(this) and not this.isFromFGUIPool then
@@ -112,11 +112,11 @@ System.namespace("DCET.Hotfix", function (namespace)
         System.throw(System.Exception("ui.Name can not be empty" .. ""))
       end
 
-      if this.children:ContainsKey(getName(ui)) then
+      if this.fuiChildren:ContainsKey(getName(ui)) then
         System.throw(System.Exception("ui.Name(" .. getName(ui) .. ") already exist"))
       end
 
-      this.children:AddKeyValue(getName(ui), ui)
+      this.fuiChildren:AddKeyValue(getName(ui), ui)
 
       if getIsComponent(this) and asChildGObject then
         this.GObject:getasCom():AddChild(ui.GObject)
@@ -141,9 +141,9 @@ System.namespace("DCET.Hotfix", function (namespace)
       local ui
 
       local default
-      default, ui = this.children:TryGetValue(name)
+      default, ui = this.fuiChildren:TryGetValue(name)
       if default then
-        this.children:RemoveKey(name)
+        this.fuiChildren:RemoveKey(name)
 
         if ui ~= nil then
           if getIsComponent(this) then
@@ -166,9 +166,9 @@ System.namespace("DCET.Hotfix", function (namespace)
       local ui
 
       local default
-      default, ui = this.children:TryGetValue(name)
+      default, ui = this.fuiChildren:TryGetValue(name)
       if default then
-        this.children:RemoveKey(name)
+        this.fuiChildren:RemoveKey(name)
 
         if ui ~= nil then
           if getIsComponent(this) then
@@ -182,17 +182,17 @@ System.namespace("DCET.Hotfix", function (namespace)
       return ui
     end
     RemoveChildren = function (this)
-      for _, child in System.each(Linq.ToArray(this.children:getValues())) do
+      for _, child in System.each(Linq.ToArray(this.fuiChildren:getValues())) do
         child:Dispose()
       end
 
-      this.children:Clear()
+      this.fuiChildren:Clear()
     end
     Get = function (this, name)
       local child
 
       local default
-      default, child = this.children:TryGetValue(name)
+      default, child = this.fuiChildren:TryGetValue(name)
       if default then
         return child
       end
@@ -200,7 +200,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       return nil
     end
     GetAll = function (this)
-      return Linq.ToArray(this.children:getValues())
+      return Linq.ToArray(this.fuiChildren:getValues())
     end
     class = {
       base = function (out)

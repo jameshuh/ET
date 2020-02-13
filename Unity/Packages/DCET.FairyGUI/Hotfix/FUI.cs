@@ -87,7 +87,7 @@ namespace DCET.Hotfix
             }
         }
 
-        private Dictionary<string, FUI> children = new Dictionary<string, FUI>();
+        private Dictionary<string, FUI> fuiChildren = new Dictionary<string, FUI>();
 
         protected bool isFromFGUIPool = false;
 		
@@ -104,12 +104,12 @@ namespace DCET.Hotfix
 			GetParent<FUI>()?.RemoveNoDispose(Name);
 
 			// 删除所有的孩子
-			foreach (FUI ui in children.Values.ToArray())
+			foreach (FUI ui in fuiChildren.Values.ToArray())
 			{
 				ui.Dispose();
 			}
 
-			children.Clear();
+			fuiChildren.Clear();
 
             // 删除自己的UI
             if (!IsRoot && !isFromFGUIPool)
@@ -133,12 +133,12 @@ namespace DCET.Hotfix
                 throw new Exception($"ui.Name can not be empty");
             }
             
-            if (children.ContainsKey(ui.Name))
+            if (fuiChildren.ContainsKey(ui.Name))
             {
                 throw new Exception($"ui.Name({ui.Name}) already exist");
             }
 
-            children.Add(ui.Name, ui);
+            fuiChildren.Add(ui.Name, ui);
 
             if (IsComponent && asChildGObject)
             {
@@ -162,9 +162,9 @@ namespace DCET.Hotfix
 
 			FUI ui;
 
-			if (children.TryGetValue(name, out ui))
+			if (fuiChildren.TryGetValue(name, out ui))
             {
-                children.Remove(name);
+                fuiChildren.Remove(name);
 
                 if (ui != null)
                 {
@@ -191,9 +191,9 @@ namespace DCET.Hotfix
 
             FUI ui;
 
-            if (children.TryGetValue(name, out ui))
+            if (fuiChildren.TryGetValue(name, out ui))
             {
-                children.Remove(name);
+                fuiChildren.Remove(name);
 
                 if (ui != null)
                 {
@@ -211,19 +211,19 @@ namespace DCET.Hotfix
 
         public void RemoveChildren()
 		{
-			foreach (var child in children.Values.ToArray())
+			foreach (var child in fuiChildren.Values.ToArray())
 			{
 				child.Dispose();
 			}
 
-			children.Clear();
+			fuiChildren.Clear();
 		}
 
 		public FUI Get(string name)
 		{
 			FUI child;
 
-			if (children.TryGetValue(name, out child))
+			if (fuiChildren.TryGetValue(name, out child))
 			{
 				return child;
 			}
@@ -233,7 +233,7 @@ namespace DCET.Hotfix
 
         public FUI[] GetAll()
         {
-            return children.Values.ToArray();
+            return fuiChildren.Values.ToArray();
         }
 	}
 }
