@@ -11,6 +11,7 @@ return function (path)
       "IMessageDispatcher",
       "IMessagePacker",
       "IMHandler",
+      "IProtocol",
       "MessageAttribute",
       "MessageDispatcherComponent",
       "MessageHandlerAttribute",
@@ -104,7 +105,8 @@ return function (path)
       "DCET.Hotfix.TService",
       "DCET.Hotfix.WaitSendBuffer",
       "DCET.Hotfix.WChannel",
-      "DCET.Hotfix.WService"
+      "DCET.Hotfix.WService",
+      "ProtoBuf.IProtocol"
     }
   })
 end

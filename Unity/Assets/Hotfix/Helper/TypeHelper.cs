@@ -1,54 +1,40 @@
-﻿using System;
+﻿using System.Reflection;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class TypeHelper
 	{
-		public static void InitHotfixType()
+		public static void InitAllType()
 		{
 #if __CSharpLua__
-			InitHotfixTypeByLua();
+			InitAllTypeByLua();
 #else
-			InitHotfixTypeByMono();
+			InitAllTypeByMono();
 #endif
 		}
 
 #if __CSharpLua__
-		private static void InitHotfixTypeByLua()
+		private static void InitAllTypeByLua()
 		{
 			/*
 			[[
-			for k,v in pairs(DCET.Hotfix) do
+			for k,v in pairs(DCET) do
 				if v.__metadata__ and v.__metadata__.class then
-					DCET.Hotfix.Game.getHotfix():AddHotfixType(System.typeof(v))
+					DCET.Game.getEventSystem():AddType(System.typeof(v))
 				end
 			end
 			]]
 			*/
 		}
 #else
-		private static void InitHotfixTypeByMono()
+		private static void InitAllTypeByMono()
 		{
-			var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-			if (assemblies != null)
-			{
-				foreach (var assembly in assemblies)
-				{
-					if (assembly != null && !string.IsNullOrWhiteSpace(assembly.FullName) && assembly.FullName.Contains("Hotfix"))
-					{
-						var types = assembly.GetTypes();
-
-						if (types != null)
-						{
-							foreach (var item in types)
-							{
-								Game.Hotfix.AddHotfixType(item);
-							}
-						}
-					}
-				}
-			}
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Core);
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Config);
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.FairyGUI);
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Message);
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.BehaviorTree);
+			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Hotfix);
 		}
 #endif
 	}

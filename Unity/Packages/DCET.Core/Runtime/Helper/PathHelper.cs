@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
     public static class PathHelper
     {     /// <summary>

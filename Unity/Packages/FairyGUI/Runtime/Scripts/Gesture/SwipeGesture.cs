@@ -89,15 +89,15 @@ namespace FairyGUI
 			{
 				if (host == GRoot.inst)
 				{
-					Stage.inst.onTouchBegin.Add(__touchBegin);
-					Stage.inst.onTouchMove.Add(__touchMove);
-					Stage.inst.onTouchEnd.Add(__touchEnd);
+					Stage.inst.onTouchBegin.Add1(__touchBegin);
+					Stage.inst.onTouchMove.Add1(__touchMove);
+					Stage.inst.onTouchEnd.Add1(__touchEnd);
 				}
 				else
 				{
-					host.onTouchBegin.Add(__touchBegin);
-					host.onTouchMove.Add(__touchMove);
-					host.onTouchEnd.Add(__touchEnd);
+					host.onTouchBegin.Add1(__touchBegin);
+					host.onTouchMove.Add1(__touchMove);
+					host.onTouchEnd.Add1(__touchEnd);
 				}
 			}
 			else
@@ -106,15 +106,15 @@ namespace FairyGUI
 				_touchBegan = false;
 				if (host == GRoot.inst)
 				{
-					Stage.inst.onTouchBegin.Remove(__touchBegin);
-					Stage.inst.onTouchMove.Remove(__touchMove);
-					Stage.inst.onTouchEnd.Remove(__touchEnd);
+					Stage.inst.onTouchBegin.Remove1(__touchBegin);
+					Stage.inst.onTouchMove.Remove1(__touchMove);
+					Stage.inst.onTouchEnd.Remove1(__touchEnd);
 				}
 				else
 				{
-					host.onTouchBegin.Remove(__touchBegin);
-					host.onTouchMove.Remove(__touchMove);
-					host.onTouchEnd.Remove(__touchEnd);
+					host.onTouchBegin.Remove1(__touchBegin);
+					host.onTouchMove.Remove1(__touchMove);
+					host.onTouchEnd.Remove1(__touchEnd);
 				}
 			}
 		}

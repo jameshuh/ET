@@ -7,7 +7,7 @@
 		"getMemberByName":true,
 		"ignoreNoname":true,
 		"memberNamePrefix":"",
-		"packageName":"ETModel"
+		"packageName":"DCET"
 	},
 	"compressDesc":true,
 	"fileExtension":"",

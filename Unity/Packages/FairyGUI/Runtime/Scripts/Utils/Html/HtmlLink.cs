@@ -59,8 +59,8 @@ namespace FairyGUI.Utils
 		{
 			_owner = owner;
 			_element = element;
-			_shape.onClick.Add(_clickHandler);
-			_shape.onRollOver.Add(_rolloverHandler);
+			_shape.onClick.Add1(_clickHandler);
+			_shape.onRollOver.Add1(_rolloverHandler);
 			_shape.onRollOut.Add(_rolloutHandler);
 			_shape.color = _owner.htmlParseOptions.linkBgColor;
 		}

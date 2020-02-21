@@ -1,4 +1,4 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	[ObjectSystem]
     public class BehaviorTreeAwakeSystem : AwakeSystem<BehaviorTree, BehaviorDesigner.Runtime.BehaviorTree>

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace DCET.Model
+namespace DCET.Runtime
  {
      public class MonoStaticMethod : IStaticMethod
      {

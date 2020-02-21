@@ -1,13 +1,13 @@
 ﻿using System;
-using ETModel;
+using System.Threading.Tasks;
 
-namespace ETHotfix
+namespace DCET
 {
 	// 用来测试消息包含复杂类型，是否产生gc
 	[MessageHandler]
 	public class C2G_PlayerInfoHandler : AMRpcHandler<C2G_PlayerInfo, G2C_PlayerInfo>
 	{
-		protected override async ETTask Run(Session session, C2G_PlayerInfo request, G2C_PlayerInfo response, Action reply)
+		protected override async Task Run(Session session, C2G_PlayerInfo request, G2C_PlayerInfo response, Action reply)
 		{
 			response.PlayerInfo = new PlayerInfo();
 			response.PlayerInfos.Add(new PlayerInfo() {RpcId = 1});
@@ -21,7 +21,7 @@ namespace ETHotfix
 			response.TestRepeatedString.Add("9");
 			response.TestRepeatedString.Add("10");
 			reply();
-			await ETTask.CompletedTask;
+			await Task.CompletedTask;
 		}
 	}
 }

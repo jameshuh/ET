@@ -36,7 +36,7 @@ namespace FairyGUI
 				bridge = new EventBridge(this);
 				_dic[strType] = bridge;
 			}
-			bridge.Add(callback);
+			bridge.Add1(callback);
 		}
 
 		/// <summary>
@@ -73,7 +73,7 @@ namespace FairyGUI
 
 			EventBridge bridge = null;
 			if (_dic.TryGetValue(strType, out bridge))
-				bridge.Remove(callback);
+				bridge.Remove1(callback);
 		}
 
 		/// <summary>

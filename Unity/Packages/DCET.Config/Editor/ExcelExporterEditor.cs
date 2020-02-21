@@ -1,5 +1,4 @@
-﻿using DCET.Model;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
@@ -63,7 +62,7 @@ namespace DCET.Editor
 
 					ExportAll(clientPath);
 
-					ExportAllClass(@"./Assets/Hotfix/Config", "using DCET.Model;\n\nnamespace DCET.Hotfix\n{\n");
+					ExportAllClass(@"./Assets/Hotfix/Config", "using DCET.Runtime;\n\nnamespace DCET\n{\n");
 
 					Log.Info($"导出客户端配置完成!");
 				}
@@ -74,7 +73,7 @@ namespace DCET.Editor
 
 					ExportAll(ServerConfigPath);
 
-					ExportAllClass(@"../Server/Model/Module/Demo/Config", "namespace ETModel\n{\n");
+					ExportAllClass(@"../Server/Model/Module/Demo/Config", "namespace DCET\n{\n");
 
 					Log.Info($"导出服务端配置完成!");
 				}

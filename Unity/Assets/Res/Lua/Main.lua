@@ -4,6 +4,11 @@ breakSocketHandle() end, 1, -1, false)
 timer:Start();
 
 require("CSharpLua.Classloader")
+
+setmetatable(System.IO,  {__index = toluaSystem.IO})
+setmetatable(System.Text, {__index = toluaSystem.Text})
+
+require("Google ProtoBuf.manifest")("Google ProtoBuf")
 require("Core.manifest")("Core")
 require("Message.manifest")("Message")
 require("Config.manifest")("Config")

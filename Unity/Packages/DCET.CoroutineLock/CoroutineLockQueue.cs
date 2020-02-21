@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public class CoroutineLockQueue: Entity
     {

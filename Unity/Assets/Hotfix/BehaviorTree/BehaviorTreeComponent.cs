@@ -1,9 +1,9 @@
 ﻿using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using DCET.Model;
+using DCET.Runtime;
 using System.Collections.Generic;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
     public class BehaviorTreeComponentAwakeSystem : AwakeSystem<BehaviorTreeComponent>

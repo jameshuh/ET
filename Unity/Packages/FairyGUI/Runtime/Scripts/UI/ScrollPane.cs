@@ -116,10 +116,10 @@ namespace FairyGUI
 			_container.SetXY(0, 0);
 			_maskContainer.AddChild(_container);
 
-			_owner.rootContainer.onMouseWheel.Add(__mouseWheel);
-			_owner.rootContainer.onTouchBegin.Add(__touchBegin);
-			_owner.rootContainer.onTouchMove.Add(__touchMove);
-			_owner.rootContainer.onTouchEnd.Add(__touchEnd);
+			_owner.rootContainer.onMouseWheel.Add1(__mouseWheel);
+			_owner.rootContainer.onTouchBegin.Add1(__touchBegin);
+			_owner.rootContainer.onTouchMove.Add1(__touchMove);
+			_owner.rootContainer.onTouchEnd.Add1(__touchEnd);
 		}
 
 		public void Setup(ByteBuffer buffer)

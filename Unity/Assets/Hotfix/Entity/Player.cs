@@ -1,4 +1,4 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	public sealed class Player : Entity
 	{

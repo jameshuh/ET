@@ -48,18 +48,18 @@ namespace FairyGUI
 		/// 
 		/// </summary>
 		/// <param name="callback"></param>
-		public void Add(EventCallback1 callback)
+		public void Add1(EventCallback1 callback)
 		{
-			_bridge.Add(callback);
+			_bridge.Add1(callback);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="callback"></param>
-		public void Remove(EventCallback1 callback)
+		public void Remove1(EventCallback1 callback)
 		{
-			_bridge.Remove(callback);
+			_bridge.Remove1(callback);
 		}
 
 		/// <summary>
@@ -90,11 +90,11 @@ namespace FairyGUI
 		/// 
 		/// </summary>
 		/// <param name="callback"></param>
-		public void Set(EventCallback1 callback)
+		public void Set1(EventCallback1 callback)
 		{
 			_bridge.Clear();
 			if (callback != null)
-				_bridge.Add(callback);
+				_bridge.Add1(callback);
 		}
 
 		/// <summary>

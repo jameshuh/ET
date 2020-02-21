@@ -2,7 +2,10 @@
     "name": "Unity.DCET.Message.Editor",
     "references": [
         "Unity.DCET.Core.Editor",
-        "Unity.DCET.Core.Runtime"
+        "Unity.DCET.Core.Runtime",
+        "Unity.ProtoBuf.Editor",
+        "Unity.DCET.Core.Hotfix",
+        "Unity.DCET.Config.Hotfix"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

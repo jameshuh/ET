@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using BehaviorDesigner.Runtime.Tasks;
+using CSharpLua;
+using LuaInterface;
+using ProtoBuf;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using LuaInterface;
-using UnityEditor;
-
-using BindType = ToLuaMenu.BindType;
-using System.Reflection;
 using System.IO;
-using System.Net.Sockets;
+using System.Linq;
 using System.Net;
-using CSharpLua;
-using BehaviorDesigner.Runtime.Tasks;
+using System.Net.Sockets;
+using System.Text;
+using UnityEditor;
+using UnityEngine;
+using BindType = ToLuaMenu.BindType;
 
 public static class CustomSettings
 {
-	public static string saveDir = Application.dataPath + "/Model/ToLua/Source/Generate/";
-	public static string toluaBaseType = Application.dataPath + "/Model/ToLua/BaseType/";
-	public static string baseLuaDir = Application.dataPath + "/Model/Tolua/Lua/";
-	public static string injectionFilesPath = Application.dataPath + "/Model/ToLua/Injection/";
+	public static string saveDir = Application.dataPath + "/Runtime/ToLua/Source/Generate/";
+	public static string toluaBaseType = Application.dataPath + "/Runtime/ToLua/BaseType/";
+	public static string baseLuaDir = Application.dataPath + "/Runtime/Tolua/Lua/";
+	public static string injectionFilesPath = Application.dataPath + "/Runtime/ToLua/Injection/";
 
 	//导出时强制做为静态类的类型(注意customTypeList 还要添加这个类型才能导出)
 	//unity 有些类作为sealed class, 其实完全等价于静态类
@@ -172,13 +172,19 @@ public static class CustomSettings
 		_GT(typeof(SerializableAttribute)),
 		_GT(typeof(BridgeMonoBehaviour)),
 		_GT(typeof(Path)),
-		_GT(typeof(File)),
 		_GT(typeof(AssetBundleManifest)),
 		_GT(typeof(TextAsset)),
 		_GT(typeof(List<HotfixAction>)),
 		_GT(typeof(List<HotfixComposite>)),
 		_GT(typeof(List<HotfixConditional>)),
 		_GT(typeof(List<HotfixDecorator>)),
+		_GT(typeof(IOException)),
+		_GT(typeof(ProtoMemberAttribute)),
+		_GT(typeof(ProtoContractAttribute)),
+		_GT(typeof(Encoding)),
+
+		//_GT(typeof(EventBridgeExtension)),
+		//_GT(typeof(EventListenerExtension)),
 	};
 
 	public static List<Type> dynamicList = new List<Type>()
@@ -334,11 +340,6 @@ public static class CustomSettings
 								continue;
 							}
 
-							if (type.IsSubclassOf(typeof(Stream)))
-							{
-								continue;
-							}
-
 							if (type.IsGenericType)
 							{
 								continue;
@@ -363,7 +364,6 @@ public static class CustomSettings
 	{
 			"Unity.BehaviorDesigner.Runtime.dll",
 			"Unity.MongoDB.Runtime.dll",
-			"Unity.ProtoBuf.Runtime.dll",
 			"Unity.FairyGUI.Runtime.dll",
 			"Unity.DCET.Downloader.Runtime.dll",
 			"Unity.DCET.Core.Runtime.dll",

@@ -1,4 +1,4 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	/// <summary>
 	/// 一般使用事件名+变量名

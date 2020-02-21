@@ -13,23 +13,23 @@ System.namespace("DCET.Hotfix", function (namespace)
     FromBytes = function (type, bytes, index, count)
       local message = System.Activator.CreateInstance(type)
       ;
-      GoogleProtobuf.MessageExtensions.MergeFrom((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
+      GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
       return message
     end
     FromBytes1 = function (instance, bytes, index, count)
       local message = instance
-      GoogleProtobuf.MessageExtensions.MergeFrom((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
+      GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
       return message
     end
     FromStream = function (type, stream)
       local message = System.Activator.CreateInstance(type)
       ;
-      GoogleProtobuf.MessageExtensions.MergeFrom((System.cast(GoogleProtobuf.IMessage, message)), stream:GetBuffer(), System.toInt32(stream:getPosition()), System.toInt32(stream:getLength()))
+      GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), stream:GetBuffer(), System.toInt32(stream:getPosition()), System.toInt32(stream:getLength()))
       return message
     end
     FromStream1 = function (message, stream)
       -- 这个message可以从池中获取，减少gc
-      GoogleProtobuf.MessageExtensions.MergeFrom((System.cast(GoogleProtobuf.IMessage, message)), stream:GetBuffer(), System.toInt32(stream:getPosition()), System.toInt32(stream:getLength()))
+      GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), stream:GetBuffer(), System.toInt32(stream:getPosition()), System.toInt32(stream:getLength()))
       return message
     end
     return {

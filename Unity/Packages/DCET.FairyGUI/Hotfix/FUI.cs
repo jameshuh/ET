@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class FUIAwakeSystem : AwakeSystem<FUI, GObject>

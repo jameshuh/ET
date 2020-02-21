@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using FairyGUI;
-using ETModel;
-using ETHotfix;
+using DCET.Hotfix;
 
 namespace {packageName}
 {
@@ -36,38 +35,38 @@ namespace {packageName}
             UIPackage.CreateObjectAsync(UIPackageName, UIResName, result);
         }
 
-        public static {className} CreateInstance()
+        public static {className} CreateInstance(Entity domain)
 		{			
-			return ComponentFactory.Create<{className}, GObject>(CreateGObject());
+			return EntityFactory.Create<{className}, GObject>(domain, CreateGObject());
 		}
 
-        public static Task<{className}> CreateInstanceAsync()
+        public static Task<{className}> CreateInstanceAsync(Entity domain)
         {
             TaskCompletionSource<{className}> tcs = new TaskCompletionSource<{className}>();
 
             CreateGObjectAsync((go) =>
             {
-                tcs.SetResult(ComponentFactory.Create<{className}, GObject>(go));
+                tcs.SetResult(EntityFactory.Create<{className}, GObject>(domain, go));
             });
 
             return tcs.Task;
         }
 
-        public static {className} Create(GObject go)
+        public static {className} Create(Entity domain, GObject go)
 		{
-			return ComponentFactory.Create<{className}, GObject>(go);
+			return EntityFactory.Create<{className}, GObject>(domain, go);
 		}
 		
         /// <summary>
         /// 通过此方法获取的FUI，在Dispose时不会释放GObject，需要自行管理（一般在配合FGUI的Pool机制时使用）。
         /// </summary>
-        public static {className} GetFormPool(GObject go)
+        public static {className} GetFormPool(Entity domain, GObject go)
         {
             var fui = go.Get<{className}>();
 
             if(fui == null)
             {
-                fui = Create(go);
+                fui = Create(domain, go);
             }
 
             fui.isFromFGUIPool = true;

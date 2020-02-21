@@ -1,7 +1,7 @@
 ﻿using FairyGUI;
 using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class GComponentHelper
     {

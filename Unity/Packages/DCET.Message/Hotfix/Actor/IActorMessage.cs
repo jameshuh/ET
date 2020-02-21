@@ -1,4 +1,4 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	// 不需要返回消息
 	public interface IActorMessage: IMessage

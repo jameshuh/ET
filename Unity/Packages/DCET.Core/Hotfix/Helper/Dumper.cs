@@ -1,12 +1,9 @@
-﻿using DCET.Model;
-using Google.Protobuf;
-using System;
+﻿using System;
 using System.Collections;
 using System.Reflection;
 using System.Text;
-using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public static class Dumper
     {
@@ -60,14 +57,6 @@ namespace DCET.Hotfix
                 _text.Append(",");
                 AppendIndent(1);
             }
-            else if (obj is ByteString)
-            {
-                _text.Append("\"");
-                _text.Append(((ByteString) obj).bytes.Utf8ToStr());
-                _text.Append("\"");
-                _text.Append(",");
-                AppendIndent(1);
-            }
             else if (t.IsArray)
             {
                 Array a = (Array) obj;
@@ -101,7 +90,7 @@ namespace DCET.Hotfix
             }
             else
             {
-                Debug.LogWarning("unsupport type: " + t.FullName);
+                Log.Warning("unsupport type: " + t.FullName);
                 _text.Append(obj);
                 _text.Append(",");
                 AppendIndent(1);

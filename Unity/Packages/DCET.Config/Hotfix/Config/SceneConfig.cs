@@ -1,10 +1,9 @@
-﻿
-namespace DCET.Hotfix
+﻿namespace DCET
 {
-	[NoObjectPool]
-	public class SceneConfig : AConfigComponent
-	{
-		public SceneType SceneType;
-		public string Name;
-	}
+    [NoObjectPool]
+    public class SceneConfig: AConfigComponent
+    {
+        public SceneType SceneType;
+        public string Name;
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class Env
 	{

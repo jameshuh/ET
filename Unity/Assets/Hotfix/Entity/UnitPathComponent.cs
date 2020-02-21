@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class UnitPathComponent : Entity
 	{

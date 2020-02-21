@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[BsonIgnoreExtraElements]
 	public class OuterConfig: AConfigComponent

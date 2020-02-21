@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	/// <summary>
 	/// 用来对比web端的资源，比较md5，对比下载资源

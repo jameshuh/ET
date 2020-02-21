@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class NetHelper
 	{

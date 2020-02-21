@@ -32,13 +32,13 @@ namespace FairyGUI
 			_captureCallback -= callback;
 		}
 
-		public void Add(EventCallback1 callback)
+		public void Add1(EventCallback1 callback)
 		{
 			_callback1 -= callback;
 			_callback1 += callback;
 		}
 
-		public void Remove(EventCallback1 callback)
+		public void Remove1(EventCallback1 callback)
 		{
 			_callback1 -= callback;
 		}

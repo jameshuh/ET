@@ -1,4 +1,4 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class ResourcesComponentAwakeSystem : AwakeSystem<ResourcesComponent>

@@ -1,4 +1,5 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace DCET.Editor
@@ -6,11 +7,16 @@ namespace DCET.Editor
 	[InitializeOnLoad]
 	public class GenFairyGUIHotfix
 	{
+		public const string DllName = "Unity.DCET.FairyGUI.Hotfix";
+		private const string DllDir = "./Packages/DCET.FairyGUI/Hotfix";
+		private const string OutDirName = "FairyGUI";
+		private static List<string> ReferencedLuaAssemblies = new List<string>() { GenCoreHotfix.DllName };
+
 		static GenFairyGUIHotfix()
 		{
-			if (GenCoreHotfix.CopyDll("Unity.DCET.FairyGUI.Hotfix") && Define.IsLua)
+			if (GenCoreHotfix.CopyDll(DllName) && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.FairyGUI.Hotfix", "./Packages/DCET.FairyGUI/Hotfix", "FairyGUI", true);
+				GenCoreHotfix.CompileLua(DllName, DllDir, OutDirName, ReferencedLuaAssemblies, true);
 			}
 		}
 	}

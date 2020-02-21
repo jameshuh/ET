@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 	public class BaseAttribute: Attribute

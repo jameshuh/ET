@@ -49,7 +49,7 @@ public static class ToLuaInjection
     static SortedDictionary<string, List<InjectedMethodInfo>> bridgeInfo = new SortedDictionary<string, List<InjectedMethodInfo>>();
     static OpCode[] ldargs = new OpCode[] { OpCodes.Ldarg_0, OpCodes.Ldarg_1, OpCodes.Ldarg_2, OpCodes.Ldarg_3 };
     static OpCode[] ldcI4s = new OpCode[] { OpCodes.Ldc_I4_1, OpCodes.Ldc_I4_2, OpCodes.Ldc_I4_4, OpCodes.Ldc_I4_8 };
-    const string assemblyPath = "./Library/ScriptAssemblies/Unity.DCET.Model.dll";
+    const string assemblyPath = "./Library/ScriptAssemblies/Unity.DCET.Runtime.dll";
     const InjectType injectType = InjectType.After | InjectType.Before | InjectType.Replace | InjectType.ReplaceWithPreInvokeBase | InjectType.ReplaceWithPostInvokeBase;
     const InjectFilter injectIgnoring = InjectFilter.IgnoreGeneric | InjectFilter.IgnoreConstructor;// | InjectFilter.IgnoreNoToLuaAttr | InjectFilter.IgnoreProperty;
     static HashSet<string> dropGenericNameGroup = new HashSet<string>

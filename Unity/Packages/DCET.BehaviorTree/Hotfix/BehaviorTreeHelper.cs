@@ -1,8 +1,8 @@
 ﻿using BehaviorDesigner.Runtime;
-using DCET.Model;
+using DCET.Runtime;
 using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public class BehaviorTreeHelper
     {

@@ -1,7 +1,6 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class ConfigAttribute: BaseAttribute

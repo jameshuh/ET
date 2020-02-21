@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class NumericWatcherComponentAwakeSystem : AwakeSystem<NumericWatcherComponent>

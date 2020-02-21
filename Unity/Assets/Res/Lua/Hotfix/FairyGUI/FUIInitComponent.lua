@@ -9,7 +9,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     Init = function (this)
       return System.async(function (async, this)
-        async:await(DCETHotfix.Game.getScene():GetComponent(DCETHotfix.FUIPackageComponent):AddPackageAsync("Common" --[[FUIPackage.Common]]))
+        async:await(DCETHotfix.Game.getScene():GetComponent(DCETHotfix.FUIPackageComponent):AddPackageAsync("Hotfix" --[[FUIPackage.Hotfix]]))
       end, nil, this)
     end
     Dispose = function (this)
@@ -21,7 +21,7 @@ System.namespace("DCET.Hotfix", function (namespace)
 
       local default = DCETHotfix.Game.getScene():GetComponent(DCETHotfix.FUIPackageComponent)
       if default ~= nil then
-        default:RemovePackage("Common" --[[FUIPackage.Common]])
+        default:RemovePackage("Hotfix" --[[FUIPackage.Hotfix]])
       end
     end
     return {

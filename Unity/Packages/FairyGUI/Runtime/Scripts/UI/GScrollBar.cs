@@ -110,14 +110,14 @@ namespace FairyGUI
 			_arrowButton1 = GetChild("arrow1");
 			_arrowButton2 = GetChild("arrow2");
 
-			_grip.onTouchBegin.Add(__gripTouchBegin);
-			_grip.onTouchMove.Add(__gripTouchMove);
+			_grip.onTouchBegin.Add1(__gripTouchBegin);
+			_grip.onTouchMove.Add1(__gripTouchMove);
 
-			this.onTouchBegin.Add(__touchBegin);
+			this.onTouchBegin.Add1(__touchBegin);
 			if (_arrowButton1 != null)
-				_arrowButton1.onTouchBegin.Add(__arrowButton1Click);
+				_arrowButton1.onTouchBegin.Add1(__arrowButton1Click);
 			if (_arrowButton2 != null)
-				_arrowButton2.onTouchBegin.Add(__arrowButton2Click);
+				_arrowButton2.onTouchBegin.Add1(__arrowButton2Click);
 		}
 
 		void __gripTouchBegin(EventContext context)

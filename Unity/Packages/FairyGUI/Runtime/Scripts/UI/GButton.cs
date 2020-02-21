@@ -465,7 +465,7 @@ namespace FairyGUI
 
 			displayObject.onRollOver.Add(__rollover);
 			displayObject.onRollOut.Add(__rollout);
-			displayObject.onTouchBegin.Add(__touchBegin);
+			displayObject.onTouchBegin.Add1(__touchBegin);
 			displayObject.onTouchEnd.Add(__touchEnd);
 			displayObject.onRemovedFromStage.Add(__removedFromStage);
 			displayObject.onClick.Add(__click);

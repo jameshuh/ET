@@ -1,4 +1,6 @@
-﻿namespace DCET.Hotfix
+﻿using LitJson;
+
+namespace DCET
 {
 	public static class JsonHelper
 	{
@@ -13,7 +15,7 @@
 		*/
 			return t;
 #else
-			return Model.JsonHelper.ToJson(obj);
+			return JsonMapper.ToJson(obj);
 #endif
 		}
 
@@ -28,7 +30,7 @@
 		*/
 			return t;	
 #else
-			return Model.JsonHelper.FromJson<T>(str);
+			return JsonMapper.ToObject<T>(str);
 #endif
 		}
 	}

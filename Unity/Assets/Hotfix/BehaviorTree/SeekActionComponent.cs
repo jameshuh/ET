@@ -1,6 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
     public class SeekActionComponentAwakeSystem : AwakeSystem<SeekActionComponent, Entity, HotfixAction, BehaviorTreeConfig>

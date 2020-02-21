@@ -141,7 +141,7 @@ namespace FairyGUI
 					if (_dragArea != null)
 					{
 						_dragArea.draggable = false;
-						_dragArea.onDragStart.Remove(__dragStart);
+						_dragArea.onDragStart.Remove1(__dragStart);
 					}
 
 					_dragArea = value;
@@ -151,7 +151,7 @@ namespace FairyGUI
 						if (graph != null && graph.shape.isEmpty)
 							graph.DrawRect(_dragArea.width, _dragArea.height, 0, Color.clear, Color.clear);
 						_dragArea.draggable = true;
-						_dragArea.onDragStart.Add(__dragStart);
+						_dragArea.onDragStart.Add1(__dragStart);
 					}
 				}
 			}

@@ -1,9 +1,8 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public abstract class NetworkComponent : Entity
 	{

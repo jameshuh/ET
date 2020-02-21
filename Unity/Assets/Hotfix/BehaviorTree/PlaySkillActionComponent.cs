@@ -1,6 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
     public class PlaySkillActionComponentAwakeSystem : AwakeSystem<PlaySkillActionComponent, Entity, HotfixAction, BehaviorTreeConfig>

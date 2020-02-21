@@ -34,7 +34,7 @@ namespace Pathfinding {
 		};
 
 		static string GetPackageRootDirectory () {
-			var paths = Directory.GetDirectories($"./Assets/Model/Module/Pathfinding/", "AstarPathfindingProject", SearchOption.AllDirectories);
+			var paths = Directory.GetDirectories($"./Packages/DCET.Pathfinding/Runtime", "AstarPathfindingProject", SearchOption.AllDirectories);
 
 			if (paths.Length > 0) {
 				return paths[0];

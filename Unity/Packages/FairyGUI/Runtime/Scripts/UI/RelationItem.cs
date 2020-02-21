@@ -548,8 +548,8 @@ namespace FairyGUI
 		void AddRefTarget(GObject target)
 		{
 			if (target != _owner.parent)
-				target.onPositionChanged.Add(__targetXYChanged);
-			target.onSizeChanged.Add(__targetSizeChanged);
+				target.onPositionChanged.Add1(__targetXYChanged);
+			target.onSizeChanged.Add1(__targetSizeChanged);
 			_targetData.x = _target.x;
 			_targetData.y = _target.y;
 			_targetData.z = _target._width;
@@ -558,8 +558,8 @@ namespace FairyGUI
 
 		void ReleaseRefTarget(GObject target)
 		{
-			target.onPositionChanged.Remove(__targetXYChanged);
-			target.onSizeChanged.Remove(__targetSizeChanged);
+			target.onPositionChanged.Remove1(__targetXYChanged);
+			target.onSizeChanged.Remove1(__targetSizeChanged);
 		}
 
 		void __targetXYChanged(EventContext context)

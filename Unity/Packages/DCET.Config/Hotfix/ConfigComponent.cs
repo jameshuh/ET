@@ -1,8 +1,7 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class ConfigComponentAwakeSystem : AwakeSystem<ConfigComponent>

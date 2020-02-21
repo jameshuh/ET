@@ -225,12 +225,12 @@ namespace FairyGUI
 
 			if (_gripObject != null)
 			{
-				_gripObject.onTouchBegin.Add(__gripTouchBegin);
-				_gripObject.onTouchMove.Add(__gripTouchMove);
-				_gripObject.onTouchEnd.Add(__gripTouchEnd);
+				_gripObject.onTouchBegin.Add1(__gripTouchBegin);
+				_gripObject.onTouchMove.Add1(__gripTouchMove);
+				_gripObject.onTouchEnd.Add1(__gripTouchEnd);
 			}
 
-			onTouchBegin.Add(__barTouchBegin);
+			onTouchBegin.Add1(__barTouchBegin);
 		}
 
 		override public void Setup_AfterAdd(ByteBuffer buffer, int beginPos)

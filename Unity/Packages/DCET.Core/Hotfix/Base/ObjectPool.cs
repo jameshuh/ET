@@ -1,13 +1,15 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+#if !SERVER
 using UnityEngine;
+using DCET.Runtime;
+#endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class ComponentQueue: IDisposable
 	{

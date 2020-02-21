@@ -29,14 +29,13 @@ System.namespace("DCET.Hotfix", function (namespace)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.ConfigComponent)
           DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ResourcesComponent):UnloadBundle("config.unity3d")
 
-          -- 演示行为树用法
-          TestBehaviorTree()
-
-          -- 演示FGUI用法
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIPackageComponent)
           DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIComponent)
           async:await(DCETHotfix.Game.getScene():AddComponent(DCETHotfix.FUIInitComponent):Init())
           DCETHotfix.Game.getEventSystem():Run("InitSceneStart" --[[EventIdType.InitSceneStart]])
+
+          -- 演示行为树用法
+          --TestBehaviorTree();
         end, function (default)
           local e = default
           DCETHotfix.Log.Error(e)

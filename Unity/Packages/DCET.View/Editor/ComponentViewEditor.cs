@@ -1,4 +1,4 @@
-using DCET.Model;
+using DCET.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -83,7 +83,7 @@ namespace DCET.Editor
             }
             catch (Exception e)
             {
-				Model.Log.Error($"component view error: {obj.GetType().FullName}");
+				Log.Error($"component view error: {obj.GetType().FullName}");
             }
         }
     }

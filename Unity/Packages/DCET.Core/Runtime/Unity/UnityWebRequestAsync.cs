@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	public class AcceptAllCertificate : CertificateHandler
 	{

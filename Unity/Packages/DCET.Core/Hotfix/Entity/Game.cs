@@ -1,4 +1,4 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	public static class Game
 	{
@@ -25,6 +25,13 @@
 				scene = new Scene() { Name = "ClientM" };
 				return scene;
 			}
+
+#if SERVER
+			set
+			{
+				scene = value;
+			}
+#endif
 		}
 
 		private static ObjectPool objectPool;
@@ -42,15 +49,9 @@
 			}
 		}
 
-		private static Hotfix hotfix;
-
-		public static Hotfix Hotfix
-		{
-			get
-			{
-				return hotfix ?? (hotfix = new Hotfix());
-			}
-		}
+#if SERVER
+		public static Options Options;
+#endif
 
 		public static void Close()
 		{
@@ -59,10 +60,11 @@
 			
 			objectPool?.Dispose();
 			objectPool = null;
-			
-			hotfix = null;
-			
+					
 			eventSystem = null;
-		}
+#if SERVER
+			Options = null;
+#endif
 	}
+}
 }

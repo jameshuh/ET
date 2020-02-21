@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
     public class PrefabLightmapData : MonoBehaviour
     {

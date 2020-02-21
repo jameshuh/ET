@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	// 用于字符串转换，减少GC
 	public static class AssetBundleHelper

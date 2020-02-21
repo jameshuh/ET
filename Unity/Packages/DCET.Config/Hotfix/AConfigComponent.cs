@@ -1,7 +1,7 @@
 ﻿#if !SERVER
 #endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	/// <summary>
 	/// 每个Config的基类

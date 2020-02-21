@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class PositionHelper
 	{
@@ -19,11 +19,12 @@ namespace DCET.Hotfix
 			return new Vector3(pos.x, 0, pos.z);
 		}
 
-		public static Quaternion AngleToQuaternion(int angle)
+#if !SERVER
+        public static Quaternion AngleToQuaternion(int angle)
 		{
 			return Quaternion.AngleAxis(-angle, Vector3.up) * Quaternion.AngleAxis(90, Vector3.up);
 		}
-
+#endif
 		public static Quaternion GetVector3ToQuaternion(Vector3 source, Vector3 dire)
 		{
 			Vector3 nowPos = source;
@@ -42,11 +43,12 @@ namespace DCET.Hotfix
             return Vector2.Distance(d1, d2);
         }
 
+#if !SERVER
         public static Quaternion GetAngleToQuaternion(float angle)
 		{
 			return Quaternion.AngleAxis(-angle, Vector3.up) * Quaternion.AngleAxis(90, Vector3.up);
 		}
-
+#endif
 		public static float Vector3ToAngle360(Vector3 from, Vector3 to)
 		{
 			float angle = Vector3.Angle(from, to);
@@ -71,6 +73,8 @@ namespace DCET.Hotfix
             Vector2 pointVe2 = point.IgnoreYAxis();
             return Mathf.Abs((A * pointVe2.x + B * pointVe2.y + C) / denominator); ;
         }
+
+#if !SERVER
         /// <summary>
         /// 判断射线是否碰撞到球体，如果碰撞到，返回射线起点到碰撞点之间的距离
         /// </summary>
@@ -93,6 +97,8 @@ namespace DCET.Hotfix
             }
             return false;
         }
+#endif
+
         /// <summary>
         /// 勾股定理
         /// </summary>

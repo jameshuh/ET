@@ -1,7 +1,7 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class BehaviorTreeFactory
     {
@@ -11,7 +11,7 @@ namespace DCET.Hotfix
             {
                 var behaviorTreeConfig = (BehaviorTreeConfig)Game.Scene.GetComponent<ConfigComponent>().Get(typeof(BehaviorTreeConfig), hotfixAction.behaviorTreeConfigID);
                 
-                var type = Type.GetType($"DCET.Hotfix.{behaviorTreeConfig.ComponentName}");
+                var type = Type.GetType($"DCET.{behaviorTreeConfig.ComponentName}");
 
                 var component = Game.ObjectPool.Fetch(type);
 
@@ -41,7 +41,7 @@ namespace DCET.Hotfix
             {
                 var behaviorTreeConfig = (BehaviorTreeConfig)Game.Scene.GetComponent<ConfigComponent>().Get(typeof(BehaviorTreeConfig), hotfixDecorator.behaviorTreeConfigID);
 
-                var type = Type.GetType($"DCET.Hotfix.{behaviorTreeConfig.ComponentName}");
+                var type = Type.GetType($"DCET.{behaviorTreeConfig.ComponentName}");
 
                 var component = Game.ObjectPool.Fetch(type);
 
@@ -70,7 +70,7 @@ namespace DCET.Hotfix
             {
                 var behaviorTreeConfig = (BehaviorTreeConfig)Game.Scene.GetComponent<ConfigComponent>().Get(typeof(BehaviorTreeConfig), hotfixConditional.behaviorTreeConfigID);
 
-                var type = Type.GetType($"DCET.Hotfix.{behaviorTreeConfig.ComponentName}");
+                var type = Type.GetType($"DCET.{behaviorTreeConfig.ComponentName}");
 
                 var component = Game.ObjectPool.Fetch(type);
 
@@ -100,7 +100,7 @@ namespace DCET.Hotfix
             {
                 var behaviorTreeConfig = (BehaviorTreeConfig)Game.Scene.GetComponent<ConfigComponent>().Get(typeof(BehaviorTreeConfig), hotfixComposite.behaviorTreeConfigID);
 
-                var type = Type.GetType($"DCET.Hotfix.{behaviorTreeConfig.ComponentName}");
+                var type = Type.GetType($"DCET.{behaviorTreeConfig.ComponentName}");
 
                 var component = Game.ObjectPool.Fetch(type);
 

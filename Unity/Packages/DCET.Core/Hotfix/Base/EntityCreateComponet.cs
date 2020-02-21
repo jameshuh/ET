@@ -1,6 +1,6 @@
 ﻿﻿using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public partial class Entity
 	{
@@ -15,11 +15,11 @@ namespace DCET.Hotfix
 			{
 				component = Game.ObjectPool.Fetch(type);	
 			}
-			
-			this.Domain = parent.Domain;
-			component.Id = parent.Id;
-			component.ComponentParent = parent;
-			
+
+			component.Domain = this.Domain;
+			component.Id = this.Id;
+			component.ComponentParent = this;
+
 			Game.EventSystem.Awake(component);
 			return component;
 		}

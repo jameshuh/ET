@@ -1,4 +1,4 @@
-namespace ETHotfix
+namespace DCET.Hotfix
 {
 	public static partial class FUIPackage
 	{

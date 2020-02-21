@@ -1,9 +1,9 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class DependenciesHelper
 	{

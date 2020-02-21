@@ -1,9 +1,9 @@
 ﻿using BehaviorDesigner.Runtime;
-using DCET.Model;
+using DCET.Runtime;
 using System;
 using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class Init
 	{
@@ -11,7 +11,9 @@ namespace DCET.Hotfix
 		{
 			try
 			{
-				TypeHelper.InitHotfixType();
+				TypeHelper.InitAllType();
+				MongoHelper.LookupTypes(Game.EventSystem.GetAllType());
+				Game.EventSystem.Init();
 
 				// 注册热更层回调
 				GameLoop.onUpdate += Update;
@@ -20,20 +22,19 @@ namespace DCET.Hotfix
 
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
-								
+
 				// 加载热更配置
 				Game.Scene.AddComponent<ResourcesComponent>().LoadBundle("config.unity3d");
 				Game.Scene.AddComponent<ConfigComponent>();
 				Game.Scene.GetComponent<ResourcesComponent>().UnloadBundle("config.unity3d");
 
-				// 演示行为树用法
-				TestBehaviorTree();
-
-				// 演示FGUI用法
 				Game.Scene.AddComponent<FUIPackageComponent>();
 				Game.Scene.AddComponent<FUIComponent>();
 				await Game.Scene.AddComponent<FUIInitComponent>().Init();
 				Game.EventSystem.Run(EventIdType.InitSceneStart);
+
+				// 演示行为树用法
+				//TestBehaviorTree();
 			}
 			catch (Exception e)
 			{

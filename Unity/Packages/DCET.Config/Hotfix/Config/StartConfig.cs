@@ -1,19 +1,17 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
-#if !SERVER
-#endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 #if !SERVER
 	[HideInHierarchy]
 #endif
 	[NoObjectPool]
-	public class StartConfig : Entity
+	public class StartConfig: Entity
 	{
 		[BsonIgnore]
 		public long SceneInstanceId { get; set; }
-
+		
 		public List<StartConfig> List = new List<StartConfig>();
 
 		public void Add(StartConfig startConfig)

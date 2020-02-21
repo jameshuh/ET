@@ -1,6 +1,6 @@
 ﻿﻿using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public class NoMemoryCheck: Attribute
     {

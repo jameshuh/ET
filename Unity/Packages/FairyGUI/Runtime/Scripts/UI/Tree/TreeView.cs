@@ -59,8 +59,8 @@ namespace FairyGUI
 		public TreeView(GList list)
 		{
 			this.list = list;
-			list.onClickItem.Add(__clickItem);
-			list.onRightClickItem.Add(__clickItem);
+			list.onClickItem.Add1(__clickItem);
+			list.onRightClickItem.Add1(__clickItem);
 			list.RemoveChildrenToPool();
 
 			root = new TreeNode(true);
@@ -234,7 +234,7 @@ namespace FairyGUI
 				if (node.isFolder)
 				{
 					expandButton.visible = true;
-					expandButton.onClick.Add(__clickExpandButton);
+					expandButton.onClick.Add1(__clickExpandButton);
 					expandButton.data = node;
 					expandButton.selected = node.expanded;
 				}

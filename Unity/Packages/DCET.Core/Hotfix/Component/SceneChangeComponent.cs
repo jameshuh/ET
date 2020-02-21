@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     [ObjectSystem]
     public class SceneChangeComponentUpdateSystem: UpdateSystem<SceneChangeComponent>

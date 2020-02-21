@@ -1,9 +1,9 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class UnitAwakeSystem : AwakeSystem<Unit, GameObject>

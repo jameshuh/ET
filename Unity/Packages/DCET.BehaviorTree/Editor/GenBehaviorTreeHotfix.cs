@@ -1,4 +1,5 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace DCET.Editor
@@ -6,11 +7,16 @@ namespace DCET.Editor
 	[InitializeOnLoad]
 	public class GenBehaviorTreeHotfix
 	{
+		public const string DllName = "Unity.DCET.BehaviorTree.Hotfix";
+		private const string DllDir = "./Packages/DCET.BehaviorTree/Hotfix";
+		private const string OutDirName = "BehaviorTree";
+		private static List<string> ReferencedLuaAssemblies = new List<string>() { GenCoreHotfix.DllName };
+
 		static GenBehaviorTreeHotfix()
 		{
-			if (GenCoreHotfix.CopyDll("Unity.DCET.BehaviorTree.Hotfix") && Define.IsLua)
+			if (GenCoreHotfix.CopyDll(DllName) && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.BehaviorTree.Hotfix", "./Packages/DCET.BehaviorTree/Hotfix", "BehaviorTree", true);
+				GenCoreHotfix.CompileLua(DllName, DllDir, OutDirName, ReferencedLuaAssemblies, true);
 			}
 		}
 	}

@@ -4,7 +4,7 @@ using System.IO;
 using System.Net.WebSockets;
 using System.Threading;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public class WChannel: AChannel
     {

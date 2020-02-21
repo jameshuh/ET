@@ -13,7 +13,7 @@
     <OutputPath>..\..\..\Bin\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\Unity\Assets\Plugins\x86_64\kcp.dll" Link="kcp.dll">
+    <None Include="..\..\..\Unity\Packages\DCET.Message\Plugins\x86_64\kcp.dll" Link="kcp.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -26,7 +26,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\Unity\Assets\Model\Module\Message\Network\KCP\Kcp.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Message\Runtime\Kcp.cs">
       <Link>Kcp.cs</Link>
     </Compile>
   </ItemGroup>

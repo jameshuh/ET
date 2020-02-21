@@ -1,14 +1,14 @@
 {
     "name": "Unity.DCET.Config.Hotfix",
     "references": [
-        "Unity.DCET.Core.Runtime",
         "Unity.DCET.Core.Hotfix",
-        "Unity.MongoDB.Runtime"
+        "Unity.MongoDB.Runtime",
+        "Unity.DCET.Core.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": true,
+    "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,

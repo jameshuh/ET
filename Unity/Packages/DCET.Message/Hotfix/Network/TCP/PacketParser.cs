@@ -1,7 +1,8 @@
-﻿using System;
+﻿using DCET.Runtime;
+using System;
 using System.IO;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public enum ParserState
 	{

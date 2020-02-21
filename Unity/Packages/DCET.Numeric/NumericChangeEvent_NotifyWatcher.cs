@@ -1,7 +1,7 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
 	// 分发数值监听
-	[Event(EventIdType.NumbericChange)]
+	[Event(NumericEventIdType.NumericChange)]
 	public class NumericChangeEvent_NotifyWatcher: AEvent<long, NumericType, int>
 	{
 		public override void Run(long id, NumericType numericType, int value)

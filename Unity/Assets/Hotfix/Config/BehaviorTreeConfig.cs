@@ -1,6 +1,6 @@
-using DCET.Model;
+using DCET.Runtime;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[Config((int)(AppType.ClientH |  AppType.ClientM | AppType.Gate | AppType.Map))]
 	public partial class BehaviorTreeConfigCategory : ACategory<BehaviorTreeConfig>

@@ -3,13 +3,12 @@
     "references": [
         "Unity.DCET.Core.Runtime",
         "Unity.MongoDB.Runtime",
-        "Unity.ProtoBuf.Runtime",
         "Unity.LitJson.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": true,
+    "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class LayerNames
 	{
@@ -26,6 +26,7 @@ namespace DCET.Hotfix
 		
 		public const string HIDDEN = "Hidden";
 
+#if !SERVER
 		/// <summary>
 		/// 通过Layers名字得到对应层
 		/// </summary>
@@ -40,5 +41,6 @@ namespace DCET.Hotfix
 		{
 			return LayerMask.LayerToName(name);
 		}
+#endif
 	}
 }

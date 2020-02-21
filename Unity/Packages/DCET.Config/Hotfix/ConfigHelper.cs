@@ -1,8 +1,12 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
+#if SERVER
+using System.IO;
+#else
+using DCET.Runtime;
 using UnityEngine;
+#endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class ConfigHelper
 	{
@@ -10,9 +14,12 @@ namespace DCET.Hotfix
 		{
 			try
 			{
+#if SERVER
+				return File.ReadAllText($"../Config/{key}.txt");
+#else
 				GameObject config = (GameObject)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("config.unity3d", "Config");
-				string configStr = config.GetTextAsset(key).text;
-				return configStr;
+				return config.GetTextAsset(key).text;
+#endif
 			}
 			catch (Exception e)
 			{

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class MethodInfoHelper
 	{

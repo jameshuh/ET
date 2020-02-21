@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public sealed class EventSystem
 	{
 		private readonly Dictionary<long, Entity> allComponents = new Dictionary<long, Entity>();
 
-		private readonly UnOrderMultiMapSet<Type, Type> types = new UnOrderMultiMapSet<Type, Type>();
+		private readonly UnOrderMultiMapSet<Type, Type> attributeTypeMap = new UnOrderMultiMapSet<Type, Type>();
 
 		private readonly Dictionary<string, List<object>> allEvents = new Dictionary<string, List<object>>();
 
@@ -39,19 +40,62 @@ namespace DCET.Hotfix
 
 		private Queue<long> lateUpdates = new Queue<long>();
 		private Queue<long> lateUpdates2 = new Queue<long>();
+		private HashSet<Type> allType = new HashSet<Type>();
 
-		public EventSystem()
+		public HashSet<Type> GetAllType()
 		{
-			foreach (Type type in Game.Hotfix.GetHotfixTypes())
+			return allType;
+		}
+
+		public void AddType(Type type)
+		{
+			if (type != null)
 			{
+				allType.Add(type);
+			}
+		}
+
+		public void AddRangeType(IEnumerable<Type> typeList)
+		{
+			if(typeList != null)
+			{
+				foreach(var item in typeList)
+				{
+					AddType(item);
+				}
+			}
+		}
+
+		public void AddAssemblyType(string dllName)
+		{
+			var assembly = Assembly.Load(dllName);
+
+			if (assembly != null)
+			{
+				AddRangeType(assembly.GetTypes());
+			}
+		}
+
+		public void Init()
+		{
+			attributeTypeMap.Clear();
+
+			foreach (Type type in allType)
+			{
+				if (type.IsAbstract)
+				{
+					continue;
+				}
+
 				object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
+
 				if (objects.Length == 0)
 				{
 					continue;
 				}
 
 				BaseAttribute baseAttribute = (BaseAttribute)objects[0];
-				this.types.Add(baseAttribute.AttributeType, type);
+				this.attributeTypeMap.Add(baseAttribute.AttributeType, type);
 			}
 
 			this.awakeSystems.Clear();
@@ -97,9 +141,9 @@ namespace DCET.Hotfix
 			}
 
 			this.allEvents.Clear();
-			if (this.types.ContainsKey(typeof (EventAttribute)))
+			if (this.attributeTypeMap.ContainsKey(typeof (EventAttribute)))
 			{
-				foreach (Type type in types[typeof(EventAttribute)])
+				foreach (Type type in attributeTypeMap[typeof(EventAttribute)])
 				{
 					object[] attrs = type.GetCustomAttributes(typeof(EventAttribute), false);
 
@@ -131,11 +175,11 @@ namespace DCET.Hotfix
 
 		public HashSet<Type> GetTypes(Type systemAttributeType)
 		{
-			if (!this.types.ContainsKey(systemAttributeType))
+			if (!this.attributeTypeMap.ContainsKey(systemAttributeType))
 			{
 				return new HashSet<Type>();
 			}
-			return this.types[systemAttributeType];
+			return this.attributeTypeMap[systemAttributeType];
 		}
 		
 		public void RegisterSystem(Entity component, bool isRegister = true)

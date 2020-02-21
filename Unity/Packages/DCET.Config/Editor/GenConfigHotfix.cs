@@ -1,4 +1,5 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
+using System.Collections.Generic;
 using UnityEditor;
 
 namespace DCET.Editor
@@ -6,11 +7,16 @@ namespace DCET.Editor
 	[InitializeOnLoad]
 	public class GenConfigHotfix
 	{
+		public const string DllName = "Unity.DCET.Config.Hotfix";
+		private const string DllDir = "./Packages/DCET.Config/Hotfix";
+		private const string OutDirName = "Config";
+		private static List<string> ReferencedLuaAssemblies = new List<string>() { GenCoreHotfix.DllName };
+
 		static GenConfigHotfix()
 		{
-			if (GenCoreHotfix.CopyDll("Unity.DCET.Config.Hotfix") && Define.IsLua)
+			if (GenCoreHotfix.CopyDll(DllName) && Define.IsLua)
 			{
-				GenCoreHotfix.CompileLua("Unity.DCET.Config.Hotfix", "./Packages/DCET.Config/Hotfix", "Config", true);
+				GenCoreHotfix.CompileLua(DllName, DllDir, OutDirName, ReferencedLuaAssemblies, true);
 			}
 		}
 	}

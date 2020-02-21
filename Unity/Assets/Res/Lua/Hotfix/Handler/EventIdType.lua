@@ -2,10 +2,6 @@
 local System = System
 System.namespace("DCET.Hotfix", function (namespace)
   namespace.class("EventIdType", function (namespace)
-    local TestHotfixSubscribMonoEvent
-    TestHotfixSubscribMonoEvent = "TestHotfixSubscribMonoEvent"
-    return {
-      TestHotfixSubscribMonoEvent = TestHotfixSubscribMonoEvent
-    }
+    return {}
   end)
 end)

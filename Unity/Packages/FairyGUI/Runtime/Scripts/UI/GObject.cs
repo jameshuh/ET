@@ -1915,15 +1915,15 @@ namespace FairyGUI
 		{
 			if (_draggable)
 			{
-				onTouchBegin.Add(__touchBegin);
-				onTouchMove.Add(__touchMove);
-				onTouchEnd.Add(__touchEnd);
+				onTouchBegin.Add1(__touchBegin);
+				onTouchMove.Add1(__touchMove);
+				onTouchEnd.Add1(__touchEnd);
 			}
 			else
 			{
-				onTouchBegin.Remove(__touchBegin);
-				onTouchMove.Remove(__touchMove);
-				onTouchEnd.Remove(__touchEnd);
+				onTouchBegin.Remove1(__touchBegin);
+				onTouchMove.Remove1(__touchMove);
+				onTouchEnd.Remove1(__touchEnd);
 			}
 		}
 
@@ -1937,8 +1937,8 @@ namespace FairyGUI
 				tmp.DispatchEvent("onDragEnd", null);
 			}
 
-			onTouchMove.Add(__touchMove);
-			onTouchEnd.Add(__touchEnd);
+			onTouchMove.Add1(__touchMove);
+			onTouchEnd.Add1(__touchEnd);
 
 			sGlobalDragStart = Stage.inst.GetTouchPosition(touchId);
 			sGlobalRect = this.LocalToGlobal(new Rect(0, 0, this.width, this.height));

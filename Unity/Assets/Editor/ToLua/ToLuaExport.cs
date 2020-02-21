@@ -19,18 +19,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using UnityEngine;
+using LuaInterface;
+using MongoDB.Bson.IO;
 using System;
 using System.Collections;
-using System.Text;
-using System.Reflection;
 using System.Collections.Generic;
-using LuaInterface;
-
-using Object = UnityEngine.Object;
 using System.IO;
-using System.Text.RegularExpressions;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text;
+using UnityEngine;
 
 public enum MetaOp
 {
@@ -114,6 +113,7 @@ public static class ToLuaExport
 
     public static List<string> memberFilter = new List<string>
     {
+        "StringBuilder.Chars",
         "String.Chars",
         "Directory.SetAccessControl",
         "File.GetAccessControl",
@@ -641,6 +641,69 @@ public static class ToLuaExport
 		//Type.GetMethod(string name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers);		
     };
 
+    private static List<List<string>> internalMethodBlackList = null;
+
+    public static List<List<string>> methodBlackList 
+    {
+        get
+        {
+            if(internalMethodBlackList == null)
+            {
+                internalMethodBlackList = new List<List<string>>();
+                internalMethodBlackList.AddRange(GetStreamBlackList(typeof(Stream).ToString()));
+                internalMethodBlackList.AddRange(GetStreamBlackList(typeof(MemoryStream).ToString()));
+                internalMethodBlackList.AddRange(GetStreamBlackList(typeof(BsonStreamAdapter).ToString()));
+                internalMethodBlackList.AddRange(GetStreamBlackList(typeof(ByteBufferStream).ToString()));
+            }
+
+            return internalMethodBlackList;
+        }
+    }
+
+    public static List<List<string>> GetStreamBlackList(string typeName)  {
+        return new List<List<string>>()
+        { 
+            new List<string>(){ typeName, "Read","System.Span`1[System.Byte]" },
+            new List<string>(){ typeName, "ReadAsync", "System.Memory`1[System.Byte]" },
+            new List<string>(){ typeName, "ReadAsync", "System.Memory`1[System.Byte]", "System.Threading.CancellationToken"},
+            new List<string>(){ typeName, "Write", "System.ReadOnlySpan`1[System.Byte]" },
+            new List<string>(){ typeName, "WriteAsync", "System.ReadOnlyMemory`1[System.Byte]" },
+            new List<string>(){ typeName, "WriteAsync", "System.ReadOnlyMemory`1[System.Byte]","System.Threading.CancellationToken"  },
+        };
+    }
+
+    private static bool IsMethodInBlackList(MethodBase mb)
+    {
+        //指针目前不支持，先过滤
+        if (mb.GetParameters().Any(pInfo => pInfo.ParameterType.IsPointer)) return true;
+        if (mb is MethodInfo && (mb as MethodInfo).ReturnType.IsPointer) return true;
+
+        foreach (var exclude in methodBlackList)
+        {
+            if (type.ToString() == exclude[0] && mb.Name == exclude[1])
+            {
+                var parameters = mb.GetParameters();
+                if (parameters.Length != exclude.Count - 2)
+                {
+                    continue;
+                }
+                bool paramsMatch = true;
+
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    if (parameters[i].ParameterType.ToString() != exclude[i + 2])
+                    {
+                        paramsMatch = false;
+                        break;
+                    }
+                }
+                if (paramsMatch) return true;
+            }
+        }
+        return false;
+    }
+
+
     public static bool IsMemberFilter(MemberInfo mi)
     {
 		if (type.IsGenericType)
@@ -991,6 +1054,15 @@ public static class ToLuaExport
 
         ProcessExtends(list);
         GenBaseOpFunction(list);
+
+        for (int i = list.Count - 1; i >= 0; --i)
+        {
+            if (IsMethodInBlackList(list[i].Method))
+            {
+                list.RemoveAt(i);
+                continue;
+            }
+        }
 
         for (int i = 0; i < list.Count; i++)
         {

@@ -358,8 +358,8 @@ namespace FairyGUI
 				button.changeStateOnClick = false;
 			}
 
-			child.onClick.Add(_itemClickDelegate);
-			child.onRightClick.Add(_itemClickDelegate);
+			child.onClick.Add1(_itemClickDelegate);
+			child.onRightClick.Add1(_itemClickDelegate);
 
 			return child;
 		}
@@ -373,8 +373,8 @@ namespace FairyGUI
 		override public GObject RemoveChildAt(int index, bool dispose)
 		{
 			GObject child = base.RemoveChildAt(index, dispose);
-			child.onClick.Remove(_itemClickDelegate);
-			child.onRightClick.Remove(_itemClickDelegate);
+			child.onClick.Remove1(_itemClickDelegate);
+			child.onRightClick.Remove1(_itemClickDelegate);
 
 			return child;
 		}

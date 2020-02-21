@@ -1,10 +1,10 @@
 ﻿using FairyGUI;
 using System.Collections.Generic;
-using DCET.Model;
+using DCET.Runtime;
 using UnityEngine;
 using System.Threading.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	/// <summary>
 	/// 管理所有UI Package

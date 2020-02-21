@@ -25,7 +25,15 @@ namespace DCET.Editor
 		private static readonly string toolsDir = "./Tools/CSharpLua";
 		private static readonly string csharpLua = toolsDir + "/CSharp.lua/CSharp.lua.Launcher.dll";
 
-		public static void Compile(string dllName, string dllDir, string outDirName, bool isModule)
+		/// <summary>
+		/// 编译Dll为Lua
+		/// </summary>
+		/// <param name="dllName">Dll名</param>
+		/// <param name="dllDir">Dll文件夹</param>
+		/// <param name="outDirName">输出Lua文件夹名</param>
+		/// <param name="referencedLuaAssemblies">需要被编译成Lua的Dll引用名</param>
+		/// <param name="isModule">是否其他模块被引用</param>
+		public static void Compile(string dllName, string dllDir, string outDirName, List<string> referencedLuaAssemblies, bool isModule)
 		{
 			if (!CheckDotnetInstall())
 			{
@@ -54,7 +62,7 @@ namespace DCET.Editor
 				{
 					string libPath = Assembly.Load(referenced).Location;
 
-					if (!string.IsNullOrWhiteSpace(libPath) && libPath.EndsWith(".Hotfix.dll"))
+					if (referencedLuaAssemblies != null && referencedLuaAssemblies.Contains(referenced.Name))
 					{
 						libPath += "!";
 					}

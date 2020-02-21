@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public interface IMessagePacker
 	{

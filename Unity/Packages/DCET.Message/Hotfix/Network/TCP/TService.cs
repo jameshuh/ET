@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using DCET.Model;
+using DCET.Runtime;
 using Microsoft.IO;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public sealed class TService : AService
 	{

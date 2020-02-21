@@ -46,7 +46,7 @@ namespace FairyGUI
 			_list.RemoveRelation(_contentPane, RelationType.Height);
 			_contentPane.AddRelation(_list, RelationType.Height);
 
-			_list.onClickItem.Add(__clickItem);
+			_list.onClickItem.Add1(__clickItem);
 		}
 
 		/// <summary>

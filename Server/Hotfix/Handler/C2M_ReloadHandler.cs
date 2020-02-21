@@ -1,12 +1,12 @@
 ﻿using System;
-using ETModel;
+using System.Threading.Tasks;
 
-namespace ETHotfix
+namespace DCET
 {
 	[MessageHandler]
 	public class C2M_ReloadHandler: AMRpcHandler<C2M_Reload, M2C_Reload>
 	{
-		protected override async ETTask Run(Session session, C2M_Reload request, M2C_Reload response, Action reply)
+		protected override async Task Run(Session session, C2M_Reload request, M2C_Reload response, Action reply)
 		{
 			//if (request.Account != "panda" && request.Password != "panda")
 			//{

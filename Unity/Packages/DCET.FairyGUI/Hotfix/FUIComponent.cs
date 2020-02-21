@@ -1,6 +1,6 @@
 ﻿using FairyGUI;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class FUIComponentAwakeSystem : AwakeSystem<FUIComponent>

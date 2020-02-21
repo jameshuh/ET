@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class FUIInitComponent : Entity
 	{
         public async Task Init()
         {
-            await Game.Scene.GetComponent<FUIPackageComponent>().AddPackageAsync(FUIPackage.Common);
+            await Game.Scene.GetComponent<FUIPackageComponent>().AddPackageAsync(FUIPackage.Hotfix);
         }
 
         public override void Dispose()
@@ -18,7 +18,7 @@ namespace DCET.Hotfix
 
 			base.Dispose();
 
-			Game.Scene.GetComponent<FUIPackageComponent>()?.RemovePackage(FUIPackage.Common);
+			Game.Scene.GetComponent<FUIPackageComponent>()?.RemovePackage(FUIPackage.Hotfix);
         }
     }
 }

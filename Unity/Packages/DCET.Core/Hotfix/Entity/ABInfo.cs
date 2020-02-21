@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class ABInfoAwakeSystem : AwakeSystem<ABInfo, string, AssetBundle>

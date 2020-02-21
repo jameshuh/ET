@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BehaviorTreeHelper.cs" />
+    <Compile Remove="BehaviorTreeVariableComponent.cs" />
+    <Compile Include="..\..\Unity\Packages\DCET.BehaviorTree\Hotfix\BehaviorTreeVariableComponent.cs">
+      <Link>BehaviorTreeVariableComponent.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\ThirdParty\BehaviorDesigner.Runtime\BehaviorDesigner.Runtime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BehaviorDesignerRuntime">
+      <HintPath>..\ThirdParty\BehaviorDesigner.Runtime\Core\BehaviorDesignerRuntime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

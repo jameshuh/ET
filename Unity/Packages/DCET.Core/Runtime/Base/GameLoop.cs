@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	public static class GameLoop
 	{

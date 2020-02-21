@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public abstract class AMHandler<Message> : IMHandler where Message: class
 	{

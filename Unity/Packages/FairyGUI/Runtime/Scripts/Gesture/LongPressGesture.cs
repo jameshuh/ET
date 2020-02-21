@@ -76,26 +76,26 @@ namespace FairyGUI
 			{
 				if (host == GRoot.inst)
 				{
-					Stage.inst.onTouchBegin.Add(__touchBegin);
-					Stage.inst.onTouchEnd.Add(__touchEnd);
+					Stage.inst.onTouchBegin.Add1(__touchBegin);
+					Stage.inst.onTouchEnd.Add1(__touchEnd);
 				}
 				else
 				{
-					host.onTouchBegin.Add(__touchBegin);
-					host.onTouchEnd.Add(__touchEnd);
+					host.onTouchBegin.Add1(__touchBegin);
+					host.onTouchEnd.Add1(__touchEnd);
 				}
 			}
 			else
 			{
 				if (host == GRoot.inst)
 				{
-					Stage.inst.onTouchBegin.Remove(__touchBegin);
-					Stage.inst.onTouchEnd.Remove(__touchEnd);
+					Stage.inst.onTouchBegin.Remove1(__touchBegin);
+					Stage.inst.onTouchEnd.Remove1(__touchEnd);
 				}
 				else
 				{
-					host.onTouchBegin.Remove(__touchBegin);
-					host.onTouchEnd.Remove(__touchEnd);
+					host.onTouchBegin.Remove1(__touchBegin);
+					host.onTouchEnd.Remove1(__touchEnd);
 				}
 				Timers.inst.Remove(__timer);
 			}

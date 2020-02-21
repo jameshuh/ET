@@ -102,7 +102,7 @@ namespace FairyGUI
 			this.hitArea = new RectHitTest();
 			this.touchChildren = false;
 
-			onFocusIn.Add(__focusIn);
+			onFocusIn.Add1(__focusIn);
 			onFocusOut.AddCapture(__focusOut);
 			onKeyDown.AddCapture(__keydown);
 			onTouchBegin.AddCapture(__touchBegin);

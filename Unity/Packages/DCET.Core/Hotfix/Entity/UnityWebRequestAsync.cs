@@ -1,9 +1,9 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
 using System;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class UnityWebRequestUpdateSystem : UpdateSystem<UnityWebRequestAsync>

@@ -386,7 +386,7 @@ namespace FairyGUI
 					Debug.LogWarning("FairyGUI: " + this.resourceURL + ": should container a list component named list.");
 					return;
 				}
-				_list.onClickItem.Add(__clickItem);
+				_list.onClickItem.Add1(__clickItem);
 
 				_list.AddRelation(dropdown, RelationType.Width);
 				_list.RemoveRelation(dropdown, RelationType.Height);
@@ -399,8 +399,8 @@ namespace FairyGUI
 
 			displayObject.onRollOver.Add(__rollover);
 			displayObject.onRollOut.Add(__rollout);
-			displayObject.onTouchBegin.Add(__touchBegin);
-			displayObject.onTouchEnd.Add(__touchEnd);
+			displayObject.onTouchBegin.Add1(__touchBegin);
+			displayObject.onTouchEnd.Add1(__touchEnd);
 		}
 
 		override public void Setup_AfterAdd(ByteBuffer buffer, int beginPos)
@@ -491,7 +491,7 @@ namespace FairyGUI
 			this.root.TogglePopup(dropdown, this, downward);
 			if (dropdown.parent != null)
 			{
-				dropdown.displayObject.onRemovedFromStage.Add(__popupWinClosed);
+				dropdown.displayObject.onRemovedFromStage.Add1(__popupWinClosed);
 				SetState(GButton.DOWN);
 			}
 		}
@@ -511,7 +511,7 @@ namespace FairyGUI
 
 		private void __popupWinClosed(object obj)
 		{
-			dropdown.displayObject.onRemovedFromStage.Remove(__popupWinClosed);
+			dropdown.displayObject.onRemovedFromStage.Remove1(__popupWinClosed);
 			SetCurrentState();
 		}
 

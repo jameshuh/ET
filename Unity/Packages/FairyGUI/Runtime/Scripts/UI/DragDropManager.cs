@@ -33,7 +33,7 @@
 			_agent.align = AlignType.Center;
 			_agent.verticalAlign = VertAlignType.Middle;
 			_agent.sortingOrder = int.MaxValue;
-			_agent.onDragEnd.Add(__dragEnd);
+			_agent.onDragEnd.Add1(__dragEnd);
 		}
 
 		/// <summary>

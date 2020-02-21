@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using DCET.Model;
+using DCET.Runtime;
 using Microsoft.IO;
 
 #if SERVER
 using System.Runtime.InteropServices;
 #endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class KcpProtocalType
 	{

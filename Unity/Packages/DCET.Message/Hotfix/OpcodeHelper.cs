@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class OpcodeHelper
 	{
-		private static readonly HashSet<ushort> ignoreDebugLogMessageSet = new HashSet<ushort>
+		private static readonly HashSet<ushort> ignoreDebugLogMessageSet = new HashSet<ushort>();
+
+		public static void AddIgnore(ushort opcode)
 		{
-			OuterOpcode.C2R_Ping,
-			OuterOpcode.R2C_Ping,
-		};
+			ignoreDebugLogMessageSet.Add(opcode);
+		}
 
 		public static bool IsNeedDebugLogMessage(ushort opcode)
 		{

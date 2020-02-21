@@ -1,4 +1,4 @@
-﻿namespace DCET.Model
+﻿namespace DCET.Runtime
 {
 	public class GlobalProto
 	{

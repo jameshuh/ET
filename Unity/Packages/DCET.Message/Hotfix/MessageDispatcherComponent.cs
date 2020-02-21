@@ -1,8 +1,7 @@
-﻿using DCET.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
 	public class MessageDispatcherComponentAwakeSystem : AwakeSystem<MessageDispatcherComponent>
@@ -27,11 +26,14 @@ namespace DCET.Hotfix
 	/// </summary>
 	public class MessageDispatcherComponent : Entity
 	{
+		public static MessageDispatcherComponent Instance;
+
 		private readonly Dictionary<ushort, List<IMHandler>> handlers = new Dictionary<ushort, List<IMHandler>>();
 
 		public void Awake()
 		{
 			this.Load();
+			Instance = this;
 		}
 
 		public void Load()
@@ -105,6 +107,8 @@ namespace DCET.Hotfix
 			}
 
 			base.Dispose();
+
+			Instance = null;
 		}
 	}
 }

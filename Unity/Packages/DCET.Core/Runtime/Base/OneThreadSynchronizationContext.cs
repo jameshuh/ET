@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Threading;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	public class OneThreadSynchronizationContext : SynchronizationContext
 	{

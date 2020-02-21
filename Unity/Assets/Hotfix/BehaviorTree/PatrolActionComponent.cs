@@ -1,6 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	[ObjectSystem]
     public class PatrolActionComponentAwakeSystem : AwakeSystem<PatrolActionComponent, Entity, HotfixAction, BehaviorTreeConfig>

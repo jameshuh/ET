@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
-using DCET.Model;
-using MongoDB.Bson.Serialization.Attributes;
 #if !SERVER
 using UnityEngine;
+using DCET.Runtime;
 #endif
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public class EntityStatus
 	{

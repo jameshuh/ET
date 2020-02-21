@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Security.Cryptography;
 
-namespace DCET.Model
+namespace DCET.Runtime
 {
 	public static class MD5Helper
 	{

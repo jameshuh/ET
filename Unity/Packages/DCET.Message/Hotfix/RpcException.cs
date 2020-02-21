@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	/// <summary>
 	/// RPC异常,带ErrorCode

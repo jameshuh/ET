@@ -1,4 +1,5 @@
-using DCET.Model;
+using DCET.Runtime;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 
@@ -14,11 +15,15 @@ namespace DCET.Editor
 		private const string ScriptAssembliesDir = "Library/ScriptAssemblies";
         private const string CodeDir = "Assets/Res/Code/";
 
+		public const string DllName = "Unity.DCET.Core.Hotfix";
+		private const string DllDir = "./Packages/DCET.Core/Hotfix";
+		private const string OutDirName = "Core";
+
 		static GenCoreHotfix()
 		{
-			if (CopyDll("Unity.DCET.Core.Hotfix") && Define.IsLua)
+			if (CopyDll(DllName) && Define.IsLua)
 			{
-				CompileLua("Unity.DCET.Core.Hotfix", "./Packages/DCET.Core/Hotfix", "Core", true);
+				CompileLua(DllName, DllDir, OutDirName, null, true);
 			}
 		}
 		
@@ -37,9 +42,9 @@ namespace DCET.Editor
 			return result;
 		}
 
-		public static void CompileLua(string dllName, string dllDir, string outDirName, bool isModule)
+		public static void CompileLua(string dllName, string dllDir, string outDirName, List<string> referencedLuaAssemblies, bool isModule)
 		{
-			LuaCompiler.Compile(dllName, dllDir, outDirName, isModule);
+			LuaCompiler.Compile(dllName, dllDir, outDirName, referencedLuaAssemblies, isModule);
 			ABNameEditor.SetFolderLuaABName(LuaCompiler.outDir + outDirName);
 			AssetDatabase.Refresh();
 		}

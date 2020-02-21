@@ -1,5 +1,5 @@
 ﻿using UnityEditor;
-using DCET.Model;
+using DCET.Runtime;
 using UnityEngine;
 
 namespace DCET.Editor

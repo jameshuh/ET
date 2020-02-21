@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.WebSockets;
 using Microsoft.IO;
 
-namespace DCET.Hotfix
+namespace DCET
 {
     public class WService: AService
     {

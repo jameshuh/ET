@@ -1,7 +1,7 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
-	[NoObjectPool]
-	public class CopyConfig : AConfigComponent
-	{
-	}
+    [NoObjectPool]
+    public class CopyConfig: AConfigComponent
+    {
+    }
 }

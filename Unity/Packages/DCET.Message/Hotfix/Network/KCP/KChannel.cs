@@ -1,4 +1,4 @@
-﻿using DCET.Model;
+﻿using DCET.Runtime;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public struct WaitSendBuffer
 	{

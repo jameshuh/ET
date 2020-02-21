@@ -1,10 +1,15 @@
-﻿namespace DCET.Hotfix
+﻿namespace DCET
 {
     public sealed class Scene: Entity
     {
         public SceneType SceneType { get; set; }
         public string Name { get; set; }
-        
+
+        public Scene Get(long id)
+        {
+            return (Scene)this.Children[id];
+        }
+
         public new Entity Domain
         {
             get

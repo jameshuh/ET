@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace DCET.Hotfix
+namespace DCET
 {
 	public static class ProtobufHelper
 	{
