@@ -77,12 +77,13 @@ namespace DCET
 			this.handlers[opcode].Add(handler);
 		}
 
-		public void Handle(Session session, MessageInfo messageInfo)
+		public void Handle(Session session, ushort opcode, object message)
 		{
 			List<IMHandler> actions;
-			if (!this.handlers.TryGetValue(messageInfo.Opcode, out actions))
+			if (!this.handlers.TryGetValue(opcode, out actions))
 			{
-				Log.Error($"消息没有处理: {messageInfo.Opcode} {JsonHelper.ToJson(messageInfo.Message)}");
+				Log.Error($"消息没有处理: opcode={opcode}");
+				Log.Error($"消息没有处理: message={JsonHelper.ToJson(message)}");
 				return;
 			}
 			
@@ -90,7 +91,7 @@ namespace DCET
 			{
 				try
 				{
-					ev.Handle(session, messageInfo.Message);
+					ev.Handle(session, message);
 				}
 				catch (Exception e)
 				{

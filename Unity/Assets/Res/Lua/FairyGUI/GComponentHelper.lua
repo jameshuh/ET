@@ -3,7 +3,7 @@ local System = System
 local FairyGUI = FairyGUI
 local UnityEngine = UnityEngine
 local ArrayGObject = System.Array(FairyGUI.GObject)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   namespace.class("GComponentHelper", function (namespace)
     local GetRect, childRadiusDiss
     -- <summary>

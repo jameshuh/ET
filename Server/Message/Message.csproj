@@ -53,9 +53,6 @@
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\MessageHandlerAttribute.cs">
       <Link>MessageHandlerAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\MessageInfo.cs">
-      <Link>MessageInfo.cs</Link>
-    </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\MessagePool.cs">
       <Link>MessagePool.cs</Link>
     </Compile>
@@ -117,9 +114,6 @@
     </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\Session.cs">
       <Link>Session.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\SessionCallbackComponent.cs">
-      <Link>SessionCallbackComponent.cs</Link>
     </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\SessionIdleCheckComponent.cs">
       <Link>SessionIdleCheckComponent.cs</Link>

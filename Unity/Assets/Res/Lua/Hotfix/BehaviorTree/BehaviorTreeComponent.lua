@@ -2,17 +2,17 @@
 local System = System
 local BehaviorDesignerRuntime = BehaviorDesigner.Runtime
 local BehaviorDesignerTasks = BehaviorDesigner.Runtime.Tasks
-local DCETHotfix = DCET.Hotfix
-local DCETModel = DCET.Model
-local DictHotfixActionEntity = System.Dictionary(BehaviorDesignerTasks.HotfixAction, DCETHotfix.Entity)
-local DictHotfixCompositeEntity = System.Dictionary(BehaviorDesignerTasks.HotfixComposite, DCETHotfix.Entity)
-local DictHotfixDecoratorEntity = System.Dictionary(BehaviorDesignerTasks.HotfixDecorator, DCETHotfix.Entity)
-local DictHotfixConditionalEntity = System.Dictionary(BehaviorDesignerTasks.HotfixConditional, DCETHotfix.Entity)
-local DCETHotfix
+local DCET = DCET
+local DCETRuntime = DCET.Runtime
+local DictHotfixActionEntity = System.Dictionary(BehaviorDesignerTasks.HotfixAction, DCET.Entity)
+local DictHotfixCompositeEntity = System.Dictionary(BehaviorDesignerTasks.HotfixComposite, DCET.Entity)
+local DictHotfixDecoratorEntity = System.Dictionary(BehaviorDesignerTasks.HotfixDecorator, DCET.Entity)
+local DictHotfixConditionalEntity = System.Dictionary(BehaviorDesignerTasks.HotfixConditional, DCET.Entity)
+local DCET
 System.import(function (out)
-  DCETHotfix = DCET.Hotfix
+  DCET = out.DCET
 end)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   namespace.class("BehaviorTreeComponentAwakeSystem", function (namespace)
     local Awake
     Awake = function (this, self)
@@ -21,13 +21,13 @@ System.namespace("DCET.Hotfix", function (namespace)
     return {
       base = function (out)
         return {
-          out.DCET.Hotfix.AwakeSystem_1(out.DCET.Hotfix.BehaviorTreeComponent)
+          out.DCET.AwakeSystem_1(out.DCET.BehaviorTreeComponent)
         }
       end,
       Awake = Awake,
       __metadata__ = function (out)
         return {
-          class = { 0x6, out.DCET.Hotfix.ObjectSystemAttribute() }
+          class = { 0x6, out.DCET.ObjectSystemAttribute() }
         }
       end
     }
@@ -43,9 +43,9 @@ System.namespace("DCET.Hotfix", function (namespace)
       System.base(this).__ctor__(this)
     end
     Awake = function (this)
-      local behavior = this:GetParent(DCETHotfix.BehaviorTree)
+      local behavior = this:GetParent(DCET.BehaviorTree)
 
-      if DCETHotfix.EntityHelper.IsEmptyOrDisposed(behavior) then
+      if DCET.EntityHelper.IsEmptyOrDisposed(behavior) then
         return
       end
 
@@ -58,7 +58,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       behaviorTree:setStartWhenEnabled(false)
       behaviorTree:setResetValuesOnRestart(false)
 
-      local behaviorTreeController = System.as(DCETModel.GameObjectHelper.Ensure(behaviorTree:getgameObject(), System.typeof(BehaviorDesignerRuntime.BehaviorTreeController)), BehaviorDesignerRuntime.BehaviorTreeController)
+      local behaviorTreeController = System.as(DCETRuntime.GameObjectHelper.Ensure(behaviorTree:getgameObject(), System.typeof(BehaviorDesignerRuntime.BehaviorTreeController)), BehaviorDesignerRuntime.BehaviorTreeController)
 
       behaviorTreeController:Init()
 
@@ -71,7 +71,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     BindHotfixActions = function (this, tasks, parent)
       for _, hotfixAction in System.each(tasks.hotfixActions) do
-        local component = DCETHotfix.BehaviorTreeFactory.Create(parent, hotfixAction)
+        local component = DCET.BehaviorTreeFactory.Create(parent, hotfixAction)
 
         if component ~= nil then
           this.behaviorTreeActionComponents:AddKeyValue(hotfixAction, component)
@@ -80,7 +80,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     BindHotfixComposites = function (this, tasks, parent)
       for _, hotfixComposite in System.each(tasks.hotfixComposites) do
-        local component = DCETHotfix.BehaviorTreeFactory.Create3(parent, hotfixComposite)
+        local component = DCET.BehaviorTreeFactory.Create3(parent, hotfixComposite)
 
         if component ~= nil then
           this.behaviorTreeCompositeComponents:AddKeyValue(hotfixComposite, component)
@@ -89,7 +89,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     BindHotfixConditionals = function (this, tasks, parent)
       for _, hotfixConditional in System.each(tasks.hotfixConditionals) do
-        local component = DCETHotfix.BehaviorTreeFactory.Create2(parent, hotfixConditional)
+        local component = DCET.BehaviorTreeFactory.Create2(parent, hotfixConditional)
 
         if component ~= nil then
           this.behaviorTreeConditionalComponents:AddKeyValue(hotfixConditional, component)
@@ -98,7 +98,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     BindHotfixDecorators = function (this, tasks, parent)
       for _, hotfixDecorator in System.each(tasks.hotfixDecorators) do
-        local component = DCETHotfix.BehaviorTreeFactory.Create1(parent, hotfixDecorator)
+        local component = DCET.BehaviorTreeFactory.Create1(parent, hotfixDecorator)
 
         if component ~= nil then
           this.behaviorTreeDecoratorComponents:AddKeyValue(hotfixDecorator, component)
@@ -139,7 +139,7 @@ System.namespace("DCET.Hotfix", function (namespace)
     return {
       base = function (out)
         return {
-          out.DCET.Hotfix.Entity
+          out.DCET.Entity
         }
       end,
       Awake = Awake,

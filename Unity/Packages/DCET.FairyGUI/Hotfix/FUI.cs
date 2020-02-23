@@ -173,7 +173,6 @@ namespace DCET
                         GObject.asCom.RemoveChild(ui.GObject, false);
                     }
 
-                    ui.Parent = null;
                     ui.Dispose();
                 }
             }

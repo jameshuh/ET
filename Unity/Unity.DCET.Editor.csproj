@@ -783,6 +783,10 @@
       <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
       <Name>Unity.ProtoBuf.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.MongoDB.Editor.csproj">
+      <Project>{C23132B1-BE0F-46FA-9602-30F3B11D963B}</Project>
+      <Name>Unity.MongoDB.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

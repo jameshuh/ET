@@ -36,7 +36,7 @@
 				default:
 				{
 					// 非Actor消息
-					MessageDispatcherComponent.Instance.Handle(session, new MessageInfo(opcode, message));
+					MessageDispatcherComponent.Instance.Handle(session, opcode, message);
 					break;
 				}
 			}

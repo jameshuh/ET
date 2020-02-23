@@ -81,9 +81,6 @@
     <Compile Include="..\..\Unity\Packages\DCET.Core\Hotfix\Base\ObjectSystemAttribute.cs">
       <Link>Base\ObjectSystemAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\..\Unity\Packages\DCET.Core\Hotfix\Base\StructBsonSerialize.cs">
-      <Link>Base\StructBsonSerialize.cs</Link>
-    </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Core\Hotfix\Base\TryLocker.cs">
       <Link>Base\TryLocker.cs</Link>
     </Compile>

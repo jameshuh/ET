@@ -2,26 +2,26 @@
 local System = System
 local BehaviorDesignerRuntime = BehaviorDesigner.Runtime
 local BehaviorDesignerTasks = BehaviorDesigner.Runtime.Tasks
-local DCETHotfix = DCET.Hotfix
-local DCETHotfix
+local DCET = DCET
+local DCET
 System.import(function (out)
-  DCETHotfix = DCET.Hotfix
+  DCET = out.DCET
 end)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   namespace.class("BehaviorTreeFactory", function (namespace)
     local Create, Create1, Create2, Create3, Create4
     Create = function (behaviorTreeParent, hotfixAction)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCETHotfix.BehaviorTreeConfig, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ConfigComponent):Get(System.typeof(DCETHotfix.BehaviorTreeConfig), hotfixAction.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixAction.behaviorTreeConfigID))
 
-        local type = System.Type.GetTypeFrom("DCET.Hotfix." .. behaviorTreeConfig.ComponentName)
+        local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
-        local component = DCETHotfix.Game.getObjectPool():Fetch(type)
+        local component = DCET.Game.getObjectPool():Fetch(type)
 
         component:setDomain(behaviorTreeParent:getDomain())
         component.Id = behaviorTreeParent.Id
 
-        DCETHotfix.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixAction, behaviorTreeConfig, DCETHotfix.Entity, BehaviorDesignerTasks.HotfixAction, DCETHotfix.BehaviorTreeConfig)
+        DCET.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixAction, behaviorTreeConfig, DCET.Entity, BehaviorDesignerTasks.HotfixAction, DCET.BehaviorTreeConfig)
 
         if System.String.Equals(hotfixAction:getFriendlyName(), "Hotfix Action") then
           hotfixAction:setFriendlyName(behaviorTreeConfig.Name)
@@ -30,7 +30,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCETHotfix.Log.Error(e)
+        DCET.Log.Error(e)
       end)
       if default then
         return extern
@@ -40,16 +40,16 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     Create1 = function (behaviorTreeParent, hotfixDecorator)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCETHotfix.BehaviorTreeConfig, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ConfigComponent):Get(System.typeof(DCETHotfix.BehaviorTreeConfig), hotfixDecorator.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixDecorator.behaviorTreeConfigID))
 
-        local type = System.Type.GetTypeFrom("DCET.Hotfix." .. behaviorTreeConfig.ComponentName)
+        local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
-        local component = DCETHotfix.Game.getObjectPool():Fetch(type)
+        local component = DCET.Game.getObjectPool():Fetch(type)
 
         component:setDomain(behaviorTreeParent:getDomain())
         component.Id = behaviorTreeParent.Id
 
-        DCETHotfix.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixDecorator, behaviorTreeConfig, DCETHotfix.Entity, BehaviorDesignerTasks.HotfixDecorator, DCETHotfix.BehaviorTreeConfig)
+        DCET.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixDecorator, behaviorTreeConfig, DCET.Entity, BehaviorDesignerTasks.HotfixDecorator, DCET.BehaviorTreeConfig)
 
         if System.String.Equals(hotfixDecorator:getFriendlyName(), "Hotfix Decorator") then
           hotfixDecorator:setFriendlyName(behaviorTreeConfig.Name)
@@ -57,7 +57,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCETHotfix.Log.Error(e)
+        DCET.Log.Error(e)
       end)
       if default then
         return extern
@@ -67,16 +67,16 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     Create2 = function (behaviorTreeParent, hotfixConditional)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCETHotfix.BehaviorTreeConfig, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ConfigComponent):Get(System.typeof(DCETHotfix.BehaviorTreeConfig), hotfixConditional.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixConditional.behaviorTreeConfigID))
 
-        local type = System.Type.GetTypeFrom("DCET.Hotfix." .. behaviorTreeConfig.ComponentName)
+        local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
-        local component = DCETHotfix.Game.getObjectPool():Fetch(type)
+        local component = DCET.Game.getObjectPool():Fetch(type)
 
         component:setDomain(behaviorTreeParent:getDomain())
         component.Id = behaviorTreeParent.Id
 
-        DCETHotfix.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixConditional, behaviorTreeConfig, DCETHotfix.Entity, BehaviorDesignerTasks.HotfixConditional, DCETHotfix.BehaviorTreeConfig)
+        DCET.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixConditional, behaviorTreeConfig, DCET.Entity, BehaviorDesignerTasks.HotfixConditional, DCET.BehaviorTreeConfig)
 
         if System.String.Equals(hotfixConditional:getFriendlyName(), "Hotfix Conditional") then
           hotfixConditional:setFriendlyName(behaviorTreeConfig.Name)
@@ -85,7 +85,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCETHotfix.Log.Error(e)
+        DCET.Log.Error(e)
       end)
       if default then
         return extern
@@ -95,16 +95,16 @@ System.namespace("DCET.Hotfix", function (namespace)
     end
     Create3 = function (behaviorTreeParent, hotfixComposite)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCETHotfix.BehaviorTreeConfig, DCETHotfix.Game.getScene():GetComponent(DCETHotfix.ConfigComponent):Get(System.typeof(DCETHotfix.BehaviorTreeConfig), hotfixComposite.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixComposite.behaviorTreeConfigID))
 
-        local type = System.Type.GetTypeFrom("DCET.Hotfix." .. behaviorTreeConfig.ComponentName)
+        local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
-        local component = DCETHotfix.Game.getObjectPool():Fetch(type)
+        local component = DCET.Game.getObjectPool():Fetch(type)
 
         component:setDomain(behaviorTreeParent:getDomain())
         component.Id = behaviorTreeParent.Id
 
-        DCETHotfix.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixComposite, behaviorTreeConfig, DCETHotfix.Entity, BehaviorDesignerTasks.HotfixComposite, DCETHotfix.BehaviorTreeConfig)
+        DCET.Game.getEventSystem():Awake3(component, behaviorTreeParent, hotfixComposite, behaviorTreeConfig, DCET.Entity, BehaviorDesignerTasks.HotfixComposite, DCET.BehaviorTreeConfig)
 
         if System.String.Equals(hotfixComposite:getFriendlyName(), "Hotfix Composite") then
           hotfixComposite:setFriendlyName(behaviorTreeConfig.Name)
@@ -113,7 +113,7 @@ System.namespace("DCET.Hotfix", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCETHotfix.Log.Error(e)
+        DCET.Log.Error(e)
       end)
       if default then
         return extern
@@ -122,9 +122,9 @@ System.namespace("DCET.Hotfix", function (namespace)
       return nil
     end
     Create4 = function (parent, behaviorTree)
-      local behavior = parent:AddComponent1(behaviorTree, DCETHotfix.BehaviorTree, BehaviorDesignerRuntime.BehaviorTree)
-      behavior:AddComponent(DCETHotfix.BehaviorTreeVariableComponent)
-      behavior:AddComponent(DCETHotfix.BehaviorTreeComponent)
+      local behavior = parent:AddComponent1(behaviorTree, DCET.BehaviorTree, BehaviorDesignerRuntime.BehaviorTree)
+      behavior:AddComponent(DCET.BehaviorTreeVariableComponent)
+      behavior:AddComponent(DCET.BehaviorTreeComponent)
       return behavior
     end
     return {

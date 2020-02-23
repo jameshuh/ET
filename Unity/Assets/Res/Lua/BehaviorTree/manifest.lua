@@ -8,11 +8,11 @@ return function (path)
       "BehaviorTreeVariableComponent"
     },
     types = {
-      "DCET.Hotfix.BehaviorTree",
-      "DCET.Hotfix.BehaviorTreeAwakeSystem",
-      "DCET.Hotfix.BehaviorTreeHelper",
-      "DCET.Hotfix.BehaviorTreeVariableComponent",
-      "DCET.Hotfix.VariableComponent_1"
+      "DCET.BehaviorTree",
+      "DCET.BehaviorTreeAwakeSystem",
+      "DCET.BehaviorTreeHelper",
+      "DCET.BehaviorTreeVariableComponent",
+      "DCET.VariableComponent_1"
     }
   })
 end

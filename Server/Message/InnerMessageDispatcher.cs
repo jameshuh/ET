@@ -24,7 +24,7 @@
                 }
                 default:
                 {
-                    MessageDispatcherComponent.Instance.Handle(session, new MessageInfo(opcode, message));
+                    MessageDispatcherComponent.Instance.Handle(session, opcode, message);
                     break;
                 }
             }

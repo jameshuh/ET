@@ -87,7 +87,6 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Base\Object.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Base\ObjectPool.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Base\ObjectSystemAttribute.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Base\StructBsonSerialize.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Base\TryLocker.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Component\ResourcesComponent.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Component\SceneChangeComponent.cs" />

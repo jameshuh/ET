@@ -11,14 +11,14 @@ return function (path)
       "GObjectHelper"
     },
     types = {
-      "DCET.Hotfix.FUI",
-      "DCET.Hotfix.FUIComponent",
-      "DCET.Hotfix.FUIAwakeSystem",
-      "DCET.Hotfix.FUIComponentAwakeSystem",
-      "DCET.Hotfix.FUIPackageComponent",
-      "DCET.Hotfix.FUIStackComponent",
-      "DCET.Hotfix.GComponentHelper",
-      "DCET.Hotfix.GObjectHelper"
+      "DCET.FUI",
+      "DCET.FUIComponent",
+      "DCET.FUIAwakeSystem",
+      "DCET.FUIComponentAwakeSystem",
+      "DCET.FUIPackageComponent",
+      "DCET.FUIStackComponent",
+      "DCET.GComponentHelper",
+      "DCET.GObjectHelper"
     }
   })
 end

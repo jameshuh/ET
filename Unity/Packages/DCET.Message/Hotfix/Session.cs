@@ -1,5 +1,4 @@
-﻿using DCET.Runtime;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -70,7 +69,7 @@ namespace DCET
 				return;
 			}
 
-			this.Network.Remove(this.Id);
+			this.Network?.Remove(this.Id);
 
 			base.Dispose();
 			
@@ -130,14 +129,6 @@ namespace DCET
 		{
 			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
 			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
-			
-#if !SERVER
-			if (OpcodeHelper.IsClientHotfixMessage(opcode))
-			{
-				this.GetComponent<SessionCallbackComponent>().MessageCallback.Invoke(this, opcode, memoryStream);
-				return;
-			}
-#endif
 			
 			object message;
 			try

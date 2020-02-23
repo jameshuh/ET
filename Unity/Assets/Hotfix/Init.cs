@@ -20,8 +20,12 @@ namespace DCET
 				GameLoop.onLateUpdate += LateUpdate;
 				GameLoop.onApplicationQuit += OnApplicationQuit;
 
+				Game.Scene.AddComponent<NetOuterComponent>();
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();
+				Game.Scene.AddComponent<SessionComponent>();
+				Game.Scene.AddComponent<PlayerComponent>();
+				Game.Scene.AddComponent<UnitComponent>();
 
 				// 加载热更配置
 				Game.Scene.AddComponent<ResourcesComponent>().LoadBundle("config.unity3d");

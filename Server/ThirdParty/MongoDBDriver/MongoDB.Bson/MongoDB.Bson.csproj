@@ -61,6 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\..\..\Unity\Packages\MongoDB\Runtime\MongoDB.Bson\Serialization\Serializers\StructBsonSerialize.cs" Link="Serialization\Serializers\StructBsonSerialize.cs" />
     <Compile Include="..\MongoDB.Shared\Hasher.cs" Link="Hasher.cs" />
   </ItemGroup>
 

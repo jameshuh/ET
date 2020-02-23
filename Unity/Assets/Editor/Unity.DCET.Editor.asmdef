@@ -16,7 +16,8 @@
         "Unity.DCET.Core.Hotfix",
         "Unity.DCET.Hotfix",
         "Unity.DCET.Message.Hotfix",
-        "Unity.ProtoBuf.Runtime"
+        "Unity.ProtoBuf.Runtime",
+        "Unity.MongoDB.Editor"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

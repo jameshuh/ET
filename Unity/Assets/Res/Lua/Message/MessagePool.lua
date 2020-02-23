@@ -2,7 +2,7 @@
 local System = System
 local QueueObject = System.Queue(System.Object)
 local DictTypeQueueObject = System.Dictionary(System.Type, QueueObject)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   -- 客户端为了0GC需要消息池，服务端消息需要跨协程不需要消息池
   namespace.class("MessagePool", function (namespace)
     local Instance, Fetch, Fetch1, Recycle, class, static, __ctor__

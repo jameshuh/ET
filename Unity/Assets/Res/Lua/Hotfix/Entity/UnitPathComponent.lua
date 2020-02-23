@@ -2,11 +2,11 @@
 local System = System
 local UnityEngine = UnityEngine
 local ListVector3 = System.List(UnityEngine.Vector3)
-local DCETHotfix
+local DCET
 System.import(function (out)
-  DCETHotfix = DCET.Hotfix
+  DCET = out.DCET
 end)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   namespace.class("UnitPathComponent", function (namespace)
     local StartMove, __ctor__
     __ctor__ = function (this)
@@ -23,7 +23,7 @@ System.namespace("DCET.Hotfix", function (namespace)
 
           if i == 0 then
             -- 矫正移动速度
-            local clientPos = this:GetParent(DCETHotfix.Unit):getPosition()
+            local clientPos = this:GetParent(DCET.Unit):getPosition()
             local serverf = (this.ServerPos - v):getmagnitude()
             if serverf > 0.1 then
               local clientf = (clientPos - v):getmagnitude()
@@ -31,15 +31,15 @@ System.namespace("DCET.Hotfix", function (namespace)
             end
           end
 
-          this:getParent():GetComponent(DCETHotfix.TurnComponent):Turn(v:__clone__(), 0.100000001)
-          async:await(this:getParent():GetComponent(DCETHotfix.MoveComponent):MoveToAsync(v:__clone__(), speed, cancellationToken))
+          this:getParent():GetComponent(DCET.TurnComponent):Turn(v:__clone__(), 0.100000001)
+          async:await(this:getParent():GetComponent(DCET.MoveComponent):MoveToAsync(v:__clone__(), speed, cancellationToken))
         end
       end, nil, this, cancellationToken)
     end
     return {
       base = function (out)
         return {
-          out.DCET.Hotfix.Entity
+          out.DCET.Entity
         }
       end,
       StartMove = StartMove,

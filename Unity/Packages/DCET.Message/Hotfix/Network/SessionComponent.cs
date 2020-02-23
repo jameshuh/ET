@@ -23,12 +23,12 @@
 			}
 			set
 			{
-				this.session = value;
-				
-				if (this.session != null)
+				if(this.session != null && !this.session.IsDisposed)
 				{
-					this.session.Parent = this;
+					this.session.Dispose();
 				}
+
+				this.session = value;
 			}
 		}
 

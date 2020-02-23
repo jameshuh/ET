@@ -75,7 +75,6 @@
     <Compile Include="Packages\DCET.Message\Hotfix\MessageAttribute.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageDispatcherComponent.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageHandlerAttribute.cs" />
-    <Compile Include="Packages\DCET.Message\Hotfix\MessageInfo.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessagePool.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageProxy.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\NetOuterComponent.cs" />
@@ -99,7 +98,6 @@
     <Compile Include="Packages\DCET.Message\Hotfix\ProtobufPacker.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\RpcException.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Session.cs" />
-    <Compile Include="Packages\DCET.Message\Hotfix\SessionCallbackComponent.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\SessionIdleCheckComponent.cs" />
     <None Include="Packages\DCET.Message\Hotfix\Unity.DCET.Message.Hotfix.asmdef" />
     <Reference Include="UnityEngine.AIModule">

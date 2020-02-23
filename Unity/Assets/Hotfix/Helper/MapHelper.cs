@@ -20,12 +20,12 @@ namespace DCET
                     await sceneChangeComponent.ChangeSceneAsync(sceneName);
                 }
 				
-                /*G2C_EnterMap g2CEnterMap = await SessionComponent.Instance.Session.Call(new C2G_EnterMap()) as G2C_EnterMap;
+                G2C_EnterMap g2CEnterMap = await SessionComponent.Instance.Session.Call(new C2G_EnterMap()) as G2C_EnterMap;
                 PlayerComponent.Instance.MyPlayer.UnitId = g2CEnterMap.UnitId;
 				
                 Game.Scene.AddComponent<OperaComponent>();
 				
-                Game.EventSystem.Run(EventIdType.EnterMapFinish);*/
+                Game.EventSystem.Run(EventIdType.EnterMapFinish);
             }
             catch (Exception e)
             {

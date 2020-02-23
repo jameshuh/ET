@@ -2,18 +2,18 @@
 local System = System
 local Linq = System.Linq.Enumerable
 local ArrayString = System.Array(System.String)
-local DCETHotfix
+local DCET
 local DictInt64IConfig
 System.import(function (out)
-  DCETHotfix = DCET.Hotfix
-  DictInt64IConfig = System.Dictionary(System.Int64, DCETHotfix.IConfig)
+  DCET = out.DCET
+  DictInt64IConfig = System.Dictionary(System.Int64, DCET.IConfig)
 end)
-System.namespace("DCET.Hotfix", function (namespace)
+System.namespace("DCET", function (namespace)
   namespace.class("ACategory", function (namespace)
     return {
       base = function (out)
         return {
-          out.DCET.Hotfix.Object
+          out.DCET.Object
         }
       end
     }
@@ -28,7 +28,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       BeginInit = function (this)
         this.dict = DictInt64IConfig()
 
-        local configStr = DCETHotfix.ConfigHelper.GetText(System.typeof(T):getName())
+        local configStr = DCET.ConfigHelper.GetText(System.typeof(T):getName())
 
         for _, str in System.each(configStr:Split(ArrayString("\n"), nil, 0 --[[StringSplitOptions.None]])) do
           local continue
@@ -39,7 +39,7 @@ System.namespace("DCET.Hotfix", function (namespace)
                 continue = true
                 return
               end
-              local t = DCETHotfix.ConfigHelper.ToObject(str2, T)
+              local t = DCET.ConfigHelper.ToObject(str2, T)
               this.dict:AddKeyValue(t:getId(), t)
             end, function (default)
               local e = default
@@ -75,7 +75,7 @@ System.namespace("DCET.Hotfix", function (namespace)
       return {
         base = function (out)
           return {
-            out.DCET.Hotfix.ACategory
+            out.DCET.ACategory
           }
         end,
         BeginInit = BeginInit,
