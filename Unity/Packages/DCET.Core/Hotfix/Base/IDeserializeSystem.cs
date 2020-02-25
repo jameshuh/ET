@@ -17,7 +17,7 @@ namespace DCET
 	{
 		public void Run(object o)
 		{
-			this.Deserialize((T)o);
+			Deserialize((T)o);
 		}
 
 		public Type Type()

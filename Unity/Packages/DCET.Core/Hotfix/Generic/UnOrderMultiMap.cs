@@ -12,39 +12,39 @@ namespace DCET
 
 		public Dictionary<T, List<K>> GetDictionary()
 		{
-			return this.dictionary;
+			return dictionary;
 		}
 
 		public void Add(T t, K k)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
-				list = this.FetchList();
-				this.dictionary[t] = list;
+				list = FetchList();
+				dictionary[t] = list;
 			}
 			list.Add(k);
 		}
 
 		public KeyValuePair<T, List<K>> First()
 		{
-			return this.dictionary.First();
+			return dictionary.First();
 		}
 
 		public int Count
 		{
 			get
 			{
-				return this.dictionary.Count;
+				return dictionary.Count;
 			}
 		}
 
 		private List<K> FetchList()
 		{
-			if (this.queue.Count > 0)
+			if (queue.Count > 0)
 			{
-				List<K> list = this.queue.Dequeue();
+				List<K> list = queue.Dequeue();
 				list.Clear();
 				return list;
 			}
@@ -54,18 +54,18 @@ namespace DCET
 		private void RecycleList(List<K> list)
 		{
 			// 防止暴涨
-			if (this.queue.Count > 100)
+			if (queue.Count > 100)
 			{
 				return;
 			}
 			list.Clear();
-			this.queue.Enqueue(list);
+			queue.Enqueue(list);
 		}
 
 		public bool Remove(T t, K k)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return false;
@@ -76,8 +76,8 @@ namespace DCET
 			}
 			if (list.Count == 0)
 			{
-				this.RecycleList(list);
-				this.dictionary.Remove(t);
+				RecycleList(list);
+				dictionary.Remove(t);
 			}
 			return true;
 		}
@@ -85,12 +85,12 @@ namespace DCET
 		public bool Remove(T t)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list != null)
 			{
-				this.RecycleList(list);
+				RecycleList(list);
 			}
-			return this.dictionary.Remove(t);
+			return dictionary.Remove(t);
 		}
 
 		/// <summary>
@@ -101,7 +101,7 @@ namespace DCET
 		public K[] GetAll(T t)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return new K[0];
@@ -119,7 +119,7 @@ namespace DCET
 			get
 			{
 				List<K> list;
-				this.dictionary.TryGetValue(t, out list);
+				dictionary.TryGetValue(t, out list);
 				return list;
 			}
 		}
@@ -127,7 +127,7 @@ namespace DCET
 		public K GetOne(T t)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list != null && list.Count > 0)
 			{
 				return list[0];
@@ -138,7 +138,7 @@ namespace DCET
 		public bool Contains(T t, K k)
 		{
 			List<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return false;
@@ -148,16 +148,16 @@ namespace DCET
 
 		public bool ContainsKey(T t)
 		{
-			return this.dictionary.ContainsKey(t);
+			return dictionary.ContainsKey(t);
 		}
 
 		public void Clear()
 		{
-			foreach (KeyValuePair<T, List<K>> keyValuePair in this.dictionary)
+			foreach (KeyValuePair<T, List<K>> keyValuePair in dictionary)
 			{
-				this.RecycleList(keyValuePair.Value);
+				RecycleList(keyValuePair.Value);
 			}
-			this.dictionary.Clear();
+			dictionary.Clear();
 		}
 	}
 }

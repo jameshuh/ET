@@ -36,26 +36,26 @@ namespace DCET
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 
 			base.Dispose();
 
-			foreach (var abInfo in this.bundles)
+			foreach (var abInfo in bundles)
 			{
 				abInfo.Value.Dispose();
 			}
 
-			this.bundles.Clear();
-			this.resourceCache.Clear();
+			bundles.Clear();
+			resourceCache.Clear();
 		}
 
 		public UnityEngine.Object GetAsset(string bundleName, string prefab)
 		{
 			Dictionary<string, UnityEngine.Object> dict;
-			if (!this.resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
+			if (!resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
 			{
 				throw new Exception($"not found asset: {bundleName} {prefab}");
 			}
@@ -73,7 +73,7 @@ namespace DCET
 		public AssetBundle GetAssetBundle(string abName)
 		{
 			ABInfo abInfo;
-			if (!this.bundles.TryGetValue(AssetBundleHelper.BundleNameToLower(abName), out abInfo))
+			if (!bundles.TryGetValue(AssetBundleHelper.BundleNameToLower(abName), out abInfo))
 			{
 				throw new Exception($"not found bundle: {abName}");
 			}
@@ -89,7 +89,7 @@ namespace DCET
 			//Log.Debug($"-----------dep unload {assetBundleName} dep: {dependencies.ToList().ListToString()}");
 			foreach (string dependency in dependencies)
 			{
-				this.UnloadOneBundle(dependency);
+				UnloadOneBundle(dependency);
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace DCET
 			assetBundleName = AssetBundleHelper.BundleNameToLower(assetBundleName);
 
 			ABInfo abInfo;
-			if (!this.bundles.TryGetValue(assetBundleName, out abInfo))
+			if (!bundles.TryGetValue(assetBundleName, out abInfo))
 			{
 				throw new Exception($"not found assetBundle: {assetBundleName}");
 			}
@@ -113,8 +113,8 @@ namespace DCET
 			}
 
 
-			this.bundles.Remove(assetBundleName);
-			this.resourceCache.Remove(assetBundleName);
+			bundles.Remove(assetBundleName);
+			resourceCache.Remove(assetBundleName);
 			abInfo.Dispose();
 			//Log.Debug($"cache count: {this.cacheDictionary.Count}");
 		}
@@ -135,17 +135,17 @@ namespace DCET
 				{
 					continue;
 				}
-				this.LoadOneBundle(dependency);
+				LoadOneBundle(dependency);
 			}
 		}
 
 		public void AddResource(string bundleName, string assetName, UnityEngine.Object resource)
 		{
 			Dictionary<string, UnityEngine.Object> dict;
-			if (!this.resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
+			if (!resourceCache.TryGetValue(AssetBundleHelper.BundleNameToLower(bundleName), out dict))
 			{
 				dict = new Dictionary<string, UnityEngine.Object>();
-				this.resourceCache[bundleName] = dict;
+				resourceCache[bundleName] = dict;
 			}
 
 			dict[assetName] = resource;
@@ -155,7 +155,7 @@ namespace DCET
 		{
 			//Log.Debug($"---------------load one bundle {assetBundleName}");
 			ABInfo abInfo;
-			if (this.bundles.TryGetValue(assetBundleName, out abInfo))
+			if (bundles.TryGetValue(assetBundleName, out abInfo))
 			{
 				++abInfo.RefCount;
 				return;
@@ -194,7 +194,7 @@ namespace DCET
 				}
 
 				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
-				this.bundles[assetBundleName] = abInfo;
+				bundles[assetBundleName] = abInfo;
 			}
 			else
 			{
@@ -211,7 +211,7 @@ namespace DCET
 				}
 
 				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
-				this.bundles[assetBundleName] = abInfo;
+				bundles[assetBundleName] = abInfo;
 			}
 		}
 
@@ -231,7 +231,7 @@ namespace DCET
 				{
 					continue;
 				}
-				await this.LoadOneBundleAsync(dependency);
+				await LoadOneBundleAsync(dependency);
 			}
 		}
 
@@ -239,7 +239,7 @@ namespace DCET
 		{
 			ABInfo abInfo;
 
-			if (this.bundles.TryGetValue(assetBundleName, out abInfo))
+			if (bundles.TryGetValue(assetBundleName, out abInfo))
 			{
 				++abInfo.RefCount;
 				return;
@@ -256,7 +256,7 @@ namespace DCET
 					p = Path.Combine(PathHelper.AppResPath, assetBundleName);
 				}
 
-				using (AssetsBundleLoaderAsync assetsBundleLoaderAsync = EntityFactory.Create<AssetsBundleLoaderAsync>(this.Domain))
+				using (AssetsBundleLoaderAsync assetsBundleLoaderAsync = EntityFactory.Create<AssetsBundleLoaderAsync>(Domain))
 				{
 					assetBundle = await assetsBundleLoaderAsync.LoadAsync(p);
 				}
@@ -271,7 +271,7 @@ namespace DCET
 					// 异步load资源到内存cache住
 					UnityEngine.Object[] assets;
 
-					using (AssetsLoaderAsync assetsLoaderAsync = EntityFactory.Create<AssetsLoaderAsync, AssetBundle>(this.Domain, assetBundle))
+					using (AssetsLoaderAsync assetsLoaderAsync = EntityFactory.Create<AssetsLoaderAsync, AssetBundle>(Domain, assetBundle))
 					{
 						assets = await assetsLoaderAsync.LoadAllAssetsAsync();
 					}
@@ -283,7 +283,7 @@ namespace DCET
 				}
 
 				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, assetBundle);
-				this.bundles[assetBundleName] = abInfo;
+				bundles[assetBundleName] = abInfo;
 			}
 			else
 			{
@@ -300,7 +300,7 @@ namespace DCET
 				}
 
 				abInfo = EntityFactory.CreateWithParent<ABInfo, string, AssetBundle>(this, assetBundleName, null);
-				this.bundles[assetBundleName] = abInfo;
+				bundles[assetBundleName] = abInfo;
 			}
 		}
 
@@ -308,7 +308,7 @@ namespace DCET
 		{
 			StringBuilder sb = new StringBuilder();
 
-			foreach (ABInfo abInfo in this.bundles.Values)
+			foreach (ABInfo abInfo in bundles.Values)
 			{
 				sb.Append($"{abInfo.Name}:{abInfo.RefCount}\n");
 			}

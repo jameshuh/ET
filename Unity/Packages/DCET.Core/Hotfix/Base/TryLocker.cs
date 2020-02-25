@@ -16,20 +16,20 @@ namespace DCET
 				return;
 			}
 
-			this.HasLock = true;
-			this.locked = obj;
+			HasLock = true;
+			locked = obj;
 		}
 
 		public void Dispose()
 		{
-			if (!this.HasLock)
+			if (!HasLock)
 			{
 				return;
 			}
 
-			Monitor.Exit(this.locked);
-			this.locked = null;
-			this.HasLock = false;
+			Monitor.Exit(locked);
+			locked = null;
+			HasLock = false;
 		}
 	}
 }

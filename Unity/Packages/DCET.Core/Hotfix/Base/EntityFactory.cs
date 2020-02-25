@@ -179,8 +179,7 @@ namespace DCET
 			Game.EventSystem.Awake(component, a, b, c);
 			return component;
 		}
-		
-#if SERVER
+
 		public static Scene CreateScene(long id, string name, SceneType sceneType, Scene parent = null)
 		{
 			Scene scene = (Scene)Game.ObjectPool.Fetch(typeof(Scene));
@@ -197,6 +196,7 @@ namespace DCET
 			{
 				scene.Parent = parent;
 			}
+
 			scene.Domain = scene;
 
 			scene.Name = name;
@@ -204,19 +204,22 @@ namespace DCET
 			
 			return scene;
 		}
-#endif
 		
-		public static Scene CreateScene(SceneType sceneType, string name, Scene parent = null,long id = 0)
+		public static Scene CreateScene(SceneType sceneType = SceneType.Client, string name = "Client", Scene parent = null, long id = 0)
 		{
 			Scene scene = (Scene)Game.ObjectPool.Fetch(typeof(Scene));
+
 			scene.Id = id != 0 ? id : IdGenerater.GenerateId();
 			scene.Name = name;
 			scene.SceneType = sceneType;
+
 			if (parent != null)
 			{
 				scene.Parent = parent;
 			}
+
 			scene.Domain = scene;
+
 			return scene;
 		}
 

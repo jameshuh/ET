@@ -23,7 +23,7 @@ namespace DCET
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
@@ -32,13 +32,13 @@ namespace DCET
 
 			//Log.Debug($"desdroy assetbundle: {this.Name}");
 
-			if (this.AssetBundle != null)
+			if (AssetBundle != null)
 			{
-				this.AssetBundle.Unload(true);
+				AssetBundle.Unload(true);
 			}
 
-			this.RefCount = 0;
-			this.Name = "";
+			RefCount = 0;
+			Name = "";
 		}
 	}
 }

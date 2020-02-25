@@ -34,11 +34,16 @@ namespace DCET.Runtime
 			bundleDownloader = null;
 		}
 
-		public async Task DownloadAsync()
+		public async Task<bool> DownloadAsync()
 		{
-			await bundleDownloader.StartAsync();
+			var result = await bundleDownloader.StartAsync();
 
-			await bundleDownloader.DownloadAsync();
+			if (result)
+			{
+				return await bundleDownloader.DownloadAsync();
+			}
+
+			return result;
 		}
 	}
 }

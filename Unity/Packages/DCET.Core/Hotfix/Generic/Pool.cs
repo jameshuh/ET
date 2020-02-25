@@ -23,7 +23,7 @@ namespace DCET
 
         public void Clear()
         {
-            this.pool.Clear();
+            pool.Clear();
         }
     }
 }

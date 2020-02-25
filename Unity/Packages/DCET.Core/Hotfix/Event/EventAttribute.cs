@@ -9,7 +9,7 @@ namespace DCET
 
 		public EventAttribute(string type)
 		{
-			this.Type = type;
+			Type = type;
 		}
 	}
 }

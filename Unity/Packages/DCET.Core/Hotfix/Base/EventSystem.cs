@@ -95,53 +95,53 @@ namespace DCET
 				}
 
 				BaseAttribute baseAttribute = (BaseAttribute)objects[0];
-				this.attributeTypeMap.Add(baseAttribute.AttributeType, type);
+				attributeTypeMap.Add(baseAttribute.AttributeType, type);
 			}
 
-			this.awakeSystems.Clear();
-			this.lateUpdateSystems.Clear();
-			this.updateSystems.Clear();
-			this.startSystems.Clear();
-			this.loadSystems.Clear();
-			this.changeSystems.Clear();
-			this.destroySystems.Clear();
-			this.deserializeSystems.Clear();
+			awakeSystems.Clear();
+			lateUpdateSystems.Clear();
+			updateSystems.Clear();
+			startSystems.Clear();
+			loadSystems.Clear();
+			changeSystems.Clear();
+			destroySystems.Clear();
+			deserializeSystems.Clear();
 			
-			foreach (Type type in this.GetTypes(typeof(ObjectSystemAttribute)))
+			foreach (Type type in GetTypes(typeof(ObjectSystemAttribute)))
 			{
 				object obj = Activator.CreateInstance(type);
 
 				switch (obj)
 				{
 					case IAwakeSystem objectSystem:
-						this.awakeSystems.Add(objectSystem.Type(), objectSystem);
+						awakeSystems.Add(objectSystem.Type(), objectSystem);
 						break;
 					case IUpdateSystem updateSystem:
-						this.updateSystems.Add(updateSystem.Type(), updateSystem);
+						updateSystems.Add(updateSystem.Type(), updateSystem);
 						break;
 					case ILateUpdateSystem lateUpdateSystem:
-						this.lateUpdateSystems.Add(lateUpdateSystem.Type(), lateUpdateSystem);
+						lateUpdateSystems.Add(lateUpdateSystem.Type(), lateUpdateSystem);
 						break;
 					case IStartSystem startSystem:
-						this.startSystems.Add(startSystem.Type(), startSystem);
+						startSystems.Add(startSystem.Type(), startSystem);
 						break;
 					case IDestroySystem destroySystem:
-						this.destroySystems.Add(destroySystem.Type(), destroySystem);
+						destroySystems.Add(destroySystem.Type(), destroySystem);
 						break;
 					case ILoadSystem loadSystem:
-						this.loadSystems.Add(loadSystem.Type(), loadSystem);
+						loadSystems.Add(loadSystem.Type(), loadSystem);
 						break;
 					case IChangeSystem changeSystem:
-						this.changeSystems.Add(changeSystem.Type(), changeSystem);
+						changeSystems.Add(changeSystem.Type(), changeSystem);
 						break;
 					case IDeserializeSystem deserializeSystem:
-						this.deserializeSystems.Add(deserializeSystem.Type(), deserializeSystem);
+						deserializeSystems.Add(deserializeSystem.Type(), deserializeSystem);
 						break;
 				}
 			}
 
-			this.allEvents.Clear();
-			if (this.attributeTypeMap.ContainsKey(typeof (EventAttribute)))
+			allEvents.Clear();
+			if (attributeTypeMap.ContainsKey(typeof (EventAttribute)))
 			{
 				foreach (Type type in attributeTypeMap[typeof(EventAttribute)])
 				{
@@ -156,84 +156,84 @@ namespace DCET
 						{
 							Log.Error($"{obj.GetType().Name} 没有继承IEvent");
 						}
-						this.RegisterEvent(aEventAttribute.Type, iEvent);
+						RegisterEvent(aEventAttribute.Type, iEvent);
 					}
 				}
 			}
 			
-			this.Load();
+			Load();
 		}
 
 		public void RegisterEvent(string eventId, IEvent e)
 		{
-			if (!this.allEvents.ContainsKey(eventId))
+			if (!allEvents.ContainsKey(eventId))
 			{
-				this.allEvents.Add(eventId, new List<object>());
+				allEvents.Add(eventId, new List<object>());
 			}
-			this.allEvents[eventId].Add(e);
+			allEvents[eventId].Add(e);
 		}
 
 		public HashSet<Type> GetTypes(Type systemAttributeType)
 		{
-			if (!this.attributeTypeMap.ContainsKey(systemAttributeType))
+			if (!attributeTypeMap.ContainsKey(systemAttributeType))
 			{
 				return new HashSet<Type>();
 			}
-			return this.attributeTypeMap[systemAttributeType];
+			return attributeTypeMap[systemAttributeType];
 		}
 		
 		public void RegisterSystem(Entity component, bool isRegister = true)
 		{
 			if (!isRegister)
 			{
-				this.Remove(component.InstanceId);
+				Remove(component.InstanceId);
 				return;
 			}
-			this.allComponents.Add(component.InstanceId, component);
+			allComponents.Add(component.InstanceId, component);
 			
 			Type type = component.GetType();
 
-			if (this.loadSystems.ContainsKey(type))
+			if (loadSystems.ContainsKey(type))
 			{ 
-				this.loaders.Enqueue(component.InstanceId);
+				loaders.Enqueue(component.InstanceId);
 			}
 
-			if (this.updateSystems.ContainsKey(type))
+			if (updateSystems.ContainsKey(type))
 			{
-				this.updates.Enqueue(component.InstanceId);
+				updates.Enqueue(component.InstanceId);
 			}
 
-			if (this.startSystems.ContainsKey(type))
+			if (startSystems.ContainsKey(type))
 			{
-				this.starts.Enqueue(component.InstanceId);
+				starts.Enqueue(component.InstanceId);
 			}
 
-			if (this.lateUpdateSystems.ContainsKey(type))
+			if (lateUpdateSystems.ContainsKey(type))
 			{
-				this.lateUpdates.Enqueue(component.InstanceId);
+				lateUpdates.Enqueue(component.InstanceId);
 			}
 		}
 
 		public void Remove(long instanceId)
 		{
-			this.allComponents.Remove(instanceId);
+			allComponents.Remove(instanceId);
 		}
 
 		public Entity Get(long instanceId)
 		{
 			Entity component;
-			this.allComponents.TryGetValue(instanceId, out component);
+			allComponents.TryGetValue(instanceId, out component);
 			return component;
 		}
 		
 		public bool IsRegister(long instanceId)
 		{
-			return this.allComponents.ContainsKey(instanceId);
+			return allComponents.ContainsKey(instanceId);
 		}
 		
 		public void Deserialize(Entity component)
 		{
-			List<IDeserializeSystem> iDeserializeSystems = this.deserializeSystems[component.GetType()];
+			List<IDeserializeSystem> iDeserializeSystems = deserializeSystems[component.GetType()];
 			if (iDeserializeSystems == null)
 			{
 				return;
@@ -259,7 +259,7 @@ namespace DCET
 
 		public void Awake(Entity component)
 		{
-			List<IAwakeSystem> iAwakeSystems = this.awakeSystems[component.GetType()];
+			List<IAwakeSystem> iAwakeSystems = awakeSystems[component.GetType()];
 			if (iAwakeSystems == null)
 			{
 				return;
@@ -291,7 +291,7 @@ namespace DCET
 
 		public void Awake<P1>(Entity component, P1 p1)
 		{
-			List<IAwakeSystem> iAwakeSystems = this.awakeSystems[component.GetType()];
+			List<IAwakeSystem> iAwakeSystems = awakeSystems[component.GetType()];
 			if (iAwakeSystems == null)
 			{
 				return;
@@ -323,7 +323,7 @@ namespace DCET
 
 		public void Awake<P1, P2>(Entity component, P1 p1, P2 p2)
 		{
-			List<IAwakeSystem> iAwakeSystems = this.awakeSystems[component.GetType()];
+			List<IAwakeSystem> iAwakeSystems = awakeSystems[component.GetType()];
 			if (iAwakeSystems == null)
 			{
 				return;
@@ -355,7 +355,7 @@ namespace DCET
 
 		public void Awake<P1, P2, P3>(Entity component, P1 p1, P2 p2, P3 p3)
 		{
-			List<IAwakeSystem> iAwakeSystems = this.awakeSystems[component.GetType()];
+			List<IAwakeSystem> iAwakeSystems = awakeSystems[component.GetType()];
 			if (iAwakeSystems == null)
 			{
 				return;
@@ -387,7 +387,7 @@ namespace DCET
 
         public void Awake<P1, P2, P3, P4>(Entity component, P1 p1, P2 p2, P3 p3, P4 p4)
         {
-            List<IAwakeSystem> iAwakeSystems = this.awakeSystems[component.GetType()];
+            List<IAwakeSystem> iAwakeSystems = awakeSystems[component.GetType()];
             if (iAwakeSystems == null)
             {
                 return;
@@ -419,7 +419,7 @@ namespace DCET
 
         public void Change(Entity component)
 		{
-			List<IChangeSystem> iChangeSystems = this.changeSystems[component.GetType()];
+			List<IChangeSystem> iChangeSystems = changeSystems[component.GetType()];
 			if (iChangeSystems == null)
 			{
 				return;
@@ -445,11 +445,11 @@ namespace DCET
 
 		public void Load()
 		{
-			while (this.loaders.Count > 0)
+			while (loaders.Count > 0)
 			{
-				long instanceId = this.loaders.Dequeue();
+				long instanceId = loaders.Dequeue();
 				Entity component;
-				if (!this.allComponents.TryGetValue(instanceId, out component))
+				if (!allComponents.TryGetValue(instanceId, out component))
 				{
 					continue;
 				}
@@ -458,13 +458,13 @@ namespace DCET
 					continue;
 				}
 				
-				List<ILoadSystem> iLoadSystems = this.loadSystems[component.GetType()];
+				List<ILoadSystem> iLoadSystems = loadSystems[component.GetType()];
 				if (iLoadSystems == null)
 				{
 					continue;
 				}
 				
-				this.loaders2.Enqueue(instanceId);
+				loaders2.Enqueue(instanceId);
 
 				foreach (ILoadSystem iLoadSystem in iLoadSystems)
 				{
@@ -479,21 +479,21 @@ namespace DCET
 				}
 			}
 
-			ObjectHelper.Swap(ref this.loaders, ref this.loaders2);
+			ObjectHelper.Swap(ref loaders, ref loaders2);
 		}
 
 		private void Start()
 		{
-			while (this.starts.Count > 0)
+			while (starts.Count > 0)
 			{
-				long instanceId = this.starts.Dequeue();
+				long instanceId = starts.Dequeue();
 				Entity component;
-				if (!this.allComponents.TryGetValue(instanceId, out component))
+				if (!allComponents.TryGetValue(instanceId, out component))
 				{
 					continue;
 				}
 
-				List<IStartSystem> iStartSystems = this.startSystems[component.GetType()];
+				List<IStartSystem> iStartSystems = startSystems[component.GetType()];
 				if (iStartSystems == null)
 				{
 					continue;
@@ -515,7 +515,7 @@ namespace DCET
 
 		public void Destroy(Entity component)
 		{
-			List<IDestroySystem> iDestroySystems = this.destroySystems[component.GetType()];
+			List<IDestroySystem> iDestroySystems = destroySystems[component.GetType()];
 			if (iDestroySystems == null)
 			{
 				return;
@@ -541,13 +541,13 @@ namespace DCET
 		
 		public void Update()
 		{
-			this.Start();
+			Start();
 			
-			while (this.updates.Count > 0)
+			while (updates.Count > 0)
 			{
-				long instanceId = this.updates.Dequeue();
+				long instanceId = updates.Dequeue();
 				Entity component;
-				if (!this.allComponents.TryGetValue(instanceId, out component))
+				if (!allComponents.TryGetValue(instanceId, out component))
 				{
 					continue;
 				}
@@ -556,13 +556,13 @@ namespace DCET
 					continue;
 				}
 				
-				List<IUpdateSystem> iUpdateSystems = this.updateSystems[component.GetType()];
+				List<IUpdateSystem> iUpdateSystems = updateSystems[component.GetType()];
 				if (iUpdateSystems == null)
 				{
 					continue;
 				}
 
-				this.updates2.Enqueue(instanceId);
+				updates2.Enqueue(instanceId);
 
 				foreach (IUpdateSystem iUpdateSystem in iUpdateSystems)
 				{
@@ -577,16 +577,16 @@ namespace DCET
 				}
 			}
 
-			ObjectHelper.Swap(ref this.updates, ref this.updates2);
+			ObjectHelper.Swap(ref updates, ref updates2);
 		}
 
 		public void LateUpdate()
 		{
-			while (this.lateUpdates.Count > 0)
+			while (lateUpdates.Count > 0)
 			{
-				long instanceId = this.lateUpdates.Dequeue();
+				long instanceId = lateUpdates.Dequeue();
 				Entity component;
-				if (!this.allComponents.TryGetValue(instanceId, out component))
+				if (!allComponents.TryGetValue(instanceId, out component))
 				{
 					continue;
 				}
@@ -595,13 +595,13 @@ namespace DCET
 					continue;
 				}
 
-				List<ILateUpdateSystem> iLateUpdateSystems = this.lateUpdateSystems[component.GetType()];
+				List<ILateUpdateSystem> iLateUpdateSystems = lateUpdateSystems[component.GetType()];
 				if (iLateUpdateSystems == null)
 				{
 					continue;
 				}
 
-				this.lateUpdates2.Enqueue(instanceId);
+				lateUpdates2.Enqueue(instanceId);
 
 				foreach (ILateUpdateSystem iLateUpdateSystem in iLateUpdateSystems)
 				{
@@ -616,13 +616,13 @@ namespace DCET
 				}
 			}
 
-			ObjectHelper.Swap(ref this.lateUpdates, ref this.lateUpdates2);
+			ObjectHelper.Swap(ref lateUpdates, ref lateUpdates2);
 		}
 
 		public void Run(string type)
 		{
 			List<object> iEvents;
-			if (!this.allEvents.TryGetValue(type, out iEvents))
+			if (!allEvents.TryGetValue(type, out iEvents))
 			{
 				return;
 			}
@@ -642,7 +642,7 @@ namespace DCET
 		public void Run<A>(string type, A a)
 		{
 			List<object> iEvents;
-			if (!this.allEvents.TryGetValue(type, out iEvents))
+			if (!allEvents.TryGetValue(type, out iEvents))
 			{
 				return;
 			}
@@ -669,7 +669,7 @@ namespace DCET
 		public void Run<A, B>(string type, A a, B b)
 		{
 			List<object> iEvents;
-			if (!this.allEvents.TryGetValue(type, out iEvents))
+			if (!allEvents.TryGetValue(type, out iEvents))
 			{
 				return;
 			}
@@ -696,7 +696,7 @@ namespace DCET
 		public void Run<A, B, C>(string type, A a, B b, C c)
 		{
 			List<object> iEvents;
-			if (!this.allEvents.TryGetValue(type, out iEvents))
+			if (!allEvents.TryGetValue(type, out iEvents))
 			{
 				return;
 			}
@@ -728,7 +728,7 @@ namespace DCET
 			
 			HashSet<Type> noDomain = new HashSet<Type>();
 			
-			foreach (var kv in this.allComponents)
+			foreach (var kv in allComponents)
 			{
 				Type type = kv.Value.GetType();
 				if (kv.Value.Parent == null)

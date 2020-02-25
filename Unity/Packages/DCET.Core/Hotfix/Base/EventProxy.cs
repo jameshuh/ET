@@ -15,32 +15,32 @@ namespace DCET
 
 		public void Handle()
 		{
-			this.param.Clear();
-			this.action.Invoke(this.param);
+			param.Clear();
+			action.Invoke(param);
 		}
 
 		public void Handle(object a)
 		{
-			this.param.Clear();
-			this.param.Add(a);
-			this.action.Invoke(this.param);
+			param.Clear();
+			param.Add(a);
+			action.Invoke(param);
 		}
 
 		public void Handle(object a, object b)
 		{
-			this.param.Clear();
-			this.param.Add(a);
-			this.param.Add(b);
-			this.action.Invoke(this.param);
+			param.Clear();
+			param.Add(a);
+			param.Add(b);
+			action.Invoke(param);
 		}
 
 		public void Handle(object a, object b, object c)
 		{
-			this.param.Clear();
-			this.param.Add(a);
-			this.param.Add(b);
-			this.param.Add(c);
-			this.action.Invoke(this.param);
+			param.Clear();
+			param.Add(a);
+			param.Add(b);
+			param.Add(c);
+			action.Invoke(param);
 		}
 	}
 }

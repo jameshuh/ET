@@ -10,5 +10,5 @@
     <component id="hbe5e" name="Lobby.xml" path="/Component/" exported="true"/>
     <image id="hbe5f" name="bg_input.png" path="/Resource/" scale="9grid" scale9grid="5,5,83,11"/>
   </resources>
-  <publish name="Hotfix" rotation="true" extractAlpha="true"/>
+  <publish name="Hotfix" path="F:\DukeChiangGit\ET\Unity\Assets\Bundles\FUI" rotation="true" extractAlpha="true"/>
 </packageDescription>

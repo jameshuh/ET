@@ -12,9 +12,6 @@ public class Pathfinding_NodeLinkWrap
 		L.RegFunction("OnGraphsPostUpdate", OnGraphsPostUpdate);
 		L.RegFunction("Apply", Apply);
 		L.RegFunction("OnDrawGizmos", OnDrawGizmos);
-		L.RegFunction("LinkObjects", LinkObjects);
-		L.RegFunction("UnlinkObjects", UnlinkObjects);
-		L.RegFunction("DeleteLinks", DeleteLinks);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("end", get_end, set_end);
@@ -100,67 +97,6 @@ public class Pathfinding_NodeLinkWrap
 			ToLua.CheckArgsCount(L, 1);
 			Pathfinding.NodeLink obj = (Pathfinding.NodeLink)ToLua.CheckObject<Pathfinding.NodeLink>(L, 1);
 			obj.OnDrawGizmos();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LinkObjects(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 0)
-			{
-				Pathfinding.NodeLink.LinkObjects();
-				return 0;
-			}
-			else if (count == 3)
-			{
-				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 1);
-				UnityEngine.Transform arg1 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
-				bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
-				Pathfinding.NodeLink.LinkObjects(arg0, arg1, arg2);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: Pathfinding.NodeLink.LinkObjects");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int UnlinkObjects(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 0);
-			Pathfinding.NodeLink.UnlinkObjects();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int DeleteLinks(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 0);
-			Pathfinding.NodeLink.DeleteLinks();
 			return 0;
 		}
 		catch (Exception e)

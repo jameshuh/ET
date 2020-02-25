@@ -16,8 +16,8 @@ namespace DCET
 				component = Game.ObjectPool.Fetch(type);	
 			}
 
-			component.Domain = this.Domain;
-			component.Id = this.Id;
+			component.Domain = Domain;
+			component.Id = Id;
 			component.ComponentParent = this;
 
 			Game.EventSystem.Awake(component);
@@ -36,8 +36,8 @@ namespace DCET
 			{
 				component = Game.ObjectPool.Fetch(type);	
 			}
-			component.Domain = this.Domain;
-			component.Id = this.Id;
+			component.Domain = Domain;
+			component.Id = Id;
 			component.ComponentParent = this;
 			
 			Game.EventSystem.Awake(component);
@@ -56,8 +56,8 @@ namespace DCET
 			{
 				component = Game.ObjectPool.Fetch(type);	
 			}
-			component.Domain = this.Domain;
-			component.Id = this.Id;
+			component.Domain = Domain;
+			component.Id = Id;
 			component.ComponentParent = this;
 			
 			Game.EventSystem.Awake(component, a);
@@ -76,8 +76,8 @@ namespace DCET
 			{
 				component = Game.ObjectPool.Fetch(type);	
 			}
-			component.Domain = this.Domain;
-			component.Id = this.Id;
+			component.Domain = Domain;
+			component.Id = Id;
 			component.ComponentParent = this;
 			
 			Game.EventSystem.Awake(component, a, b);
@@ -96,8 +96,8 @@ namespace DCET
 			{
 				component = Game.ObjectPool.Fetch(type);	
 			}
-			component.Domain = this.Domain;
-			component.Id = this.Id;
+			component.Domain = Domain;
+			component.Id = Id;
 			component.ComponentParent = this;
 			
 			Game.EventSystem.Awake(component, a, b, c);

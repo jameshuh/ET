@@ -10,7 +10,6 @@
 		Location = 5,
 		Map = 6,
 
-		// 客户端Model层
 		Client = 30,
 	}
 }

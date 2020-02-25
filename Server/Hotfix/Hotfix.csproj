@@ -24,8 +24,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Message\Message.csproj" />
-    <ProjectReference Include="..\Model\Runtime.csproj" />
     <ProjectReference Include="..\Pathfinding\Pathfinding.csproj" />
+    <ProjectReference Include="..\Runtime\Runtime.csproj" />
     <ProjectReference Include="..\ThirdParty\BehaviorDesigner.Runtime\BehaviorDesigner.Runtime.csproj" />
   </ItemGroup>
   <ItemGroup>

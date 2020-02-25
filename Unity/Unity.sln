@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Runtime", "Unity.DCET.Runtime.csproj", "{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.MongoDB.Runtime", "Unity.MongoDB.Runtime.csproj", "{847D3640-7FC2-C576-ECC2-980D265728B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.FairyGUI.Runtime", "Unity.FairyGUI.Runtime.csproj", "{02078D6A-F042-765D-85AD-170AD6896D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Runtime", "Unity.DCET.Runtime.csproj", "{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Hotfix", "Unity.DCET.Hotfix.csproj", "{7A3262FB-50C8-1A8E-91C3-0FB975761754}"
 EndProject
@@ -69,10 +69,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{847D3640-7FC2-C576-ECC2-980D265728B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{847D3640-7FC2-C576-ECC2-980D265728B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847D3640-7FC2-C576-ECC2-980D265728B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +77,10 @@ Global
 		{02078D6A-F042-765D-85AD-170AD6896D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02078D6A-F042-765D-85AD-170AD6896D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02078D6A-F042-765D-85AD-170AD6896D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60B24E4-9F39-5D30-4061-3E0FC1D44AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A3262FB-50C8-1A8E-91C3-0FB975761754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A3262FB-50C8-1A8E-91C3-0FB975761754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3262FB-50C8-1A8E-91C3-0FB975761754}.Release|Any CPU.ActiveCfg = Release|Any CPU

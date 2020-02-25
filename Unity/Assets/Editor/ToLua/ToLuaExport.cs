@@ -654,6 +654,19 @@ public static class ToLuaExport
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(MemoryStream).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(BsonStreamAdapter).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(ByteBufferStream).ToString()));
+                internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Add", "System.String", "UnityEngine.Object" });
+                internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Remove", "System.String" });
+                internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Clear" });
+                internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Sort" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.AlternativePath", "AddComp", "UnityEditor.MenuCommand" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.FunnelModifier", "AddComp", "UnityEditor.MenuCommand" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.RadiusModifier", "AddComp", "UnityEditor.MenuCommand" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.RaycastModifier", "AddComp", "UnityEditor.MenuCommand" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.SimpleSmoothModifier", "AddComp", "UnityEditor.MenuCommand" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.NodeLink", "LinkObjects" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.NodeLink", "UnlinkObjects" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.NodeLink", "DeleteLinks" });
+                internalMethodBlackList.Add(new List<string>() { "Pathfinding.NodeLink", "LinkObjects", "UnityEngine.Transform", "UnityEngine.Transform", "System.Boolean" });
             }
 
             return internalMethodBlackList;

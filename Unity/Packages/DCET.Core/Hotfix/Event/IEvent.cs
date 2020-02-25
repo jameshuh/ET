@@ -14,7 +14,7 @@ namespace DCET
 	{
 		public void Handle()
 		{
-			this.Run();
+			Run();
 		}
 
 		public void Handle(object a)
@@ -44,7 +44,7 @@ namespace DCET
 
 		public void Handle(object a)
 		{
-			this.Run((A)a);
+			Run((A)a);
 		}
 
 		public void Handle(object a, object b)
@@ -74,7 +74,7 @@ namespace DCET
 
 		public void Handle(object a, object b)
 		{
-			this.Run((A)a, (B)b);
+			Run((A)a, (B)b);
 		}
 
 		public void Handle(object a, object b, object c)
@@ -104,7 +104,7 @@ namespace DCET
 
 		public void Handle(object a, object b, object c)
 		{
-			this.Run((A)a, (B)b, (C)c);
+			Run((A)a, (B)b, (C)c);
 		}
 
 		public abstract void Run(A a, B b, C c);

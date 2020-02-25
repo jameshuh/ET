@@ -14,21 +14,21 @@ namespace DCET
 		{
 			get
 			{
-				return this.values[key];
+				return values[key];
 			}
 			set
 			{
-				if (this.values == null)
+				if (values == null)
 				{
-					this.values = new Dictionary<EnvKey, object>();
+					values = new Dictionary<EnvKey, object>();
 				}
-				this.values[key] = value;
+				values[key] = value;
 			}
 		}
 
 		public T Get<T>(EnvKey key)
 		{
-			if (this.values == null || !this.values.ContainsKey(key))
+			if (values == null || !values.ContainsKey(key))
 			{
 				return default(T);
 			}
@@ -45,47 +45,47 @@ namespace DCET
 
 		public void Set(EnvKey key, object obj)
 		{
-			if (this.values == null)
+			if (values == null)
 			{
-				this.values = new Dictionary<EnvKey, object>();
+				values = new Dictionary<EnvKey, object>();
 			}
-			this.values[key] = obj;
+			values[key] = obj;
 		}
 
 		public bool ContainKey(EnvKey key)
 		{
-			if (this.values == null)
+			if (values == null)
 			{
 				return false;
 			}
-			return this.values.ContainsKey(key);
+			return values.ContainsKey(key);
 		}
 
 		public void Remove(EnvKey key)
 		{
-			if (this.values == null)
+			if (values == null)
 			{
 				return;
 			}
-			this.values.Remove(key);
-			if (this.values.Count == 0)
+			values.Remove(key);
+			if (values.Count == 0)
 			{
-				this.values = null;
+				values = null;
 			}
 		}
 
 		public void Add(EnvKey key, object value)
 		{
-			if (this.values == null)
+			if (values == null)
 			{
-				this.values = new Dictionary<EnvKey, object>();
+				values = new Dictionary<EnvKey, object>();
 			}
-			this.values[key] = value;
+			values[key] = value;
 		}
 
 		public IEnumerator GetEnumerator()
 		{
-			return this.values.GetEnumerator();
+			return values.GetEnumerator();
 		}
 	}
 }

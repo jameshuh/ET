@@ -31,18 +31,19 @@ namespace DCET.Runtime
 
 		public void Dispose()
 		{
-			this.remoteVersionConfig = null;
-			this.TotalSize = 0;
-			this.bundles = null;
-			this.downloadedBundles = null;
-			this.downloadingBundle = null;
-			this.webRequest?.Dispose();
+			remoteVersionConfig = null;
+			TotalSize = 0;
+			bundles = null;
+			downloadedBundles = null;
+			downloadingBundle = null;
+			webRequest?.Dispose();
 		}
 
-		public async Task StartAsync()
+		public async Task<bool> StartAsync()
 		{
 			// 获取远程的Version.txt
 			string versionUrl = "";
+
 			try
 			{
 				using (UnityWebRequestAsync webRequestAsync = new UnityWebRequestAsync())
@@ -55,18 +56,25 @@ namespace DCET.Runtime
 					{
 						remoteVersionConfig = JsonHelper.FromJson<VersionConfig>(webRequestAsync.Request.downloadHandler.text);
 					}
+					else
+					{
+						Log.Error($"url: {versionUrl}; result:{result}");
+						return false;
+					}
 				}
 
 			}
 			catch (Exception e)
 			{
-				throw new Exception($"url: {versionUrl}", e);
+				Log.Error($"url: {versionUrl}", e);
+				return false;
 			}
 
 			// 获取streaming目录的Version.txt
 			VersionConfig streamingVersionConfig = null;
 
 			string versionPath = Path.Combine(PathHelper.AppResPath4Web, "Version.txt");
+
 			using (UnityWebRequestAsync request = new UnityWebRequestAsync())
 			{
 				var result = await request.DownloadAsync(versionPath);
@@ -79,9 +87,11 @@ namespace DCET.Runtime
 
 			// 删掉远程不存在的文件
 			DirectoryInfo directoryInfo = new DirectoryInfo(PathHelper.AppHotfixResPath);
+
 			if (directoryInfo.Exists)
 			{
 				FileInfo[] fileInfos = directoryInfo.GetFiles();
+
 				foreach (FileInfo fileInfo in fileInfos)
 				{
 					if (remoteVersionConfig.FileInfoDict.ContainsKey(fileInfo.Name))
@@ -107,18 +117,23 @@ namespace DCET.Runtime
 			{
 				// 对比md5
 				string localFileMD5 = GetBundleMD5(streamingVersionConfig, fileVersionInfo.File);
+
 				if (fileVersionInfo.MD5 == localFileMD5)
 				{
 					continue;
 				}
-				this.bundles.Enqueue(fileVersionInfo.File);
-				this.TotalSize += fileVersionInfo.Size;
+
+				bundles.Enqueue(fileVersionInfo.File);
+				TotalSize += fileVersionInfo.Size;
 			}
+
+			return true;
 		}
 
 		public static string GetBundleMD5(VersionConfig streamingVersionConfig, string bundleName)
 		{
 			string path = Path.Combine(PathHelper.AppHotfixResPath, bundleName);
+
 			if (File.Exists(path))
 			{
 				return MD5Helper.FileMD5(path);
@@ -136,53 +151,59 @@ namespace DCET.Runtime
 		{
 			get
 			{
-				if (this.TotalSize == 0)
+				if (TotalSize == 0)
 				{
 					return 0;
 				}
 
 				long alreadyDownloadBytes = 0;
-				foreach (string downloadedBundle in this.downloadedBundles)
+
+				foreach (string downloadedBundle in downloadedBundles)
 				{
-					long size = this.remoteVersionConfig.FileInfoDict[downloadedBundle].Size;
+					long size = remoteVersionConfig.FileInfoDict[downloadedBundle].Size;
 					alreadyDownloadBytes += size;
 				}
-				if (this.webRequest != null)
+
+				if (webRequest != null)
 				{
-					alreadyDownloadBytes += (long)this.webRequest.Request.downloadedBytes;
+					alreadyDownloadBytes += (long)webRequest.Request.downloadedBytes;
 				}
-				return (int)(alreadyDownloadBytes * 100f / this.TotalSize);
+
+				return (int)(alreadyDownloadBytes * 100f / TotalSize);
 			}
 		}
 
-		public async Task DownloadAsync()
+		public async Task<bool> DownloadAsync()
 		{
-			if (this.bundles.Count == 0 && this.downloadingBundle == "")
+			var result = true;
+
+			if (bundles.Count == 0 && downloadingBundle == "")
 			{
-				return;
+				return result;
 			}
 
 			try
 			{
 				while (true)
 				{
-					if (this.bundles.Count == 0)
+					if (bundles.Count == 0)
 					{
 						break;
 					}
 
-					this.downloadingBundle = this.bundles.Dequeue();
+					downloadingBundle = bundles.Dequeue();
 
 					while (true)
 					{
 						try
 						{
-							using (this.webRequest = new UnityWebRequestAsync())
+							using (webRequest = new UnityWebRequestAsync())
 							{
-								await this.webRequest.DownloadAsync(GlobalConfigComponent.Instance.GlobalProto.GetUrl() + "StreamingAssets/" + this.downloadingBundle);
-								byte[] data = this.webRequest.Request.downloadHandler.data;
+								await webRequest.DownloadAsync(GlobalConfigComponent.Instance.GlobalProto.GetUrl() + "StreamingAssets/" + downloadingBundle);
+								byte[] data = webRequest.Request.downloadHandler.data;
 
-								string path = Path.Combine(PathHelper.AppHotfixResPath, this.downloadingBundle);
+								string path = Path.Combine(PathHelper.AppHotfixResPath, downloadingBundle);
+								
 								using (FileStream fs = new FileStream(path, FileMode.Create))
 								{
 									fs.Write(data, 0, data.Length);
@@ -191,21 +212,26 @@ namespace DCET.Runtime
 						}
 						catch (Exception e)
 						{
-							Log.Error($"download bundle error: {this.downloadingBundle}\n{e}");
+							Log.Error($"download bundle error: {downloadingBundle}\n{e}");
+							result = false;
 							continue;
 						}
 
 						break;
 					}
-					this.downloadedBundles.Add(this.downloadingBundle);
-					this.downloadingBundle = "";
-					this.webRequest = null;
+
+					downloadedBundles.Add(downloadingBundle);
+					downloadingBundle = "";
+					webRequest = null;
 				}
 			}
 			catch (Exception e)
 			{
 				Log.Error(e);
+				result = false;
 			}
+
+			return result;
 		}
 	}
 }

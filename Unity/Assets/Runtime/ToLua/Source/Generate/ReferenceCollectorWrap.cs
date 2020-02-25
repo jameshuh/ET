@@ -7,10 +7,6 @@ public class ReferenceCollectorWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(ReferenceCollector), typeof(UnityEngine.MonoBehaviour));
-		L.RegFunction("Add", Add);
-		L.RegFunction("Remove", Remove);
-		L.RegFunction("Clear", Clear);
-		L.RegFunction("Sort", Sort);
 		L.RegFunction("GetObject", GetObject);
 		L.RegFunction("OnBeforeSerialize", OnBeforeSerialize);
 		L.RegFunction("OnAfterDeserialize", OnAfterDeserialize);
@@ -18,73 +14,6 @@ public class ReferenceCollectorWrap
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("data", get_data, set_data);
 		L.EndClass();
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Add(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 3);
-			ReferenceCollector obj = (ReferenceCollector)ToLua.CheckObject<ReferenceCollector>(L, 1);
-			string arg0 = ToLua.CheckString(L, 2);
-			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.CheckObject<UnityEngine.Object>(L, 3);
-			obj.Add(arg0, arg1);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Remove(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 2);
-			ReferenceCollector obj = (ReferenceCollector)ToLua.CheckObject<ReferenceCollector>(L, 1);
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.Remove(arg0);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Clear(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			ReferenceCollector obj = (ReferenceCollector)ToLua.CheckObject<ReferenceCollector>(L, 1);
-			obj.Clear();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Sort(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			ReferenceCollector obj = (ReferenceCollector)ToLua.CheckObject<ReferenceCollector>(L, 1);
-			obj.Sort();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

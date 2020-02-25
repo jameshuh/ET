@@ -31,12 +31,12 @@ namespace DCET
 
 		public void Awake(AssetBundle ab)
 		{
-			this.assetBundle = ab;
+			assetBundle = ab;
 		}
 
 		public void Update()
 		{
-			if (!this.request.isDone)
+			if (!request.isDone)
 			{
 				return;
 			}
@@ -47,27 +47,27 @@ namespace DCET
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 		{
 				return;
 			}
 			base.Dispose();
 
-			this.assetBundle = null;
-			this.request = null;
+			assetBundle = null;
+			request = null;
 		}
 
 		public async Task<UnityEngine.Object[]> LoadAllAssetsAsync()
 		{
 			await InnerLoadAllAssetsAsync();
-			return this.request.allAssets;
+			return request.allAssets;
 		}
 
 		private Task InnerLoadAllAssetsAsync()
 		{
-			this.tcs = new TaskCompletionSource<bool>();
-			this.request = assetBundle.LoadAllAssetsAsync();
-			return this.tcs.Task;
+			tcs = new TaskCompletionSource<bool>();
+			request = assetBundle.LoadAllAssetsAsync();
+			return tcs.Task;
 		}
 	}
 }

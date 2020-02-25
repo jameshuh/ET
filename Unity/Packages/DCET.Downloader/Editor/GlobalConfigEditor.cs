@@ -7,8 +7,7 @@ namespace DCET.Editor
 {
 	public class GlobalProtoEditor: EditorWindow
     {
-        const string path = @"./Assets/Res/GlobalProto.txt";
-
+        private const string path = @"./Assets/Res/GlobalProto.txt";
         private GlobalProto globalProto;
 
         [MenuItem("Tools/全局配置")]
@@ -19,24 +18,37 @@ namespace DCET.Editor
 
         public void Awake()
         {
+            Load();
+        }
+
+        private void Load()
+        {
+            if(globalProto != null)
+            {
+                return;
+            }
+
             if (File.Exists(path))
             {
-                this.globalProto = JsonHelper.FromJson<GlobalProto>(File.ReadAllText(path));
+                globalProto = JsonHelper.FromJson<GlobalProto>(File.ReadAllText(path));
             }
-            else
+
+            if (globalProto == null)
             {
-                this.globalProto = new GlobalProto();
+                globalProto = new GlobalProto();
             }
         }
 
         public void OnGUI()
         {
-            this.globalProto.AssetBundleServerUrl = EditorGUILayout.TextField("资源路径:", this.globalProto.AssetBundleServerUrl);
-            this.globalProto.Address = EditorGUILayout.TextField("服务器地址:", this.globalProto.Address);
+            Load();
+
+            globalProto.AssetBundleServerUrl = EditorGUILayout.TextField("资源路径:", globalProto.AssetBundleServerUrl);
+            globalProto.Address = EditorGUILayout.TextField("服务器地址:", globalProto.Address);
 
             if (GUILayout.Button("保存"))
             {
-                File.WriteAllText(path, JsonHelper.ToJson(this.globalProto));
+                File.WriteAllText(path, JsonHelper.ToJson(globalProto));
                 AssetDatabase.Refresh();
             }
         }

@@ -25,8 +25,8 @@ namespace DCET
 		
 		public void Run()
 		{
-			var tcs = this.Callback;
-			this.GetParent<TimerComponent>().Remove(this.Id);
+			var tcs = Callback;
+			GetParent<TimerComponent>().Remove(Id);
 			tcs.SetResult(true);
 		}
 	}
@@ -48,7 +48,7 @@ namespace DCET
 		{
 			try
 			{
-				this.Callback.Invoke();
+				Callback.Invoke();
 			}
 			catch (Exception e)
 			{
@@ -70,10 +70,10 @@ namespace DCET
 	{
 		public void Awake(long repeatedTime, Action callback)
 		{
-			this.StartTime = TimeHelper.Now();
-			this.RepeatedTime = repeatedTime;
-			this.Callback = callback;
-			this.Count = 1;
+			StartTime = TimeHelper.Now();
+			RepeatedTime = repeatedTime;
+			Callback = callback;
+			Count = 1;
 		}
 		
 		private long StartTime { get; set; }
@@ -87,14 +87,14 @@ namespace DCET
 		
 		public void Run()
 		{
-			++this.Count;
-			TimerComponent timerComponent = this.GetParent<TimerComponent>();
-			long tillTime = this.StartTime + this.RepeatedTime * this.Count;
-			timerComponent.AddToTimeId(tillTime, this.Id);
+			++Count;
+			TimerComponent timerComponent = GetParent<TimerComponent>();
+			long tillTime = StartTime + RepeatedTime * Count;
+			timerComponent.AddToTimeId(tillTime, Id);
 
 			try
 			{
-				this.Callback.Invoke();
+				Callback.Invoke();
 			}
 			catch (Exception e)
 			{
@@ -104,12 +104,12 @@ namespace DCET
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 			
-			long id = this.Id;
+			long id = Id;
 
 			if (id == 0)
 			{
@@ -119,10 +119,10 @@ namespace DCET
 			
 			base.Dispose();
 
-			this.StartTime = 0;
-			this.RepeatedTime = 0;
-			this.Callback = null;
-			this.Count = 0;
+			StartTime = 0;
+			RepeatedTime = 0;
+			Callback = null;
+			Count = 0;
 		}
 	}
 	
@@ -164,19 +164,19 @@ namespace DCET
 
 		public void Update()
 		{
-			if (this.TimeId.Count == 0)
+			if (TimeId.Count == 0)
 			{
 				return;
 			}
 
 			long timeNow = TimeHelper.Now();
 
-			if (timeNow < this.minTime)
+			if (timeNow < minTime)
 			{
 				return;
 			}
 			
-			foreach (KeyValuePair<long, List<long>> kv in this.TimeId.GetDictionary())
+			foreach (KeyValuePair<long, List<long>> kv in TimeId.GetDictionary())
 			{
 				long k = kv.Key;
 				if (k > timeNow)
@@ -184,24 +184,24 @@ namespace DCET
 					minTime = k;
 					break;
 				}
-				this.timeOutTime.Enqueue(k);
+				timeOutTime.Enqueue(k);
 			}
 
-			while(this.timeOutTime.Count > 0)
+			while(timeOutTime.Count > 0)
 			{
-				long time = this.timeOutTime.Dequeue();
-				foreach(long timerId in this.TimeId[time])
+				long time = timeOutTime.Dequeue();
+				foreach(long timerId in TimeId[time])
 				{
-					this.timeOutTimerIds.Enqueue(timerId);	
+					timeOutTimerIds.Enqueue(timerId);	
 				}
-				this.TimeId.Remove(time);
+				TimeId.Remove(time);
 			}
 
-			while(this.timeOutTimerIds.Count > 0)
+			while(timeOutTimerIds.Count > 0)
 			{
-				long timerId = this.timeOutTimerIds.Dequeue();
+				long timerId = timeOutTimerIds.Dequeue();
 				ITimer timer;
-				if (!this.timers.TryGetValue(timerId, out timer))
+				if (!timers.TryGetValue(timerId, out timer))
 				{
 					continue;
 				}
@@ -220,9 +220,9 @@ namespace DCET
 			var tcs = new TaskCompletionSource<bool>();
 
 			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
-			cancellationToken.Register(() => { this.Remove(timer.Id); });
+			cancellationToken.Register(() => { Remove(timer.Id); });
 			return tcs.Task;
 		}
 
@@ -234,7 +234,7 @@ namespace DCET
 			}
 			var tcs = new TaskCompletionSource<bool>();
 			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return tcs.Task;
 		}
@@ -250,9 +250,9 @@ namespace DCET
 
             var tcs = new TaskCompletionSource<bool>();
 			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
-			cancellationToken.Register(() => { this.Remove(timer.Id); });
+			cancellationToken.Register(() => { Remove(timer.Id); });
 			return tcs.Task;
 		}
 
@@ -261,7 +261,7 @@ namespace DCET
 			long tillTime = TimeHelper.Now() + time;
 			var tcs = new TaskCompletionSource<bool>();
 			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return tcs.Task;
 		}
@@ -280,14 +280,14 @@ namespace DCET
 			}
 			long tillTime = TimeHelper.Now() + time;
 			RepeatedTimer timer = EntityFactory.CreateWithParent<RepeatedTimer, long, Action>(this, time, action);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return timer.Id;
 		}
 		
 		public RepeatedTimer GetRepeatedTimer(long id)
 		{
-			if (!this.timers.TryGetValue(id, out ITimer timer))
+			if (!timers.TryGetValue(id, out ITimer timer))
 			{
 				return null;
 			}
@@ -301,11 +301,11 @@ namespace DCET
 				return;
 			}
 			ITimer timer;
-			if (!this.timers.TryGetValue(id, out timer))
+			if (!timers.TryGetValue(id, out timer))
 			{
 				return;
 			}
-			this.timers.Remove(id);
+			timers.Remove(id);
 			
 			(timer as IDisposable)?.Dispose();
 		}
@@ -313,14 +313,14 @@ namespace DCET
 		public long NewOnceTimer(long tillTime, Action action)
 		{
 			OnceTimer timer = EntityFactory.CreateWithParent<OnceTimer, Action>(this, action);
-			this.timers[timer.Id] = timer;
+			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);
 			return timer.Id;
 		}
 		
 		public OnceTimer GetOnceTimer(long id)
 		{
-			if (!this.timers.TryGetValue(id, out ITimer timer))
+			if (!timers.TryGetValue(id, out ITimer timer))
 			{
 				return null;
 			}
@@ -329,10 +329,10 @@ namespace DCET
 
 		public void AddToTimeId(long tillTime, long id)
 		{
-			this.TimeId.Add(tillTime, id);
-			if (tillTime < this.minTime)
+			TimeId.Add(tillTime, id);
+			if (tillTime < minTime)
 			{
-				this.minTime = tillTime;
+				minTime = tillTime;
 			}
 		}
 	}

@@ -34,7 +34,7 @@
 		
         public static long GenerateSceneInstanceId(long id)
         {
-            return IdGenerater.Head + id;
+            return Head + id;
         }
 
         public static long GenerateId()

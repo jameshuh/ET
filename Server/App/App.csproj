@@ -31,8 +31,8 @@
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\DB\DB.csproj" />
     <ProjectReference Include="..\Hotfix\Hotfix.csproj" />
-    <ProjectReference Include="..\Model\Runtime.csproj" />
     <ProjectReference Include="..\Numeric\Numeric.csproj" />
+    <ProjectReference Include="..\Runtime\Runtime.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -182,9 +182,6 @@ public static class CustomSettings
 		_GT(typeof(ProtoMemberAttribute)),
 		_GT(typeof(ProtoContractAttribute)),
 		_GT(typeof(Encoding)),
-
-		//_GT(typeof(EventBridgeExtension)),
-		//_GT(typeof(EventListenerExtension)),
 	};
 
 	public static List<Type> dynamicList = new List<Type>()
@@ -363,7 +360,6 @@ public static class CustomSettings
 	public static List<string> assemblyNames = new List<string>()
 	{
 			"Unity.BehaviorDesigner.Runtime.dll",
-			"Unity.MongoDB.Runtime.dll",
 			"Unity.FairyGUI.Runtime.dll",
 			"Unity.DCET.Downloader.Runtime.dll",
 			"Unity.DCET.Core.Runtime.dll",

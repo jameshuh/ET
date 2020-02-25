@@ -26,14 +26,14 @@ namespace DCET
 
 		public ComponentQueue(string typeName)
 		{
-			this.Id = IdGenerater.GenerateId();
-			this.TypeName = typeName;
+			Id = IdGenerater.GenerateId();
+			TypeName = typeName;
 #if !SERVER
-			this.ViewGO = new GameObject();
-			this.ViewGO.name = this.GetType().Name;
-			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
-			this.ViewGO.transform.SetParent(Game.transform, false);
-			var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+			ViewGO = new GameObject();
+			ViewGO.name = GetType().Name;
+			ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
+			ViewGO.transform.SetParent(Game.transform, false);
+			var componentView = ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
 
 			if (componentView)
 			{
@@ -44,24 +44,24 @@ namespace DCET
 
 		public void Enqueue(Entity entity)
 		{
-			this.queue.Enqueue(entity);
+			queue.Enqueue(entity);
 		}
 
 		public Entity Dequeue()
 		{
-			return this.queue.Dequeue();
+			return queue.Dequeue();
 		}
 
 		public Entity Peek()
 		{
-			return this.queue.Peek();
+			return queue.Peek();
 		}
 
 		public Queue<Entity> Queue
 		{
 			get
 			{
-				return this.queue;
+				return queue;
 			}
 		}
 
@@ -69,15 +69,15 @@ namespace DCET
 		{
 			get
 			{
-				return this.queue.Count;
+				return queue.Count;
 			}
 		}
 
 		public void Dispose()
 		{
-			while (this.queue.Count > 0)
+			while (queue.Count > 0)
 			{
-				Entity component = this.queue.Dequeue();
+				Entity component = queue.Dequeue();
 				component.Dispose();
 			}
 		}
@@ -91,18 +91,16 @@ namespace DCET
 		public GameObject ViewGO { get; set; }
 #endif
 	    
-	    public string Name { get; set; }
-	    
         private readonly Dictionary<Type, ComponentQueue> dictionary = new Dictionary<Type, ComponentQueue>();
 
         public ObjectPool()
         {
 #if !SERVER
-			this.ViewGO = new GameObject();
-			this.ViewGO.name = this.GetType().Name;
-			this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
-			this.ViewGO.transform.SetParent(Game.transform, false);
-			var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+			ViewGO = new GameObject();
+			ViewGO.name = GetType().Name;
+			ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
+			ViewGO.transform.SetParent(Game.transform, false);
+			var componentView = ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
 
 			if (componentView)
 			{
@@ -114,7 +112,7 @@ namespace DCET
         public Entity Fetch(Type type)
         {
 	        Entity obj;
-            if (!this.dictionary.TryGetValue(type, out ComponentQueue queue))
+            if (!dictionary.TryGetValue(type, out ComponentQueue queue))
             {
 	            obj = (Entity)Activator.CreateInstance(type);
             }
@@ -133,7 +131,7 @@ namespace DCET
 
         public T Fetch<T>() where T: Entity
 		{
-            T t = (T) this.Fetch(typeof(T));
+            T t = (T) Fetch(typeof(T));
 			return t;
 		}
         
@@ -141,18 +139,18 @@ namespace DCET
         {
             Type type = obj.GetType();
 	        ComponentQueue queue;
-            if (!this.dictionary.TryGetValue(type, out queue))
+            if (!dictionary.TryGetValue(type, out queue))
             {
                 queue = new ComponentQueue(type.Name);
 	            
 #if !SERVER
 	            if (queue.ViewGO != null)
 	            {
-		            queue.ViewGO.transform.SetParent(this.ViewGO.transform);
+		            queue.ViewGO.transform.SetParent(ViewGO.transform);
 		            queue.ViewGO.name = $"{type.Name}s";
 	            }
 #endif
-				this.dictionary.Add(type, queue);
+				dictionary.Add(type, queue);
             }
             
 #if !SERVER
@@ -167,18 +165,18 @@ namespace DCET
 
 	    public void Dispose()
 	    {
-		    foreach (var kv in this.dictionary)
+		    foreach (var kv in dictionary)
 		    {
 			    kv.Value.Dispose();
 		    }
-		    this.dictionary.Clear();
+		    dictionary.Clear();
 	    }
 	    
 	    public override string ToString()
 	    {
 		    StringBuilder sb = new StringBuilder();
 		    Dictionary<Type, int> typeCount = new Dictionary<Type, int>();
-		    foreach (var kv in this.dictionary)
+		    foreach (var kv in dictionary)
 		    { 
 			    typeCount[kv.Key] = kv.Value.Count;
 		    }
@@ -235,7 +233,7 @@ namespace DCET
 	    public MultiMapSet<string, string> Check()
 	    {
 		    MultiMapSet<string, string> dict = new MultiMapSet<string, string>();
-		    foreach (ComponentQueue queue in this.dictionary.Values)
+		    foreach (ComponentQueue queue in dictionary.Values)
 		    {
 			    foreach (Entity entity in queue.Queue)
 			    {

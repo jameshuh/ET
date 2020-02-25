@@ -12,7 +12,7 @@ namespace DCET
 	{
 		public void Run(object o)
 		{
-			this.Destroy((T)o);
+			Destroy((T)o);
 		}
 
 		public Type Type()

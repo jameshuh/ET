@@ -16,9 +16,14 @@ namespace DCET.Runtime
 
 				DontDestroyOnLoad(gameObject);
 
-				await DownloadBundle();
+				GRoot.inst.SetContentScaleFactor(1920, 1080);
 
-				HotfixHelper.StartHotfix();
+				var result = await DownloadBundle();
+
+				if (result)
+				{
+					HotfixHelper.StartHotfix();
+				}
 			}
 			catch (Exception e)
 			{
@@ -26,22 +31,22 @@ namespace DCET.Runtime
 			}
 		}
 
-		private async Task DownloadBundle()
+		private async Task<bool> DownloadBundle()
 		{
-			GRoot.inst.SetContentScaleFactor(1920, 1080);
-
-			ModelBinder.BindAll();
-
-			if (!Define.IsEditorMode)
+			if (Define.IsAsync)
 			{
-				using (FUIPackage fuiPackage = new FUIPackage("FUI/Model"))
+				RuntimeBinder.BindAll();
+
+				using (FUIPackage fuiPackage = new FUIPackage("FUI/Runtime"))
 				{
 					using (FUIDownloader fuiDownloader = new FUIDownloader())
 					{
-						await fuiDownloader.DownloadAsync();
+						return await fuiDownloader.DownloadAsync();
 					}
 				}
-			}			
+			}
+
+			return true;
 		}
 
 		private void Start()

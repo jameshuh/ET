@@ -19,16 +19,16 @@
 		{
 			get
 			{
-				return this.session;
+				return session;
 			}
 			set
 			{
-				if(this.session != null && !this.session.IsDisposed)
+				if(session != null && !session.IsDisposed)
 				{
-					this.session.Dispose();
+					session.Dispose();
 				}
 
-				this.session = value;
+				session = value;
 			}
 		}
 
@@ -39,15 +39,15 @@
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 
 			base.Dispose();
 
-			this.Session.Dispose();
-			this.Session = null;
+			Session?.Dispose();
+			Session = null;
 			Instance = null;
 		}
 	}

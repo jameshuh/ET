@@ -26,27 +26,27 @@ namespace DCET
 		
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 
 			base.Dispose();
 
-			this.Request?.Dispose();
-			this.Request = null;
-			this.isCancel = false;
+			Request?.Dispose();
+			Request = null;
+			isCancel = false;
 		}
 
 		public float Progress
 		{
 			get
 			{
-				if (this.Request == null)
+				if (Request == null)
 				{
 					return 0;
 				}
-				return this.Request.downloadProgress;
+				return Request.downloadProgress;
 			}
 		}
 
@@ -54,45 +54,45 @@ namespace DCET
 		{
 			get
 			{
-				if (this.Request == null)
+				if (Request == null)
 				{
 					return 0;
 				}
-				return this.Request.downloadedBytes;
+				return Request.downloadedBytes;
 			}
 		}
 
 		public void Update()
 		{
-			if (this.isCancel)
+			if (isCancel)
 			{
-				this.tcs.SetException(new Exception($"request error: {this.Request.error}"));
+				tcs.SetException(new Exception($"request error: {Request.error}"));
 				return;
 			}
 			
-			if (!this.Request.isDone)
+			if (!Request.isDone)
 			{
 				return;
 			}
-			if (!string.IsNullOrEmpty(this.Request.error))
+			if (!string.IsNullOrEmpty(Request.error))
 			{
-				this.tcs.SetException(new Exception($"request error: {this.Request.error}"));
+				tcs.SetException(new Exception($"request error: {Request.error}"));
 				return;
 			}
 
-			this.tcs.SetResult(true);
+			tcs.SetResult(true);
 		}
 
 		public Task DownloadAsync(string url)
 		{
-			this.tcs = new TaskCompletionSource<bool>();
+			tcs = new TaskCompletionSource<bool>();
 			
 			url = url.Replace(" ", "%20");
-			this.Request = UnityWebRequest.Get(url);
-			this.Request.certificateHandler = certificateHandler;
-			this.Request.SendWebRequest();
+			Request = UnityWebRequest.Get(url);
+			Request.certificateHandler = certificateHandler;
+			Request.SendWebRequest();
 			
-			return this.tcs.Task;
+			return tcs.Task;
 		}
 	}
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 
 namespace DCET
 {
@@ -94,7 +93,7 @@ namespace DCET
             return startConfig.SceneInstanceId;
         }
         
-        public StartConfig GetByType(SceneType sceneType)
+        public StartConfig GetByType(int sceneType)
         {
             if (!this.typeDict.TryGetValue((int) sceneType, out StartConfig startConfig))
             {

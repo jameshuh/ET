@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Message\Message.csproj" />
-    <ProjectReference Include="..\Model\Runtime.csproj" />
+    <ProjectReference Include="..\Runtime\Runtime.csproj" />
   </ItemGroup>
 
 </Project>

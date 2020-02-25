@@ -12,7 +12,7 @@ namespace DCET
 	{
 		public void Run(object o)
 		{
-			this.LateUpdate((T)o);
+			LateUpdate((T)o);
 		}
 
 		public Type Type()

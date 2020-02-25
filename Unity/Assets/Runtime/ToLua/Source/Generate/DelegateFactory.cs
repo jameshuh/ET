@@ -45,22 +45,11 @@ public class DelegateFactory
 		dict.Add(typeof(System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		dict.Add(typeof(System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder>), factory.System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder);
-		dict.Add(typeof(System.Func<MongoDB.Bson.BsonValue>), factory.System_Func_MongoDB_Bson_BsonValue);
-		dict.Add(typeof(System.Func<object>), factory.System_Func_object);
-		dict.Add(typeof(System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder>), factory.System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder);
-		dict.Add(typeof(System.Func<object,object>), factory.System_Func_object_object);
-		dict.Add(typeof(System.Action<object,object>), factory.System_Action_object_object);
-		dict.Add(typeof(System.Func<object,bool>), factory.System_Func_object_bool);
-		dict.Add(typeof(System.Func<System.Type,bool>), factory.System_Func_System_Type_bool);
-		dict.Add(typeof(System.Action<string,long>), factory.System_Action_string_long);
-		dict.Add(typeof(System.Action<MongoDB.Bson.Serialization.BsonClassMap>), factory.System_Action_MongoDB_Bson_Serialization_BsonClassMap);
-		dict.Add(typeof(System.Action<MongoDB.Bson.Serialization.BsonMemberMap>), factory.System_Action_MongoDB_Bson_Serialization_BsonMemberMap);
-		dict.Add(typeof(System.Action<MongoDB.Bson.IO.BsonWriterSettings>), factory.System_Action_MongoDB_Bson_IO_BsonWriterSettings);
 		dict.Add(typeof(DCET.Runtime.KcpOutput), factory.DCET_Runtime_KcpOutput);
 		dict.Add(typeof(BehaviorDesigner.Runtime.Behavior.BehaviorHandler), factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		dict.Add(typeof(System.Func<float>), factory.System_Func_float);
 		dict.Add(typeof(System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>), factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
+		dict.Add(typeof(System.Func<object,bool>), factory.System_Func_object_bool);
 		dict.Add(typeof(System.Func<int>), factory.System_Func_int);
 		dict.Add(typeof(System.Func<string>), factory.System_Func_string);
 		dict.Add(typeof(System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus,BehaviorDesigner.Runtime.Tasks.TaskStatus>), factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -143,22 +132,11 @@ public class DelegateFactory
 		DelegateTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		DelegateTraits<System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder>>.Init(factory.System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder);
-		DelegateTraits<System.Func<MongoDB.Bson.BsonValue>>.Init(factory.System_Func_MongoDB_Bson_BsonValue);
-		DelegateTraits<System.Func<object>>.Init(factory.System_Func_object);
-		DelegateTraits<System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder>>.Init(factory.System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder);
-		DelegateTraits<System.Func<object,object>>.Init(factory.System_Func_object_object);
-		DelegateTraits<System.Action<object,object>>.Init(factory.System_Action_object_object);
-		DelegateTraits<System.Func<object,bool>>.Init(factory.System_Func_object_bool);
-		DelegateTraits<System.Func<System.Type,bool>>.Init(factory.System_Func_System_Type_bool);
-		DelegateTraits<System.Action<string,long>>.Init(factory.System_Action_string_long);
-		DelegateTraits<System.Action<MongoDB.Bson.Serialization.BsonClassMap>>.Init(factory.System_Action_MongoDB_Bson_Serialization_BsonClassMap);
-		DelegateTraits<System.Action<MongoDB.Bson.Serialization.BsonMemberMap>>.Init(factory.System_Action_MongoDB_Bson_Serialization_BsonMemberMap);
-		DelegateTraits<System.Action<MongoDB.Bson.IO.BsonWriterSettings>>.Init(factory.System_Action_MongoDB_Bson_IO_BsonWriterSettings);
 		DelegateTraits<DCET.Runtime.KcpOutput>.Init(factory.DCET_Runtime_KcpOutput);
 		DelegateTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		DelegateTraits<System.Func<float>>.Init(factory.System_Func_float);
 		DelegateTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
+		DelegateTraits<System.Func<object,bool>>.Init(factory.System_Func_object_bool);
 		DelegateTraits<System.Func<int>>.Init(factory.System_Func_int);
 		DelegateTraits<System.Func<string>>.Init(factory.System_Func_string);
 		DelegateTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus,BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -241,22 +219,11 @@ public class DelegateFactory
 		TypeTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		TypeTraits<System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder>>.Init(factory.Check_System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder);
-		TypeTraits<System.Func<MongoDB.Bson.BsonValue>>.Init(factory.Check_System_Func_MongoDB_Bson_BsonValue);
-		TypeTraits<System.Func<object>>.Init(factory.Check_System_Func_object);
-		TypeTraits<System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder>>.Init(factory.Check_System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder);
-		TypeTraits<System.Func<object,object>>.Init(factory.Check_System_Func_object_object);
-		TypeTraits<System.Action<object,object>>.Init(factory.Check_System_Action_object_object);
-		TypeTraits<System.Func<object,bool>>.Init(factory.Check_System_Func_object_bool);
-		TypeTraits<System.Func<System.Type,bool>>.Init(factory.Check_System_Func_System_Type_bool);
-		TypeTraits<System.Action<string,long>>.Init(factory.Check_System_Action_string_long);
-		TypeTraits<System.Action<MongoDB.Bson.Serialization.BsonClassMap>>.Init(factory.Check_System_Action_MongoDB_Bson_Serialization_BsonClassMap);
-		TypeTraits<System.Action<MongoDB.Bson.Serialization.BsonMemberMap>>.Init(factory.Check_System_Action_MongoDB_Bson_Serialization_BsonMemberMap);
-		TypeTraits<System.Action<MongoDB.Bson.IO.BsonWriterSettings>>.Init(factory.Check_System_Action_MongoDB_Bson_IO_BsonWriterSettings);
 		TypeTraits<DCET.Runtime.KcpOutput>.Init(factory.Check_DCET_Runtime_KcpOutput);
 		TypeTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.Check_BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		TypeTraits<System.Func<float>>.Init(factory.Check_System_Func_float);
 		TypeTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.Check_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
+		TypeTraits<System.Func<object,bool>>.Init(factory.Check_System_Func_object_bool);
 		TypeTraits<System.Func<int>>.Init(factory.Check_System_Func_int);
 		TypeTraits<System.Func<string>>.Init(factory.Check_System_Func_string);
 		TypeTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus,BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.Check_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -339,22 +306,11 @@ public class DelegateFactory
 		StackTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
-		StackTraits<System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder>>.Push = factory.Push_System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder;
-		StackTraits<System.Func<MongoDB.Bson.BsonValue>>.Push = factory.Push_System_Func_MongoDB_Bson_BsonValue;
-		StackTraits<System.Func<object>>.Push = factory.Push_System_Func_object;
-		StackTraits<System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder>>.Push = factory.Push_System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder;
-		StackTraits<System.Func<object,object>>.Push = factory.Push_System_Func_object_object;
-		StackTraits<System.Action<object,object>>.Push = factory.Push_System_Action_object_object;
-		StackTraits<System.Func<object,bool>>.Push = factory.Push_System_Func_object_bool;
-		StackTraits<System.Func<System.Type,bool>>.Push = factory.Push_System_Func_System_Type_bool;
-		StackTraits<System.Action<string,long>>.Push = factory.Push_System_Action_string_long;
-		StackTraits<System.Action<MongoDB.Bson.Serialization.BsonClassMap>>.Push = factory.Push_System_Action_MongoDB_Bson_Serialization_BsonClassMap;
-		StackTraits<System.Action<MongoDB.Bson.Serialization.BsonMemberMap>>.Push = factory.Push_System_Action_MongoDB_Bson_Serialization_BsonMemberMap;
-		StackTraits<System.Action<MongoDB.Bson.IO.BsonWriterSettings>>.Push = factory.Push_System_Action_MongoDB_Bson_IO_BsonWriterSettings;
 		StackTraits<DCET.Runtime.KcpOutput>.Push = factory.Push_DCET_Runtime_KcpOutput;
 		StackTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Push = factory.Push_BehaviorDesigner_Runtime_Behavior_BehaviorHandler;
 		StackTraits<System.Func<float>>.Push = factory.Push_System_Func_float;
 		StackTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Push = factory.Push_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus;
+		StackTraits<System.Func<object,bool>>.Push = factory.Push_System_Func_object_bool;
 		StackTraits<System.Func<int>>.Push = factory.Push_System_Func_int;
 		StackTraits<System.Func<string>>.Push = factory.Push_System_Func_string;
 		StackTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus,BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Push = factory.Push_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus_BehaviorDesigner_Runtime_Tasks_TaskStatus;
@@ -2167,710 +2123,6 @@ public class DelegateFactory
 		ToLua.Push(L, o);
 	}
 
-	class System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event : LuaDelegate
-	{
-		public System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event(LuaFunction func) : base(func) { }
-		public System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(MongoDB.Bson.Serialization.BsonSerializationContext.Builder param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(MongoDB.Bson.Serialization.BsonSerializationContext.Builder param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder> System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder> fn = delegate(MongoDB.Bson.Serialization.BsonSerializationContext.Builder param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event target = new System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event(func);
-			System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event target = new System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder_Event(func, self);
-			System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder>), L, pos);
-	}
-
-	void Push_System_Action_MongoDB_Bson_Serialization_BsonSerializationContext_Builder(IntPtr L, System.Action<MongoDB.Bson.Serialization.BsonSerializationContext.Builder> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_MongoDB_Bson_BsonValue_Event : LuaDelegate
-	{
-		public System_Func_MongoDB_Bson_BsonValue_Event(LuaFunction func) : base(func) { }
-		public System_Func_MongoDB_Bson_BsonValue_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public MongoDB.Bson.BsonValue Call()
-		{
-			func.BeginPCall();
-			func.PCall();
-			MongoDB.Bson.BsonValue ret = (MongoDB.Bson.BsonValue)func.CheckObject(typeof(MongoDB.Bson.BsonValue));
-			func.EndPCall();
-			return ret;
-		}
-
-		public MongoDB.Bson.BsonValue CallWithSelf()
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PCall();
-			MongoDB.Bson.BsonValue ret = (MongoDB.Bson.BsonValue)func.CheckObject(typeof(MongoDB.Bson.BsonValue));
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<MongoDB.Bson.BsonValue> System_Func_MongoDB_Bson_BsonValue(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<MongoDB.Bson.BsonValue> fn = delegate() { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_MongoDB_Bson_BsonValue_Event target = new System_Func_MongoDB_Bson_BsonValue_Event(func);
-			System.Func<MongoDB.Bson.BsonValue> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_MongoDB_Bson_BsonValue_Event target = new System_Func_MongoDB_Bson_BsonValue_Event(func, self);
-			System.Func<MongoDB.Bson.BsonValue> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_MongoDB_Bson_BsonValue(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<MongoDB.Bson.BsonValue>), L, pos);
-	}
-
-	void Push_System_Func_MongoDB_Bson_BsonValue(IntPtr L, System.Func<MongoDB.Bson.BsonValue> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_object_Event : LuaDelegate
-	{
-		public System_Func_object_Event(LuaFunction func) : base(func) { }
-		public System_Func_object_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public object Call()
-		{
-			func.BeginPCall();
-			func.PCall();
-			object ret = func.CheckVariant();
-			func.EndPCall();
-			return ret;
-		}
-
-		public object CallWithSelf()
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PCall();
-			object ret = func.CheckVariant();
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<object> System_Func_object(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<object> fn = delegate() { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_object_Event target = new System_Func_object_Event(func);
-			System.Func<object> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_object_Event target = new System_Func_object_Event(func, self);
-			System.Func<object> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_object(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<object>), L, pos);
-	}
-
-	void Push_System_Func_object(IntPtr L, System.Func<object> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event : LuaDelegate
-	{
-		public System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event(LuaFunction func) : base(func) { }
-		public System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(MongoDB.Bson.Serialization.BsonDeserializationContext.Builder param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(MongoDB.Bson.Serialization.BsonDeserializationContext.Builder param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder> System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder> fn = delegate(MongoDB.Bson.Serialization.BsonDeserializationContext.Builder param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event target = new System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event(func);
-			System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event target = new System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder_Event(func, self);
-			System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder>), L, pos);
-	}
-
-	void Push_System_Action_MongoDB_Bson_Serialization_BsonDeserializationContext_Builder(IntPtr L, System.Action<MongoDB.Bson.Serialization.BsonDeserializationContext.Builder> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_object_object_Event : LuaDelegate
-	{
-		public System_Func_object_object_Event(LuaFunction func) : base(func) { }
-		public System_Func_object_object_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public object Call(object param0)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.PCall();
-			object ret = func.CheckVariant();
-			func.EndPCall();
-			return ret;
-		}
-
-		public object CallWithSelf(object param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.PCall();
-			object ret = func.CheckVariant();
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<object,object> System_Func_object_object(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<object,object> fn = delegate(object param0) { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_object_object_Event target = new System_Func_object_object_Event(func);
-			System.Func<object,object> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_object_object_Event target = new System_Func_object_object_Event(func, self);
-			System.Func<object,object> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_object_object(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<object,object>), L, pos);
-	}
-
-	void Push_System_Func_object_object(IntPtr L, System.Func<object,object> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_object_object_Event : LuaDelegate
-	{
-		public System_Action_object_object_Event(LuaFunction func) : base(func) { }
-		public System_Action_object_object_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(object param0, object param1)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(object param0, object param1)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<object,object> System_Action_object_object(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<object,object> fn = delegate(object param0, object param1) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_object_object_Event target = new System_Action_object_object_Event(func);
-			System.Action<object,object> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_object_object_Event target = new System_Action_object_object_Event(func, self);
-			System.Action<object,object> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_object_object(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<object,object>), L, pos);
-	}
-
-	void Push_System_Action_object_object(IntPtr L, System.Action<object,object> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_object_bool_Event : LuaDelegate
-	{
-		public System_Func_object_bool_Event(LuaFunction func) : base(func) { }
-		public System_Func_object_bool_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public bool Call(object param0)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.PCall();
-			bool ret = func.CheckBoolean();
-			func.EndPCall();
-			return ret;
-		}
-
-		public bool CallWithSelf(object param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.PCall();
-			bool ret = func.CheckBoolean();
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<object,bool> System_Func_object_bool(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<object,bool> fn = delegate(object param0) { return false; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_object_bool_Event target = new System_Func_object_bool_Event(func);
-			System.Func<object,bool> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_object_bool_Event target = new System_Func_object_bool_Event(func, self);
-			System.Func<object,bool> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_object_bool(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<object,bool>), L, pos);
-	}
-
-	void Push_System_Func_object_bool(IntPtr L, System.Func<object,bool> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_System_Type_bool_Event : LuaDelegate
-	{
-		public System_Func_System_Type_bool_Event(LuaFunction func) : base(func) { }
-		public System_Func_System_Type_bool_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public bool Call(System.Type param0)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.PCall();
-			bool ret = func.CheckBoolean();
-			func.EndPCall();
-			return ret;
-		}
-
-		public bool CallWithSelf(System.Type param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.PCall();
-			bool ret = func.CheckBoolean();
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<System.Type,bool> System_Func_System_Type_bool(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<System.Type,bool> fn = delegate(System.Type param0) { return false; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_System_Type_bool_Event target = new System_Func_System_Type_bool_Event(func);
-			System.Func<System.Type,bool> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_System_Type_bool_Event target = new System_Func_System_Type_bool_Event(func, self);
-			System.Func<System.Type,bool> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_System_Type_bool(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<System.Type,bool>), L, pos);
-	}
-
-	void Push_System_Func_System_Type_bool(IntPtr L, System.Func<System.Type,bool> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_string_long_Event : LuaDelegate
-	{
-		public System_Action_string_long_Event(LuaFunction func) : base(func) { }
-		public System_Action_string_long_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(string param0, long param1)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(string param0, long param1)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<string,long> System_Action_string_long(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<string,long> fn = delegate(string param0, long param1) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_string_long_Event target = new System_Action_string_long_Event(func);
-			System.Action<string,long> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_string_long_Event target = new System_Action_string_long_Event(func, self);
-			System.Action<string,long> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_string_long(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<string,long>), L, pos);
-	}
-
-	void Push_System_Action_string_long(IntPtr L, System.Action<string,long> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event : LuaDelegate
-	{
-		public System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event(LuaFunction func) : base(func) { }
-		public System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(MongoDB.Bson.Serialization.BsonClassMap param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(MongoDB.Bson.Serialization.BsonClassMap param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<MongoDB.Bson.Serialization.BsonClassMap> System_Action_MongoDB_Bson_Serialization_BsonClassMap(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<MongoDB.Bson.Serialization.BsonClassMap> fn = delegate(MongoDB.Bson.Serialization.BsonClassMap param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event target = new System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event(func);
-			System.Action<MongoDB.Bson.Serialization.BsonClassMap> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event target = new System_Action_MongoDB_Bson_Serialization_BsonClassMap_Event(func, self);
-			System.Action<MongoDB.Bson.Serialization.BsonClassMap> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_MongoDB_Bson_Serialization_BsonClassMap(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<MongoDB.Bson.Serialization.BsonClassMap>), L, pos);
-	}
-
-	void Push_System_Action_MongoDB_Bson_Serialization_BsonClassMap(IntPtr L, System.Action<MongoDB.Bson.Serialization.BsonClassMap> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event : LuaDelegate
-	{
-		public System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event(LuaFunction func) : base(func) { }
-		public System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(MongoDB.Bson.Serialization.BsonMemberMap param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(MongoDB.Bson.Serialization.BsonMemberMap param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<MongoDB.Bson.Serialization.BsonMemberMap> System_Action_MongoDB_Bson_Serialization_BsonMemberMap(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<MongoDB.Bson.Serialization.BsonMemberMap> fn = delegate(MongoDB.Bson.Serialization.BsonMemberMap param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event target = new System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event(func);
-			System.Action<MongoDB.Bson.Serialization.BsonMemberMap> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event target = new System_Action_MongoDB_Bson_Serialization_BsonMemberMap_Event(func, self);
-			System.Action<MongoDB.Bson.Serialization.BsonMemberMap> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_MongoDB_Bson_Serialization_BsonMemberMap(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<MongoDB.Bson.Serialization.BsonMemberMap>), L, pos);
-	}
-
-	void Push_System_Action_MongoDB_Bson_Serialization_BsonMemberMap(IntPtr L, System.Action<MongoDB.Bson.Serialization.BsonMemberMap> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event : LuaDelegate
-	{
-		public System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event(LuaFunction func) : base(func) { }
-		public System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(MongoDB.Bson.IO.BsonWriterSettings param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(MongoDB.Bson.IO.BsonWriterSettings param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<MongoDB.Bson.IO.BsonWriterSettings> System_Action_MongoDB_Bson_IO_BsonWriterSettings(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<MongoDB.Bson.IO.BsonWriterSettings> fn = delegate(MongoDB.Bson.IO.BsonWriterSettings param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event target = new System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event(func);
-			System.Action<MongoDB.Bson.IO.BsonWriterSettings> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event target = new System_Action_MongoDB_Bson_IO_BsonWriterSettings_Event(func, self);
-			System.Action<MongoDB.Bson.IO.BsonWriterSettings> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_MongoDB_Bson_IO_BsonWriterSettings(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<MongoDB.Bson.IO.BsonWriterSettings>), L, pos);
-	}
-
-	void Push_System_Action_MongoDB_Bson_IO_BsonWriterSettings(IntPtr L, System.Action<MongoDB.Bson.IO.BsonWriterSettings> o)
-	{
-		ToLua.Push(L, o);
-	}
-
 	class DCET_Runtime_KcpOutput_Event : LuaDelegate
 	{
 		public DCET_Runtime_KcpOutput_Event(LuaFunction func) : base(func) { }
@@ -3109,6 +2361,67 @@ public class DelegateFactory
 	}
 
 	void Push_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus(IntPtr L, System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Func_object_bool_Event : LuaDelegate
+	{
+		public System_Func_object_bool_Event(LuaFunction func) : base(func) { }
+		public System_Func_object_bool_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public bool Call(object param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+
+		public bool CallWithSelf(object param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Func<object,bool> System_Func_object_bool(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Func<object,bool> fn = delegate(object param0) { return false; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Func_object_bool_Event target = new System_Func_object_bool_Event(func);
+			System.Func<object,bool> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Func_object_bool_Event target = new System_Func_object_bool_Event(func, self);
+			System.Func<object,bool> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Func_object_bool(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Func<object,bool>), L, pos);
+	}
+
+	void Push_System_Func_object_bool(IntPtr L, System.Func<object,bool> o)
 	{
 		ToLua.Push(L, o);
 	}

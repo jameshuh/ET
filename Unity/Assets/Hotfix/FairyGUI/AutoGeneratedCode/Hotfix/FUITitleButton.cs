@@ -1,11 +1,11 @@
 /** This is an automatically generated class by FairyGUI plugin FGUI2ET. Please do not modify it. **/
 
-using FairyGUI;
 using System.Threading.Tasks;
+using FairyGUI;
 
 namespace DCET
 {
-	[ObjectSystem]
+    [ObjectSystem]
     public class FUITitleButtonAwakeSystem : AwakeSystem<FUITitleButton, GObject>
     {
         public override void Awake(FUITitleButton self, GObject go)

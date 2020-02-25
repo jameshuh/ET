@@ -9,37 +9,37 @@ namespace DCET
 
 		public void Enqueue(T t, K k)
 		{
-			this.list.Add(t);
-			this.dictionary.Add(t, k);
+			list.Add(t);
+			dictionary.Add(t, k);
 		}
 
 		public void Dequeue()
 		{
-			if (this.list.Count == 0)
+			if (list.Count == 0)
 			{
 				return;
 			}
-			T t = this.list[0];
-			this.list.RemoveAt(0);
-			this.dictionary.Remove(t);
+			T t = list[0];
+			list.RemoveAt(0);
+			dictionary.Remove(t);
 		}
 
 		public void Remove(T t)
 		{
-			this.list.Remove(t);
-			this.dictionary.Remove(t);
+			list.Remove(t);
+			dictionary.Remove(t);
 		}
 
 		public bool ContainsKey(T t)
 		{
-			return this.dictionary.ContainsKey(t);
+			return dictionary.ContainsKey(t);
 		}
 
 		public int Count
 		{
 			get
 			{
-				return this.list.Count;
+				return list.Count;
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace DCET
 		{
 			get
 			{
-				return this.list[0];
+				return list[0];
 			}
 		}
 		
@@ -55,7 +55,7 @@ namespace DCET
 		{
 			get
 			{
-				T t = this.list[0];
+				T t = list[0];
 				return this[t];
 			}
 		}
@@ -64,14 +64,14 @@ namespace DCET
 		{
 			get
 			{
-				return this.dictionary[t];
+				return dictionary[t];
 			}
 		}
 
 		public void Clear()
 		{
-			this.list.Clear();
-			this.dictionary.Clear();
+			list.Clear();
+			dictionary.Clear();
 		}
 	}
 }

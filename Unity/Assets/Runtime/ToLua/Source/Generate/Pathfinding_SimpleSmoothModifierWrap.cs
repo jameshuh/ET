@@ -7,7 +7,6 @@ public class Pathfinding_SimpleSmoothModifierWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(Pathfinding.SimpleSmoothModifier), typeof(Pathfinding.MonoModifier));
-		L.RegFunction("AddComp", AddComp);
 		L.RegFunction("Apply", Apply);
 		L.RegFunction("CurvedNonuniform", CurvedNonuniform);
 		L.RegFunction("GetPointOnCubic", GetPointOnCubic);
@@ -28,22 +27,6 @@ public class Pathfinding_SimpleSmoothModifierWrap
 		L.RegVar("Order", get_Order, null);
 		L.RegFunction("getOrder", get_Order);
 		L.EndClass();
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int AddComp(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEditor.MenuCommand arg0 = (UnityEditor.MenuCommand)ToLua.CheckObject(L, 1, typeof(UnityEditor.MenuCommand));
-			Pathfinding.SimpleSmoothModifier.AddComp(arg0);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

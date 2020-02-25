@@ -9,7 +9,7 @@ namespace DCET
 
 		public EntityEventAttribute(int classType)
 		{
-			this.ClassType = classType;
+			ClassType = classType;
 		}
 	}
 }

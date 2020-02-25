@@ -34,28 +34,28 @@ namespace DCET
 
         public Task ChangeSceneAsync(string sceneName)
         {
-            this.tcs = new TaskCompletionSource<bool>();
+            tcs = new TaskCompletionSource<bool>();
             // 加载map
-            this.loadMapOperation = SceneManager.LoadSceneAsync(sceneName);
+            loadMapOperation = SceneManager.LoadSceneAsync(sceneName);
             //this.loadMapOperation.allowSceneActivation = false;
-            return this.tcs.Task;
+            return tcs.Task;
         }
 
         public int Process
         {
             get
             {
-                if (this.loadMapOperation == null)
+                if (loadMapOperation == null)
                 {
                     return 0;
                 }
-                return (int)(this.loadMapOperation.progress * 100);
+                return (int)(loadMapOperation.progress * 100);
             }
         }
 
         public void Finish()
         {
-            this.tcs.SetResult(true);
+            tcs.SetResult(true);
         }
     }
 }

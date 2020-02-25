@@ -20,18 +20,18 @@ namespace DCET
 
 		public void Update()
 		{
-			if (!this.request.isDone)
+			if (!request.isDone)
 			{
 				return;
 			}
 
 			TaskCompletionSource<AssetBundle> t = tcs;
-			t.SetResult(this.request.assetBundle);
+			t.SetResult(request.assetBundle);
 		}
 
 		public override void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
@@ -40,9 +40,9 @@ namespace DCET
 
 		public Task<AssetBundle> LoadAsync(string path)
 		{
-			this.tcs = new TaskCompletionSource<AssetBundle>();
-			this.request = AssetBundle.LoadFromFileAsync(path);
-			return this.tcs.Task;
+			tcs = new TaskCompletionSource<AssetBundle>();
+			request = AssetBundle.LoadFromFileAsync(path);
+			return tcs.Task;
 		}
 	}
 }

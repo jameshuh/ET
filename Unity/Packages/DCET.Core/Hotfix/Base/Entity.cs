@@ -43,25 +43,25 @@ namespace DCET
 		{
 			get
 			{
-				return (this.status & EntityStatus.IsFromPool) == EntityStatus.IsFromPool;
+				return (status & EntityStatus.IsFromPool) == EntityStatus.IsFromPool;
 			}
 			set
 			{
 				if (value)
 				{
-					this.status |= EntityStatus.IsFromPool;
+					status |= EntityStatus.IsFromPool;
 				}
 				else
 				{
-					this.status &= ~EntityStatus.IsFromPool;
+					status &= ~EntityStatus.IsFromPool;
 				}
 
-				if (this.InstanceId == 0)
+				if (InstanceId == 0)
 				{
-					this.InstanceId = IdGenerater.GenerateId();
+					InstanceId = IdGenerater.GenerateId();
 				}
 
-				this.IsRegister = value;
+				IsRegister = value;
 			}
 		}
 		
@@ -70,21 +70,21 @@ namespace DCET
 		{
 			get
 			{
-				return (this.status & EntityStatus.IsRegister) == EntityStatus.IsRegister;
+				return (status & EntityStatus.IsRegister) == EntityStatus.IsRegister;
 			}
 			set
 			{
-				if (this.IsRegister == value)
+				if (IsRegister == value)
 				{
 					return;
 				}
 				if (value)
 				{
-					this.status |= EntityStatus.IsRegister;
+					status |= EntityStatus.IsRegister;
 				}
 				else
 				{
-					this.status &= ~EntityStatus.IsRegister;
+					status &= ~EntityStatus.IsRegister;
 				}
 				Game.EventSystem.RegisterSystem(this, value);
 			}
@@ -95,17 +95,17 @@ namespace DCET
 		{
 			get
 			{
-				return (this.status & EntityStatus.IsComponent) == EntityStatus.IsComponent;
+				return (status & EntityStatus.IsComponent) == EntityStatus.IsComponent;
 			}
 			set
 			{
 				if (value)
 				{
-					this.status |= EntityStatus.IsComponent;
+					status |= EntityStatus.IsComponent;
 				}
 				else
 				{
-					this.status &= ~EntityStatus.IsComponent;
+					status &= ~EntityStatus.IsComponent;
 				}
 			}
 		}
@@ -115,7 +115,7 @@ namespace DCET
 		{
 			get
 			{
-				return this.InstanceId == 0;
+				return InstanceId == 0;
 			}
 		}
 
@@ -127,37 +127,37 @@ namespace DCET
 		{
 			get
 			{
-				return this.parent;
+				return parent;
 			}
 			set
 			{
 				if (value == null)
 				{
-					throw new Exception($"cant set parent null: {this.GetType().Name}");
+					throw new Exception($"cant set parent null: {GetType().Name}");
 				}
 				
-				if (this.parent != null) // 之前有parent
+				if (parent != null) // 之前有parent
 				{
 					// parent相同，不设置
-					if (this.parent.InstanceId == value.InstanceId)
+					if (parent.InstanceId == value.InstanceId)
 					{
-						Log.Error($"重复设置了Parent: {this.GetType().Name} parent: {this.parent.GetType().Name}");
+						Log.Error($"重复设置了Parent: {GetType().Name} parent: {parent.GetType().Name}");
 						return;
 					}
 					
-					this.parent.RemoveChild(this);
+					parent.RemoveChild(this);
 					
-					this.parent = value;
-					this.parent.AddChild(this);
+					parent = value;
+					parent.AddChild(this);
 					
-					this.Domain = this.parent.domain;
+					Domain = parent.domain;
 				}
 				else
 				{
-					this.parent = value;
-					this.parent.AddChild(this);
+					parent = value;
+					parent.AddChild(this);
 				
-					this.IsComponent = false;
+					IsComponent = false;
 				
 					AfterSetParent();
 				}
@@ -170,14 +170,14 @@ namespace DCET
 		{
 			set
 			{
-				if (this.parent != null)
+				if (parent != null)
 				{
-					throw new Exception($"Component parent is null: {this.GetType().Name}");
+					throw new Exception($"Component parent is null: {GetType().Name}");
 				}
 
-				this.parent = value;
+				parent = value;
 				
-				this.IsComponent = true;
+				IsComponent = true;
 
 				AfterSetParent();
 			}
@@ -185,27 +185,27 @@ namespace DCET
 
 		private void AfterSetParent()
 		{
-			if (this.parent.domain != null)
+			if (parent.domain != null)
 			{
-				this.Domain = this.parent.domain;
+				Domain = parent.domain;
 			}
 
 			// 检测自己的domain是不是跟父亲一样
-			if (this.Domain != null && this.parent.Domain != null && this.Domain.InstanceId != this.parent.Domain.InstanceId && !(this is Scene))
+			if (Domain != null && parent.Domain != null && Domain.InstanceId != parent.Domain.InstanceId && !(this is Scene))
 			{
-				Log.Error($"自己的domain跟parent不一样: {this.GetType().Name}");
+				Log.Error($"自己的domain跟parent不一样: {GetType().Name}");
 			}
 #if !SERVER
-			if (this.ViewGO != null && this.parent.ViewGO != null)
+			if (ViewGO != null && parent.ViewGO != null)
 			{
-				this.ViewGO.transform.SetParent(this.parent.ViewGO.transform, false);
+				ViewGO.transform.SetParent(parent.ViewGO.transform, false);
 			}
 #endif
 		}
 
 		public T GetParent<T>() where T : Entity
 		{
-			return this.Parent as T;
+			return Parent as T;
 		}
 		
 		public override string ToString()
@@ -228,7 +228,7 @@ namespace DCET
 		{
 			get
 			{
-				return this.domain;
+				return domain;
 			}
 			set
 			{
@@ -237,40 +237,40 @@ namespace DCET
 					return;
 				}
 				
-				Entity preDomain = this.domain;
-				this.domain = value;
+				Entity preDomain = domain;
+				domain = value;
 				
-				if (!(this.domain is Scene))
+				if (!(domain is Scene))
 				{
-					throw new Exception($"domain is not scene: {this.GetType().Name}");
+					throw new Exception($"domain is not scene: {GetType().Name}");
 				}
 				
-				this.domain = value;
+				domain = value;
 				
 				// 是否注册跟parent一致
-				if (this.parent != null)
+				if (parent != null)
 				{
-					this.IsRegister = this.Parent.IsRegister;
+					IsRegister = Parent.IsRegister;
 				}
 
 				// 递归设置孩子的Domain
-				if (this.children != null)
+				if (children != null)
 				{
-					foreach (Entity entity in this.children.Values)
+					foreach (Entity entity in children.Values)
 					{
-						entity.Domain = this.domain;
+						entity.Domain = domain;
 					}
 				}
 				
-				if (this.components != null)
+				if (components != null)
 				{
-					foreach (Entity component in this.components.Values)
+					foreach (Entity component in components.Values)
 					{
-						component.Domain = this.domain;
+						component.Domain = domain;
 					}
 				}
 				
-				if (preDomain == null && !this.IsFromPool)
+				if (preDomain == null && !IsFromPool)
 				{
 					Game.EventSystem.Deserialize(this);
 				}
@@ -289,36 +289,36 @@ namespace DCET
 		{
 			get
 			{
-				if (this.children == null)
+				if (children == null)
 				{
-					this.children = childrenPool.Fetch();
+					children = childrenPool.Fetch();
 				}
 
-				return this.children;
+				return children;
 			}
 		}
 		
 		private void AddChild(Entity entity)
 		{
-			this.Children.Add(entity.Id, entity);
-			this.AddChildDB(entity);
+			Children.Add(entity.Id, entity);
+			AddChildDB(entity);
 		}
 		
 		private void RemoveChild(Entity entity)
 		{
-			if (this.children == null)
+			if (children == null)
 			{
 				return;
 			}
 
-			this.children.Remove(entity.Id);
+			children.Remove(entity.Id);
 
-			if (this.children.Count == 0)
+			if (children.Count == 0)
 			{
-				childrenPool.Recycle(this.children);
-				this.children = null;
+				childrenPool.Recycle(children);
+				children = null;
 			}
-			this.RemoveChildDB(entity);
+			RemoveChildDB(entity);
 		}
 		
 		private void AddChildDB(Entity entity)
@@ -327,11 +327,11 @@ namespace DCET
 			{
 				return;
 			}
-			if (this.childrenDB == null)
+			if (childrenDB == null)
 			{
-				this.childrenDB = hashSetPool.Fetch();
+				childrenDB = hashSetPool.Fetch();
 			}
-			this.childrenDB.Add(entity);
+			childrenDB.Add(entity);
 		}
 		
 		private void RemoveChildDB(Entity entity)
@@ -341,19 +341,19 @@ namespace DCET
 				return;
 			}
 
-			if (this.childrenDB == null)
+			if (childrenDB == null)
 			{
 				return;
 			}
 			
-			this.childrenDB.Remove(entity);
+			childrenDB.Remove(entity);
 			
-			if (this.childrenDB.Count == 0)
+			if (childrenDB.Count == 0)
 			{
-				if (this.IsFromPool)
+				if (IsFromPool)
 				{
-					hashSetPool.Recycle(this.childrenDB);
-					this.childrenDB = null;
+					hashSetPool.Recycle(childrenDB);
+					childrenDB = null;
 				}
 			}
 		}
@@ -370,22 +370,22 @@ namespace DCET
 		{
 			get
 			{
-				return this.components;
+				return components;
 			}
 		}
 		
 		protected Entity()
 		{
-			this.InstanceId = IdGenerater.GenerateId();
+			InstanceId = IdGenerater.GenerateId();
 
 #if !SERVER
-			if (!this.GetType().IsDefined(typeof (HideInHierarchy), true))
+			if (!GetType().IsDefined(typeof (HideInHierarchy), true))
 			{
-				this.ViewGO = new GameObject();
-				this.ViewGO.name = this.GetType().Name;
-				this.ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
-				this.ViewGO.transform.SetParent(Global.transform, false);
-				var componentView = this.ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+				ViewGO = new GameObject();
+				ViewGO.name = GetType().Name;
+				ViewGO.layer = LayerNames.GetLayerInt(LayerNames.HIDDEN);
+				ViewGO.transform.SetParent(Global.transform, false);
+				var componentView = ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
 
 				if (componentView)
 				{
@@ -397,26 +397,26 @@ namespace DCET
 
 		public virtual void Dispose()
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 
-			long instanceId = this.InstanceId;
-			this.InstanceId = 0;
+			long instanceId = InstanceId;
+			InstanceId = 0;
 			
 			Game.EventSystem.Remove(instanceId);
 
 			// 触发Destroy事件
 			Game.EventSystem.Destroy(this);
 
-			this.domain = null;
+			domain = null;
 		
 			// 清理Children
-			if (this.children != null)
+			if (children != null)
 			{
-				var deletes = this.children;
-				this.children = null;
+				var deletes = children;
+				children = null;
 
 				foreach (Entity child in deletes.Values)
 				{
@@ -426,23 +426,23 @@ namespace DCET
 				deletes.Clear();
 				childrenPool.Recycle(deletes);
 				
-				if (this.childrenDB != null)
+				if (childrenDB != null)
 				{
-					this.childrenDB.Clear();
+					childrenDB.Clear();
 					// 从池中创建的才需要回到池中,从db中不需要回收
-					if (this.IsFromPool)
+					if (IsFromPool)
 					{
-						hashSetPool.Recycle(this.childrenDB);
-						this.childrenDB = null;
+						hashSetPool.Recycle(childrenDB);
+						childrenDB = null;
 					}
 				}
 			}
 
 			// 清理Component
-			if (this.components != null)
+			if (components != null)
 			{
-				var deletes = this.components;
-				this.components = null;
+				var deletes = components;
+				components = null;
 				foreach (var kv in deletes)
 				{
 					kv.Value.Dispose();
@@ -452,39 +452,39 @@ namespace DCET
 				dictPool.Recycle(deletes);
 				
 				// 从池中创建的才需要回到池中,从db中不需要回收
-				if (this.componentsDB != null)
+				if (componentsDB != null)
 				{
-					this.componentsDB.Clear();
+					componentsDB.Clear();
 					
-					if (this.IsFromPool)
+					if (IsFromPool)
 					{
-						hashSetPool.Recycle(this.componentsDB);
-						this.componentsDB = null;
+						hashSetPool.Recycle(componentsDB);
+						componentsDB = null;
 					}
 				}
 			}
 
-			if (this.IsComponent)
+			if (IsComponent)
 			{
-				this.parent?.RemoveComponentWithInstance(this);
+				parent?.RemoveComponentWithInstance(this);
 			}
 			else
 			{
-				this.parent?.RemoveChild(this);	
+				parent?.RemoveChild(this);	
 			}
 
-			this.parent = null;
+			parent = null;
 
-			if (this.IsFromPool)
+			if (IsFromPool)
 			{
 				Game.ObjectPool.Recycle(this);
 			}
 			else
 			{
 #if !SERVER
-				if (this.ViewGO != null)
+				if (ViewGO != null)
 				{
-					UnityEngine.Object.Destroy(this.ViewGO);
+					UnityEngine.Object.Destroy(ViewGO);
 				}
 #endif
 			}
@@ -496,22 +496,22 @@ namespace DCET
 		{
 			try
 			{
-				if (this.childrenDB != null)
+				if (childrenDB != null)
 				{
-					foreach (Entity child in this.childrenDB)
+					foreach (Entity child in childrenDB)
 					{
 						child.IsComponent = false;
-						this.AddChild(child);
+						AddChild(child);
 						child.parent = this;
 					}
 				}
 				
-				if (this.componentsDB != null)
+				if (componentsDB != null)
 				{
-					foreach (Entity component in this.componentsDB)
+					foreach (Entity component in componentsDB)
 					{
 						component.IsComponent = true;
-						this.AddToComponent(component.GetType(), component);
+						AddToComponent(component.GetType(), component);
 						component.parent = this;
 					}
 				}
@@ -524,59 +524,59 @@ namespace DCET
 		
 		private void AddToComponentsDB(Entity component)
 		{
-			if (this.componentsDB == null)
+			if (componentsDB == null)
 			{
-				this.componentsDB = hashSetPool.Fetch();
+				componentsDB = hashSetPool.Fetch();
 			}
 
-			this.componentsDB.Add(component);
+			componentsDB.Add(component);
 		}
 		
 		private void RemoveFromComponentsDB(Entity component)
 		{
-			if (this.componentsDB == null)
+			if (componentsDB == null)
 			{
 				return;
 			}
-			this.componentsDB.Remove(component);
-			if (this.componentsDB.Count == 0 && this.IsFromPool)
+			componentsDB.Remove(component);
+			if (componentsDB.Count == 0 && IsFromPool)
 			{
-				hashSetPool.Recycle(this.componentsDB);
-				this.componentsDB = null;
+				hashSetPool.Recycle(componentsDB);
+				componentsDB = null;
 			}
 		}
 		
 		private void AddToComponent(Type type, Entity component)
 		{
-			if (this.components == null)
+			if (components == null)
 			{
-				this.components = dictPool.Fetch();
+				components = dictPool.Fetch();
 			}
 
-			this.components.Add(type, component);
+			components.Add(type, component);
 			
 			if (component is ISerializeToEntity)
 			{
-				this.AddToComponentsDB(component);
+				AddToComponentsDB(component);
 			}
 		}
 		
 		private void RemoveFromComponent(Type type, Entity component)
 		{
-			if (this.components == null)
+			if (components == null)
 			{
 				return;
 			}
 			
-			this.components.Remove(type);
+			components.Remove(type);
 			
-			if (this.components.Count == 0 && this.IsFromPool)
+			if (components.Count == 0 && IsFromPool)
 			{
-				dictPool.Recycle(this.components);
-				this.components = null;
+				dictPool.Recycle(components);
+				components = null;
 			}
 			
-			this.RemoveFromComponentsDB(component);
+			RemoveFromComponentsDB(component);
 		}
 		
 		public Entity AddComponentWithInstance(Entity component)
@@ -585,7 +585,7 @@ namespace DCET
 			
 			Type type = component.GetType();
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 
 			return component;
 		}
@@ -594,7 +594,7 @@ namespace DCET
 		{
 			Entity component = CreateWithComponentParent(type);
 
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -605,7 +605,7 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K>();
 
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -616,7 +616,7 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K, P1>(p1);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -627,7 +627,7 @@ namespace DCET
 
 			K component = CreateWithComponentParent<K, P1, P2>(p1, p2);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -638,7 +638,7 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K, P1, P2, P3>(p1, p2, p3);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -649,7 +649,7 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K>(false);
 
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -660,7 +660,7 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K, P1>(p1, false);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -671,7 +671,7 @@ namespace DCET
 
 			K component = CreateWithComponentParent<K, P1, P2>(p1, p2, false);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
@@ -682,48 +682,48 @@ namespace DCET
 			
 			K component = CreateWithComponentParent<K, P1, P2, P3>(p1, p2, p3, false);
 			
-			this.AddToComponent(type, component);
+			AddToComponent(type, component);
 			
 			return component;
 		}
 
 		public void RemoveComponent<K>() where K : Entity
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 
-			if (this.components == null)
+			if (components == null)
 			{
 				return;
 			}
 			
 			Type type = typeof (K);
-			Entity c = this.GetComponentWithType(type);
+			Entity c = GetComponentWithType(type);
 			if (c == null)
 			{
 				return;
 			}
 
-			this.RemoveFromComponent(type, c);
+			RemoveFromComponent(type, c);
 			c.Dispose();
 		}
 		
 		public void RemoveComponentWithInstance(Entity component)
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 			
-			if (this.components == null)
+			if (components == null)
 			{
 				return;
 			}
 
 			Type type = component.GetType();
-			Entity c = this.GetComponentWithType(component.GetType());
+			Entity c = GetComponentWithType(component.GetType());
 			if (c == null)
 			{
 				return;
@@ -733,18 +733,18 @@ namespace DCET
 				return;
 			}
 			
-			this.RemoveFromComponent(type, c);
+			RemoveFromComponent(type, c);
 			c.Dispose();
 		}
 
 		public void RemoveComponentWithType(Type type)
 		{
-			if (this.IsDisposed)
+			if (IsDisposed)
 			{
 				return;
 			}
 			
-			Entity c = this.GetComponentWithType(type);
+			Entity c = GetComponentWithType(type);
 			if (c == null)
 			{
 				return;
@@ -756,12 +756,12 @@ namespace DCET
 
 		public K GetComponent<K>() where K : Entity
 		{
-			if (this.components == null)
+			if (components == null)
 			{
 				return null;
 			}
 			Entity component;
-			if (!this.components.TryGetValue(typeof(K), out component))
+			if (!components.TryGetValue(typeof(K), out component))
 			{
 				return default(K);
 			}
@@ -770,12 +770,12 @@ namespace DCET
 
 		public Entity GetComponentWithType(Type type)
 		{
-			if (this.components == null)
+			if (components == null)
 			{
 				return null;
 			}
 			Entity component;
-			if (!this.components.TryGetValue(type, out component))
+			if (!components.TryGetValue(type, out component))
 			{
 				return null;
 			}

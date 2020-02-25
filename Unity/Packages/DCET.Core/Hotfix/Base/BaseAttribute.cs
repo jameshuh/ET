@@ -9,7 +9,7 @@ namespace DCET
 
 		public BaseAttribute()
 		{
-			this.AttributeType = this.GetType();
+			AttributeType = GetType();
 		}
 	}
 }

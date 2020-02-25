@@ -12,14 +12,14 @@ namespace DCET
 
         public override void Dispose()
         {
-            if (this.IsDisposed)
+            if (IsDisposed)
             {
                 return;
             }
             
             base.Dispose();
             
-            this.List.Clear();
+            List.Clear();
         }
     }
     
@@ -29,18 +29,18 @@ namespace DCET
 
         public override void Dispose()
         {
-            if (this.IsDisposed)
+            if (IsDisposed)
             {
                 return;
             }
             
             base.Dispose();
 
-            foreach (T entity in this.List)
+            foreach (T entity in List)
             {
                 entity.Dispose();
             }
-            this.List.Clear();
+            List.Clear();
         }
     }
 }

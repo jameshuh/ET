@@ -12,7 +12,7 @@ namespace DCET
 	{
 		public void Run(object o)
 		{
-			this.Change((T)o);
+			Change((T)o);
 		}
 
 		public Type Type()

@@ -14,36 +14,36 @@ namespace DCET
 
 		public Dictionary<T, HashSet<K>> GetDictionary()
 		{
-			return this.dictionary;
+			return dictionary;
 		}
 
 		public void Add(T t, K k)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
-				list = this.FetchList();
-				this.dictionary[t] = list;
+				list = FetchList();
+				dictionary[t] = list;
 			}
 			list.Add(k);
 		}
 
 		public KeyValuePair<T, HashSet<K>> First()
 		{
-			return this.dictionary.First();
+			return dictionary.First();
 		}
 
 		public T FirstKey()
 		{
-			return this.dictionary.Keys.First();
+			return dictionary.Keys.First();
 		}
 
 		public int Count
 		{
 			get
 			{
-				return this.dictionary.Count;
+				return dictionary.Count;
 			}
 		}
 
@@ -67,7 +67,7 @@ namespace DCET
 		public bool Remove(T t, K k)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return false;
@@ -78,8 +78,8 @@ namespace DCET
 			}
 			if (list.Count == 0)
 			{
-				this.RecycleList(list);
-				this.dictionary.Remove(t);
+				RecycleList(list);
+				dictionary.Remove(t);
 			}
 			return true;
 		}
@@ -87,12 +87,12 @@ namespace DCET
 		public bool Remove(T t)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list != null)
 			{
-				this.RecycleList(list);
+				RecycleList(list);
 			}
-			return this.dictionary.Remove(t);
+			return dictionary.Remove(t);
 		}
 
 		/// <summary>
@@ -103,7 +103,7 @@ namespace DCET
 		public K[] GetAll(T t)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return new K[0];
@@ -120,7 +120,7 @@ namespace DCET
 		{
 			get
 			{
-				this.dictionary.TryGetValue(t, out var list);
+				dictionary.TryGetValue(t, out var list);
 				return list ?? Empty;
 			}
 		}
@@ -128,7 +128,7 @@ namespace DCET
 		public K GetOne(T t)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list != null && list.Count > 0)
 			{
 				return list.FirstOrDefault();
@@ -139,7 +139,7 @@ namespace DCET
 		public bool Contains(T t, K k)
 		{
 			HashSet<K> list;
-			this.dictionary.TryGetValue(t, out list);
+			dictionary.TryGetValue(t, out list);
 			if (list == null)
 			{
 				return false;
@@ -149,12 +149,12 @@ namespace DCET
 
 		public bool ContainsKey(T t)
 		{
-			return this.dictionary.ContainsKey(t);
+			return dictionary.ContainsKey(t);
 		}
 
 		public void Clear()
 		{
-			foreach (HashSet<K> list in this.dictionary.Values)
+			foreach (HashSet<K> list in dictionary.Values)
 			{
 				list.Clear();
 				queue.Enqueue(list);

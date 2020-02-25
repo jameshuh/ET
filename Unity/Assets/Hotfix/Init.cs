@@ -20,6 +20,7 @@ namespace DCET
 				GameLoop.onLateUpdate += LateUpdate;
 				GameLoop.onApplicationQuit += OnApplicationQuit;
 
+				Game.Scene = EntityFactory.CreateScene();
 				Game.Scene.AddComponent<NetOuterComponent>();
 				Game.Scene.AddComponent<OpcodeTypeComponent>();
 				Game.Scene.AddComponent<MessageDispatcherComponent>();

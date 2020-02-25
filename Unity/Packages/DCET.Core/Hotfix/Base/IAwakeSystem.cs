@@ -41,7 +41,7 @@ namespace DCET
 
 		public void Run(object o)
 		{
-			this.Awake((T)o);
+			Awake((T)o);
 		}
 
 		public abstract void Awake(T self);
@@ -56,7 +56,7 @@ namespace DCET
 
 		public void Run(object o, A a)
 		{
-			this.Awake((T)o, a);
+			Awake((T)o, a);
 		}
 
 		public abstract void Awake(T self, A a);
@@ -71,7 +71,7 @@ namespace DCET
 
 		public void Run(object o, A a, B b)
 		{
-			this.Awake((T)o, a, b);
+			Awake((T)o, a, b);
 		}
 
 		public abstract void Awake(T self, A a, B b);
@@ -86,7 +86,7 @@ namespace DCET
 
 		public void Run(object o, A a, B b, C c)
 		{
-			this.Awake((T)o, a, b, c);
+			Awake((T)o, a, b, c);
 		}
 
 		public abstract void Awake(T self, A a, B b, C c);

@@ -2,6 +2,12 @@
 {
 	public static class Game
 	{
+		public static Scene Scene = null;
+
+#if SERVER
+		public static Options Options;
+#endif
+
 		private static EventSystem eventSystem;
 
 		public static EventSystem EventSystem
@@ -11,28 +17,6 @@
 				return eventSystem ?? (eventSystem = new EventSystem());
 			}
 		}
-		
-		private static Scene scene;
-
-		public static Scene Scene
-		{
-			get
-			{
-				if (scene != null)
-				{
-					return scene;
-				}
-				scene = new Scene() { Name = "ClientM" };
-				return scene;
-			}
-
-#if SERVER
-			set
-			{
-				scene = value;
-			}
-#endif
-		}
 
 		private static ObjectPool objectPool;
 
@@ -40,31 +24,23 @@
 		{
 			get
 			{
-				if (objectPool != null)
-				{
-					return objectPool;
-				}
-				objectPool = new ObjectPool() { Name = "ClientM" };
-				return objectPool;
+				return objectPool ?? (objectPool = new ObjectPool());
 			}
 		}
 
-#if SERVER
-		public static Options Options;
-#endif
-
 		public static void Close()
 		{
-			scene?.Dispose();
-			scene = null;
+			Scene?.Dispose();
+			Scene = null;
 			
-			objectPool?.Dispose();
-			objectPool = null;
-					
-			eventSystem = null;
 #if SERVER
 			Options = null;
 #endif
+
+			objectPool?.Dispose();
+			objectPool = null;
+
+			eventSystem = null;
 	}
 }
 }
