@@ -24,6 +24,10 @@ namespace DCET.Runtime
 				{
 					HotfixHelper.StartHotfix();
 				}
+				else
+				{
+					Log.Error("资源下载失败，请检查资源服务器是否正常运行(点击“Tools/web资源服务器”启动)");
+				}
 			}
 			catch (Exception e)
 			{

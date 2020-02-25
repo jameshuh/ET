@@ -14,31 +14,29 @@ namespace DCET.Runtime
 
 	public class UnityWebRequestAsync : IDisposable
 	{
-		public static AcceptAllCertificate certificateHandler = new AcceptAllCertificate();
-		
+		public static AcceptAllCertificate certificateHandler = new AcceptAllCertificate();		
 		public UnityWebRequest Request;
-
 		public bool isCancel;
-
 		public TaskCompletionSource<string> tcs;
+		public int timeout = 5;
 
 		public void Dispose()
 		{
 			GameLoop.onUpdate -= Update;
-			this.Request?.Dispose();
-			this.Request = null;
-			this.isCancel = false;
+			Request?.Dispose();
+			Request = null;
+			isCancel = false;
 		}
 
 		public float Progress
 		{
 			get
 			{
-				if (this.Request == null)
+				if (Request == null)
 				{
 					return 0;
 				}
-				return this.Request.downloadProgress;
+				return Request.downloadProgress;
 			}
 		}
 
@@ -46,48 +44,49 @@ namespace DCET.Runtime
 		{
 			get
 			{
-				if (this.Request == null)
+				if (Request == null)
 				{
 					return 0;
 				}
-				return this.Request.downloadedBytes;
+				return Request.downloadedBytes;
 			}
 		}
 
 		public void Update()
 		{
-			if (this.isCancel)
+			if (isCancel)
 			{
-				this.tcs.SetResult($"request error: {this.Request.error}");
+				tcs.SetResult($"request error: {Request.error}");
 				return;
 			}
 			
-			if (!this.Request.isDone)
+			if (!Request.isDone)
 			{
 				return;
 			}
-			if (!string.IsNullOrEmpty(this.Request.error))
+			if (!string.IsNullOrEmpty(Request.error))
 			{
-				this.tcs.SetResult($"request error: {this.Request.error}");
+				tcs.SetResult($"request error: {Request.error}");
 				return;
 			}
 
-			this.tcs.SetResult(string.Empty);
+			tcs.SetResult(string.Empty);
 		}
 
 		public Task<string> DownloadAsync(string url)
 		{
-			this.tcs = new TaskCompletionSource<string>();
+			tcs = new TaskCompletionSource<string>();
 			
 			url = url.Replace(" ", "%20");
-			this.Request = UnityWebRequest.Get(url);
-			this.Request.certificateHandler = certificateHandler;
-			this.Request.SendWebRequest();
+			Request = UnityWebRequest.Get(url);
+			Request.timeout = timeout;
+			Request.certificateHandler = certificateHandler;
+			Request.SendWebRequest();
 
 			GameLoop.onUpdate -= Update;
 			GameLoop.onUpdate += Update;
 
-			return this.tcs.Task;
+			return tcs.Task;
 		}
 	}
 }
