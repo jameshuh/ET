@@ -440,21 +440,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="Miku.Cecil">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Editor/LuaProfiler/CECIL/Miku.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="CString">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/CString.dll</HintPath>
-    </Reference>
-    <Reference Include="Debugger">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/Debugger.dll</HintPath>
-    </Reference>
-    <Reference Include="MikuBinary">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuBinary.dll</HintPath>
-    </Reference>
-    <Reference Include="MikuHook">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Assets/Plugins/MikuHook.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -472,6 +457,21 @@
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Core/Plugins/Editor/npoi/NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Miku.Cecil">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Editor/LuaProfiler/CECIL/Miku.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="CString">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/CString.dll</HintPath>
+    </Reference>
+    <Reference Include="Debugger">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/Debugger.dll</HintPath>
+    </Reference>
+    <Reference Include="MikuBinary">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuBinary.dll</HintPath>
+    </Reference>
+    <Reference Include="MikuHook">
+      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>

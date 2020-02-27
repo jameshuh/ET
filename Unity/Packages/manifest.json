@@ -14,6 +14,7 @@
     "com.dukechiang.dcet.numeric": "file:/./Packages/com.dukechiang.dcet.numeric",
     "com.dukechiang.dcet.pathfinding": "file:/./Packages/com.dukechiang.dcet.pathfinding",	
     "com.dukechiang.dcet.view": "file:/./Packages/com.dukechiang.dcet.view",
+    "com.dukechiang.dcet.lua": "file:/./Packages/com.dukechiang.dcet.lua",
     "com.unity.assetbundlebrowser": "1.7.0",
     "com.unity.package-manager-ui": "2.0.8",
     "com.unity.modules.ai": "1.0.0",

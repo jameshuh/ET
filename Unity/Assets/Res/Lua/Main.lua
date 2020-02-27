@@ -8,6 +8,7 @@ require("CSharpLua.Classloader")
 setmetatable(System.IO,  {__index = toluaSystem.IO})
 setmetatable(System.Text, {__index = toluaSystem.Text})
 
+require("MongoDB.manifest")("MongoDB")
 require("Google ProtoBuf.manifest")("Google ProtoBuf")
 require("Core.manifest")("Core")
 require("Message.manifest")("Message")

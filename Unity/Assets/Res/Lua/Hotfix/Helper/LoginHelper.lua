@@ -12,7 +12,7 @@ System.namespace("DCET", function (namespace)
     OnLoginAsync = function (account)
       System.async(function (async, account)
         System.try(function ()
-          local session = DCET.Game.getScene():GetComponent(DCET.NetOuterComponent):Create1(DCETRuntime.GlobalConfigComponent.getInstance().GlobalProto.Address)
+          local session = DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(DCETRuntime.GlobalConfigComponent.getInstance().GlobalProto.Address)
 
           local default = DCET.C2R_Login()
           default:setAccount(account)
@@ -21,7 +21,7 @@ System.namespace("DCET", function (namespace)
 
           session:Dispose()
 
-          DCET.SessionComponent.Instance:setSession(DCET.Game.getScene():GetComponent(DCET.NetOuterComponent):Create1(r2CLogin:getAddress()))
+          DCET.SessionComponent.Instance:setSession(DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(r2CLogin:getAddress()))
 
           local extern = DCET.C2G_LoginGate()
           extern:setKey(r2CLogin:getKey())
@@ -31,8 +31,8 @@ System.namespace("DCET", function (namespace)
           DCET.Log.Info("登陆gate成功!")
 
           -- 创建Player
-          local player = DCET.EntityFactory.CreateWithId(DCET.Game.getScene(), g2CLoginGate:getPlayerId(), DCET.Player)
-          local playerComponent = DCET.Game.getScene():GetComponent(DCET.PlayerComponent)
+          local player = DCET.EntityFactory.CreateWithId(DCET.Game.Scene, g2CLoginGate:getPlayerId(), DCET.Player)
+          local playerComponent = DCET.Game.Scene:GetComponent(DCET.PlayerComponent)
           playerComponent:setMyPlayer(player)
 
           DCET.Game.getEventSystem():Run("LoginFinish" --[[EventIdType.LoginFinish]])

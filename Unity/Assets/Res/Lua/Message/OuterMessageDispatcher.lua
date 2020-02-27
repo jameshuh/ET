@@ -9,9 +9,7 @@ System.namespace("DCET", function (namespace)
   namespace.class("OuterMessageDispatcher", function (namespace)
     local Dispatch
     Dispatch = function (this, session, opcode, message)
-      -- 普通消息或者是Rpc请求消息
-      local messageInfo = DCET.MessageInfo(opcode, message)
-      DCET.Game.getScene():GetComponent(DCET.MessageDispatcherComponent):Handle(session, messageInfo:__clone__())
+      DCET.Game.Scene:GetComponent(DCET.MessageDispatcherComponent):Handle(session, opcode, message)
     end
     return {
       base = function (out)

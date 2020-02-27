@@ -11,19 +11,17 @@ System.namespace("DCET", function (namespace)
       GoogleProtobuf.MessageExtensions.WriteTo((System.cast(GoogleProtobuf.IMessage, message)), stream)
     end
     FromBytes = function (type, bytes, index, count)
-      local message = System.Activator.CreateInstance(type)
-      ;
+      local message = System.Activator.CreateInstance(type);
       GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
       return message
     end
     FromBytes1 = function (instance, bytes, index, count)
-      local message = instance
+      local message = instance;
       GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), bytes, index, count)
       return message
     end
     FromStream = function (type, stream)
-      local message = System.Activator.CreateInstance(type)
-      ;
+      local message = System.Activator.CreateInstance(type);
       GoogleProtobuf.MessageExtensions.MergeFrom1((System.cast(GoogleProtobuf.IMessage, message)), stream:GetBuffer(), System.toInt32(stream:getPosition()), System.toInt32(stream:getLength()))
       return message
     end

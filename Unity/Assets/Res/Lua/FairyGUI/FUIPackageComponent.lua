@@ -22,7 +22,7 @@ System.namespace("DCET", function (namespace)
       else
         local uiBundleDesName = DCETRuntime.AssetBundleHelper.StringToAB(type .. "_fui")
         local uiBundleResName = DCETRuntime.AssetBundleHelper.StringToAB(type)
-        local resourcesComponent = DCET.Game.getScene():GetComponent(DCET.ResourcesComponent)
+        local resourcesComponent = DCET.Game.Scene:GetComponent(DCET.ResourcesComponent)
         resourcesComponent:LoadBundle(uiBundleDesName)
         resourcesComponent:LoadBundle(uiBundleResName)
 
@@ -43,7 +43,7 @@ System.namespace("DCET", function (namespace)
         else
           local uiBundleDesName = DCETRuntime.AssetBundleHelper.StringToAB(type .. "_fui")
           local uiBundleResName = DCETRuntime.AssetBundleHelper.StringToAB(type)
-          local resourcesComponent = DCET.Game.getScene():GetComponent(DCET.ResourcesComponent)
+          local resourcesComponent = DCET.Game.Scene:GetComponent(DCET.ResourcesComponent)
           async:await(resourcesComponent:LoadBundleAsync(uiBundleDesName))
           async:await(resourcesComponent:LoadBundleAsync(uiBundleResName))
 
@@ -73,8 +73,8 @@ System.namespace("DCET", function (namespace)
       if not DCETRuntime.Define.IsEditorMode then
         local uiBundleDesName = DCETRuntime.AssetBundleHelper.StringToAB(type .. "_fui")
         local uiBundleResName = DCETRuntime.AssetBundleHelper.StringToAB(type)
-        DCET.Game.getScene():GetComponent(DCET.ResourcesComponent):UnloadBundle(uiBundleDesName)
-        DCET.Game.getScene():GetComponent(DCET.ResourcesComponent):UnloadBundle(uiBundleResName)
+        DCET.Game.Scene:GetComponent(DCET.ResourcesComponent):UnloadBundle(uiBundleDesName)
+        DCET.Game.Scene:GetComponent(DCET.ResourcesComponent):UnloadBundle(uiBundleResName)
       end
     end
     class = {

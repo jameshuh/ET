@@ -220,7 +220,7 @@ namespace Microsoft.IO
             Dispose(false);
         }
 
-        /// <summary>
+       /* /// <summary>
         /// Returns the memory used by this stream back to the pool.
         /// </summary>
         /// <param name="disposing">Whether we're disposing (true), or being called by the finalizer (false)</param>
@@ -295,7 +295,7 @@ namespace Microsoft.IO
             blocks.Clear();
 
             base.Dispose(disposing);
-        }
+        }*/
 
         /// <summary>
         /// Equivalent to Dispose

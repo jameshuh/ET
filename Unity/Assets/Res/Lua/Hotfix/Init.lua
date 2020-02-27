@@ -23,20 +23,22 @@ System.namespace("DCET", function (namespace)
           DCETRuntime.GameLoop.onLateUpdate = DCETRuntime.GameLoop.onLateUpdate + LateUpdate
           DCETRuntime.GameLoop.onApplicationQuit = DCETRuntime.GameLoop.onApplicationQuit + OnApplicationQuit
 
-          DCET.Game.getScene():AddComponent(DCET.NetOuterComponent)
-          DCET.Game.getScene():AddComponent(DCET.OpcodeTypeComponent)
-          DCET.Game.getScene():AddComponent(DCET.MessageDispatcherComponent)
-          DCET.Game.getScene():AddComponent(DCET.SessionComponent)
-          DCET.Game.getScene():AddComponent(DCET.PlayerComponent)
+          DCET.Game.Scene = DCET.EntityFactory.CreateScene1(30, "Client", nil, 0)
+          DCET.Game.Scene:AddComponent(DCET.NetOuterComponent)
+          DCET.Game.Scene:AddComponent(DCET.OpcodeTypeComponent)
+          DCET.Game.Scene:AddComponent(DCET.MessageDispatcherComponent)
+          DCET.Game.Scene:AddComponent(DCET.SessionComponent)
+          DCET.Game.Scene:AddComponent(DCET.PlayerComponent)
+          DCET.Game.Scene:AddComponent(DCET.UnitComponent)
 
           -- 加载热更配置
-          DCET.Game.getScene():AddComponent(DCET.ResourcesComponent):LoadBundle("config.unity3d")
-          DCET.Game.getScene():AddComponent(DCET.ConfigComponent)
-          DCET.Game.getScene():GetComponent(DCET.ResourcesComponent):UnloadBundle("config.unity3d")
+          DCET.Game.Scene:AddComponent(DCET.ResourcesComponent):LoadBundle("config.unity3d")
+          DCET.Game.Scene:AddComponent(DCET.ConfigComponent)
+          DCET.Game.Scene:GetComponent(DCET.ResourcesComponent):UnloadBundle("config.unity3d")
 
-          DCET.Game.getScene():AddComponent(DCET.FUIPackageComponent)
-          DCET.Game.getScene():AddComponent(DCET.FUIComponent)
-          async:await(DCET.Game.getScene():AddComponent(DCET.FUIInitComponent):Init())
+          DCET.Game.Scene:AddComponent(DCET.FUIPackageComponent)
+          DCET.Game.Scene:AddComponent(DCET.FUIComponent)
+          async:await(DCET.Game.Scene:AddComponent(DCET.FUIInitComponent):Init())
           DCET.Game.getEventSystem():Run("InitSceneStart" --[[EventIdType.InitSceneStart]])
 
           -- 演示行为树用法
@@ -52,24 +54,23 @@ System.namespace("DCET", function (namespace)
     -- </summary>
     TestBehaviorTree = function ()
       -- 全局共享变量用法
-      DCET.Game.getScene():AddComponent(DCET.BehaviorTreeVariableComponent):SetVariable("全局变量", 1, System.Int32)
+      DCET.Game.Scene:AddComponent(DCET.BehaviorTreeVariableComponent):SetVariable("全局变量", 1, System.Int32)
 
       local runtimeBehaivorTree = UnityEngine.Object.Instantiate(System.as(DCETRuntime.ResourcesHelper.Load("Cube"), UnityEngine.GameObject)):GetComponent(BehaviorDesignerRuntime.BehaviorTree)
 
       if UnityEngine.op_Implicit(runtimeBehaivorTree) then
         --建议在资源预加载时进行初始化，以免游戏对局中反序列化GC卡顿
-        DCET.BehaviorTreeHelper.Init(runtimeBehaivorTree:getgameObject())
+        DCET.BehaviorTreeHelper.Init(runtimeBehaivorTree:getgameObject());
 
         --动态加载外部行为树用法
         --UnityEngine.Object externalBehavior = 加载("外部行为树资源");
         --BehaviorTreeHelper.Init(externalBehavior);
         --runtimeBehaivorTree.Ensure<BehaviorTreeController>().SetExternalBehavior(externalBehavior);
 
-        ;
         (System.as(DCETRuntime.GameObjectHelper.Ensure(runtimeBehaivorTree:getgameObject(), System.typeof(BehaviorDesignerRuntime.BehaviorTreeController)), BehaviorDesignerRuntime.BehaviorTreeController)):Init()
       end
 
-      local behaviorTree = DCET.BehaviorTreeFactory.Create4(DCET.Game.getScene(), runtimeBehaivorTree)
+      local behaviorTree = DCET.BehaviorTreeFactory.Create4(DCET.Game.Scene, runtimeBehaivorTree)
 
       -- 新增行为树共享变量用法
       local p1 = behaviorTree:GetComponent(DCET.BehaviorTreeVariableComponent):GetVariable("变量1", System.Int32)

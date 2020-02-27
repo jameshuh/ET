@@ -11,7 +11,7 @@ System.namespace("DCET", function (namespace)
     local Awake
     Awake = function (this, self)
       FairyGUI.GRoot.getinst():SetContentScaleFactor(1920, 1080, 0 --[[ScreenMatchMode.MatchWidthOrHeight]])
-      self.Root = DCET.EntityFactory.Create2(DCET.Game.getScene(), FairyGUI.GRoot.getinst(), DCET.FUI, FairyGUI.GObject)
+      self.Root = DCET.EntityFactory.Create2(DCET.Game.Scene, FairyGUI.GRoot.getinst(), DCET.FUI, FairyGUI.GObject)
     end
     return {
       base = function (out)

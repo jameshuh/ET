@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbba545a9cb5c4b46bba3b8ae0b8df9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 80665d90dcbffc841a14b30b7c4d1603, type: 3}
   m_Name: LuaDeepProfilerAssetSetting
   m_EditorClassIdentifier: 
   isDeepMonoProfiler: 0

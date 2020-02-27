@@ -5,7 +5,7 @@ System.namespace("DCET", function (namespace)
   namespace.class("LoginFinish_RemoveLogin", function (namespace)
     local Run
     Run = function (this)
-      DCET.Game.getScene():GetComponent(DCET.FUIComponent):Remove("Login" --[[FUILogin.UIResName]])
+      DCET.Game.Scene:GetComponent(DCET.FUIComponent):Remove("Login" --[[FUILogin.UIResName]])
     end
     return {
       base = function (out)

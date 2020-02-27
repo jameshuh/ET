@@ -8,7 +8,7 @@ System.import(function (out)
 end)
 System.namespace("DCET", function (namespace)
   namespace.class("UnitPathComponent", function (namespace)
-    local StartMove, __ctor__
+    local StartMove, StartMove1, __ctor__
     __ctor__ = function (this)
       this.Path = ListVector3()
       this.ServerPos = System.default(UnityEngine.Vector3)
@@ -36,6 +36,26 @@ System.namespace("DCET", function (namespace)
         end
       end, nil, this, cancellationToken)
     end
+    StartMove1 = function (this, message)
+      System.async(function (async, this, message)
+        -- 取消之前的移动协程
+        local default = this.CancellationTokenSource
+        if default ~= nil then
+          default:Cancel()
+        end
+        this.CancellationTokenSource = System.CancellationTokenSource()
+
+        this.Path:Clear()
+        for i = 0, message:getXs():getCount() - 1 do
+          this.Path:Add(UnityEngine.Vector3(message:getXs():get(i), message:getYs():get(i), message:getZs():get(i)))
+        end
+        this.ServerPos = UnityEngine.Vector3(message:getX(), message:getY(), message:getZ())
+
+        async:await(StartMove(this, this.CancellationTokenSource:getToken()))
+        this.CancellationTokenSource:Dispose()
+        this.CancellationTokenSource = nil
+      end, true, this, message)
+    end
     return {
       base = function (out)
         return {
@@ -43,6 +63,7 @@ System.namespace("DCET", function (namespace)
         }
       end,
       StartMove = StartMove,
+      StartMove1 = StartMove1,
       __ctor__ = __ctor__
     }
   end)

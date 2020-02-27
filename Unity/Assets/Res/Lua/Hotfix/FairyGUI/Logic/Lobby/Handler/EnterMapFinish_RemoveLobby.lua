@@ -5,7 +5,7 @@ System.namespace("DCET", function (namespace)
   namespace.class("EnterMapFinish_RemoveLobby", function (namespace)
     local Run
     Run = function (this)
-      DCET.Game.getScene():GetComponent(DCET.FUIComponent):Remove("Lobby" --[[FUILobby.UIResName]])
+      DCET.Game.Scene:GetComponent(DCET.FUIComponent):Remove("Lobby" --[[FUILobby.UIResName]])
     end
     return {
       base = function (out)

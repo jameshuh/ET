@@ -12,20 +12,20 @@ System.namespace("DCET", function (namespace)
       System.async(function (async, sceneName)
         System.try(function ()
           -- 加载Unit资源
-          local resourcesComponent = DCET.Game.getScene():GetComponent(DCET.ResourcesComponent)
+          local resourcesComponent = DCET.Game.Scene:GetComponent(DCET.ResourcesComponent)
           async:await(resourcesComponent:LoadBundleAsync("unit.unity3d" .. ""))
 
           -- 加载场景资源
-          async:await(DCET.Game.getScene():GetComponent(DCET.ResourcesComponent):LoadBundleAsync("map.unity3d"))
+          async:await(DCET.Game.Scene:GetComponent(DCET.ResourcesComponent):LoadBundleAsync("map.unity3d"))
           -- 切换到map场景
-          System.using(DCET.Game.getScene():AddComponent(DCET.SceneChangeComponent), function (sceneChangeComponent)
+          System.using(DCET.Game.Scene:AddComponent(DCET.SceneChangeComponent), function (sceneChangeComponent)
             async:await(sceneChangeComponent:ChangeSceneAsync(sceneName))
           end)
 
           local g2CEnterMap = System.as(async:await(DCET.SessionComponent.Instance:getSession():Call(DCET.C2G_EnterMap())), DCET.G2C_EnterMap)
           DCET.PlayerComponent.Instance:getMyPlayer().UnitId = g2CEnterMap:getUnitId()
 
-          DCET.Game.getScene():AddComponent(DCET.OperaComponent)
+          DCET.Game.Scene:AddComponent(DCET.OperaComponent)
 
           DCET.Game.getEventSystem():Run("EnterMapFinish" --[[EventIdType.EnterMapFinish]])
         end, function (default)

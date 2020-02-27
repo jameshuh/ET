@@ -32,10 +32,8 @@ EqualityComparer = define("System.EqualityComparer", function (T)
     if T.class == 'S' then
       equals = Equals 
     else
-      equals = function (x, y)
-          if x and x.Equals then
-            return x:Equals(y)
-          end
+      equals = function (x, y) 
+        return x:Equals(y) 
       end 
     end
   else

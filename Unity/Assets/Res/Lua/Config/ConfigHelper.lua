@@ -8,7 +8,7 @@ System.namespace("DCET", function (namespace)
     local GetText, ToObject
     GetText = function (key)
       local default, extern = System.try(function ()
-        local config = System.cast(UnityEngine.GameObject, DCET.Game.getScene():GetComponent(DCET.ResourcesComponent):GetAsset("config.unity3d", "Config"))
+        local config = System.cast(UnityEngine.GameObject, DCET.Game.Scene:GetComponent(DCET.ResourcesComponent):GetAsset("config.unity3d", "Config"))
         return true, DCETRuntime.GameObjectHelper.GetTextAsset(config, key):gettext()
       end, function (default)
         local e = default

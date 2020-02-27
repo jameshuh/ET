@@ -47,7 +47,10 @@ System.namespace("DCET", function (namespace)
 
       DCET.Entity.Dispose(this)
 
-      getSession(this):Dispose()
+      local default = getSession(this)
+      if default ~= nil then
+        default:Dispose()
+      end
       setSession(this, nil)
       class.Instance = nil
     end

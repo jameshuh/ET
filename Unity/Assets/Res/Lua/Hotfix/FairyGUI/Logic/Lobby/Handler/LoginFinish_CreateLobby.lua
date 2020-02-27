@@ -9,14 +9,14 @@ System.namespace("DCET", function (namespace)
   namespace.class("LoginFinish_CreateLobby", function (namespace)
     local Run
     Run = function (this)
-      local fui = DCET.FUILobby.CreateInstance(DCET.Game.getScene())
+      local fui = DCET.FUILobby.CreateInstance(DCET.Game.Scene)
 
       --默认将会以Id为Name，也可以自定义Name，方便查询和管理
       fui:setName("Lobby" --[[FUILobby.UIResName]])
       fui:MakeFullScreen()
       fui:AddComponent(DCET.FUILobbyComponent)
 
-      DCET.Game.getScene():GetComponent(DCET.FUIComponent):Add(fui, true)
+      DCET.Game.Scene:GetComponent(DCET.FUIComponent):Add(fui, true)
     end
     return {
       base = function (out)

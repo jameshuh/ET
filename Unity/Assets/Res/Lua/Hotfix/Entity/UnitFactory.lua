@@ -11,11 +11,11 @@ System.namespace("DCET", function (namespace)
   namespace.class("UnitFactory", function (namespace)
     local Create
     Create = function (domain, id)
-      local resourcesComponent = DCET.Game.getScene():GetComponent(DCET.ResourcesComponent)
+      local resourcesComponent = DCET.Game.Scene:GetComponent(DCET.ResourcesComponent)
       local bundleGameObject = System.cast(UnityEngine.GameObject, resourcesComponent:GetAsset("Unit.unity3d", "Unit"))
       local prefab = DCETRuntime.GameObjectHelper.GetGameObject(bundleGameObject, "Skeleton")
 
-      local unitComponent = DCET.Game.getScene():GetComponent(DCET.UnitComponent)
+      local unitComponent = DCET.Game.Scene:GetComponent(DCET.UnitComponent)
 
       local go = UnityEngine.Object.Instantiate(prefab)
       local unit = DCET.EntityFactory.CreateWithId1(domain, id, go, DCET.Unit, UnityEngine.GameObject)

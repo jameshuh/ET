@@ -12,7 +12,7 @@ System.namespace("DCET", function (namespace)
     local Create, Create1, Create2, Create3, Create4
     Create = function (behaviorTreeParent, hotfixAction)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixAction.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.Scene:GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixAction.behaviorTreeConfigID))
 
         local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
@@ -40,7 +40,7 @@ System.namespace("DCET", function (namespace)
     end
     Create1 = function (behaviorTreeParent, hotfixDecorator)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixDecorator.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.Scene:GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixDecorator.behaviorTreeConfigID))
 
         local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
@@ -67,7 +67,7 @@ System.namespace("DCET", function (namespace)
     end
     Create2 = function (behaviorTreeParent, hotfixConditional)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixConditional.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.Scene:GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixConditional.behaviorTreeConfigID))
 
         local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 
@@ -95,7 +95,7 @@ System.namespace("DCET", function (namespace)
     end
     Create3 = function (behaviorTreeParent, hotfixComposite)
       local default, extern = System.try(function ()
-        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.getScene():GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixComposite.behaviorTreeConfigID))
+        local behaviorTreeConfig = System.cast(DCET.BehaviorTreeConfig, DCET.Game.Scene:GetComponent(DCET.ConfigComponent):Get(System.typeof(DCET.BehaviorTreeConfig), hotfixComposite.behaviorTreeConfigID))
 
         local type = System.Type.GetTypeFrom("DCET." .. behaviorTreeConfig.ComponentName)
 

@@ -57,7 +57,7 @@ System.namespace("DCET", function (namespace)
       local variables = this.behaviorTreeVariables:get(type)
 
       if not variables:ContainsKey(name) then
-        local variable = DCET.EntityFactory.Create1(DCET.Game.getScene(), DCET.VariableComponent_1(T))
+        local variable = DCET.EntityFactory.Create1(DCET.Game.Scene, DCET.VariableComponent_1(T))
         variable.Name = name
         variables:set(name, variable)
       end
@@ -78,7 +78,7 @@ System.namespace("DCET", function (namespace)
       local variables = this.behaviorTreeVariables:get(type)
 
       if not variables:ContainsKey(name) then
-        local variable = DCET.EntityFactory.Create1(DCET.Game.getScene(), DCET.VariableComponent_1(T))
+        local variable = DCET.EntityFactory.Create1(DCET.Game.Scene, DCET.VariableComponent_1(T))
         variable.Name = name
         variables:set(name, variable)
       end

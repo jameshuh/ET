@@ -10,7 +10,7 @@ System.namespace("DCET", function (namespace)
     local Create
     Create = function (domain, id)
       local player = DCET.EntityFactory.CreateWithId(domain, id, DCET.Player)
-      local playerComponent = DCET.Game.getScene():GetComponent(DCET.PlayerComponent)
+      local playerComponent = DCET.Game.Scene:GetComponent(DCET.PlayerComponent)
       playerComponent:Add(player)
       return player
     end

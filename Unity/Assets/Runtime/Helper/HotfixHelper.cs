@@ -1,19 +1,14 @@
-﻿using UnityEngine;
-
-namespace DCET.Runtime
+﻿namespace DCET.Runtime
 {
 	public static class HotfixHelper
 	{
 		public static void StartHotfix()
 		{
-			if (Define.IsLua)
-			{
-				LuaHelper.StartHotfix();
-			}
-			else
-			{
-				MonoHelper.StartHotfix();
-			}
+#if TOLUA
+			LuaHelper.StartHotfix();
+#else
+			MonoHelper.StartHotfix();
+#endif
 		}
 	}
 }

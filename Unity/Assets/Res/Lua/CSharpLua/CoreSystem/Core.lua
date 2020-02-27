@@ -168,12 +168,9 @@ local function genericName(name, ...)
       count = count + 1
     else
       hascomma = true
-    end 
-    
-    if cls.__name__ ~= nil then
-        t[count] = cls.__name__   
-        count = count + 1
-    end    
+    end
+    t[count] = cls.__name__
+    count = count + 1
   end
   t[count] = "]"
   return tconcat(t)
@@ -231,7 +228,6 @@ local function setBase(cls, kind)
     if extends then
       local base = extends[1]
       if not base then error(cls.__name__ .. "'s base is nil") end
-      if not base.class then error(cls.__name__ .. "'s base.class is nil") end
       if base.class == "I" then
         cls.interface = extends
         setmetatable(cls, Object)

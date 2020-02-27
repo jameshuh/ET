@@ -57,15 +57,15 @@ System.namespace("Google.Protobuf", function (namespace)
   -- </para>
   -- </remarks>
   namespace.class("CodedOutputStream", function (namespace)
-    local ComputeDoubleSize, ComputeFloatSize, ComputeUInt64Size, ComputeInt64Size, ComputeInt32Size, ComputeFixed64Size, ComputeFixed32Size, ComputeBoolSize, 
-    ComputeStringSize, ComputeGroupSize, ComputeMessageSize, ComputeBytesSize, ComputeUInt32Size, ComputeEnumSize, ComputeSFixed32Size, ComputeSFixed64Size, 
-    ComputeSInt32Size, ComputeSInt64Size, ComputeLengthSize, ComputeRawVarint32Size, ComputeRawVarint64Size, ComputeTagSize, Utf8Encoding, DefaultBufferSize, 
-    Reset, getPosition, WriteDouble, WriteFloat, WriteUInt64, WriteInt64, WriteInt32, WriteFixed64, 
-    WriteFixed32, WriteBool, WriteString, WriteMessage, WriteBytes, WriteUInt32, WriteEnum, WriteSFixed32, 
-    WriteSFixed64, WriteSInt32, WriteSInt64, WriteLength, WriteTag, WriteTag1, WriteRawTag, WriteRawTag1, 
-    WriteRawTag2, WriteRawTag3, WriteRawTag4, WriteRawVarint32, WriteRawVarint64, WriteRawLittleEndian32, WriteRawLittleEndian64, WriteRawByte, 
-    WriteRawByte1, WriteRawBytes, WriteRawBytes1, EncodeZigZag32, EncodeZigZag64, RefreshBuffer, Dispose, Flush, 
-    CheckNoSpaceLeft, getSpaceLeft, class, static, __ctor1__, __ctor2__, __ctor3__, __ctor4__, 
+    local Utf8Encoding, DefaultBufferSize, Reset, getPosition, WriteDouble, WriteFloat, WriteUInt64, WriteInt64, 
+    WriteInt32, WriteFixed64, WriteFixed32, WriteBool, WriteString, WriteMessage, WriteBytes, WriteUInt32, 
+    WriteEnum, WriteSFixed32, WriteSFixed64, WriteSInt32, WriteSInt64, WriteLength, WriteTag, WriteTag1, 
+    WriteRawTag, WriteRawTag1, WriteRawTag2, WriteRawTag3, WriteRawTag4, WriteRawVarint32, WriteRawVarint64, WriteRawLittleEndian32, 
+    WriteRawLittleEndian64, WriteRawByte, WriteRawByte1, WriteRawBytes, WriteRawBytes1, EncodeZigZag32, EncodeZigZag64, RefreshBuffer, 
+    Dispose, Flush, CheckNoSpaceLeft, getSpaceLeft, ComputeDoubleSize, ComputeFloatSize, ComputeUInt64Size, ComputeInt64Size, 
+    ComputeInt32Size, ComputeFixed64Size, ComputeFixed32Size, ComputeBoolSize, ComputeStringSize, ComputeGroupSize, ComputeMessageSize, ComputeBytesSize, 
+    ComputeUInt32Size, ComputeEnumSize, ComputeSFixed32Size, ComputeSFixed64Size, ComputeSInt32Size, ComputeSInt64Size, ComputeLengthSize, ComputeRawVarint32Size, 
+    ComputeRawVarint64Size, ComputeTagSize, class, static, __ctor1__, __ctor2__, __ctor3__, __ctor4__, 
     __ctor5__, __ctor6__, __ctor7__
     -- <summary>
     -- Indicates that a CodedOutputStream wrapping a flat byte array
@@ -151,205 +151,6 @@ System.namespace("Google.Protobuf", function (namespace)
     -- if <c>false</c>, the provided stream is disposed as well.</param>
     __ctor7__ = function (this, output, bufferSize, leaveOpen)
       __ctor3__(this, output, ArrayByte:new(bufferSize), leaveOpen)
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- double field, including the tag.
-    -- </summary>
-    ComputeDoubleSize = function (value)
-      return 8 --[[CodedOutputStream.LittleEndian64Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- float field, including the tag.
-    -- </summary>
-    ComputeFloatSize = function (value)
-      return 4 --[[CodedOutputStream.LittleEndian32Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- uint64 field, including the tag.
-    -- </summary>
-    ComputeUInt64Size = function (value)
-      return ComputeRawVarint64Size(value)
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- int64 field, including the tag.
-    -- </summary>
-    ComputeInt64Size = function (value)
-      return ComputeRawVarint64Size(System.toUInt64(value))
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- int32 field, including the tag.
-    -- </summary>
-    ComputeInt32Size = function (value)
-      if value >= 0 then
-        return ComputeRawVarint32Size(System.toUInt32(value))
-      else
-        -- Must sign-extend.
-        return 10
-      end
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- fixed64 field, including the tag.
-    -- </summary>
-    ComputeFixed64Size = function (value)
-      return 8 --[[CodedOutputStream.LittleEndian64Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- fixed32 field, including the tag.
-    -- </summary>
-    ComputeFixed32Size = function (value)
-      return 4 --[[CodedOutputStream.LittleEndian32Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- bool field, including the tag.
-    -- </summary>
-    ComputeBoolSize = function (value)
-      return 1
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- string field, including the tag.
-    -- </summary>
-    ComputeStringSize = function (value)
-      local byteArraySize = Utf8Encoding:GetByteCount(value)
-      return ComputeLengthSize(byteArraySize) + byteArraySize
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- group field, including the tag.
-    -- </summary>
-    ComputeGroupSize = function (value)
-      return value:CalculateSize()
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- embedded message field, including the tag.
-    -- </summary>
-    ComputeMessageSize = function (value)
-      local size = value:CalculateSize()
-      return ComputeLengthSize(size) + size
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- bytes field, including the tag.
-    -- </summary>
-    ComputeBytesSize = function (value)
-      return ComputeLengthSize(value:getLength()) + value:getLength()
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- uint32 field, including the tag.
-    -- </summary>
-    ComputeUInt32Size = function (value)
-      return ComputeRawVarint32Size(value)
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a
-    -- enum field, including the tag. The caller is responsible for
-    -- converting the enum value to its numeric value.
-    -- </summary>
-    ComputeEnumSize = function (value)
-      -- Currently just a pass-through, but it's nice to separate it logically.
-      return ComputeInt32Size(value)
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- sfixed32 field, including the tag.
-    -- </summary>
-    ComputeSFixed32Size = function (value)
-      return 4 --[[CodedOutputStream.LittleEndian32Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- sfixed64 field, including the tag.
-    -- </summary>
-    ComputeSFixed64Size = function (value)
-      return 8 --[[CodedOutputStream.LittleEndian64Size]]
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- sint32 field, including the tag.
-    -- </summary>
-    ComputeSInt32Size = function (value)
-      return ComputeRawVarint32Size(EncodeZigZag32(value))
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode an
-    -- sint64 field, including the tag.
-    -- </summary>
-    ComputeSInt64Size = function (value)
-      return ComputeRawVarint64Size(EncodeZigZag64(value))
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a length,
-    -- as written by <see cref="WriteLength"/>.
-    -- </summary>
-    ComputeLengthSize = function (length)
-      return ComputeRawVarint32Size(System.toUInt32(length))
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a varint.
-    -- </summary>
-    ComputeRawVarint32Size = function (value)
-      if (System.band(value, (4294967168 --[[0xffffffff << 7]]))) == 0 then
-        return 1
-      end
-      if (System.band(value, (4294950912 --[[0xffffffff << 14]]))) == 0 then
-        return 2
-      end
-      if (System.band(value, (4292870144 --[[0xffffffff << 21]]))) == 0 then
-        return 3
-      end
-      if (System.band(value, (4026531840 --[[0xffffffff << 28]]))) == 0 then
-        return 4
-      end
-      return 5
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a varint.
-    -- </summary>
-    ComputeRawVarint64Size = function (value)
-      if (System.band(value, (18446744073709551488 --[[0xffffffffffffffffL << 7]]))) == 0 then
-        return 1
-      end
-      if (System.band(value, (18446744073709535232 --[[0xffffffffffffffffL << 14]]))) == 0 then
-        return 2
-      end
-      if (System.band(value, (18446744073707454464 --[[0xffffffffffffffffL << 21]]))) == 0 then
-        return 3
-      end
-      if (System.band(value, (18446744073441116160 --[[0xffffffffffffffffL << 28]]))) == 0 then
-        return 4
-      end
-      if (System.band(value, (18446744039349813248 --[[0xffffffffffffffffL << 35]]))) == 0 then
-        return 5
-      end
-      if (System.band(value, (18446739675663040512 --[[0xffffffffffffffffL << 42]]))) == 0 then
-        return 6
-      end
-      if (System.band(value, (18446181123756130304 --[[0xffffffffffffffffL << 49]]))) == 0 then
-        return 7
-      end
-      if (System.band(value, (18374686479671623680 --[[0xffffffffffffffffL << 56]]))) == 0 then
-        return 8
-      end
-      if (System.band(value, (9223372036854775808 --[[0xffffffffffffffffL << 63]]))) == 0 then
-        return 9
-      end
-      return 10
-    end
-    -- <summary>
-    -- Computes the number of bytes that would be needed to encode a tag.
-    -- </summary>
-    ComputeTagSize = function (fieldNumber)
-      return ComputeRawVarint32Size(GoogleProtobuf.WireFormat.MakeTag(fieldNumber, 0))
     end
     DefaultBufferSize = 4096
     Reset = function (this, buf, offset, length)
@@ -825,34 +626,211 @@ System.namespace("Google.Protobuf", function (namespace)
                         "writing to a flat array."]]))
       end
     end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- double field, including the tag.
+    -- </summary>
+    ComputeDoubleSize = function (value)
+      return 8 --[[CodedOutputStream.LittleEndian64Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- float field, including the tag.
+    -- </summary>
+    ComputeFloatSize = function (value)
+      return 4 --[[CodedOutputStream.LittleEndian32Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- uint64 field, including the tag.
+    -- </summary>
+    ComputeUInt64Size = function (value)
+      return ComputeRawVarint64Size(value)
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- int64 field, including the tag.
+    -- </summary>
+    ComputeInt64Size = function (value)
+      return ComputeRawVarint64Size(System.toUInt64(value))
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- int32 field, including the tag.
+    -- </summary>
+    ComputeInt32Size = function (value)
+      if value >= 0 then
+        return ComputeRawVarint32Size(System.toUInt32(value))
+      else
+        -- Must sign-extend.
+        return 10
+      end
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- fixed64 field, including the tag.
+    -- </summary>
+    ComputeFixed64Size = function (value)
+      return 8 --[[CodedOutputStream.LittleEndian64Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- fixed32 field, including the tag.
+    -- </summary>
+    ComputeFixed32Size = function (value)
+      return 4 --[[CodedOutputStream.LittleEndian32Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- bool field, including the tag.
+    -- </summary>
+    ComputeBoolSize = function (value)
+      return 1
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- string field, including the tag.
+    -- </summary>
+    ComputeStringSize = function (value)
+      local byteArraySize = Utf8Encoding:GetByteCount(value)
+      return ComputeLengthSize(byteArraySize) + byteArraySize
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- group field, including the tag.
+    -- </summary>
+    ComputeGroupSize = function (value)
+      return value:CalculateSize()
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- embedded message field, including the tag.
+    -- </summary>
+    ComputeMessageSize = function (value)
+      local size = value:CalculateSize()
+      return ComputeLengthSize(size) + size
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- bytes field, including the tag.
+    -- </summary>
+    ComputeBytesSize = function (value)
+      return ComputeLengthSize(value:getLength()) + value:getLength()
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- uint32 field, including the tag.
+    -- </summary>
+    ComputeUInt32Size = function (value)
+      return ComputeRawVarint32Size(value)
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a
+    -- enum field, including the tag. The caller is responsible for
+    -- converting the enum value to its numeric value.
+    -- </summary>
+    ComputeEnumSize = function (value)
+      -- Currently just a pass-through, but it's nice to separate it logically.
+      return ComputeInt32Size(value)
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- sfixed32 field, including the tag.
+    -- </summary>
+    ComputeSFixed32Size = function (value)
+      return 4 --[[CodedOutputStream.LittleEndian32Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- sfixed64 field, including the tag.
+    -- </summary>
+    ComputeSFixed64Size = function (value)
+      return 8 --[[CodedOutputStream.LittleEndian64Size]]
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- sint32 field, including the tag.
+    -- </summary>
+    ComputeSInt32Size = function (value)
+      return ComputeRawVarint32Size(EncodeZigZag32(value))
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode an
+    -- sint64 field, including the tag.
+    -- </summary>
+    ComputeSInt64Size = function (value)
+      return ComputeRawVarint64Size(EncodeZigZag64(value))
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a length,
+    -- as written by <see cref="WriteLength"/>.
+    -- </summary>
+    ComputeLengthSize = function (length)
+      return ComputeRawVarint32Size(System.toUInt32(length))
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a varint.
+    -- </summary>
+    ComputeRawVarint32Size = function (value)
+      if (System.band(value, (4294967168 --[[0xffffffff << 7]]))) == 0 then
+        return 1
+      end
+      if (System.band(value, (4294950912 --[[0xffffffff << 14]]))) == 0 then
+        return 2
+      end
+      if (System.band(value, (4292870144 --[[0xffffffff << 21]]))) == 0 then
+        return 3
+      end
+      if (System.band(value, (4026531840 --[[0xffffffff << 28]]))) == 0 then
+        return 4
+      end
+      return 5
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a varint.
+    -- </summary>
+    ComputeRawVarint64Size = function (value)
+      if (System.band(value, (18446744073709551488 --[[0xffffffffffffffffL << 7]]))) == 0 then
+        return 1
+      end
+      if (System.band(value, (18446744073709535232 --[[0xffffffffffffffffL << 14]]))) == 0 then
+        return 2
+      end
+      if (System.band(value, (18446744073707454464 --[[0xffffffffffffffffL << 21]]))) == 0 then
+        return 3
+      end
+      if (System.band(value, (18446744073441116160 --[[0xffffffffffffffffL << 28]]))) == 0 then
+        return 4
+      end
+      if (System.band(value, (18446744039349813248 --[[0xffffffffffffffffL << 35]]))) == 0 then
+        return 5
+      end
+      if (System.band(value, (18446739675663040512 --[[0xffffffffffffffffL << 42]]))) == 0 then
+        return 6
+      end
+      if (System.band(value, (18446181123756130304 --[[0xffffffffffffffffL << 49]]))) == 0 then
+        return 7
+      end
+      if (System.band(value, (18374686479671623680 --[[0xffffffffffffffffL << 56]]))) == 0 then
+        return 8
+      end
+      if (System.band(value, (9223372036854775808 --[[0xffffffffffffffffL << 63]]))) == 0 then
+        return 9
+      end
+      return 10
+    end
+    -- <summary>
+    -- Computes the number of bytes that would be needed to encode a tag.
+    -- </summary>
+    ComputeTagSize = function (fieldNumber)
+      return ComputeRawVarint32Size(GoogleProtobuf.WireFormat.MakeTag(fieldNumber, 0))
+    end
     class = {
       base = function (out)
         return {
           System.IDisposable
         }
       end,
-      ComputeDoubleSize = ComputeDoubleSize,
-      ComputeFloatSize = ComputeFloatSize,
-      ComputeUInt64Size = ComputeUInt64Size,
-      ComputeInt64Size = ComputeInt64Size,
-      ComputeInt32Size = ComputeInt32Size,
-      ComputeFixed64Size = ComputeFixed64Size,
-      ComputeFixed32Size = ComputeFixed32Size,
-      ComputeBoolSize = ComputeBoolSize,
-      ComputeStringSize = ComputeStringSize,
-      ComputeGroupSize = ComputeGroupSize,
-      ComputeMessageSize = ComputeMessageSize,
-      ComputeBytesSize = ComputeBytesSize,
-      ComputeUInt32Size = ComputeUInt32Size,
-      ComputeEnumSize = ComputeEnumSize,
-      ComputeSFixed32Size = ComputeSFixed32Size,
-      ComputeSFixed64Size = ComputeSFixed64Size,
-      ComputeSInt32Size = ComputeSInt32Size,
-      ComputeSInt64Size = ComputeSInt64Size,
-      ComputeLengthSize = ComputeLengthSize,
-      ComputeRawVarint32Size = ComputeRawVarint32Size,
-      ComputeRawVarint64Size = ComputeRawVarint64Size,
-      ComputeTagSize = ComputeTagSize,
       DefaultBufferSize = DefaultBufferSize,
       leaveOpen = false,
       limit = 0,
@@ -898,6 +876,28 @@ System.namespace("Google.Protobuf", function (namespace)
       Flush = Flush,
       CheckNoSpaceLeft = CheckNoSpaceLeft,
       getSpaceLeft = getSpaceLeft,
+      ComputeDoubleSize = ComputeDoubleSize,
+      ComputeFloatSize = ComputeFloatSize,
+      ComputeUInt64Size = ComputeUInt64Size,
+      ComputeInt64Size = ComputeInt64Size,
+      ComputeInt32Size = ComputeInt32Size,
+      ComputeFixed64Size = ComputeFixed64Size,
+      ComputeFixed32Size = ComputeFixed32Size,
+      ComputeBoolSize = ComputeBoolSize,
+      ComputeStringSize = ComputeStringSize,
+      ComputeGroupSize = ComputeGroupSize,
+      ComputeMessageSize = ComputeMessageSize,
+      ComputeBytesSize = ComputeBytesSize,
+      ComputeUInt32Size = ComputeUInt32Size,
+      ComputeEnumSize = ComputeEnumSize,
+      ComputeSFixed32Size = ComputeSFixed32Size,
+      ComputeSFixed64Size = ComputeSFixed64Size,
+      ComputeSInt32Size = ComputeSInt32Size,
+      ComputeSInt64Size = ComputeSInt64Size,
+      ComputeLengthSize = ComputeLengthSize,
+      ComputeRawVarint32Size = ComputeRawVarint32Size,
+      ComputeRawVarint64Size = ComputeRawVarint64Size,
+      ComputeTagSize = ComputeTagSize,
       static = static,
       __ctor__ = {
         __ctor1__,

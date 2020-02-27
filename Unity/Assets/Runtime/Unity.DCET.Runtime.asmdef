@@ -2,13 +2,10 @@
     "name": "Unity.DCET.Runtime",
     "references": [
         "Unity.DCET.Core.Runtime",
-        "Unity.BehaviorDesigner.Runtime",
         "Unity.FairyGUI.Runtime",
-        "Unity.DCET.Message.Runtime",
         "Unity.DCET.Downloader.Runtime",
-        "Unity.MongoDB.Runtime",
-        "Unity.DCET.Pathfinding.Runtime",
-        "Unity.LitJson.Runtime"
+        "Unity.DCET.FairyGUI.Runtime",
+        "Unity.DCET.Lua.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

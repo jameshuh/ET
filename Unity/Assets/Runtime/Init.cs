@@ -168,7 +168,11 @@ namespace DCET.Runtime
 			{
 				GameLoop.onApplicationQuit?.Invoke();
 
-				Lua.Default.Dispose();
+				if (Define.IsLua)
+				{
+					Lua.Default.Dispose();
+				}
+
 				AssetBundles.Default.Dispose();
 			}
 			catch (Exception e)

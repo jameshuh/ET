@@ -105,18 +105,19 @@ System.namespace("DCET", function (namespace)
       end
       this.handlers:get(opcode):Add(handler)
     end
-    Handle = function (this, session, messageInfo)
+    Handle = function (this, session, opcode, message)
       local actions
       local default
-      default, actions = this.handlers:TryGetValue(messageInfo.Opcode)
+      default, actions = this.handlers:TryGetValue(opcode)
       if not default then
-        DCET.Log.Error1("消息没有处理: " .. messageInfo.Opcode .. " " .. DCET.JsonHelper.ToJson(messageInfo.Message))
+        DCET.Log.Error1("消息没有处理: opcode=" .. opcode)
+        DCET.Log.Error1("消息没有处理: message=" .. DCET.JsonHelper.ToJson(message))
         return
       end
 
       for _, ev in System.each(actions) do
         System.try(function ()
-          ev:Handle(session, messageInfo.Message)
+          ev:Handle(session, message)
         end, function (default)
           local e = default
           DCET.Log.Error(e)
