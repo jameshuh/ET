@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "App": {
-      "commandName": "Project",
-      "commandLineArgs": "--id=1 --config=AllServer.txt",
-      "workingDirectory": "../../Bin"
-    }
-  }
-}
