@@ -10,7 +10,7 @@ namespace DCET.Editor
         private const string path = @"./Assets/Res/GlobalProto.txt";
         private GlobalProto globalProto;
 
-        [MenuItem("Tools/全局配置")]
+        [MenuItem("Tools/Start Global Config")]
         public static void ShowWindow()
         {
             GetWindow<GlobalProtoEditor>();

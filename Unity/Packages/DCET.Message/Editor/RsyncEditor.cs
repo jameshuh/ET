@@ -11,7 +11,7 @@ namespace DCET.Editor
 		private RsyncConfig rsyncConfig;
 		private bool isFold = true;
 
-		[MenuItem("Tools/Rsync同步")]
+		[MenuItem("Tools/Start Rsync")]
 		private static void ShowWindow()
 		{
 			GetWindow(typeof (RsyncEditor));

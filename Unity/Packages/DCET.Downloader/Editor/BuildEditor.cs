@@ -39,7 +39,7 @@ namespace DCET.Editor
 		private BuildOptions buildOptions = BuildOptions.AllowDebugging | BuildOptions.Development;
 		private BuildAssetBundleOptions buildAssetBundleOptions = BuildAssetBundleOptions.None;
 
-		[MenuItem("Tools/打包工具")]
+		[MenuItem("Tools/Build Installer")]
 		public static void ShowWindow()
 		{
 			GetWindow(typeof(BuildEditor));

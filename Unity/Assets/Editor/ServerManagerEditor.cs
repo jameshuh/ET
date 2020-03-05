@@ -10,7 +10,7 @@ namespace DCET.Editor
 		private string account;
 		private string password;
 
-		[MenuItem("Tools/服务器管理工具")]
+		[MenuItem("Tools/Start Server Manager")]
 		private static void ShowWindow()
 		{
 			GetWindow(typeof (ServerManagerEditor));

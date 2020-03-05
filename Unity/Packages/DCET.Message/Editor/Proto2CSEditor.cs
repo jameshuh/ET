@@ -12,7 +12,7 @@ namespace DCET.Editor
 
 	public class Proto2CSEditor : EditorWindow
 	{
-		[MenuItem("Tools/Proto2CS")]
+		[MenuItem("Tools/Gen Proto")]
 		public static void AllProto2CS()
 		{
 			Process process = ProcessHelper.Run("dotnet", "Proto2CS.dll", "../Proto/", false);

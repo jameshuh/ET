@@ -36,7 +36,7 @@ namespace DCET.Editor
 
 	public class ExcelExporterEditor : EditorWindow
 	{
-		[MenuItem("Tools/导出配置")]
+		[MenuItem("Tools/Start Config")]
 		private static void ShowWindow()
 		{
 			GetWindow(typeof(ExcelExporterEditor));

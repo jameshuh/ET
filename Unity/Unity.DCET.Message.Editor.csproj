@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Packages\DCET.Message\Editor\GenMessageHotfix.cs" />
-    <Compile Include="Packages\DCET.Message\Editor\GenProtocol.cs" />
     <Compile Include="Packages\DCET.Message\Editor\Proto2CSEditor.cs" />
     <Compile Include="Packages\DCET.Message\Editor\RsyncConfig.cs" />
     <Compile Include="Packages\DCET.Message\Editor\RsyncEditor.cs" />

@@ -306,7 +306,7 @@ namespace DCET.Editor
 		public const string Core = "Unity.DCET.Core.Hotfix";
 		public const string Config = "Unity.DCET.Config.Hotfix";
 
-		[MenuItem("Tools/命令行配置")]
+		[MenuItem("Tools/Start Server Command")]
 		private static void ShowWindow()
 		{
 			GetWindow(typeof (ServerCommandLineEditor));
