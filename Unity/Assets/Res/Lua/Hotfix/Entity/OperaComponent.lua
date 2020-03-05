@@ -65,9 +65,9 @@ System.namespace("DCET", function (namespace)
         default, hit = UnityEngine.Physics.Raycast(ray, nil, 1000, this.mapMask)
         if default then
           this.ClickPoint = hit.point:__clone__()
-          this.frameClickMap:setX(this.ClickPoint.x)
-          this.frameClickMap:setY(this.ClickPoint.y)
-          this.frameClickMap:setZ(this.ClickPoint.z)
+          this.frameClickMap.X = this.ClickPoint.x
+          this.frameClickMap.Y = this.ClickPoint.y
+          this.frameClickMap.Z = this.ClickPoint.z
           DCET.SessionComponent.Instance:getSession():Send(this.frameClickMap)
 
           -- 测试actor rpc消息
@@ -79,9 +79,9 @@ System.namespace("DCET", function (namespace)
       System.async(function (async, this)
         System.try(function ()
           local default = DCET.C2M_TestActorRequest()
-          default:setInfo("actor rpc request")
+          default.Info = "actor rpc request"
           local response = System.cast(DCET.M2C_TestActorResponse, async:await(DCET.SessionComponent.Instance:getSession():Call(default)))
-          DCET.Log.Info(response:getInfo())
+          DCET.Log.Info(response.Info)
         end, function (default)
           local e = default
           DCET.Log.Error(e)

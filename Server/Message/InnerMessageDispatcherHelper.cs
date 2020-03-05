@@ -2,7 +2,7 @@
 {
 	public static class InnerMessageDispatcherHelper
     {
-        public static async void HandleIActorResponse(Session session, IActorResponse iActorResponse)
+        public static void HandleIActorResponse(Session session, IActorResponse iActorResponse)
 		{
 			ActorMessageSenderComponent.Instance.RunMessage(iActorResponse);
 		}

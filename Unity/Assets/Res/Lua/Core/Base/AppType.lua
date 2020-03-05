@@ -17,7 +17,7 @@ System.namespace("DCET", function (namespace)
       return appTypes
     end
     Is = function (a, b)
-      if (a & b) ~= 0 then
+      if (System.band(a, b)) ~= 0 then
         return true
       end
       return false

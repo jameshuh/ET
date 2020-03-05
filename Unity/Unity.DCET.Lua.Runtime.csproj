@@ -596,6 +596,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\ReferenceCollectorDataWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\ReferenceCollectorWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_AttributeWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Collections_Concurrent_ConcurrentDictionary_System_Type_System_TypeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixActionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixCompositeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixConditionalWrap.cs" />
@@ -605,6 +606,10 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_IO_MemoryStreamWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_IO_PathWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_IO_StreamWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Linq_Expressions_ElementInitWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Linq_Expressions_ExpressionWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Linq_Expressions_MemberBindingWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Linq_Expressions_ParameterExpressionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_MarshalByRefObjectWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Net_EndPointWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Net_IPAddressWrap.cs" />
@@ -613,9 +618,13 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Net_Sockets_ProtocolTypeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Net_Sockets_SocketTypeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Net_Sockets_SocketWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Security_Cryptography_HashAlgorithmWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Security_Cryptography_SHA1Wrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Security_SecurityExceptionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_SerializableAttributeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_SystemExceptionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Text_EncodingWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Text_RegularExpressions_RegexWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\System_Threading_SynchronizationContextWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimationBlendModeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimationClipWrap.cs" />
@@ -938,9 +947,6 @@
     </Reference>
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
@@ -1348,6 +1354,10 @@
     <ProjectReference Include="Unity.DCET.FairyGUI.Runtime.csproj">
       <Project>{F57730E8-0F11-9C9D-04A0-CD3982B7B385}</Project>
       <Name>Unity.DCET.FairyGUI.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
+      <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
+      <Name>Unity.ProtoBuf.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

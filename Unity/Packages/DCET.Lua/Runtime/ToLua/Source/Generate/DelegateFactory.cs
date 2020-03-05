@@ -45,6 +45,9 @@ public class DelegateFactory
 		dict.Add(typeof(System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
+		dict.Add(typeof(System.Text.RegularExpressions.MatchEvaluator), factory.System_Text_RegularExpressions_MatchEvaluator);
+		dict.Add(typeof(System.Func<System.Type,System.Type>), factory.System_Func_System_Type_System_Type);
+		dict.Add(typeof(System.Func<System.Type,System.Type,System.Type>), factory.System_Func_System_Type_System_Type_System_Type);
 		dict.Add(typeof(DCET.Runtime.KcpOutput), factory.DCET_Runtime_KcpOutput);
 		dict.Add(typeof(BehaviorDesigner.Runtime.Behavior.BehaviorHandler), factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		dict.Add(typeof(System.Func<float>), factory.System_Func_float);
@@ -132,6 +135,9 @@ public class DelegateFactory
 		DelegateTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
+		DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Init(factory.System_Text_RegularExpressions_MatchEvaluator);
+		DelegateTraits<System.Func<System.Type,System.Type>>.Init(factory.System_Func_System_Type_System_Type);
+		DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Init(factory.System_Func_System_Type_System_Type_System_Type);
 		DelegateTraits<DCET.Runtime.KcpOutput>.Init(factory.DCET_Runtime_KcpOutput);
 		DelegateTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		DelegateTraits<System.Func<float>>.Init(factory.System_Func_float);
@@ -219,6 +225,9 @@ public class DelegateFactory
 		TypeTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
+		TypeTraits<System.Text.RegularExpressions.MatchEvaluator>.Init(factory.Check_System_Text_RegularExpressions_MatchEvaluator);
+		TypeTraits<System.Func<System.Type,System.Type>>.Init(factory.Check_System_Func_System_Type_System_Type);
+		TypeTraits<System.Func<System.Type,System.Type,System.Type>>.Init(factory.Check_System_Func_System_Type_System_Type_System_Type);
 		TypeTraits<DCET.Runtime.KcpOutput>.Init(factory.Check_DCET_Runtime_KcpOutput);
 		TypeTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.Check_BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		TypeTraits<System.Func<float>>.Init(factory.Check_System_Func_float);
@@ -306,6 +315,9 @@ public class DelegateFactory
 		StackTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
+		StackTraits<System.Text.RegularExpressions.MatchEvaluator>.Push = factory.Push_System_Text_RegularExpressions_MatchEvaluator;
+		StackTraits<System.Func<System.Type,System.Type>>.Push = factory.Push_System_Func_System_Type_System_Type;
+		StackTraits<System.Func<System.Type,System.Type,System.Type>>.Push = factory.Push_System_Func_System_Type_System_Type_System_Type;
 		StackTraits<DCET.Runtime.KcpOutput>.Push = factory.Push_DCET_Runtime_KcpOutput;
 		StackTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Push = factory.Push_BehaviorDesigner_Runtime_Behavior_BehaviorHandler;
 		StackTraits<System.Func<float>>.Push = factory.Push_System_Func_float;
@@ -2119,6 +2131,191 @@ public class DelegateFactory
 	}
 
 	void Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator(IntPtr L, System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Text_RegularExpressions_MatchEvaluator_Event : LuaDelegate
+	{
+		public System_Text_RegularExpressions_MatchEvaluator_Event(LuaFunction func) : base(func) { }
+		public System_Text_RegularExpressions_MatchEvaluator_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public string Call(System.Text.RegularExpressions.Match param0)
+		{
+			func.BeginPCall();
+			func.PushObject(param0);
+			func.PCall();
+			string ret = func.CheckString();
+			func.EndPCall();
+			return ret;
+		}
+
+		public string CallWithSelf(System.Text.RegularExpressions.Match param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PushObject(param0);
+			func.PCall();
+			string ret = func.CheckString();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Text.RegularExpressions.MatchEvaluator System_Text_RegularExpressions_MatchEvaluator(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Text.RegularExpressions.MatchEvaluator fn = delegate(System.Text.RegularExpressions.Match param0) { return null; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Text_RegularExpressions_MatchEvaluator_Event target = new System_Text_RegularExpressions_MatchEvaluator_Event(func);
+			System.Text.RegularExpressions.MatchEvaluator d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Text_RegularExpressions_MatchEvaluator_Event target = new System_Text_RegularExpressions_MatchEvaluator_Event(func, self);
+			System.Text.RegularExpressions.MatchEvaluator d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Text_RegularExpressions_MatchEvaluator(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Text.RegularExpressions.MatchEvaluator), L, pos);
+	}
+
+	void Push_System_Text_RegularExpressions_MatchEvaluator(IntPtr L, System.Text.RegularExpressions.MatchEvaluator o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Func_System_Type_System_Type_Event : LuaDelegate
+	{
+		public System_Func_System_Type_System_Type_Event(LuaFunction func) : base(func) { }
+		public System_Func_System_Type_System_Type_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public System.Type Call(System.Type param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
+			func.EndPCall();
+			return ret;
+		}
+
+		public System.Type CallWithSelf(System.Type param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Func<System.Type,System.Type> System_Func_System_Type_System_Type(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Func<System.Type,System.Type> fn = delegate(System.Type param0) { return null; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Func_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_Event(func);
+			System.Func<System.Type,System.Type> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Func_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_Event(func, self);
+			System.Func<System.Type,System.Type> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Func_System_Type_System_Type(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Func<System.Type,System.Type>), L, pos);
+	}
+
+	void Push_System_Func_System_Type_System_Type(IntPtr L, System.Func<System.Type,System.Type> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Func_System_Type_System_Type_System_Type_Event : LuaDelegate
+	{
+		public System_Func_System_Type_System_Type_System_Type_Event(LuaFunction func) : base(func) { }
+		public System_Func_System_Type_System_Type_System_Type_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public System.Type Call(System.Type param0, System.Type param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
+			func.EndPCall();
+			return ret;
+		}
+
+		public System.Type CallWithSelf(System.Type param0, System.Type param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Func<System.Type,System.Type,System.Type> System_Func_System_Type_System_Type_System_Type(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Func<System.Type,System.Type,System.Type> fn = delegate(System.Type param0, System.Type param1) { return null; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Func_System_Type_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_System_Type_Event(func);
+			System.Func<System.Type,System.Type,System.Type> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Func_System_Type_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_System_Type_Event(func, self);
+			System.Func<System.Type,System.Type,System.Type> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Func_System_Type_System_Type_System_Type(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Func<System.Type,System.Type,System.Type>), L, pos);
+	}
+
+	void Push_System_Func_System_Type_System_Type_System_Type(IntPtr L, System.Func<System.Type,System.Type,System.Type> o)
 	{
 		ToLua.Push(L, o);
 	}

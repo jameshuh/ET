@@ -46,10 +46,10 @@ System.namespace("DCET", function (namespace)
         this.CancellationTokenSource = System.CancellationTokenSource()
 
         this.Path:Clear()
-        for i = 0, message:getXs():getCount() - 1 do
-          this.Path:Add(UnityEngine.Vector3(message:getXs():get(i), message:getYs():get(i), message:getZs():get(i)))
+        for i = 0, #message.Xs - 1 do
+          this.Path:Add(UnityEngine.Vector3(message.Xs:get(i), message.Ys:get(i), message.Zs:get(i)))
         end
-        this.ServerPos = UnityEngine.Vector3(message:getX(), message:getY(), message:getZ())
+        this.ServerPos = UnityEngine.Vector3(message.X, message.Y, message.Z)
 
         async:await(StartMove(this, this.CancellationTokenSource:getToken()))
         this.CancellationTokenSource:Dispose()

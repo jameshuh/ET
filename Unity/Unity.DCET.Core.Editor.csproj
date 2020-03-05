@@ -72,6 +72,28 @@
     <Compile Include="Packages\DCET.Core\Editor\PrefabLightmapDataInspector.cs" />
     <Compile Include="Packages\DCET.Core\Editor\ReferenceCollectorEditor.cs" />
     <Compile Include="Packages\DCET.Core\Editor\ReferenceLoaderInspector.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\ComponentViewEditor.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\Entity\EditorLayout.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\Entity\SerializationTypeExtension.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\ITypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\ITypeDrawerAttribute.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\AnimationCurveTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\BoolTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\BoundsTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\CharTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\ColorTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\DateTimeTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\DoubleTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\EnumTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\FloatTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\IntTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\LongTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\RectTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\StringTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\UnityObjectTypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\Vector2TypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\Vector3TypeDrawer.cs" />
+    <Compile Include="Packages\DCET.Core\Editor\View\TypeDrawer\Vector4TypeDrawer.cs" />
     <None Include="Packages\DCET.Core\Editor\Unity.DCET.Core.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -339,9 +361,6 @@
     </Reference>
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>

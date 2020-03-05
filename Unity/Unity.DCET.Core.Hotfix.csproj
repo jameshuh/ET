@@ -391,9 +391,6 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>

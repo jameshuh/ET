@@ -15,23 +15,23 @@ System.namespace("DCET", function (namespace)
           local session = DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(DCETRuntime.GlobalConfigComponent.getInstance().GlobalProto.Address)
 
           local default = DCET.C2R_Login()
-          default:setAccount(account)
-          default:setPassword("111111")
+          default.Account = account
+          default.Password = "111111"
           local r2CLogin = System.cast(DCET.R2C_Login, async:await(session:Call(default)))
 
           session:Dispose()
 
-          DCET.SessionComponent.Instance:setSession(DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(r2CLogin:getAddress()))
+          DCET.SessionComponent.Instance:setSession(DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(r2CLogin.Address))
 
           local extern = DCET.C2G_LoginGate()
-          extern:setKey(r2CLogin:getKey())
-          extern:setGateId(r2CLogin:getGateId())
+          extern.Key = r2CLogin.Key
+          extern.GateId = r2CLogin.GateId
           local g2CLoginGate = System.cast(DCET.G2C_LoginGate, async:await(DCET.SessionComponent.Instance:getSession():Call(extern)))
 
           DCET.Log.Info("登陆gate成功!")
 
           -- 创建Player
-          local player = DCET.EntityFactory.CreateWithId(DCET.Game.Scene, g2CLoginGate:getPlayerId(), DCET.Player)
+          local player = DCET.EntityFactory.CreateWithId(DCET.Game.Scene, g2CLoginGate.PlayerId, DCET.Player)
           local playerComponent = DCET.Game.Scene:GetComponent(DCET.PlayerComponent)
           playerComponent:setMyPlayer(player)
 

@@ -13,7 +13,6 @@ namespace DCET.Editor
 		private static List<string> ReferencedLuaAssemblies = new List<string>() 
 		{
 			GenCoreHotfix.DllName,
-			GenGoogleProtoBuf.DllName
 		};
 
 		static GenMessageHotfix()

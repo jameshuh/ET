@@ -114,6 +114,8 @@ public static class LuaBinder
 		L.RegFunction("Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
+		L.RegFunction("Func_System_Type_System_Type", System_Func_System_Type_System_Type);
+		L.RegFunction("Func_System_Type_System_Type_System_Type", System_Func_System_Type_System_Type_System_Type);
 		L.RegFunction("Func_float", System_Func_float);
 		L.RegFunction("Func_BehaviorDesigner_Runtime_Tasks_TaskStatus", System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
 		L.RegFunction("Func_object_bool", System_Func_object_bool);
@@ -167,9 +169,31 @@ public static class LuaBinder
 		System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixConditionalWrap.Register(L);
 		System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixDecoratorWrap.Register(L);
 		L.EndModule();
+		L.BeginModule("Concurrent");
+		System_Collections_Concurrent_ConcurrentDictionary_System_Type_System_TypeWrap.Register(L);
+		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Text");
 		System_Text_EncodingWrap.Register(L);
+		L.BeginModule("RegularExpressions");
+		System_Text_RegularExpressions_RegexWrap.Register(L);
+		L.RegFunction("MatchEvaluator", System_Text_RegularExpressions_MatchEvaluator);
+		L.EndModule();
+		L.EndModule();
+		L.BeginModule("Linq");
+		L.BeginModule("Expressions");
+		System_Linq_Expressions_ParameterExpressionWrap.Register(L);
+		System_Linq_Expressions_ElementInitWrap.Register(L);
+		System_Linq_Expressions_MemberBindingWrap.Register(L);
+		System_Linq_Expressions_ExpressionWrap.Register(L);
+		L.EndModule();
+		L.EndModule();
+		L.BeginModule("Security");
+		System_Security_SecurityExceptionWrap.Register(L);
+		L.BeginModule("Cryptography");
+		System_Security_Cryptography_SHA1Wrap.Register(L);
+		System_Security_Cryptography_HashAlgorithmWrap.Register(L);
+		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Threading");
 		System_Threading_SynchronizationContextWrap.Register(L);
@@ -1520,6 +1544,60 @@ public static class LuaBinder
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Func_System_Type_System_Type(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Func_System_Type_System_Type_System_Type(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int System_Func_float(IntPtr L)
 	{
 		try
@@ -2292,6 +2370,33 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<System.Action<UnityEngine.Collider2D>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Text_RegularExpressions_MatchEvaluator(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

@@ -11,13 +11,10 @@
         "Unity.DCET.Config.Editor",
         "Unity.DCET.FairyGUI.Editor",
         "Unity.DCET.Message.Editor",
-        "Unity.ProtoBuf.Editor",
         "Unity.FairyGUI.Runtime",
         "Unity.DCET.Core.Hotfix",
         "Unity.DCET.Hotfix",
-        "Unity.DCET.Message.Hotfix",
-        "Unity.ProtoBuf.Runtime",
-        "Unity.MongoDB.Editor"
+        "Unity.DCET.Message.Hotfix"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

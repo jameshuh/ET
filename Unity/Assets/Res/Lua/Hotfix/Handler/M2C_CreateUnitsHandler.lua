@@ -13,15 +13,15 @@ System.namespace("DCET", function (namespace)
       return System.async(function (async, this, session, message)
         local unitComponent = DCET.Game.Scene:GetComponent(DCET.UnitComponent)
 
-        for _, unitInfo in System.each(message:getUnits()) do
+        for _, unitInfo in System.each(message.Units) do
           local continue
           repeat
-            if unitComponent:Get(unitInfo:getUnitId()) ~= nil then
+            if unitComponent:Get(unitInfo.UnitId) ~= nil then
               continue = true
               break
             end
-            local unit = DCET.UnitFactory.Create(DCET.Game.Scene, unitInfo:getUnitId())
-            unit:setPosition(UnityEngine.Vector3(unitInfo:getX(), unitInfo:getY(), unitInfo:getZ()))
+            local unit = DCET.UnitFactory.Create(DCET.Game.Scene, unitInfo.UnitId)
+            unit:setPosition(UnityEngine.Vector3(unitInfo.X, unitInfo.Y, unitInfo.Z))
             continue = true
           until 1
           if not continue then

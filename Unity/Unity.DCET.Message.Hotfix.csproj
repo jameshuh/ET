@@ -71,7 +71,6 @@
     <Compile Include="Packages\DCET.Message\Hotfix\IMessageDispatcher.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\IMessagePacker.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\IMHandler.cs" />
-    <Compile Include="Packages\DCET.Message\Hotfix\IProtocol.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageAttribute.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageDispatcherComponent.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\MessageHandlerAttribute.cs" />
@@ -354,9 +353,6 @@
     </Reference>
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>

@@ -23,7 +23,7 @@ System.namespace("DCET", function (namespace)
           end)
 
           local g2CEnterMap = System.as(async:await(DCET.SessionComponent.Instance:getSession():Call(DCET.C2G_EnterMap())), DCET.G2C_EnterMap)
-          DCET.PlayerComponent.Instance:getMyPlayer().UnitId = g2CEnterMap:getUnitId()
+          DCET.PlayerComponent.Instance:getMyPlayer().UnitId = g2CEnterMap.UnitId
 
           DCET.Game.Scene:AddComponent(DCET.OperaComponent)
 

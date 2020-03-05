@@ -12,7 +12,7 @@ System.namespace("DCET", function (namespace)
     local Run
     Run = function (this, session, message)
       return System.async(function (async, this, session, message)
-        local unit = DCET.Game.Scene:GetComponent(DCET.UnitComponent):Get(message:getId())
+        local unit = DCET.Game.Scene:GetComponent(DCET.UnitComponent):Get(message.Id)
 
 
         unit:GetComponent(DCET.AnimatorComponent):SetFloatValue("Speed", 5)
@@ -21,9 +21,9 @@ System.namespace("DCET", function (namespace)
         unitPathComponent:StartMove1(message)
 
         DCETRuntime.GizmosDebug.getInstance().Path:Clear()
-        DCETRuntime.GizmosDebug.getInstance().Path:Add(UnityEngine.Vector3(message:getX(), message:getY(), message:getZ()))
-        for i = 0, message:getXs():getCount() - 1 do
-          DCETRuntime.GizmosDebug.getInstance().Path:Add(UnityEngine.Vector3(message:getXs():get(i), message:getYs():get(i), message:getZs():get(i)))
+        DCETRuntime.GizmosDebug.getInstance().Path:Add(UnityEngine.Vector3(message.X, message.Y, message.Z))
+        for i = 0, #message.Xs - 1 do
+          DCETRuntime.GizmosDebug.getInstance().Path:Add(UnityEngine.Vector3(message.Xs:get(i), message.Ys:get(i), message.Zs:get(i)))
         end
 
         async:await(System.Task.getCompletedTask())

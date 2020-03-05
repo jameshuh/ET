@@ -1,4 +1,4 @@
-﻿using Google.Protobuf;
+﻿using ProtoBuf.Meta;
 using System;
 using System.IO;
 
@@ -8,40 +8,50 @@ namespace DCET
 	{
 		public static byte[] ToBytes(object message)
 		{
-			return ((Google.Protobuf.IMessage) message).ToByteArray();
+			using (MemoryStream memoryStream = new MemoryStream())
+			{
+				RuntimeTypeModel.Default.Serialize(memoryStream, message);
+
+				return memoryStream.ToArray();
+			}
 		}
 		
-		public static void ToStream(object message, MemoryStream stream)
+		public static void ToStream(object message, MemoryStream memoryStream)
 		{
-			((Google.Protobuf.IMessage) message).WriteTo(stream);
+			RuntimeTypeModel.Default.Serialize(memoryStream, message);
 		}
 		
 		public static object FromBytes(Type type, byte[] bytes, int index, int count)
 		{
-			object message = Activator.CreateInstance(type);
-			((Google.Protobuf.IMessage)message).MergeFrom(bytes, index, count);
-			return message;
+			using (MemoryStream s = new MemoryStream(bytes, index, count))
+			{
+				return RuntimeTypeModel.Default.Deserialize(s, null, type);
+			}
 		}
 		
 		public static object FromBytes(object instance, byte[] bytes, int index, int count)
 		{
-			object message = instance;
-			((Google.Protobuf.IMessage)message).MergeFrom(bytes, index, count);
-			return message;
+			if(instance != null)
+			{
+				return FromBytes(instance.GetType(), bytes, index, count);
+			}
+
+			return null;
 		}
 		
 		public static object FromStream(Type type, MemoryStream stream)
 		{
-			object message = Activator.CreateInstance(type);
-			((Google.Protobuf.IMessage)message).MergeFrom(stream.GetBuffer(), (int)stream.Position, (int)stream.Length);
-			return message;
+			return RuntimeTypeModel.Default.Deserialize(stream, null, type);
 		}
 		
 		public static object FromStream(object message, MemoryStream stream)
 		{
-			// 这个message可以从池中获取，减少gc
-			((Google.Protobuf.IMessage)message).MergeFrom(stream.GetBuffer(), (int)stream.Position, (int)stream.Length);
-			return message;
+			if(message != null)
+			{
+				return FromStream(message.GetType(), stream);
+			}
+
+			return null;
 		}
 	}
 }

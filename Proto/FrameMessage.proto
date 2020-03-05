@@ -1,0 +1,49 @@
+package DCET;
+
+message ObjectAddRequest // IActorRequest
+{
+	required int64 Key = 1;
+    required int64 InstanceId = 2;
+}
+
+message ObjectAddResponse // IActorResponse
+{
+}
+
+message ObjectLockRequest // IActorRequest
+{
+    required int64 Key = 1;
+    required int64 InstanceId = 2;
+    required int32 Time = 3;
+}
+message ObjectLockResponse // IActorResponse
+{
+}
+
+message ObjectUnLockRequest // IActorRequest
+{
+    required int64 Key = 1;
+    required int64 OldInstanceId = 2;
+    required int64 InstanceId = 3;
+}
+message ObjectUnLockResponse // IActorResponse
+{
+}
+
+message ObjectRemoveRequest // IActorRequest
+{
+    required int64 Key = 1;
+}
+message ObjectRemoveResponse // IActorResponse
+{
+}
+
+message ObjectGetRequest // IActorRequest
+{
+    required int64 Key = 1;
+}
+
+message ObjectGetResponse // IActorResponse
+{
+    required int64 InstanceId = 1;
+}

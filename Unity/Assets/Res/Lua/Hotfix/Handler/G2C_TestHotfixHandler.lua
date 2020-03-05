@@ -6,7 +6,7 @@ System.namespace("DCET", function (namespace)
     local Run
     Run = function (this, session, message)
       return System.async(function (async, this, session, message)
-        DCET.Log.Debug(message:getInfo())
+        DCET.Log.Debug(message.Info)
         async:await(System.Task.getCompletedTask())
       end, nil, this, session, message)
     end

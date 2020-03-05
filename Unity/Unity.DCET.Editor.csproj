@@ -333,9 +333,6 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
@@ -747,10 +744,6 @@
       <Project>{C6F6A52B-E7DC-4861-E6F6-24D49B997422}</Project>
       <Name>Unity.DCET.Message.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ProtoBuf.Editor.csproj">
-      <Project>{497B4995-A9A8-0F50-6190-BD65B3CF9FD6}</Project>
-      <Name>Unity.ProtoBuf.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.FairyGUI.Runtime.csproj">
       <Project>{02078D6A-F042-765D-85AD-170AD6896D45}</Project>
       <Name>Unity.FairyGUI.Runtime</Name>
@@ -766,14 +759,6 @@
     <ProjectReference Include="Unity.DCET.Message.Hotfix.csproj">
       <Project>{E6C2B0CA-8B2B-5B5C-F7B7-8471A9817C7A}</Project>
       <Name>Unity.DCET.Message.Hotfix</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
-      <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
-      <Name>Unity.ProtoBuf.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.MongoDB.Editor.csproj">
-      <Project>{C23132B1-BE0F-46FA-9602-30F3B11D963B}</Project>
-      <Name>Unity.MongoDB.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

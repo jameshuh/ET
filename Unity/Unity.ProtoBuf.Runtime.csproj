@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -63,24 +63,100 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\Google Protobuf\Runtime\ByteArray.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\ByteString.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\CodedInputStream.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\CodedOutputStream.ComputeSize.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\CodedOutputStream.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\FieldCodec.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\ICustomDiagnosticMessage.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\IMessage.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\InvalidProtocolBufferException.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\LimitedInputStream.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\MessageExtensions.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\MessageParser.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\PropertyInfoExtensions.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\ProtoPreconditions.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\RepeatedField.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\StreamExtensions.cs" />
-    <Compile Include="Packages\Google Protobuf\Runtime\WireFormat.cs" />
-    <None Include="Packages\Google Protobuf\Runtime\Unity.ProtoBuf.Runtime.asmdef" />
+    <Compile Include="Packages\Protobuf\Runtime\BclHelpers.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\BufferExtension.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\BufferPool.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\CallbackAttributes.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Compiler\CompilerContext.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Compiler\CompilerDelegates.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Compiler\Local.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\DataFormat.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\DiscriminatedUnion.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Extensible.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ExtensibleUtil.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\GlobalSuppressions.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Helpers.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\IExtensible.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\IExtension.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ImplicitFields.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\KeyValuePairProxy.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\AttributeMap.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\BasicList.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\CallbackSet.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\MetaType.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\ProtoSyntax.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\RuntimeTypeModel.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\SubType.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\TypeFormatEventArgs.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\TypeModel.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Meta\ValueMember.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\NetObjectCache.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\PrefixStyle.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtobufPropertyHelper.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoContractAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoConverterAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoEnumAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoException.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoIgnoreAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoIncludeAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoMapAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoMemberAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoReader.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ProtoWriter.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\PType.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\SerializationContext.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ArrayDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\BlobSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\BooleanSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ByteSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\CharSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\CompiledSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\DateTimeSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\DecimalSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\DefaultValueDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\DoubleSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\EnumSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\FieldDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\GuidSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ImmutableCollectionDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\Int16Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\Int32Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\Int64Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\IProtoSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\IProtoTypeSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ISerializerProxy.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ListDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\MapDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\MemberSpecifiedDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\NetObjectSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\NullDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ParseableSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\PropertyDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ProtoDecoratorBase.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\ReflectedUriDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\SByteSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\SingleSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\StringSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\SubItemSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\SurrogateSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\SystemTypeSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\TagDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\TimeSpanSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\TupleSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\TypeSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\UInt16Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\UInt32Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\UInt64Serializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\Serializers\UriDecorator.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ServiceModel\ProtoBehaviorAttribute.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ServiceModel\ProtoBehaviorExtensionElement.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ServiceModel\ProtoEndpointBehavior.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ServiceModel\ProtoOperationBehavior.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\SubItemToken.cs" />
+    <Compile Include="Packages\Protobuf\Runtime\WireType.cs" />
+    <None Include="Packages\Protobuf\Runtime\Unity.ProtoBuf.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -335,9 +411,6 @@
     </Reference>
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
@@ -708,12 +781,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
-      <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
-      <Name>Unity.MongoDB.Runtime</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

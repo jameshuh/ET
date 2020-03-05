@@ -337,9 +337,6 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
@@ -718,10 +715,6 @@
     <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
       <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
       <Name>Unity.DCET.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ProtoBuf.Editor.csproj">
-      <Project>{497B4995-A9A8-0F50-6190-BD65B3CF9FD6}</Project>
-      <Name>Unity.ProtoBuf.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.DCET.Core.Hotfix.csproj">
       <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>

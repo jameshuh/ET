@@ -1,87 +1,64 @@
-syntax = "proto3";
 package DCET;
 
 message C2M_TestRequest // IActorLocationRequest
 {
-	int32 RpcId = 90;
-	int64 ActorId = 93;
-	string request = 1;
+	required string request = 1;
 }
 
 message M2C_TestResponse // IActorLocationResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
-	string response = 1;
+	required string response = 1;
 }
 
 message Actor_TransferRequest // IActorLocationRequest
 {
-	int32 RpcId = 90;
-	int64 ActorId = 93;
-	int32 MapIndex = 1;
+	required int32 MapIndex = 1;
 }
 
 message Actor_TransferResponse // IActorLocationResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
 }
 
 message C2G_EnterMap // IRequest
 {
-	int32 RpcId = 90;
 }
 
 message G2C_EnterMap // IResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
 	// 自己的unit id
-	int64 UnitId = 1;
+	required int64 UnitId = 1;
 	// 所有的unit
-	repeated UnitInfo Units = 2;
+	required repeated UnitInfo Units = 2;
 }
 
 message UnitInfo
 {
-	int64 UnitId  = 1;
+	required int64 UnitId  = 1;
 
-	float X = 2;
-	float Y = 3;
-	float Z = 4;
+	required float X = 2;
+	required float Y = 3;
+	required float Z = 4;
 }
 
 message M2C_CreateUnits // IActorMessage
 {
-	int32 RpcId = 90;
-	int64 ActorId = 93;
     repeated UnitInfo Units = 1;
 }
 
 message Frame_ClickMap // IActorLocationMessage
 {
-	int32 RpcId = 90;
-	int64 ActorId = 93;
-	int64 Id = 94;
-	
-	float X = 1;
-	float Y = 2;
-	float Z = 3;
+	required float X = 1;
+	required float Y = 2;
+	required float Z = 3;
 }
 
 message M2C_PathfindingResult // IActorMessage
 {
-	int64 ActorId = 93;
-	
-	int64 Id = 1;
+	required int64 Id = 1;
 
-	float X = 2;
-	float Y = 3;
-	float Z = 4;
+	required float X = 2;
+	required float Y = 3;
+	required float Z = 4;
 	
 	repeated float Xs = 5;
 	repeated float Ys = 6;
@@ -91,14 +68,10 @@ message M2C_PathfindingResult // IActorMessage
 
 message C2R_Ping // IRequest
 {
-	int32 RpcId = 90;
 }
 
 message R2C_Ping // IResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
 }
 
 message G2C_Test // IMessage
@@ -107,14 +80,67 @@ message G2C_Test // IMessage
 
 message C2M_Reload // IRequest
 {
-	int32 RpcId = 90;
-	string Account = 1;
-	string Password = 2;
+	required string Account = 1;
+	required string Password = 2;
 }
 
 message M2C_Reload // IResponse
 {
-	int32 RpcId = 90;
-	int32 Error = 91;
-	string Message = 92;
+}
+
+message C2R_Login // IRequest
+{
+	required string	Account	 = 1;	// 帐号
+	required string	Password = 2;	// 密码
+}
+
+message R2C_Login // IResponse
+{
+	required string Address = 1;
+	required int64 Key	    = 2;
+	required int64 GateId = 3;
+}
+
+message C2G_LoginGate // IRequest
+{
+	required int64 Key = 1;	// 帐号
+	required int64 GateId = 2;
+}
+
+message G2C_LoginGate // IResponse
+{
+	required int64 PlayerId = 1;
+}
+
+message G2C_TestHotfixMessage // IMessage
+{
+	required string Info = 1;
+}
+
+message C2M_TestActorRequest // IActorLocationRequest
+{
+	required string Info = 1;
+}
+
+message M2C_TestActorResponse // IActorLocationResponse
+{
+	required string Info = 1;
+}
+
+message PlayerInfo // IMessage
+{
+	required int64 RpcId = 1;
+}
+
+message C2G_PlayerInfo // IRequest
+{
+}
+
+message G2C_PlayerInfo // IResponse
+{
+	required PlayerInfo PlayerInfo = 1;
+	repeated PlayerInfo PlayerInfos = 2;
+    repeated string TestRepeatedString = 3;
+    repeated int32 TestRepeatedInt32 = 4;
+    repeated int64 TestRepeatedInt64 = 5;
 }

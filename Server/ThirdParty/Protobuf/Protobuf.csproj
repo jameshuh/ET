@@ -1,0 +1,293 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\BclHelpers.cs">
+      <Link>BclHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\BufferExtension.cs">
+      <Link>BufferExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\BufferPool.cs">
+      <Link>BufferPool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\CallbackAttributes.cs">
+      <Link>CallbackAttributes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Compiler\CompilerContext.cs">
+      <Link>Compiler\CompilerContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Compiler\CompilerDelegates.cs">
+      <Link>Compiler\CompilerDelegates.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Compiler\Local.cs">
+      <Link>Compiler\Local.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\DataFormat.cs">
+      <Link>DataFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\DiscriminatedUnion.cs">
+      <Link>DiscriminatedUnion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Extensible.cs">
+      <Link>Extensible.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ExtensibleUtil.cs">
+      <Link>ExtensibleUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Helpers.cs">
+      <Link>Helpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\IExtensible.cs">
+      <Link>IExtensible.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\IExtension.cs">
+      <Link>IExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ImplicitFields.cs">
+      <Link>ImplicitFields.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\KeyValuePairProxy.cs">
+      <Link>KeyValuePairProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\AttributeMap.cs">
+      <Link>Meta\AttributeMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\BasicList.cs">
+      <Link>Meta\BasicList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\CallbackSet.cs">
+      <Link>Meta\CallbackSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\MetaType.cs">
+      <Link>Meta\MetaType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\ProtoSyntax.cs">
+      <Link>Meta\ProtoSyntax.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\RuntimeTypeModel.cs">
+      <Link>Meta\RuntimeTypeModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\SubType.cs">
+      <Link>Meta\SubType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\TypeFormatEventArgs.cs">
+      <Link>Meta\TypeFormatEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\TypeModel.cs">
+      <Link>Meta\TypeModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Meta\ValueMember.cs">
+      <Link>Meta\ValueMember.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\NetObjectCache.cs">
+      <Link>NetObjectCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\PrefixStyle.cs">
+      <Link>PrefixStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtobufPropertyHelper.cs">
+      <Link>ProtobufPropertyHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoContractAttribute.cs">
+      <Link>ProtoContractAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoConverterAttribute.cs">
+      <Link>ProtoConverterAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoEnumAttribute.cs">
+      <Link>ProtoEnumAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoException.cs">
+      <Link>ProtoException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoIgnoreAttribute.cs">
+      <Link>ProtoIgnoreAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoIncludeAttribute.cs">
+      <Link>ProtoIncludeAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoMapAttribute.cs">
+      <Link>ProtoMapAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoMemberAttribute.cs">
+      <Link>ProtoMemberAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoReader.cs">
+      <Link>ProtoReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ProtoWriter.cs">
+      <Link>ProtoWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\PType.cs">
+      <Link>PType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\SerializationContext.cs">
+      <Link>SerializationContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializer.cs">
+      <Link>Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ArrayDecorator.cs">
+      <Link>Serializers\ArrayDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\BlobSerializer.cs">
+      <Link>Serializers\BlobSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\BooleanSerializer.cs">
+      <Link>Serializers\BooleanSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ByteSerializer.cs">
+      <Link>Serializers\ByteSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\CharSerializer.cs">
+      <Link>Serializers\CharSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\CompiledSerializer.cs">
+      <Link>Serializers\CompiledSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\DateTimeSerializer.cs">
+      <Link>Serializers\DateTimeSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\DecimalSerializer.cs">
+      <Link>Serializers\DecimalSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\DefaultValueDecorator.cs">
+      <Link>Serializers\DefaultValueDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\DoubleSerializer.cs">
+      <Link>Serializers\DoubleSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\EnumSerializer.cs">
+      <Link>Serializers\EnumSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\FieldDecorator.cs">
+      <Link>Serializers\FieldDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\GuidSerializer.cs">
+      <Link>Serializers\GuidSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ImmutableCollectionDecorator.cs">
+      <Link>Serializers\ImmutableCollectionDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\Int16Serializer.cs">
+      <Link>Serializers\Int16Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\Int32Serializer.cs">
+      <Link>Serializers\Int32Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\Int64Serializer.cs">
+      <Link>Serializers\Int64Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\IProtoSerializer.cs">
+      <Link>Serializers\IProtoSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\IProtoTypeSerializer.cs">
+      <Link>Serializers\IProtoTypeSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ISerializerProxy.cs">
+      <Link>Serializers\ISerializerProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ListDecorator.cs">
+      <Link>Serializers\ListDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\MapDecorator.cs">
+      <Link>Serializers\MapDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\MemberSpecifiedDecorator.cs">
+      <Link>Serializers\MemberSpecifiedDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\NetObjectSerializer.cs">
+      <Link>Serializers\NetObjectSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\NullDecorator.cs">
+      <Link>Serializers\NullDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ParseableSerializer.cs">
+      <Link>Serializers\ParseableSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\PropertyDecorator.cs">
+      <Link>Serializers\PropertyDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ProtoDecoratorBase.cs">
+      <Link>Serializers\ProtoDecoratorBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\ReflectedUriDecorator.cs">
+      <Link>Serializers\ReflectedUriDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\SByteSerializer.cs">
+      <Link>Serializers\SByteSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\SingleSerializer.cs">
+      <Link>Serializers\SingleSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\StringSerializer.cs">
+      <Link>Serializers\StringSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\SubItemSerializer.cs">
+      <Link>Serializers\SubItemSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\SurrogateSerializer.cs">
+      <Link>Serializers\SurrogateSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\SystemTypeSerializer.cs">
+      <Link>Serializers\SystemTypeSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\TagDecorator.cs">
+      <Link>Serializers\TagDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\TimeSpanSerializer.cs">
+      <Link>Serializers\TimeSpanSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\TupleSerializer.cs">
+      <Link>Serializers\TupleSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\TypeSerializer.cs">
+      <Link>Serializers\TypeSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\UInt16Serializer.cs">
+      <Link>Serializers\UInt16Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\UInt32Serializer.cs">
+      <Link>Serializers\UInt32Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\UInt64Serializer.cs">
+      <Link>Serializers\UInt64Serializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\Serializers\UriDecorator.cs">
+      <Link>Serializers\UriDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ServiceModel\ProtoBehaviorAttribute.cs">
+      <Link>ServiceModel\ProtoBehaviorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ServiceModel\ProtoBehaviorExtensionElement.cs">
+      <Link>ServiceModel\ProtoBehaviorExtensionElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ServiceModel\ProtoEndpointBehavior.cs">
+      <Link>ServiceModel\ProtoEndpointBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ServiceModel\ProtoOperationBehavior.cs">
+      <Link>ServiceModel\ProtoOperationBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\ServiceModel\XmlProtoSerializer.cs">
+      <Link>ServiceModel\XmlProtoSerializer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\SubItemToken.cs">
+      <Link>SubItemToken.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Unity\Packages\Protobuf\Runtime\WireType.cs">
+      <Link>WireType.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>

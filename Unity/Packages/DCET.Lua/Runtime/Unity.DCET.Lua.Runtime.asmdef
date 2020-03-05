@@ -9,7 +9,8 @@
         "Unity.MongoDB.Runtime",
         "Unity.DCET.Pathfinding.Runtime",
         "Unity.LitJson.Runtime",
-        "Unity.DCET.FairyGUI.Runtime"
+        "Unity.DCET.FairyGUI.Runtime",
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

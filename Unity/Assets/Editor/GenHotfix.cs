@@ -13,8 +13,6 @@ namespace DCET.Editor
 		private static string DllDir = Application.dataPath + "/Hotfix";
 		private static List<string> ReferencedLuaAssemblies = new List<string>()
 		{
-			GenMongoDB.DllName,
-			GenGoogleProtoBuf.DllName,
 			GenCoreHotfix.DllName,
 			GenConfigHotfix.DllName,
 			GenMessageHotfix.DllName,

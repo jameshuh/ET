@@ -12,8 +12,8 @@
     <ProjectReference Include="..\Config\Config.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\CoroutineLock\CoroutineLock.csproj" />
-    <ProjectReference Include="..\ThirdParty\Google.Protobuf\Google.Protobuf.csproj" />
     <ProjectReference Include="..\ThirdParty\KcpLib\KcpLib.csproj" />
+    <ProjectReference Include="..\ThirdParty\Protobuf\Protobuf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,9 +40,6 @@
     </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\IMHandler.cs">
       <Link>IMHandler.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\IProtocol.cs">
-      <Link>IProtocol.cs</Link>
     </Compile>
     <Compile Include="..\..\Unity\Packages\DCET.Message\Hotfix\MessageAttribute.cs">
       <Link>MessageAttribute.cs</Link>

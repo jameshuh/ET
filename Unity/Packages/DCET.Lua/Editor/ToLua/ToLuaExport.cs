@@ -654,6 +654,7 @@ public static class ToLuaExport
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(MemoryStream).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(BsonStreamAdapter).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(ByteBufferStream).ToString()));
+                internalMethodBlackList.Add(new List<string>() { "System.Linq.Expressions.ElementInit", "GetArgument", "System.Int32" });
                 internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Add", "System.String", "UnityEngine.Object" });
                 internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Remove", "System.String" });
                 internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Clear" });
@@ -670,6 +671,52 @@ public static class ToLuaExport
             }
 
             return internalMethodBlackList;
+        }
+    }
+
+    private static List<List<string>> internalPropertyBlackList = null;
+
+    public static List<List<string>> propertyBlackList
+    {
+        get
+        {
+            if (internalPropertyBlackList == null)
+            {
+                internalPropertyBlackList = new List<List<string>>();
+                internalPropertyBlackList.Add(new List<string>() { "System.Linq.Expressions.ElementInit", "ArgumentCount" });
+            }
+
+            return internalPropertyBlackList;
+        }
+    }
+
+    private static List<List<string>> internalFieldBlackList = null;
+
+    public static List<List<string>> fieldBlackList
+    {
+        get
+        {
+            if (internalFieldBlackList == null)
+            {
+                internalFieldBlackList = new List<List<string>>();
+            }
+
+            return internalFieldBlackList;
+        }
+    }
+
+    private static List<List<string>> internalEventBlackList = null;
+
+    public static List<List<string>> eventBlackList
+    {
+        get
+        {
+            if (internalEventBlackList == null)
+            {
+                internalEventBlackList = new List<List<string>>();
+            }
+
+            return internalEventBlackList;
         }
     }
 
@@ -716,6 +763,44 @@ public static class ToLuaExport
         return false;
     }
 
+    private static bool IsFieldInBlackList(FieldInfo fieldInfo)
+    {
+        foreach (var exclude in fieldBlackList)
+        {
+            if (type.ToString() == exclude[0] && fieldInfo.Name == exclude[1])
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool IsPropertyInBlackList(PropertyInfo propertyInfo)
+    {
+        foreach (var exclude in propertyBlackList)
+        {
+            if (type.ToString() == exclude[0] && propertyInfo.Name == exclude[1])
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool IsEventInBlackList(EventInfo eventInfo)
+    {
+        foreach (var exclude in eventBlackList)
+        {
+            if (type.ToString() == exclude[0] && eventInfo.Name == exclude[1])
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public static bool IsMemberFilter(MemberInfo mi)
     {
@@ -1104,7 +1189,7 @@ public static class ToLuaExport
 
         for (int i = fieldList.Count - 1; i >= 0; i--)
         {
-            if (IsObsolete(fieldList[i]))
+            if (IsObsolete(fieldList[i]) || IsFieldInBlackList(fieldList[i]))
             {
                 fieldList.RemoveAt(i);
             }
@@ -1121,7 +1206,7 @@ public static class ToLuaExport
 
         for (int i = piList.Count - 1; i >= 0; i--)
         {
-            if (IsObsolete(piList[i]))
+            if (IsObsolete(piList[i]) || IsPropertyInBlackList(piList[i]))
             {
                 piList.RemoveAt(i);
             }
@@ -1147,7 +1232,7 @@ public static class ToLuaExport
 
         for (int i = propList.Count - 1; i >= 0; i--)
         {
-            if (IsObsolete(propList[i]))
+            if (IsObsolete(propList[i]) || IsPropertyInBlackList(propList[i]))
             {
                 propList.RemoveAt(i);
             }
@@ -1161,7 +1246,7 @@ public static class ToLuaExport
 
         for (int i = evList.Count - 1; i >= 0; i--)
         {
-            if (IsObsolete(evList[i]))
+            if (IsObsolete(evList[i]) || IsEventInBlackList(evList[i]))
             {
                 evList.RemoveAt(i);
             }
@@ -1175,7 +1260,7 @@ public static class ToLuaExport
 
         for (int i = eventList.Count - 1; i >= 0; i--)
         {
-            if (IsObsolete(eventList[i]))
+            if (IsObsolete(eventList[i]) || IsEventInBlackList(eventList[i]))
             {
                 eventList.RemoveAt(i);
             }
