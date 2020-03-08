@@ -98,8 +98,6 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\Scene.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\SceneType.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Entity\UnityWebRequestAsync.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Event\Env.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Event\EnvKey.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Event\EventAttribute.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Event\IEvent.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Generic\DoubleMap.cs" />
@@ -118,9 +116,7 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\ExceptionHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\IdGenerater.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\JsonHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Helper\MD5Helper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\MethodInfoHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Helper\MongoHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\NetHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\NetworkHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\ObjectHelper.cs" />
@@ -128,13 +124,9 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\RandomHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\StringHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\TimeHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Helper\ZipHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Other\LayerNames.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Other\Log.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Other\MotionType.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\RecyclableMemoryStream\Events.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\RecyclableMemoryStream\RecyclableMemoryStream.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\RecyclableMemoryStream\RecyclableMemoryStreamManager.cs" />
     <None Include="Packages\DCET.Core\Hotfix\Unity.DCET.Core.Hotfix.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -769,10 +761,6 @@
     <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
       <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
       <Name>Unity.MongoDB.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.LitJson.Runtime.csproj">
-      <Project>{4E6E9952-D791-ED34-C73E-7B8B0DC999A4}</Project>
-      <Name>Unity.LitJson.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

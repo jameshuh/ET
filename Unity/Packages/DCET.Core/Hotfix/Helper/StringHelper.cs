@@ -62,7 +62,7 @@ namespace DCET
 		public static string MessageToStr(object message)
 		{
 #if SERVER
-			return MongoHelper.ToJson(message);
+			return Runtime.MongoHelper.ToJson(message);
 #else
 			return Dumper.DumpAsString(message);
 #endif

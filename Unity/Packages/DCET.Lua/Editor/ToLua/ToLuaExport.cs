@@ -654,6 +654,7 @@ public static class ToLuaExport
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(MemoryStream).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(BsonStreamAdapter).ToString()));
                 internalMethodBlackList.AddRange(GetStreamBlackList(typeof(ByteBufferStream).ToString()));
+                internalMethodBlackList.AddRange(GetStreamBlackList(typeof(Microsoft.IO.RecyclableMemoryStream).ToString()));
                 internalMethodBlackList.Add(new List<string>() { "System.Linq.Expressions.ElementInit", "GetArgument", "System.Int32" });
                 internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Add", "System.String", "UnityEngine.Object" });
                 internalMethodBlackList.Add(new List<string>() { "ReferenceCollector", "Remove", "System.String" });

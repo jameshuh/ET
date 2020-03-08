@@ -1,6 +1,4 @@
-﻿using LitJson;
-
-namespace DCET
+﻿namespace DCET
 {
 	public static class JsonHelper
 	{
@@ -15,7 +13,7 @@ namespace DCET
 		*/
 			return t;
 #else
-			return JsonMapper.ToJson(obj);
+			return Runtime.MongoHelper.ToJson(obj);
 #endif
 		}
 
@@ -30,7 +28,7 @@ namespace DCET
 		*/
 			return t;	
 #else
-			return JsonMapper.ToObject<T>(str);
+			return Runtime.MongoHelper.FromJson<T>(str);
 #endif
 		}
 	}

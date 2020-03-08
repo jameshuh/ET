@@ -14,8 +14,7 @@ System.namespace("DCET", function (namespace)
     Start = function ()
       System.async(function (async)
         System.try(function ()
-          DCET.TypeHelper.InitAllType()
-          DCET.MongoHelper.LookupTypes(DCET.Game.getEventSystem():GetAllType())
+          DCET.TypeHelper.Init()
           DCET.Game.getEventSystem():Init()
 
           -- 注册热更层回调

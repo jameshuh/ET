@@ -36,7 +36,6 @@ return function (path)
       "Entity.Game",
       "Entity.Scene",
       "Entity.UnityWebRequestAsync",
-      "Event.Env",
       "Event.EventAttribute",
       "Event.IEvent",
       "Generic.DoubleMap",
@@ -55,9 +54,7 @@ return function (path)
       "Helper.ExceptionHelper",
       "Helper.IdGenerater",
       "Helper.JsonHelper",
-      "Helper.MD5Helper",
       "Helper.MethodInfoHelper",
-      "Helper.MongoHelper",
       "Helper.NetHelper",
       "Helper.NetworkHelper",
       "Helper.ObjectHelper",
@@ -65,11 +62,8 @@ return function (path)
       "Helper.RandomHelper",
       "Helper.StringHelper",
       "Helper.TimeHelper",
-      "Helper.ZipHelper",
       "Other.LayerNames",
-      "Other.Log",
-      "RecyclableMemoryStream.RecyclableMemoryStream",
-      "RecyclableMemoryStream.RecyclableMemoryStreamManager"
+      "Other.Log"
     },
     types = {
       "DCET.Object",
@@ -81,7 +75,6 @@ return function (path)
       "DCET.ITimer",
       "DCET.IAwake",
       "DCET.IDestroySystem",
-      "Microsoft.IO.RecyclableMemoryStreamManager",
       "DCET.AwakeSystem_3",
       "DCET.ABInfo",
       "DCET.IEvent",
@@ -105,8 +98,6 @@ return function (path)
       "DCET.IStartSystem",
       "DCET.TimerComponent",
       "DCET.UnityWebRequestAsync",
-      "Microsoft.IO.RecyclableMemoryStream",
-      "Microsoft.IO.RecyclableMemoryStreamManager.Events",
       "DCET.ABInfoAwakeSystem",
       "DCET.AEvent",
       "DCET.AEvent_3",
@@ -130,7 +121,6 @@ return function (path)
       "DCET.EntityHelper",
       "DCET.EntityStatus",
       "DCET.EnumHelper",
-      "DCET.Env",
       "DCET.EventAttribute",
       "DCET.EventProxy",
       "DCET.EventSystem",
@@ -147,9 +137,7 @@ return function (path)
       "DCET.ListComponentDisposeChildren_1",
       "DCET.LoadSystem_1",
       "DCET.Log",
-      "DCET.MD5Helper",
       "DCET.MethodInfoHelper",
-      "DCET.MongoHelper",
       "DCET.MultiMap_2",
       "DCET.MultiMapSet_2",
       "DCET.NetHelper",
@@ -178,9 +166,7 @@ return function (path)
       "DCET.TryLock",
       "DCET.UnityWebRequestUpdateSystem",
       "DCET.UnOrderMultiMap_2",
-      "DCET.UnOrderMultiMapSet_2",
-      "DCET.ZipHelper",
-      "Microsoft.IO.RecyclableMemoryStream.BlockAndOffset"
+      "DCET.UnOrderMultiMapSet_2"
     }
   })
 end

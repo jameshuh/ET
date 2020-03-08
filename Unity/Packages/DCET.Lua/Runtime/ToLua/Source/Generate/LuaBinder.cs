@@ -114,8 +114,6 @@ public static class LuaBinder
 		L.RegFunction("Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		L.RegFunction("Func_System_Type_System_Type", System_Func_System_Type_System_Type);
-		L.RegFunction("Func_System_Type_System_Type_System_Type", System_Func_System_Type_System_Type_System_Type);
 		L.RegFunction("Func_float", System_Func_float);
 		L.RegFunction("Func_BehaviorDesigner_Runtime_Tasks_TaskStatus", System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
 		L.RegFunction("Func_object_bool", System_Func_object_bool);
@@ -145,6 +143,7 @@ public static class LuaBinder
 		L.RegFunction("Action_UnityEngine_GameObject", System_Action_UnityEngine_GameObject);
 		L.RegFunction("Action_UnityEngine_Collider", System_Action_UnityEngine_Collider);
 		L.RegFunction("Action_UnityEngine_Collider2D", System_Action_UnityEngine_Collider2D);
+		L.RegFunction("EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs", System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs);
 		L.BeginModule("Net");
 		System_Net_IPEndPointWrap.Register(L);
 		System_Net_EndPointWrap.Register(L);
@@ -169,35 +168,18 @@ public static class LuaBinder
 		System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixConditionalWrap.Register(L);
 		System_Collections_Generic_List_BehaviorDesigner_Runtime_Tasks_HotfixDecoratorWrap.Register(L);
 		L.EndModule();
-		L.BeginModule("Concurrent");
-		System_Collections_Concurrent_ConcurrentDictionary_System_Type_System_TypeWrap.Register(L);
-		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Text");
 		System_Text_EncodingWrap.Register(L);
-		L.BeginModule("RegularExpressions");
-		System_Text_RegularExpressions_RegexWrap.Register(L);
-		L.RegFunction("MatchEvaluator", System_Text_RegularExpressions_MatchEvaluator);
-		L.EndModule();
-		L.EndModule();
-		L.BeginModule("Linq");
-		L.BeginModule("Expressions");
-		System_Linq_Expressions_ParameterExpressionWrap.Register(L);
-		System_Linq_Expressions_ElementInitWrap.Register(L);
-		System_Linq_Expressions_MemberBindingWrap.Register(L);
-		System_Linq_Expressions_ExpressionWrap.Register(L);
-		L.EndModule();
-		L.EndModule();
-		L.BeginModule("Security");
-		System_Security_SecurityExceptionWrap.Register(L);
-		L.BeginModule("Cryptography");
-		System_Security_Cryptography_SHA1Wrap.Register(L);
-		System_Security_Cryptography_HashAlgorithmWrap.Register(L);
-		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Threading");
 		System_Threading_SynchronizationContextWrap.Register(L);
 		L.RegFunction("SendOrPostCallback", System_Threading_SendOrPostCallback);
+		L.EndModule();
+		L.BeginModule("Diagnostics");
+		L.BeginModule("Tracing");
+		System_Diagnostics_Tracing_EventSourceWrap.Register(L);
+		L.EndModule();
 		L.EndModule();
 		L.EndModule();
 		L.BeginModule("CSharpLua");
@@ -206,6 +188,21 @@ public static class LuaBinder
 		L.BeginModule("ProtoBuf");
 		ProtoBuf_ProtoMemberAttributeWrap.Register(L);
 		ProtoBuf_ProtoContractAttributeWrap.Register(L);
+		L.EndModule();
+		L.BeginModule("MongoDB");
+		L.BeginModule("Bson");
+		L.BeginModule("Serialization");
+		L.BeginModule("Attributes");
+		MongoDB_Bson_Serialization_Attributes_BsonIgnoreAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonIgnoreExtraElementsAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonIgnoreIfDefaultAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonDefaultValueAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonElementAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonIdAttributeWrap.Register(L);
+		MongoDB_Bson_Serialization_Attributes_BsonIgnoreIfNullAttributeWrap.Register(L);
+		L.EndModule();
+		L.EndModule();
+		L.EndModule();
 		L.EndModule();
 		L.BeginModule("DCET");
 		DCET_MonoBehaviourBridgeWrap.Register(L);
@@ -228,12 +225,13 @@ public static class LuaBinder
 		DCET_Runtime_ByteHelperWrap.Register(L);
 		DCET_Runtime_FileHelperWrap.Register(L);
 		DCET_Runtime_GameObjectHelperWrap.Register(L);
-		DCET_Runtime_JsonHelperWrap.Register(L);
 		DCET_Runtime_MD5HelperWrap.Register(L);
+		DCET_Runtime_MongoHelperWrap.Register(L);
 		DCET_Runtime_PathHelperWrap.Register(L);
 		DCET_Runtime_ProcessHelperWrap.Register(L);
 		DCET_Runtime_ResourcesHelperWrap.Register(L);
 		DCET_Runtime_StringHelperWrap.Register(L);
+		DCET_Runtime_ZipHelperWrap.Register(L);
 		DCET_Runtime_AssetBundleLoaderAsyncWrap.Register(L);
 		DCET_Runtime_AssetBundlesWrap.Register(L);
 		DCET_Runtime_AssetLoaderAsyncWrap.Register(L);
@@ -313,19 +311,26 @@ public static class LuaBinder
 		PF_ConnectionWrap.Register(L);
 		PF_GraphNodeWrap.Register(L);
 		PF_MeshNodeWrap.Register(L);
+		PF_IMovementPlaneWrap.Register(L);
+		PF_ITransformWrap.Register(L);
 		PF_GraphTransformWrap.Register(L);
 		PF_GuidWrap.Register(L);
+		PF_INavmeshWrap.Register(L);
 		PF_Int3Wrap.Register(L);
 		PF_Int2Wrap.Register(L);
 		PF_IntRectWrap.Register(L);
+		PF_IGraphInternalsWrap.Register(L);
 		PF_NavGraphWrap.Register(L);
 		PF_GraphHitInfoWrap.Register(L);
+		PF_IRaycastableGraphWrap.Register(L);
+		PF_ITransformedGraphWrap.Register(L);
 		PF_NavmeshBaseWrap.Register(L);
 		PF_NavmeshTileWrap.Register(L);
 		PF_NNConstraintWrap.Register(L);
 		PF_PathNNConstraintWrap.Register(L);
 		PF_NNInfoInternalWrap.Register(L);
 		PF_NNInfoWrap.Register(L);
+		PF_IAstarPooledObjectWrap.Register(L);
 		PF_GraphUpdateThreadingWrap.Register(L);
 		PF_ThreadCountWrap.Register(L);
 		PF_PathStateWrap.Register(L);
@@ -333,6 +338,7 @@ public static class LuaBinder
 		PF_CloseToDestinationModeWrap.Register(L);
 		PF_SideWrap.Register(L);
 		PF_InspectorGridModeWrap.Register(L);
+		PF_ITraversalProviderWrap.Register(L);
 		PF_DefaultITraversalProviderWrap.Register(L);
 		PF_PathWrap.Register(L);
 		PF_ABPathWrap.Register(L);
@@ -366,6 +372,7 @@ public static class LuaBinder
 		PF_JsonOptInAttributeWrap.Register(L);
 		PF_TinyJsonSerializerWrap.Register(L);
 		PF_TinyJsonDeserializerWrap.Register(L);
+		PF_INavmeshHolderWrap.Register(L);
 		PF_TriangleMeshNodeWrap.Register(L);
 		PF_WindowsStoreCompatibilityWrap.Register(L);
 		L.RegFunction("OnPathDelegate", PF_OnPathDelegate);
@@ -389,6 +396,7 @@ public static class LuaBinder
 		Pathfinding_AIBaseWrap.Register(L);
 		Pathfinding_AILerpWrap.Register(L);
 		Pathfinding_AIPathWrap.Register(L);
+		Pathfinding_IAstarAIWrap.Register(L);
 		Pathfinding_SeekerWrap.Register(L);
 		Pathfinding_AstarColorWrap.Register(L);
 		Pathfinding_ProgressWrap.Register(L);
@@ -402,6 +410,7 @@ public static class LuaBinder
 		Pathfinding_GraphUtilitiesWrap.Register(L);
 		Pathfinding_NodeLinkWrap.Register(L);
 		Pathfinding_AstarWorkItemWrap.Register(L);
+		Pathfinding_IWorkItemContextWrap.Register(L);
 		Pathfinding_RecastTileUpdateWrap.Register(L);
 		Pathfinding_RecastTileUpdateHandlerWrap.Register(L);
 		Pathfinding_TargetMoverWrap.Register(L);
@@ -413,6 +422,7 @@ public static class LuaBinder
 		Pathfinding_AdvancedSmoothWrap.Register(L);
 		Pathfinding_AlternativePathWrap.Register(L);
 		Pathfinding_FunnelModifierWrap.Register(L);
+		Pathfinding_IPathModifierWrap.Register(L);
 		Pathfinding_PathModifierWrap.Register(L);
 		Pathfinding_MonoModifierWrap.Register(L);
 		Pathfinding_RadiusModifierWrap.Register(L);
@@ -422,6 +432,7 @@ public static class LuaBinder
 		Pathfinding_RelevantGraphSurfaceWrap.Register(L);
 		Pathfinding_EnumFlagAttributeWrap.Register(L);
 		Pathfinding_UniqueComponentAttributeWrap.Register(L);
+		Pathfinding_IVersionedMonoBehaviourInternalWrap.Register(L);
 		Pathfinding_VersionedMonoBehaviourWrap.Register(L);
 		Pathfinding_BlockManagerWrap.Register(L);
 		Pathfinding_SingleNodeBlockerWrap.Register(L);
@@ -462,6 +473,7 @@ public static class LuaBinder
 		L.EndModule();
 		L.BeginModule("RVO");
 		Pathfinding_RVO_ObstacleVertexWrap.Register(L);
+		Pathfinding_RVO_IAgentWrap.Register(L);
 		Pathfinding_RVO_MovementPlaneWrap.Register(L);
 		Pathfinding_RVO_RVOLayerWrap.Register(L);
 		Pathfinding_RVO_SimulatorWrap.Register(L);
@@ -528,6 +540,7 @@ public static class LuaBinder
 		FairyGUI_ColliderHitTestWrap.Register(L);
 		FairyGUI_HitTestContextWrap.Register(L);
 		FairyGUI_HitTestModeWrap.Register(L);
+		FairyGUI_IHitTestWrap.Register(L);
 		FairyGUI_MeshColliderHitTestWrap.Register(L);
 		FairyGUI_PixelHitTestDataWrap.Register(L);
 		FairyGUI_PixelHitTestWrap.Register(L);
@@ -538,6 +551,7 @@ public static class LuaBinder
 		FairyGUI_EllipseMeshWrap.Register(L);
 		FairyGUI_FillMeshWrap.Register(L);
 		FairyGUI_LineMeshWrap.Register(L);
+		FairyGUI_IMeshFactoryWrap.Register(L);
 		FairyGUI_PolygonMeshWrap.Register(L);
 		FairyGUI_RectMeshWrap.Register(L);
 		FairyGUI_RegularPolygonMeshWrap.Register(L);
@@ -562,6 +576,7 @@ public static class LuaBinder
 		FairyGUI_DynamicFontWrap.Register(L);
 		FairyGUI_EmojiWrap.Register(L);
 		FairyGUI_FontManagerWrap.Register(L);
+		FairyGUI_IKeyboardWrap.Register(L);
 		FairyGUI_InputTextFieldWrap.Register(L);
 		FairyGUI_RichTextFieldWrap.Register(L);
 		FairyGUI_RTLSupportWrap.Register(L);
@@ -574,9 +589,11 @@ public static class LuaBinder
 		FairyGUI_EventContextWrap.Register(L);
 		FairyGUI_EventDispatcherWrap.Register(L);
 		FairyGUI_EventListenerWrap.Register(L);
+		FairyGUI_IEventDispatcherWrap.Register(L);
 		FairyGUI_InputEventWrap.Register(L);
 		FairyGUI_BlurFilterWrap.Register(L);
 		FairyGUI_ColorFilterWrap.Register(L);
+		FairyGUI_IFilterWrap.Register(L);
 		FairyGUI_LongPressGestureWrap.Register(L);
 		FairyGUI_PinchGestureWrap.Register(L);
 		FairyGUI_RotationGestureWrap.Register(L);
@@ -585,6 +602,7 @@ public static class LuaBinder
 		FairyGUI_GPathPointWrap.Register(L);
 		FairyGUI_GPathWrap.Register(L);
 		FairyGUI_GTweenWrap.Register(L);
+		FairyGUI_ITweenListenerWrap.Register(L);
 		FairyGUI_GTweenerWrap.Register(L);
 		FairyGUI_TweenPropTypeWrap.Register(L);
 		FairyGUI_TweenValueWrap.Register(L);
@@ -594,6 +612,7 @@ public static class LuaBinder
 		FairyGUI_AsyncCreationHelperWrap.Register(L);
 		FairyGUI_ControllerWrap.Register(L);
 		FairyGUI_DragDropManagerWrap.Register(L);
+		FairyGUI_EMRenderTargetWrap.Register(L);
 		FairyGUI_EMRenderSupportWrap.Register(L);
 		FairyGUI_PackageItemTypeWrap.Register(L);
 		FairyGUI_ObjectTypeWrap.Register(L);
@@ -633,6 +652,9 @@ public static class LuaBinder
 		FairyGUI_GearSizeWrap.Register(L);
 		FairyGUI_GearTextWrap.Register(L);
 		FairyGUI_GearXYWrap.Register(L);
+		FairyGUI_IAnimationGearWrap.Register(L);
+		FairyGUI_IColorGearWrap.Register(L);
+		FairyGUI_ITextColorGearWrap.Register(L);
 		FairyGUI_GGraphWrap.Register(L);
 		FairyGUI_GGroupWrap.Register(L);
 		FairyGUI_GImageWrap.Register(L);
@@ -649,6 +671,7 @@ public static class LuaBinder
 		FairyGUI_GSliderWrap.Register(L);
 		FairyGUI_GTextFieldWrap.Register(L);
 		FairyGUI_GTextInputWrap.Register(L);
+		FairyGUI_IUISourceWrap.Register(L);
 		FairyGUI_MarginWrap.Register(L);
 		FairyGUI_PackageItemWrap.Register(L);
 		FairyGUI_PageOptionWrap.Register(L);
@@ -674,6 +697,7 @@ public static class LuaBinder
 		L.RegFunction("GTweenCallback1", FairyGUI_GTweenCallback1);
 		L.RegFunction("ListItemRenderer", FairyGUI_ListItemRenderer);
 		L.RegFunction("ListItemProvider", FairyGUI_ListItemProvider);
+		L.RegFunction("UILoadCallback", FairyGUI_UILoadCallback);
 		L.RegFunction("PlayCompleteCallback", FairyGUI_PlayCompleteCallback);
 		L.RegFunction("TransitionHook", FairyGUI_TransitionHook);
 		L.RegFunction("TimerCallback", FairyGUI_TimerCallback);
@@ -689,6 +713,8 @@ public static class LuaBinder
 		FairyGUI_Utils_HtmlParseOptionsWrap.Register(L);
 		FairyGUI_Utils_HtmlParserWrap.Register(L);
 		FairyGUI_Utils_HtmlSelectWrap.Register(L);
+		FairyGUI_Utils_IHtmlObjectWrap.Register(L);
+		FairyGUI_Utils_IHtmlPageContextWrap.Register(L);
 		FairyGUI_Utils_ToolSetWrap.Register(L);
 		FairyGUI_Utils_UBBParserWrap.Register(L);
 		FairyGUI_Utils_XMLWrap.Register(L);
@@ -767,6 +793,23 @@ public static class LuaBinder
 		L.RegFunction("TreeNodeCreateCellDelegate", FairyGUI_TreeView_TreeNodeCreateCellDelegate);
 		L.RegFunction("TreeNodeRenderDelegate", FairyGUI_TreeView_TreeNodeRenderDelegate);
 		L.RegFunction("TreeNodeWillExpandDelegate", FairyGUI_TreeView_TreeNodeWillExpandDelegate);
+		L.EndModule();
+		L.EndModule();
+		L.BeginModule("Microsoft");
+		L.BeginModule("IO");
+		Microsoft_IO_RecyclableMemoryStreamManagerWrap.Register(L);
+		Microsoft_IO_RecyclableMemoryStreamWrap.Register(L);
+		L.BeginModule("RecyclableMemoryStreamManager");
+		Microsoft_IO_RecyclableMemoryStreamManager_EventsWrap.Register(L);
+		L.RegFunction("EventHandler", Microsoft_IO_RecyclableMemoryStreamManager_EventHandler);
+		L.RegFunction("StreamLengthReportHandler", Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler);
+		L.RegFunction("LargeBufferDiscardedEventHandler", Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler);
+		L.RegFunction("UsageReportEventHandler", Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler);
+		L.BeginModule("Events");
+		Microsoft_IO_RecyclableMemoryStreamManager_Events_MemoryStreamBufferTypeWrap.Register(L);
+		Microsoft_IO_RecyclableMemoryStreamManager_Events_MemoryStreamDiscardReasonWrap.Register(L);
+		L.EndModule();
+		L.EndModule();
 		L.EndModule();
 		L.EndModule();
 		L.EndModule();
@@ -1533,60 +1576,6 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Create(func, self);
-				ToLua.Push(L, arg1);
-			}
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Func_System_Type_System_Type(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
-
-			if (count == 1)
-			{
-				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type>>.Create(func);
-				ToLua.Push(L, arg1);
-			}
-			else
-			{
-				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type>>.Create(func, self);
-				ToLua.Push(L, arg1);
-			}
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Func_System_Type_System_Type_System_Type(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
-
-			if (count == 1)
-			{
-				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Create(func);
-				ToLua.Push(L, arg1);
-			}
-			else
-			{
-				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;
@@ -2381,7 +2370,7 @@ public static class LuaBinder
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Text_RegularExpressions_MatchEvaluator(IntPtr L)
+	static int System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs(IntPtr L)
 	{
 		try
 		{
@@ -2390,13 +2379,13 @@ public static class LuaBinder
 
 			if (count == 1)
 			{
-				Delegate arg1 = DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Create(func);
+				Delegate arg1 = DelegateTraits<System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>>.Create(func);
 				ToLua.Push(L, arg1);
 			}
 			else
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Create(func, self);
+				Delegate arg1 = DelegateTraits<System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;
@@ -2748,6 +2737,33 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<FairyGUI.ListItemProvider>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int FairyGUI_UILoadCallback(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<FairyGUI.UILoadCallback>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<FairyGUI.UILoadCallback>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;
@@ -3180,6 +3196,114 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<FairyGUI.TreeView.TreeNodeWillExpandDelegate>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Microsoft_IO_RecyclableMemoryStreamManager_EventHandler(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.EventHandler>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.EventHandler>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

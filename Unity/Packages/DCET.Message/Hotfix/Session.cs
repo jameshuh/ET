@@ -189,7 +189,7 @@ namespace DCET
 			{
 				if (response is ErrorResponse)
 				{
-					tcs.SetException(new Exception($"Rpc error: {MongoHelper.ToJson(response)}"));
+					tcs.SetException(new Exception($"Rpc error: {Runtime.MongoHelper.ToJson(response)}"));
 					return;
 				}
 				
@@ -209,13 +209,13 @@ namespace DCET
 			{
 				if (response is ErrorResponse)
 				{
-					tcs.SetException(new Exception($"Rpc error: {MongoHelper.ToJson(response)}"));
+					tcs.SetException(new Exception($"Rpc error: {Runtime.MongoHelper.ToJson(response)}"));
 					return;
 				}
 				
 				if (ErrorCode.IsRpcNeedThrowException(response.Error))
 				{
-					tcs.SetException(new Exception($"Rpc error: {MongoHelper.ToJson(response)}"));
+					tcs.SetException(new Exception($"Rpc error: {Runtime.MongoHelper.ToJson(response)}"));
 					return;
 				}
 

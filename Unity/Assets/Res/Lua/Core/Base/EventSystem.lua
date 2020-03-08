@@ -86,9 +86,9 @@ System.namespace("DCET", function (namespace)
       for _, type in System.each(this.allType) do
         local continue
         repeat
-          if type:getIsAbstract() then
-            continue = true
-            break
+          if type:EqualsStatic() then
+          	continue = true
+          	break
           end
 
           local objects = type:GetCustomAttributes(System.typeof(DCET.BaseAttribute), true)

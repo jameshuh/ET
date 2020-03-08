@@ -13,7 +13,7 @@ namespace DCET.Runtime
 		{
 			Instance = this;
 			string configStr = GetGlobal();
-			this.GlobalProto = JsonHelper.FromJson<GlobalProto>(configStr);
+			this.GlobalProto = MongoHelper.FromJson<GlobalProto>(configStr);
 		}
 
 		public static string GetGlobal()

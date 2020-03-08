@@ -45,9 +45,6 @@ public class DelegateFactory
 		dict.Add(typeof(System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		dict.Add(typeof(System.Text.RegularExpressions.MatchEvaluator), factory.System_Text_RegularExpressions_MatchEvaluator);
-		dict.Add(typeof(System.Func<System.Type,System.Type>), factory.System_Func_System_Type_System_Type);
-		dict.Add(typeof(System.Func<System.Type,System.Type,System.Type>), factory.System_Func_System_Type_System_Type_System_Type);
 		dict.Add(typeof(DCET.Runtime.KcpOutput), factory.DCET_Runtime_KcpOutput);
 		dict.Add(typeof(BehaviorDesigner.Runtime.Behavior.BehaviorHandler), factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		dict.Add(typeof(System.Func<float>), factory.System_Func_float);
@@ -86,6 +83,7 @@ public class DelegateFactory
 		dict.Add(typeof(FairyGUI.ListItemRenderer), factory.FairyGUI_ListItemRenderer);
 		dict.Add(typeof(FairyGUI.ListItemProvider), factory.FairyGUI_ListItemProvider);
 		dict.Add(typeof(FairyGUI.GObjectPool.InitCallbackDelegate), factory.FairyGUI_GObjectPool_InitCallbackDelegate);
+		dict.Add(typeof(FairyGUI.UILoadCallback), factory.FairyGUI_UILoadCallback);
 		dict.Add(typeof(FairyGUI.UIObjectFactory.GComponentCreator), factory.FairyGUI_UIObjectFactory_GComponentCreator);
 		dict.Add(typeof(FairyGUI.PlayCompleteCallback), factory.FairyGUI_PlayCompleteCallback);
 		dict.Add(typeof(FairyGUI.TransitionHook), factory.FairyGUI_TransitionHook);
@@ -96,6 +94,10 @@ public class DelegateFactory
 		dict.Add(typeof(FairyGUI.UIObjectFactory.GLoaderCreator), factory.FairyGUI_UIObjectFactory_GLoaderCreator);
 		dict.Add(typeof(FairyGUI.UIPackage.LoadResource), factory.FairyGUI_UIPackage_LoadResource);
 		dict.Add(typeof(FairyGUI.TimerCallback), factory.FairyGUI_TimerCallback);
+		dict.Add(typeof(Microsoft.IO.RecyclableMemoryStreamManager.EventHandler), factory.Microsoft_IO_RecyclableMemoryStreamManager_EventHandler);
+		dict.Add(typeof(Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler), factory.Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler);
+		dict.Add(typeof(Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler), factory.Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler);
+		dict.Add(typeof(Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler), factory.Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler);
 		dict.Add(typeof(System.Action<float[],int>), factory.System_Action_floats_int);
 		dict.Add(typeof(System.Action<UnityEngine.Collision>), factory.System_Action_UnityEngine_Collision);
 		dict.Add(typeof(System.Action<UnityEngine.Collision2D>), factory.System_Action_UnityEngine_Collision2D);
@@ -106,6 +108,7 @@ public class DelegateFactory
 		dict.Add(typeof(System.Action<UnityEngine.Collider>), factory.System_Action_UnityEngine_Collider);
 		dict.Add(typeof(System.Action<UnityEngine.Collider2D>), factory.System_Action_UnityEngine_Collider2D);
 		dict.Add(typeof(System.Threading.SendOrPostCallback), factory.System_Threading_SendOrPostCallback);
+		dict.Add(typeof(System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>), factory.System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs);
 
 		DelegateTraits<System.Action>.Init(factory.System_Action);
 		DelegateTraits<UnityEngine.Events.UnityAction>.Init(factory.UnityEngine_Events_UnityAction);
@@ -135,9 +138,6 @@ public class DelegateFactory
 		DelegateTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		DelegateTraits<System.Text.RegularExpressions.MatchEvaluator>.Init(factory.System_Text_RegularExpressions_MatchEvaluator);
-		DelegateTraits<System.Func<System.Type,System.Type>>.Init(factory.System_Func_System_Type_System_Type);
-		DelegateTraits<System.Func<System.Type,System.Type,System.Type>>.Init(factory.System_Func_System_Type_System_Type_System_Type);
 		DelegateTraits<DCET.Runtime.KcpOutput>.Init(factory.DCET_Runtime_KcpOutput);
 		DelegateTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		DelegateTraits<System.Func<float>>.Init(factory.System_Func_float);
@@ -176,6 +176,7 @@ public class DelegateFactory
 		DelegateTraits<FairyGUI.ListItemRenderer>.Init(factory.FairyGUI_ListItemRenderer);
 		DelegateTraits<FairyGUI.ListItemProvider>.Init(factory.FairyGUI_ListItemProvider);
 		DelegateTraits<FairyGUI.GObjectPool.InitCallbackDelegate>.Init(factory.FairyGUI_GObjectPool_InitCallbackDelegate);
+		DelegateTraits<FairyGUI.UILoadCallback>.Init(factory.FairyGUI_UILoadCallback);
 		DelegateTraits<FairyGUI.UIObjectFactory.GComponentCreator>.Init(factory.FairyGUI_UIObjectFactory_GComponentCreator);
 		DelegateTraits<FairyGUI.PlayCompleteCallback>.Init(factory.FairyGUI_PlayCompleteCallback);
 		DelegateTraits<FairyGUI.TransitionHook>.Init(factory.FairyGUI_TransitionHook);
@@ -186,6 +187,10 @@ public class DelegateFactory
 		DelegateTraits<FairyGUI.UIObjectFactory.GLoaderCreator>.Init(factory.FairyGUI_UIObjectFactory_GLoaderCreator);
 		DelegateTraits<FairyGUI.UIPackage.LoadResource>.Init(factory.FairyGUI_UIPackage_LoadResource);
 		DelegateTraits<FairyGUI.TimerCallback>.Init(factory.FairyGUI_TimerCallback);
+		DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.EventHandler>.Init(factory.Microsoft_IO_RecyclableMemoryStreamManager_EventHandler);
+		DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler>.Init(factory.Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler);
+		DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler>.Init(factory.Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler);
+		DelegateTraits<Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler>.Init(factory.Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler);
 		DelegateTraits<System.Action<float[],int>>.Init(factory.System_Action_floats_int);
 		DelegateTraits<System.Action<UnityEngine.Collision>>.Init(factory.System_Action_UnityEngine_Collision);
 		DelegateTraits<System.Action<UnityEngine.Collision2D>>.Init(factory.System_Action_UnityEngine_Collision2D);
@@ -196,6 +201,7 @@ public class DelegateFactory
 		DelegateTraits<System.Action<UnityEngine.Collider>>.Init(factory.System_Action_UnityEngine_Collider);
 		DelegateTraits<System.Action<UnityEngine.Collider2D>>.Init(factory.System_Action_UnityEngine_Collider2D);
 		DelegateTraits<System.Threading.SendOrPostCallback>.Init(factory.System_Threading_SendOrPostCallback);
+		DelegateTraits<System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>>.Init(factory.System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs);
 
 		TypeTraits<System.Action>.Init(factory.Check_System_Action);
 		TypeTraits<UnityEngine.Events.UnityAction>.Init(factory.Check_UnityEngine_Events_UnityAction);
@@ -225,9 +231,6 @@ public class DelegateFactory
 		TypeTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
-		TypeTraits<System.Text.RegularExpressions.MatchEvaluator>.Init(factory.Check_System_Text_RegularExpressions_MatchEvaluator);
-		TypeTraits<System.Func<System.Type,System.Type>>.Init(factory.Check_System_Func_System_Type_System_Type);
-		TypeTraits<System.Func<System.Type,System.Type,System.Type>>.Init(factory.Check_System_Func_System_Type_System_Type_System_Type);
 		TypeTraits<DCET.Runtime.KcpOutput>.Init(factory.Check_DCET_Runtime_KcpOutput);
 		TypeTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.Check_BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		TypeTraits<System.Func<float>>.Init(factory.Check_System_Func_float);
@@ -266,6 +269,7 @@ public class DelegateFactory
 		TypeTraits<FairyGUI.ListItemRenderer>.Init(factory.Check_FairyGUI_ListItemRenderer);
 		TypeTraits<FairyGUI.ListItemProvider>.Init(factory.Check_FairyGUI_ListItemProvider);
 		TypeTraits<FairyGUI.GObjectPool.InitCallbackDelegate>.Init(factory.Check_FairyGUI_GObjectPool_InitCallbackDelegate);
+		TypeTraits<FairyGUI.UILoadCallback>.Init(factory.Check_FairyGUI_UILoadCallback);
 		TypeTraits<FairyGUI.UIObjectFactory.GComponentCreator>.Init(factory.Check_FairyGUI_UIObjectFactory_GComponentCreator);
 		TypeTraits<FairyGUI.PlayCompleteCallback>.Init(factory.Check_FairyGUI_PlayCompleteCallback);
 		TypeTraits<FairyGUI.TransitionHook>.Init(factory.Check_FairyGUI_TransitionHook);
@@ -276,6 +280,10 @@ public class DelegateFactory
 		TypeTraits<FairyGUI.UIObjectFactory.GLoaderCreator>.Init(factory.Check_FairyGUI_UIObjectFactory_GLoaderCreator);
 		TypeTraits<FairyGUI.UIPackage.LoadResource>.Init(factory.Check_FairyGUI_UIPackage_LoadResource);
 		TypeTraits<FairyGUI.TimerCallback>.Init(factory.Check_FairyGUI_TimerCallback);
+		TypeTraits<Microsoft.IO.RecyclableMemoryStreamManager.EventHandler>.Init(factory.Check_Microsoft_IO_RecyclableMemoryStreamManager_EventHandler);
+		TypeTraits<Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler>.Init(factory.Check_Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler);
+		TypeTraits<Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler>.Init(factory.Check_Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler);
+		TypeTraits<Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler>.Init(factory.Check_Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler);
 		TypeTraits<System.Action<float[],int>>.Init(factory.Check_System_Action_floats_int);
 		TypeTraits<System.Action<UnityEngine.Collision>>.Init(factory.Check_System_Action_UnityEngine_Collision);
 		TypeTraits<System.Action<UnityEngine.Collision2D>>.Init(factory.Check_System_Action_UnityEngine_Collision2D);
@@ -286,6 +294,7 @@ public class DelegateFactory
 		TypeTraits<System.Action<UnityEngine.Collider>>.Init(factory.Check_System_Action_UnityEngine_Collider);
 		TypeTraits<System.Action<UnityEngine.Collider2D>>.Init(factory.Check_System_Action_UnityEngine_Collider2D);
 		TypeTraits<System.Threading.SendOrPostCallback>.Init(factory.Check_System_Threading_SendOrPostCallback);
+		TypeTraits<System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>>.Init(factory.Check_System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs);
 
 		StackTraits<System.Action>.Push = factory.Push_System_Action;
 		StackTraits<UnityEngine.Events.UnityAction>.Push = factory.Push_UnityEngine_Events_UnityAction;
@@ -315,9 +324,6 @@ public class DelegateFactory
 		StackTraits<System.Predicate<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
-		StackTraits<System.Text.RegularExpressions.MatchEvaluator>.Push = factory.Push_System_Text_RegularExpressions_MatchEvaluator;
-		StackTraits<System.Func<System.Type,System.Type>>.Push = factory.Push_System_Func_System_Type_System_Type;
-		StackTraits<System.Func<System.Type,System.Type,System.Type>>.Push = factory.Push_System_Func_System_Type_System_Type_System_Type;
 		StackTraits<DCET.Runtime.KcpOutput>.Push = factory.Push_DCET_Runtime_KcpOutput;
 		StackTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Push = factory.Push_BehaviorDesigner_Runtime_Behavior_BehaviorHandler;
 		StackTraits<System.Func<float>>.Push = factory.Push_System_Func_float;
@@ -356,6 +362,7 @@ public class DelegateFactory
 		StackTraits<FairyGUI.ListItemRenderer>.Push = factory.Push_FairyGUI_ListItemRenderer;
 		StackTraits<FairyGUI.ListItemProvider>.Push = factory.Push_FairyGUI_ListItemProvider;
 		StackTraits<FairyGUI.GObjectPool.InitCallbackDelegate>.Push = factory.Push_FairyGUI_GObjectPool_InitCallbackDelegate;
+		StackTraits<FairyGUI.UILoadCallback>.Push = factory.Push_FairyGUI_UILoadCallback;
 		StackTraits<FairyGUI.UIObjectFactory.GComponentCreator>.Push = factory.Push_FairyGUI_UIObjectFactory_GComponentCreator;
 		StackTraits<FairyGUI.PlayCompleteCallback>.Push = factory.Push_FairyGUI_PlayCompleteCallback;
 		StackTraits<FairyGUI.TransitionHook>.Push = factory.Push_FairyGUI_TransitionHook;
@@ -366,6 +373,10 @@ public class DelegateFactory
 		StackTraits<FairyGUI.UIObjectFactory.GLoaderCreator>.Push = factory.Push_FairyGUI_UIObjectFactory_GLoaderCreator;
 		StackTraits<FairyGUI.UIPackage.LoadResource>.Push = factory.Push_FairyGUI_UIPackage_LoadResource;
 		StackTraits<FairyGUI.TimerCallback>.Push = factory.Push_FairyGUI_TimerCallback;
+		StackTraits<Microsoft.IO.RecyclableMemoryStreamManager.EventHandler>.Push = factory.Push_Microsoft_IO_RecyclableMemoryStreamManager_EventHandler;
+		StackTraits<Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler>.Push = factory.Push_Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler;
+		StackTraits<Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler>.Push = factory.Push_Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler;
+		StackTraits<Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler>.Push = factory.Push_Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler;
 		StackTraits<System.Action<float[],int>>.Push = factory.Push_System_Action_floats_int;
 		StackTraits<System.Action<UnityEngine.Collision>>.Push = factory.Push_System_Action_UnityEngine_Collision;
 		StackTraits<System.Action<UnityEngine.Collision2D>>.Push = factory.Push_System_Action_UnityEngine_Collision2D;
@@ -376,6 +387,7 @@ public class DelegateFactory
 		StackTraits<System.Action<UnityEngine.Collider>>.Push = factory.Push_System_Action_UnityEngine_Collider;
 		StackTraits<System.Action<UnityEngine.Collider2D>>.Push = factory.Push_System_Action_UnityEngine_Collider2D;
 		StackTraits<System.Threading.SendOrPostCallback>.Push = factory.Push_System_Threading_SendOrPostCallback;
+		StackTraits<System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>>.Push = factory.Push_System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs;
 	}
     
     public static Delegate CreateDelegate(Type t, LuaFunction func = null)
@@ -2131,191 +2143,6 @@ public class DelegateFactory
 	}
 
 	void Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator(IntPtr L, System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Text_RegularExpressions_MatchEvaluator_Event : LuaDelegate
-	{
-		public System_Text_RegularExpressions_MatchEvaluator_Event(LuaFunction func) : base(func) { }
-		public System_Text_RegularExpressions_MatchEvaluator_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public string Call(System.Text.RegularExpressions.Match param0)
-		{
-			func.BeginPCall();
-			func.PushObject(param0);
-			func.PCall();
-			string ret = func.CheckString();
-			func.EndPCall();
-			return ret;
-		}
-
-		public string CallWithSelf(System.Text.RegularExpressions.Match param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushObject(param0);
-			func.PCall();
-			string ret = func.CheckString();
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Text.RegularExpressions.MatchEvaluator System_Text_RegularExpressions_MatchEvaluator(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Text.RegularExpressions.MatchEvaluator fn = delegate(System.Text.RegularExpressions.Match param0) { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Text_RegularExpressions_MatchEvaluator_Event target = new System_Text_RegularExpressions_MatchEvaluator_Event(func);
-			System.Text.RegularExpressions.MatchEvaluator d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Text_RegularExpressions_MatchEvaluator_Event target = new System_Text_RegularExpressions_MatchEvaluator_Event(func, self);
-			System.Text.RegularExpressions.MatchEvaluator d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Text_RegularExpressions_MatchEvaluator(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Text.RegularExpressions.MatchEvaluator), L, pos);
-	}
-
-	void Push_System_Text_RegularExpressions_MatchEvaluator(IntPtr L, System.Text.RegularExpressions.MatchEvaluator o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_System_Type_System_Type_Event : LuaDelegate
-	{
-		public System_Func_System_Type_System_Type_Event(LuaFunction func) : base(func) { }
-		public System_Func_System_Type_System_Type_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public System.Type Call(System.Type param0)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.PCall();
-			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
-			func.EndPCall();
-			return ret;
-		}
-
-		public System.Type CallWithSelf(System.Type param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.PCall();
-			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<System.Type,System.Type> System_Func_System_Type_System_Type(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<System.Type,System.Type> fn = delegate(System.Type param0) { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_Event(func);
-			System.Func<System.Type,System.Type> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_Event(func, self);
-			System.Func<System.Type,System.Type> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_System_Type_System_Type(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<System.Type,System.Type>), L, pos);
-	}
-
-	void Push_System_Func_System_Type_System_Type(IntPtr L, System.Func<System.Type,System.Type> o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Func_System_Type_System_Type_System_Type_Event : LuaDelegate
-	{
-		public System_Func_System_Type_System_Type_System_Type_Event(LuaFunction func) : base(func) { }
-		public System_Func_System_Type_System_Type_System_Type_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public System.Type Call(System.Type param0, System.Type param1)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
-			func.EndPCall();
-			return ret;
-		}
-
-		public System.Type CallWithSelf(System.Type param0, System.Type param1)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.Push(param1);
-			func.PCall();
-			System.Type ret = (System.Type)func.CheckObject(typeof(System.Type));
-			func.EndPCall();
-			return ret;
-		}
-	}
-
-	public System.Func<System.Type,System.Type,System.Type> System_Func_System_Type_System_Type_System_Type(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Func<System.Type,System.Type,System.Type> fn = delegate(System.Type param0, System.Type param1) { return null; };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Func_System_Type_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_System_Type_Event(func);
-			System.Func<System.Type,System.Type,System.Type> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Func_System_Type_System_Type_System_Type_Event target = new System_Func_System_Type_System_Type_System_Type_Event(func, self);
-			System.Func<System.Type,System.Type,System.Type> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Func_System_Type_System_Type_System_Type(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Func<System.Type,System.Type,System.Type>), L, pos);
-	}
-
-	void Push_System_Func_System_Type_System_Type_System_Type(IntPtr L, System.Func<System.Type,System.Type,System.Type> o)
 	{
 		ToLua.Push(L, o);
 	}
@@ -4538,6 +4365,59 @@ public class DelegateFactory
 		ToLua.Push(L, o);
 	}
 
+	class FairyGUI_UILoadCallback_Event : LuaDelegate
+	{
+		public FairyGUI_UILoadCallback_Event(LuaFunction func) : base(func) { }
+		public FairyGUI_UILoadCallback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call()
+		{
+			func.Call();
+		}
+
+		public void CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public FairyGUI.UILoadCallback FairyGUI_UILoadCallback(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			FairyGUI.UILoadCallback fn = delegate() { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			FairyGUI_UILoadCallback_Event target = new FairyGUI_UILoadCallback_Event(func);
+			FairyGUI.UILoadCallback d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			FairyGUI_UILoadCallback_Event target = new FairyGUI_UILoadCallback_Event(func, self);
+			FairyGUI.UILoadCallback d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_FairyGUI_UILoadCallback(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(FairyGUI.UILoadCallback), L, pos);
+	}
+
+	void Push_FairyGUI_UILoadCallback(IntPtr L, FairyGUI.UILoadCallback o)
+	{
+		ToLua.Push(L, o);
+	}
+
 	class FairyGUI_UIObjectFactory_GComponentCreator_Event : LuaDelegate
 	{
 		public FairyGUI_UIObjectFactory_GComponentCreator_Event(LuaFunction func) : base(func) { }
@@ -5128,6 +5008,236 @@ public class DelegateFactory
 		ToLua.Push(L, o);
 	}
 
+	class Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event : LuaDelegate
+	{
+		public Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event(LuaFunction func) : base(func) { }
+		public Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call()
+		{
+			func.Call();
+		}
+
+		public void CallWithSelf()
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public Microsoft.IO.RecyclableMemoryStreamManager.EventHandler Microsoft_IO_RecyclableMemoryStreamManager_EventHandler(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			Microsoft.IO.RecyclableMemoryStreamManager.EventHandler fn = delegate() { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event(func);
+			Microsoft.IO.RecyclableMemoryStreamManager.EventHandler d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_EventHandler_Event(func, self);
+			Microsoft.IO.RecyclableMemoryStreamManager.EventHandler d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_Microsoft_IO_RecyclableMemoryStreamManager_EventHandler(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(Microsoft.IO.RecyclableMemoryStreamManager.EventHandler), L, pos);
+	}
+
+	void Push_Microsoft_IO_RecyclableMemoryStreamManager_EventHandler(IntPtr L, Microsoft.IO.RecyclableMemoryStreamManager.EventHandler o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event : LuaDelegate
+	{
+		public Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event(LuaFunction func) : base(func) { }
+		public Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(long param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(long param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler fn = delegate(long param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event(func);
+			Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler_Event(func, self);
+			Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler), L, pos);
+	}
+
+	void Push_Microsoft_IO_RecyclableMemoryStreamManager_StreamLengthReportHandler(IntPtr L, Microsoft.IO.RecyclableMemoryStreamManager.StreamLengthReportHandler o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event : LuaDelegate
+	{
+		public Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event(LuaFunction func) : base(func) { }
+		public Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(Microsoft.IO.RecyclableMemoryStreamManager.Events.MemoryStreamDiscardReason param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(Microsoft.IO.RecyclableMemoryStreamManager.Events.MemoryStreamDiscardReason param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler fn = delegate(Microsoft.IO.RecyclableMemoryStreamManager.Events.MemoryStreamDiscardReason param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event(func);
+			Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler_Event(func, self);
+			Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler), L, pos);
+	}
+
+	void Push_Microsoft_IO_RecyclableMemoryStreamManager_LargeBufferDiscardedEventHandler(IntPtr L, Microsoft.IO.RecyclableMemoryStreamManager.LargeBufferDiscardedEventHandler o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event : LuaDelegate
+	{
+		public Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event(LuaFunction func) : base(func) { }
+		public Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(long param0, long param1, long param2, long param3)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.Push(param3);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(long param0, long param1, long param2, long param3)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.Push(param2);
+			func.Push(param3);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler fn = delegate(long param0, long param1, long param2, long param3) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event(func);
+			Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event target = new Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler_Event(func, self);
+			Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler), L, pos);
+	}
+
+	void Push_Microsoft_IO_RecyclableMemoryStreamManager_UsageReportEventHandler(IntPtr L, Microsoft.IO.RecyclableMemoryStreamManager.UsageReportEventHandler o)
+	{
+		ToLua.Push(L, o);
+	}
+
 	class System_Action_floats_int_Event : LuaDelegate
 	{
 		public System_Action_floats_int_Event(LuaFunction func) : base(func) { }
@@ -5696,6 +5806,65 @@ public class DelegateFactory
 	}
 
 	void Push_System_Threading_SendOrPostCallback(IntPtr L, System.Threading.SendOrPostCallback o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event : LuaDelegate
+	{
+		public System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event(LuaFunction func) : base(func) { }
+		public System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(object param0, System.Diagnostics.Tracing.EventCommandEventArgs param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PushObject(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(object param0, System.Diagnostics.Tracing.EventCommandEventArgs param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PushObject(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs> System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs> fn = delegate(object param0, System.Diagnostics.Tracing.EventCommandEventArgs param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event target = new System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event(func);
+			System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event target = new System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs_Event(func, self);
+			System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs>), L, pos);
+	}
+
+	void Push_System_EventHandler_System_Diagnostics_Tracing_EventCommandEventArgs(IntPtr L, System.EventHandler<System.Diagnostics.Tracing.EventCommandEventArgs> o)
 	{
 		ToLua.Push(L, o);
 	}

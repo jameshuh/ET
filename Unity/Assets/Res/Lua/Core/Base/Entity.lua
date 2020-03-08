@@ -162,7 +162,7 @@ System.namespace("DCET", function (namespace)
       return System.as(getParent(this), T)
     end
     ToString = function (this)
-      return DCET.MongoHelper.ToJson(this)
+      return DCETRuntime.MongoHelper.ToJson(this)
     end
     getDomain = function (this)
       return this.domain

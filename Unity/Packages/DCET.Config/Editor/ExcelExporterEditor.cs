@@ -180,7 +180,7 @@ namespace DCET.Editor
 			}
 			else
 			{
-				this.md5Info = MongoHelper.FromJson<ExcelMD5Info>(File.ReadAllText(md5File));
+				this.md5Info = JsonHelper.FromJson<ExcelMD5Info>(File.ReadAllText(md5File));
 			}
 
 			foreach (string filePath in Directory.GetFiles(ExcelPath))
@@ -195,7 +195,7 @@ namespace DCET.Editor
 				}
 				string fileName = Path.GetFileName(filePath);
 				string oldMD5 = this.md5Info.Get(fileName);
-				string md5 = MD5Helper.FileMD5(filePath);
+				string md5 = Runtime.MD5Helper.FileMD5(filePath);
 				this.md5Info.Add(fileName, md5);
 				// if (md5 == oldMD5)
 				// {
@@ -291,14 +291,7 @@ namespace DCET.Editor
 
 					if (fieldName == "Id" || fieldName == "_id")
 					{
-						if (this.isClient)
-						{
-							fieldName = "Id";
-						}
-						else
-						{
-							fieldName = "_id";
-						}
+						fieldName = "_id";
 					}
 
 					string fieldType = cellInfos[j].Type;

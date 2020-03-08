@@ -70,7 +70,7 @@ namespace DCET.Editor
 
 			using (FileStream fileStream = new FileStream($"{dir}/Version.txt", FileMode.Create))
 			{
-				byte[] bytes = JsonHelper.ToJson(versionProto).ToByteArray();
+				byte[] bytes = MongoHelper.ToJson(versionProto).ToByteArray();
 				fileStream.Write(bytes, 0, bytes.Length);
 			}
 		}

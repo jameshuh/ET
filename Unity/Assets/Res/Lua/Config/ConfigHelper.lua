@@ -19,7 +19,7 @@ System.namespace("DCET", function (namespace)
       end
     end
     ToObject = function (str, T)
-      return DCET.JsonHelper.FromJson(str, T)
+      return DCETRuntime.MongoHelper.FromJson(str, T)
     end
     return {
       GetText = GetText,

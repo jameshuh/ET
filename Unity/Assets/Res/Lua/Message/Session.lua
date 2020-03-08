@@ -2,6 +2,7 @@
 local System = System
 local Linq = System.Linq.Enumerable
 local DCET = DCET
+local DCETRuntime = DCET.Runtime
 local ArrayByte = System.Array(System.Byte)
 local DCET
 local DictInt32Delegate
@@ -159,7 +160,7 @@ System.namespace("DCET", function (namespace)
       local tcs = System.TaskCompletionSource()
       this.requestCallback:set(rpcId, function (response)
         if System.is(response, DCET.ErrorResponse) then
-          tcs:SetException(System.Exception("Rpc error: " .. DCET.MongoHelper.ToJson(response)))
+          tcs:SetException(System.Exception("Rpc error: " .. DCETRuntime.MongoHelper.ToJson(response)))
           return
         end
 
@@ -177,12 +178,12 @@ System.namespace("DCET", function (namespace)
       local tcs = System.TaskCompletionSource()
       this.requestCallback:set(rpcId, function (response)
         if System.is(response, DCET.ErrorResponse) then
-          tcs:SetException(System.Exception("Rpc error: " .. DCET.MongoHelper.ToJson(response)))
+          tcs:SetException(System.Exception("Rpc error: " .. DCETRuntime.MongoHelper.ToJson(response)))
           return
         end
 
         if DCET.ErrorCode.IsRpcNeedThrowException(response:getError()) then
-          tcs:SetException(System.Exception("Rpc error: " .. DCET.MongoHelper.ToJson(response)))
+          tcs:SetException(System.Exception("Rpc error: " .. DCETRuntime.MongoHelper.ToJson(response)))
           return
         end
 

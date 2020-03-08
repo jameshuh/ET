@@ -246,7 +246,7 @@ namespace DCET
 						}
 						else
 						{
-							sw.Write(JsonHelper.ToJson(result));
+							sw.Write(Runtime.MongoHelper.ToJson(result));
 						}
 					}
 				}
@@ -292,7 +292,7 @@ namespace DCET
 							}
 							else if (item.ParameterType.IsClass && item.ParameterType != typeof(string) && !string.IsNullOrEmpty(postbody))
 							{
-								object entity = JsonHelper.FromJson(item.ParameterType, postbody);
+								object entity = Runtime.MongoHelper.FromJson(item.ParameterType, postbody);
 								args[i] = entity;
 							}
 

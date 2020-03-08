@@ -24,8 +24,8 @@ System.namespace("DCET", function (namespace)
 
       this.webSocket = webSocketContext:getWebSocket()
 
-      this.memoryStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
-      this.recvStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
+      this.recvStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       this.isConnected = true
     end
@@ -34,8 +34,8 @@ System.namespace("DCET", function (namespace)
       DCET.AChannel.__ctor__(this, service, 0 --[[ChannelType.Connect]])
       this.webSocket = webSocket
 
-      this.memoryStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
-      this.recvStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
+      this.recvStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       this.isConnected = false
     end

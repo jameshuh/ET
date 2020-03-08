@@ -30,7 +30,7 @@ namespace DCET.Editor
 
             if (File.Exists(path))
             {
-                globalProto = JsonHelper.FromJson<GlobalProto>(File.ReadAllText(path));
+                globalProto = MongoHelper.FromJson<GlobalProto>(File.ReadAllText(path));
             }
 
             if (globalProto == null)
@@ -48,7 +48,7 @@ namespace DCET.Editor
 
             if (GUILayout.Button("保存"))
             {
-                File.WriteAllText(path, JsonHelper.ToJson(globalProto));
+                File.WriteAllText(path, MongoHelper.ToJson(globalProto));
                 AssetDatabase.Refresh();
             }
         }

@@ -28,7 +28,7 @@ System.namespace("DCET", function (namespace)
       System.base(this).__ctor__(this, service, 0 --[[ChannelType.Connect]])
       local packetSize = service.PacketSizeLength
       this.packetSizeCache = ArrayByte:new(packetSize)
-      this.memoryStream = service.MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = service.MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       this.socket = SystemNetSockets.Socket(2 --[[AddressFamily.InterNetwork]], 1 --[[SocketType.Stream]], 6 --[[ProtocolType.Tcp]])
       this.socket:setNoDelay(true)
@@ -46,7 +46,7 @@ System.namespace("DCET", function (namespace)
       System.base(this).__ctor__(this, service, 1 --[[ChannelType.Accept]])
       local packetSize = service.PacketSizeLength
       this.packetSizeCache = ArrayByte:new(packetSize)
-      this.memoryStream = service.MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = service.MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       this.socket = socket
       this.socket:setNoDelay(true)

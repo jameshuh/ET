@@ -153,7 +153,7 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\MethodInfoHelper.cs">
       <Link>Helper\MethodInfoHelper.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\MongoHelper.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Helper\MongoHelper.cs">
       <Link>Helper\MongoHelper.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\NetHelper.cs">

@@ -83,7 +83,7 @@ namespace DCET
 			if (!this.handlers.TryGetValue(opcode, out actions))
 			{
 				Log.Error($"消息没有处理: opcode={opcode}");
-				Log.Error($"消息没有处理: message={JsonHelper.ToJson(message)}");
+				Log.Error($"消息没有处理: message={Runtime.MongoHelper.ToJson(message)}");
 				return;
 			}
 			

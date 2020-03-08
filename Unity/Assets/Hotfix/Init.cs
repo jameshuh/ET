@@ -11,8 +11,7 @@ namespace DCET
 		{
 			try
 			{
-				TypeHelper.InitAllType();
-				MongoHelper.LookupTypes(Game.EventSystem.GetAllType());
+				TypeHelper.Init();
 				Game.EventSystem.Init();
 
 				// 注册热更层回调

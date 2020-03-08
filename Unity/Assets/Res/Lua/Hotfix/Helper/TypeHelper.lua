@@ -2,19 +2,19 @@
 local System = System
 System.namespace("DCET", function (namespace)
   namespace.class("TypeHelper", function (namespace)
-    local InitAllType, InitAllTypeByLua
-    InitAllType = function ()
-      InitAllTypeByLua()
+    local Init, InitByLua
+    Init = function ()
+      InitByLua()
     end
-    InitAllTypeByLua = function ()
+    InitByLua = function ()
       for k,v in pairs(DCET) do
-      	if v.__metadata__ and v.__metadata__.class then
+      	if v ~= DCET.Runtime then
       		DCET.Game.getEventSystem():AddType(System.typeof(v))
       	end
       end
     end
     return {
-      InitAllType = InitAllType
+      Init = Init
     }
   end)
 end)

@@ -29,6 +29,7 @@ defInf("System.IEquatable_1", emptyFn)
 
 defInf("System.IPromise")
 defInf("System.IDisposable")
+defInf("System.ComponentModel.ISupportInitialize")
 
 local IEnumerable = defInf("System.IEnumerable")
 local IEnumerator = defInf("System.IEnumerator")

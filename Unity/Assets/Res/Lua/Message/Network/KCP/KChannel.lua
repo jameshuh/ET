@@ -37,7 +37,7 @@ System.namespace("DCET", function (namespace)
     __ctor1__ = function (this, localConn, remoteConn, socket, remoteEndPoint, kService)
       internal(this)
       DCET.AChannel.__ctor__(this, kService, 1 --[[ChannelType.Accept]])
-      this.memoryStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       setLocalConn(this, localConn)
       this.RemoteConn = remoteConn
@@ -56,7 +56,7 @@ System.namespace("DCET", function (namespace)
     __ctor2__ = function (this, localConn, socket, remoteEndPoint, kService)
       internal(this)
       DCET.AChannel.__ctor__(this, kService, 0 --[[ChannelType.Connect]])
-      this.memoryStream = GetService(this).MemoryStreamManager:GetStream2("message", 65535 --[[UInt16.MaxValue]])
+      this.memoryStream = GetService(this).MemoryStreamManager:GetStream("message", 65535 --[[UInt16.MaxValue]])
 
       setLocalConn(this, localConn)
       this.socket = socket

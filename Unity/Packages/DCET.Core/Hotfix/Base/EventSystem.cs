@@ -82,11 +82,21 @@ namespace DCET
 
 			foreach (Type type in allType)
 			{
-				if (type.IsAbstract)
+#if !__CSharpLua__
+				if (type.IsAbstract && type.IsSealed)
 				{
 					continue;
 				}
-
+#else			
+				/*
+				[[
+				if type:EqualsStatic() then
+					continue = true
+					break
+				end
+				]]
+				*/
+#endif
 				object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
 
 				if (objects.Length == 0)

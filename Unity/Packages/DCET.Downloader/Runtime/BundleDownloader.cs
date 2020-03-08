@@ -54,7 +54,7 @@ namespace DCET.Runtime
 
 					if (string.IsNullOrWhiteSpace(result))
 					{
-						remoteVersionConfig = JsonHelper.FromJson<VersionConfig>(webRequestAsync.Request.downloadHandler.text);
+						remoteVersionConfig = MongoHelper.FromJson<VersionConfig>(webRequestAsync.Request.downloadHandler.text);
 					}
 					else
 					{
@@ -81,7 +81,7 @@ namespace DCET.Runtime
 
 				if (string.IsNullOrWhiteSpace(result))
 				{
-					streamingVersionConfig = JsonHelper.FromJson<VersionConfig>(request.Request.downloadHandler.text);
+					streamingVersionConfig = MongoHelper.FromJson<VersionConfig>(request.Request.downloadHandler.text);
 				}
 			}
 

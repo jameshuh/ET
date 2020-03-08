@@ -17,9 +17,8 @@ require("BehaviorTree.manifest")("BehaviorTree")
 require("FairyGUI.manifest")("FairyGUI")
 require("Hotfix.manifest")("Hotfix")
 
-function Main()					
-	print("logic start")
-    DCET.Hotfix.Init.Start()
+function Main()				
+    DCET.Init.Start()
 end
 
 --场景切换通知

@@ -57,7 +57,7 @@ namespace DCET
             {
                 if (InstanceId != instanceId)
                 {
-                    throw new RpcException(ErrorCode.ERR_ActorRemove, $"{MongoHelper.ToJson(iActorRequest)}");
+                    throw new RpcException(ErrorCode.ERR_ActorRemove, $"{Runtime.MongoHelper.ToJson(iActorRequest)}");
                 }
 
                 return await RunInner(iActorRequest);
@@ -96,7 +96,7 @@ namespace DCET
                         await TimerComponent.Instance.WaitAsync(500);
                         if (InstanceId != instanceId)
                         {
-                            throw new RpcException(ErrorCode.ERR_ActorRemove, $"{MongoHelper.ToJson(iActorRequest)}");
+                            throw new RpcException(ErrorCode.ERR_ActorRemove, $"{Runtime.MongoHelper.ToJson(iActorRequest)}");
                         }
                         ActorId = await LocationProxyComponent.Instance.Get(Id);
                         return await RunInner(iActorRequest);
@@ -116,7 +116,7 @@ namespace DCET
             catch (Exception e)
             {
                 Dispose();
-                throw new Exception($"{MongoHelper.ToJson(iActorRequest)}\n{e}");
+                throw new Exception($"{Runtime.MongoHelper.ToJson(iActorRequest)}\n{e}");
             }
         }
 

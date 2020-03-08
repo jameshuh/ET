@@ -353,7 +353,7 @@ namespace DCET.Editor
 			try
 			{
 				this.ClearConfig();
-				startConfig = MongoHelper.FromJson<StartConfig>(File.ReadAllText(filePath));
+				startConfig = JsonHelper.FromJson<StartConfig>(File.ReadAllText(filePath));
 				this.startConfig.AddComponentNoPool<StartConfigDrawer, int>(0);
 			}
 			catch (Exception e)
@@ -370,7 +370,7 @@ namespace DCET.Editor
 		private void Save()
 		{
 			string path = this.GetFilePath();
-			File.WriteAllText(path, MongoHelper.ToJson(startConfig));
+			File.WriteAllText(path, JsonHelper.ToJson(startConfig));
 		}
 
 		private Vector2 scrollPos;
@@ -400,7 +400,7 @@ namespace DCET.Editor
 					startConfig.AddComponent<StartConfigDrawer>();
 					this.fileName = this.newFileName;
 					this.newFileName = "";
-					File.WriteAllText(this.GetFilePath(), MongoHelper.ToJson(this.startConfig));
+					File.WriteAllText(this.GetFilePath(), JsonHelper.ToJson(this.startConfig));
 					
 					this.files = this.GetConfigFiles();
 					this.selectedIndex = this.files.IndexOf(this.fileName);

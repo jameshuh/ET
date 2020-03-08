@@ -184,14 +184,13 @@ public static class CustomSettings
 		_GT(typeof(Encoding)),
 		_GT(typeof(Stream)),
 		_GT(typeof(MemoryStream)),
-		_GT(typeof(System.Text.RegularExpressions.Regex)),
-		_GT(typeof(System.Linq.Expressions.ParameterExpression)),
-		_GT(typeof(System.Linq.Expressions.ElementInit)),
-		_GT(typeof(System.Linq.Expressions.MemberBinding)),
-		_GT(typeof(System.Linq.Expressions.Expression)),
-		_GT(typeof(System.Security.Cryptography.SHA1)),
-		_GT(typeof(System.Security.SecurityException)),
-		_GT(typeof(System.Collections.Concurrent.ConcurrentDictionary<Type, Type>)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonIgnoreAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonIgnoreExtraElementsAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfDefaultAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonDefaultValueAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonElementAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonIdAttribute)),
+		_GT(typeof(MongoDB.Bson.Serialization.Attributes.BsonIgnoreIfNullAttribute)),
 	}; 
 
 	public static List<Type> dynamicList = new List<Type>()
@@ -348,11 +347,6 @@ public static class CustomSettings
 							}
 
 							if (type.IsGenericType)
-							{
-								continue;
-							}
-
-							if (type.IsInterface)
 							{
 								continue;
 							}

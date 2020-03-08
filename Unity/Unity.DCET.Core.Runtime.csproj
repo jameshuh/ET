@@ -74,12 +74,16 @@
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ByteHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\FileHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\GameObjectHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Helper\JsonHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\MD5Helper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\MongoHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\PathHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ProcessHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\ResourcesHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\StringHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\ZipHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\Events.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStream.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStreamManager.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\AssetBundleLoaderAsync.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\AssetBundles.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\AssetLoaderAsync.cs" />
@@ -722,10 +726,6 @@
     <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
       <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
       <Name>Unity.MongoDB.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.LitJson.Runtime.csproj">
-      <Project>{4E6E9952-D791-ED34-C73E-7B8B0DC999A4}</Project>
-      <Name>Unity.LitJson.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

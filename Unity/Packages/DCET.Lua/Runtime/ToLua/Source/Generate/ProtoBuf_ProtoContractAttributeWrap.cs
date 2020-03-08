@@ -36,6 +36,9 @@ public class ProtoBuf_ProtoContractAttributeWrap
 		L.RegVar("AsReferenceDefault", get_AsReferenceDefault, set_AsReferenceDefault);
 		L.RegFunction("getAsReferenceDefault", get_AsReferenceDefault);
 		L.RegFunction("setAsReferenceDefault", set_AsReferenceDefault);
+		L.RegVar("IsGroup", get_IsGroup, set_IsGroup);
+		L.RegFunction("getIsGroup", get_IsGroup);
+		L.RegFunction("setIsGroup", set_IsGroup);
 		L.RegVar("EnumPassthru", get_EnumPassthru, set_EnumPassthru);
 		L.RegFunction("getEnumPassthru", get_EnumPassthru);
 		L.RegFunction("setEnumPassthru", set_EnumPassthru);
@@ -238,6 +241,25 @@ public class ProtoBuf_ProtoContractAttributeWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_IsGroup(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			ProtoBuf.ProtoContractAttribute obj = (ProtoBuf.ProtoContractAttribute)o;
+			bool ret = obj.IsGroup;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsGroup on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_EnumPassthru(IntPtr L)
 	{
 		object o = null;
@@ -424,6 +446,25 @@ public class ProtoBuf_ProtoContractAttributeWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index AsReferenceDefault on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_IsGroup(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			ProtoBuf.ProtoContractAttribute obj = (ProtoBuf.ProtoContractAttribute)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.IsGroup = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsGroup on a nil value");
 		}
 	}
 
