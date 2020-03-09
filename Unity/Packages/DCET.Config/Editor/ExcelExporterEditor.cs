@@ -73,7 +73,7 @@ namespace DCETEditor
 
 					ExportAll(ServerConfigPath);
 
-					ExportAllClass(@"../Server/Model/Module/Demo/Config", "namespace DCET\n{\n");
+					ExportAllClass(@"../Server/Assets/Hotfix/Config", "namespace DCET\n{\n");
 
 					DCETRuntime.Log.Info($"导出服务端配置完成!");
 				}
@@ -128,7 +128,6 @@ namespace DCETEditor
 
 				sb.Append($"\tpublic class {protoName}: IConfig\n");
 				sb.Append("\t{\n");
-				sb.Append("\t\tpublic long Id { get; set; }\n");
 
 				int cellCount = sheet.GetRow(3).LastCellNum;
 
@@ -148,19 +147,14 @@ namespace DCETEditor
 					}
 
 					string fieldName = GetCellString(sheet, 3, i);
-
-					if (fieldName == "Id" || fieldName == "_id")
-					{
-						continue;
-					}
-
 					string fieldType = GetCellString(sheet, 4, i);
+
 					if (fieldType == "" || fieldName == "")
 					{
 						continue;
 					}
 
-					sb.Append($"\t\tpublic {fieldType} {fieldName};\n");
+					sb.Append($"\t\tpublic {fieldType} {fieldName} " + "{get; set;}\n");
 				}
 
 				sb.Append("\t}\n");
@@ -194,14 +188,8 @@ namespace DCETEditor
 					continue;
 				}
 				string fileName = Path.GetFileName(filePath);
-				string oldMD5 = this.md5Info.Get(fileName);
 				string md5 = DCETRuntime.MD5Helper.FileMD5(filePath);
 				this.md5Info.Add(fileName, md5);
-				// if (md5 == oldMD5)
-				// {
-				// 	continue;
-				// }
-
 				Export(filePath, exportDir);
 			}
 

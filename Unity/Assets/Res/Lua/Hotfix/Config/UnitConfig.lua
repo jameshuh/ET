@@ -17,17 +17,17 @@ System.namespace("DCET", function (namespace)
   end)
 
   namespace.class("UnitConfig", function (namespace)
-    local getId, setId
-    getId, setId = System.property("Id")
+    local get_id, set_id
+    get_id, set_id = System.property("_id")
     return {
       base = function (out)
         return {
           out.DCET.IConfig
         }
       end,
-      Id = 0,
-      getId = getId,
-      setId = setId,
+      _id = 0,
+      get_id = get_id,
+      set_id = set_id,
       Position = 0,
       Height = 0,
       Weight = 0

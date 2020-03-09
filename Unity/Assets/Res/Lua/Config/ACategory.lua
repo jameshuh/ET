@@ -40,7 +40,7 @@ System.namespace("DCET", function (namespace)
                 return
               end
               local t = DCET.ConfigHelper.ToObject(str2, T)
-              this.dict:AddKeyValue(t:getId(), t)
+              this.dict:AddKeyValue(t:get_id(), t)
             end, function (default)
               local e = default
               System.throw(System.Exception("parser json fail: " .. str, e))
