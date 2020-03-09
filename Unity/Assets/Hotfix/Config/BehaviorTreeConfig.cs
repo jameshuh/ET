@@ -9,7 +9,7 @@ namespace DCET
 
 	public class BehaviorTreeConfig: IConfig
 	{
-		public long Id { get; set; }
+		public long _id { get; set; }
 		public string Name;
 		public string Description;
 		public string ComponentName;

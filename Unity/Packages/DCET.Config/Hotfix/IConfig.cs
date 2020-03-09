@@ -5,6 +5,6 @@
 	/// </summary>
 	public interface IConfig
 	{
-		long Id { get; set; }
+		long _id { get; set; }
 	}
 }

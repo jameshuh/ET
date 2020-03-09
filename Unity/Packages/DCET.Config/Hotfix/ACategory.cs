@@ -36,7 +36,7 @@ namespace DCET
 						continue;
 					}
 					T t = ConfigHelper.ToObject<T>(str2);
-					this.dict.Add(t.Id, t);
+					this.dict.Add(t._id, t);
 				}
 				catch (Exception e)
 				{

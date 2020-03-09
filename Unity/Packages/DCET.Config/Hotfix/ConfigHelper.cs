@@ -29,7 +29,7 @@ namespace DCET
 		
 		public static T ToObject<T>(string str)
 		{
-			return DCETRuntime.MongoHelper.FromJson<T>(str);
+			return JsonHelper.FromJson<T>(str);
 		}
 	}
 }
