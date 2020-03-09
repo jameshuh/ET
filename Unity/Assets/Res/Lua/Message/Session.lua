@@ -2,7 +2,7 @@
 local System = System
 local Linq = System.Linq.Enumerable
 local DCET = DCET
-local DCETRuntime = DCET.Runtime
+local DCETRuntime = DCETRuntime
 local ArrayByte = System.Array(System.Byte)
 local DCET
 local DictInt32Delegate

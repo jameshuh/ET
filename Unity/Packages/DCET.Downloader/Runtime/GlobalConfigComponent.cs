@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class GlobalConfigComponent
 	{

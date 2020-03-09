@@ -2,7 +2,7 @@
 
 using FairyGUI;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class RuntimeBinder
 	{

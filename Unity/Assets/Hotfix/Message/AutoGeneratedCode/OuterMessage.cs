@@ -1,19 +1,21 @@
 using ProtoBuf;
 using System.Collections.Generic;
+
 namespace DCET
 {
+// 客户端由于Lua模式需要自行配置父接口的字段（如RpcId、ActorId等），服务器则不需要。
 	[Message(OuterOpcode.C2M_TestRequest)]
 	[ProtoContract]
 	public partial class C2M_TestRequest: IActorLocationRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string request;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
 		public long ActorId { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public string request { get; set; }
 
 	}
 
@@ -22,16 +24,16 @@ namespace DCET
 	public partial class M2C_TestResponse: IActorLocationResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string response;
-
-		[ProtoMember(2, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(3, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
 
-		[ProtoMember(4, IsRequired = true)]
+		[ProtoMember(3, IsRequired = true)]
 		public int RpcId { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public string response { get; set; }
 
 	}
 
@@ -40,13 +42,13 @@ namespace DCET
 	public partial class Actor_TransferRequest: IActorLocationRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public int MapIndex;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
 		public long ActorId { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public int MapIndex { get; set; }
 
 	}
 
@@ -78,19 +80,22 @@ namespace DCET
 	[ProtoContract]
 	public partial class G2C_EnterMap: IResponse
 	{
-// 自己的unit id
 		[ProtoMember(1, IsRequired = true)]
-		public long UnitId;
-
-// 所有的unit
-		[ProtoMember(2, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(3, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(4, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
+
+// 自己的unit id
+		[ProtoMember(4, IsRequired = true)]
+		public long UnitId { get; set; }
+
+// 所有的unit
+		[ProtoMember(5, IsRequired = true)]
+		public List<UnitInfo> Units { get; set; } = new List<UnitInfo>();
 
 	}
 
@@ -99,16 +104,16 @@ namespace DCET
 	public partial class UnitInfo
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public long UnitId;
+		public long UnitId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public float X;
+		public float X { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public float Y;
+		public float Y { get; set; }
 
 		[ProtoMember(4, IsRequired = true)]
-		public float Z;
+		public float Z { get; set; }
 
 	}
 
@@ -117,13 +122,10 @@ namespace DCET
 	public partial class M2C_CreateUnits: IActorMessage
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public List<UnitInfo> Units = new List<UnitInfo>();
+		public long ActorId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(3, IsRequired = true)]
-		public long ActorId { get; set; }
+		public List<UnitInfo> Units { get; set; } = new List<UnitInfo>();
 
 	}
 
@@ -132,19 +134,19 @@ namespace DCET
 	public partial class Frame_ClickMap: IActorLocationMessage
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public float X;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public float Y;
-
-		[ProtoMember(3, IsRequired = true)]
-		public float Z;
-
-		[ProtoMember(4, IsRequired = true)]
 		public long ActorId { get; set; }
 
+		[ProtoMember(3, IsRequired = true)]
+		public float X { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public float Y { get; set; }
+
 		[ProtoMember(5, IsRequired = true)]
-		public int RpcId { get; set; }
+		public float Z { get; set; }
 
 	}
 
@@ -153,31 +155,28 @@ namespace DCET
 	public partial class M2C_PathfindingResult: IActorMessage
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public long Id;
+		public long ActorId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public float X;
+		public long Id { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public float Y;
+		public float X { get; set; }
 
 		[ProtoMember(4, IsRequired = true)]
-		public float Z;
+		public float Y { get; set; }
 
 		[ProtoMember(5, IsRequired = true)]
-		public List<float> Xs = new List<float>();
+		public float Z { get; set; }
 
 		[ProtoMember(6, IsRequired = true)]
-		public List<float> Ys = new List<float>();
+		public List<float> Xs { get; set; } = new List<float>();
 
 		[ProtoMember(7, IsRequired = true)]
-		public List<float> Zs = new List<float>();
+		public List<float> Ys { get; set; } = new List<float>();
 
 		[ProtoMember(8, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(9, IsRequired = true)]
-		public long ActorId { get; set; }
+		public List<float> Zs { get; set; } = new List<float>();
 
 	}
 
@@ -195,13 +194,13 @@ namespace DCET
 	public partial class R2C_Ping: IResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(2, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(3, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
 
 	}
 
@@ -216,13 +215,13 @@ namespace DCET
 	public partial class C2M_Reload: IRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Account;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public string Password;
+		public string Account { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public string Password { get; set; }
 
 	}
 
@@ -231,13 +230,13 @@ namespace DCET
 	public partial class M2C_Reload: IResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(2, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(3, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
 
 	}
 
@@ -246,13 +245,13 @@ namespace DCET
 	public partial class C2R_Login: IRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Account;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public string Password;
+		public string Account { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public string Password { get; set; }
 
 	}
 
@@ -261,22 +260,22 @@ namespace DCET
 	public partial class R2C_Login: IResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Address;
-
-		[ProtoMember(2, IsRequired = true)]
-		public long Key;
-
-		[ProtoMember(3, IsRequired = true)]
-		public long GateId;
-
-		[ProtoMember(4, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(5, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(6, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public string Address { get; set; }
+
+		[ProtoMember(5, IsRequired = true)]
+		public long Key { get; set; }
+
+		[ProtoMember(6, IsRequired = true)]
+		public long GateId { get; set; }
 
 	}
 
@@ -285,13 +284,13 @@ namespace DCET
 	public partial class C2G_LoginGate: IRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public long Key;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
-		public long GateId;
+		public long Key { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public long GateId { get; set; }
 
 	}
 
@@ -300,16 +299,16 @@ namespace DCET
 	public partial class G2C_LoginGate: IResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public long PlayerId;
-
-		[ProtoMember(2, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(3, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(4, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public long PlayerId { get; set; }
 
 	}
 
@@ -318,7 +317,7 @@ namespace DCET
 	public partial class G2C_TestHotfixMessage: IMessage
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Info;
+		public string Info { get; set; }
 
 	}
 
@@ -327,13 +326,13 @@ namespace DCET
 	public partial class C2M_TestActorRequest: IActorLocationRequest
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Info;
+		public int RpcId { get; set; }
 
 		[ProtoMember(2, IsRequired = true)]
 		public long ActorId { get; set; }
 
 		[ProtoMember(3, IsRequired = true)]
-		public int RpcId { get; set; }
+		public string Info { get; set; }
 
 	}
 
@@ -342,16 +341,16 @@ namespace DCET
 	public partial class M2C_TestActorResponse: IActorLocationResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public string Info;
-
-		[ProtoMember(2, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(3, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
 
-		[ProtoMember(4, IsRequired = true)]
+		[ProtoMember(3, IsRequired = true)]
 		public int RpcId { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public string Info { get; set; }
 
 	}
 
@@ -360,7 +359,7 @@ namespace DCET
 	public partial class PlayerInfo: IMessage
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public long RpcId;
+		public long RpcId { get; set; }
 
 	}
 
@@ -378,28 +377,28 @@ namespace DCET
 	public partial class G2C_PlayerInfo: IResponse
 	{
 		[ProtoMember(1, IsRequired = true)]
-		public PlayerInfo PlayerInfo;
-
-		[ProtoMember(2, IsRequired = true)]
-		public List<PlayerInfo> PlayerInfos = new List<PlayerInfo>();
-
-		[ProtoMember(3, IsRequired = true)]
-		public List<string> TestRepeatedString = new List<string>();
-
-		[ProtoMember(4, IsRequired = true)]
-		public List<int> TestRepeatedInt32 = new List<int>();
-
-		[ProtoMember(5, IsRequired = true)]
-		public List<long> TestRepeatedInt64 = new List<long>();
-
-		[ProtoMember(6, IsRequired = true)]
-		public int RpcId { get; set; }
-
-		[ProtoMember(7, IsRequired = true)]
 		public int Error { get; set; }
 
-		[ProtoMember(8, IsRequired = true)]
+		[ProtoMember(2, IsRequired = true)]
 		public string Message { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public PlayerInfo PlayerInfo { get; set; }
+
+		[ProtoMember(5, IsRequired = true)]
+		public List<PlayerInfo> PlayerInfos { get; set; } = new List<PlayerInfo>();
+
+		[ProtoMember(6, IsRequired = true)]
+		public List<string> TestRepeatedString { get; set; } = new List<string>();
+
+		[ProtoMember(7, IsRequired = true)]
+		public List<int> TestRepeatedInt32 { get; set; } = new List<int>();
+
+		[ProtoMember(8, IsRequired = true)]
+		public List<long> TestRepeatedInt64 { get; set; } = new List<long>();
 
 	}
 

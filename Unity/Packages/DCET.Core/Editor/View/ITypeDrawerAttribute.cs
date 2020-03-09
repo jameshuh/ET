@@ -1,6 +1,6 @@
 using System;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     public class TypeDrawerAttribute: Attribute
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using DCET.Runtime;
+using DCETRuntime;
 using Microsoft.IO;
 
 #if SERVER

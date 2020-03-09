@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Conventions;
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public static class MongoHelper
 	{

@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class LuaLoader : LuaFileUtils
 	{

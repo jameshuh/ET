@@ -8,7 +8,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public static class LuaCompiler
 	{

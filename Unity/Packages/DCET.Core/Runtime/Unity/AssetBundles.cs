@@ -8,7 +8,7 @@ using System.IO;
 using UnityEditor;
 #endif
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class AssetBundles : IDisposable
 	{

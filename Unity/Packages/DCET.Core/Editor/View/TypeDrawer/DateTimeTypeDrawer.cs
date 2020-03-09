@@ -1,7 +1,7 @@
 using System;
 using UnityEditor;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     [TypeDrawer]
     public class DateTimeTypeDrawer: ITypeDrawer

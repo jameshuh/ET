@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class Init : MonoBehaviour
 	{
@@ -170,7 +170,9 @@ namespace DCET.Runtime
 
 				if (Define.IsLua)
 				{
+#if TOLUA
 					Lua.Default.Dispose();
+#endif
 				}
 
 				AssetBundles.Default.Dispose();

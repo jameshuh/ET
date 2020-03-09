@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using DCET.Runtime;
+using DCETRuntime;
 using Microsoft.IO;
 
 namespace DCET

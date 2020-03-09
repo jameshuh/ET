@@ -1,4 +1,5 @@
-﻿using DCET.Runtime;
+﻿using DCET;
+using DCETRuntime;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	enum StartConfigComponentType
 	{
@@ -358,7 +359,7 @@ namespace DCET.Editor
 			}
 			catch (Exception e)
 			{
-				Log.Error($"加载配置失败! {s2} \n {e}");
+				DCETRuntime.Log.Error($"加载配置失败! {s2} \n {e}");
 			}
 		}
 
@@ -420,7 +421,7 @@ namespace DCET.Editor
 				{
 					if (this.newFileName == "")
 					{
-						Log.Debug("请输入新名字!");
+						DCETRuntime.Log.Debug("请输入新名字!");
 					}
 					else
 					{

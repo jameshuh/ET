@@ -1,7 +1,7 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using UnityEditor;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public static class FileServerEditor
 	{

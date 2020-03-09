@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public static class Log
 	{

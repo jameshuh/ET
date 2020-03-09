@@ -1,8 +1,8 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     [CustomEditor(typeof(ReferenceLoader))]
     public class ReferenceLoaderInspector : UnityEditor.Editor

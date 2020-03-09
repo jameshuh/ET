@@ -1,8 +1,8 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using System.Collections.Generic;
 using System.IO;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     public class EditorResHelper
     {

@@ -8,7 +8,7 @@ System.namespace("DCET", function (namespace)
     end
     InitByLua = function ()
       for k,v in pairs(DCET) do
-      	if v ~= DCET.Runtime then
+      	if v.__metadata__ and v.__metadata__.class  then
       		DCET.Game.getEventSystem():AddType(System.typeof(v))
       	end
       end

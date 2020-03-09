@@ -1,3 +1,4 @@
+using DCETRuntime;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,7 +6,7 @@ using UnityEngine;
 //Object并非C#基础中的Object，而是 UnityEngine.Object
 using Object = UnityEngine.Object;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	//自定义ReferenceCollector类在界面中的显示与功能
 	[CustomEditor(typeof(ReferenceCollector))]

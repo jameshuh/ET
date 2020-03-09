@@ -1,7 +1,7 @@
 ﻿using FairyGUI;
 using System;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class FUIPackage : IDisposable
 	{

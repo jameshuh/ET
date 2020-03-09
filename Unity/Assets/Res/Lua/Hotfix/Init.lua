@@ -2,7 +2,7 @@
 local System = System
 local BehaviorDesignerRuntime = BehaviorDesigner.Runtime
 local DCET = DCET
-local DCETRuntime = DCET.Runtime
+local DCETRuntime = DCETRuntime
 local UnityEngine = UnityEngine
 local DCET
 System.import(function (out)

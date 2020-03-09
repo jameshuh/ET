@@ -3,7 +3,7 @@
 using FairyGUI;
 using FairyGUI.Utils;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public partial class FUILoading : GComponent
 	{

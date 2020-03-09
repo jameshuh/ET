@@ -22,14 +22,14 @@ namespace DCET.Tool
 
         public static void Main()
         {
-            Proto2CS("DCET", "FrameMessage.proto", frameMessagePath, "FrameOpcode", 100);
-            Proto2CS("DCET", "InnerMessage.proto", serverMessagePath, "InnerOpcode", 1000);
-            Proto2CS("DCET", "OuterMessage.proto", hotfixMessagePath, "OuterOpcode", 10000);
+            Proto2CS("DCET", "FrameMessage.proto", frameMessagePath, "FrameOpcode", 100, true);
+            Proto2CS("DCET", "InnerMessage.proto", serverMessagePath, "InnerOpcode", 1000, true);
+            Proto2CS("DCET", "OuterMessage.proto", hotfixMessagePath, "OuterOpcode", 10000, false);
             
             Console.WriteLine("proto2cs succeed!");
         }
 
-        public static void Proto2CS(string ns, string protoName, string outputPath, string opcodeClassName, int startOpcode)
+        public static void Proto2CS(string ns, string protoName, string outputPath, string opcodeClassName, int startOpcode, bool isServer)
         {
             if (!Directory.Exists(outputPath))
             {
@@ -44,7 +44,7 @@ namespace DCET.Tool
 
             StringBuilder sb = new StringBuilder();
             sb.Append("using ProtoBuf;\n");
-            sb.Append("using System.Collections.Generic;\n");
+            sb.Append("using System.Collections.Generic;\n\n");
             sb.Append($"namespace {ns}\n");
             sb.Append("{\n");
 
@@ -133,45 +133,48 @@ namespace DCET.Tool
                 {
                     isMsgStart = false;
 
-                    if (parentClass == "IRequest" || parentClass == "IActorRequest" || parentClass == "IActorMessage")
-                    {
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
-                    }
+					if (isServer)
+					{
+						if (parentClass == "IRequest" || parentClass == "IActorRequest" || parentClass == "IActorMessage")
+						{
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
+						}
 
-                    if (parentClass == "IResponse" || parentClass == "IActorResponse")
-                    {
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int Error { get; set; }\n");
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic string Message { get; set; }\n");
-                    }
+						if (parentClass == "IResponse" || parentClass == "IActorResponse")
+						{
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int Error { get; set; }\n");
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic string Message { get; set; }\n");
+						}
 
-                    if (parentClass == "IActorRequest" || parentClass == "IActorMessage")
-                    {
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic long ActorId { get; set; }\n");
-                    }
+						if (parentClass == "IActorRequest" || parentClass == "IActorMessage")
+						{
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic long ActorId { get; set; }\n");
+						}
 
-                    if (parentClass == "IActorLocationRequest" || parentClass == "IActorLocationMessage")
-                    {
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic long ActorId { get; set; }\n");
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
-                    }
+						if (parentClass == "IActorLocationRequest" || parentClass == "IActorLocationMessage")
+						{
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic long ActorId { get; set; }\n");
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
+						}
 
-                    if (parentClass == "IActorLocationResponse")
-                    {
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int Error { get; set; }\n");
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic string Message { get; set; }\n");
-                        sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
-                        sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
-                    }
+						if (parentClass == "IActorLocationResponse")
+						{
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int Error { get; set; }\n");
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic string Message { get; set; }\n");
+							sb.AppendLine($"\t\t[ProtoMember({++currentOrder}, IsRequired = true)]");
+							sb.AppendLine("\t\tpublic int RpcId { get; set; }\n");
+						}
+					}
 
                     sb.Append("\t}\n\n");
                     currentOrder = 0;
@@ -216,7 +219,7 @@ namespace DCET.Tool
 
                 sb.Append($"\t\t[ProtoMember({order}, IsRequired = true)]\n");
 
-                sb.Append($"\t\tpublic List<{type}> {name} = new List<{type}>();\n\n");
+                sb.Append($"\t\tpublic List<{type}> {name} "+ "{ get; set; }" + $" = new List<{type}>();\n\n");
 
                 return order;
             }
@@ -277,7 +280,7 @@ namespace DCET.Tool
                 sb.Append($"\t\t[ProtoMember({order}, IsRequired = {isRequired.ToString().ToLower()})]\n");
                 string typeCs = ConvertType(type);
 
-                sb.Append($"\t\tpublic {typeCs} {name};\n\n");
+                sb.Append($"\t\tpublic {typeCs} {name} " + "{ get; set; }\n\n");
 
                 return order;
             }

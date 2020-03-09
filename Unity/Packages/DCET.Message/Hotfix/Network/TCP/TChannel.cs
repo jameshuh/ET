@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using DCET.Runtime;
+using DCETRuntime;
 
 namespace DCET
 {
@@ -137,7 +137,7 @@ namespace DCET
 			}
 
 			this.sendBuffer.Write(this.packetSizeCache, 0, this.packetSizeCache.Length);
-			this.sendBuffer.Write(stream);
+			this.sendBuffer.WriteStream(stream);
 
 			this.GetService().MarkNeedStartSend(this.Id);
 		}

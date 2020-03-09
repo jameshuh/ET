@@ -1,8 +1,8 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using System.Diagnostics;
 using UnityEditor;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	internal class OpcodeInfo
 	{
@@ -15,8 +15,8 @@ namespace DCET.Editor
 		[MenuItem("Tools/Gen Proto")]
 		public static void AllProto2CS()
 		{
-			Process process = ProcessHelper.Run("dotnet", "Proto2CS.dll", "../Proto/", false);
-			Log.Info(process.StandardOutput.ReadToEnd());
+			ProcessHelper.Run("dotnet", "Proto2CS.dll", "../Proto/", false);
+			ProcessHelper.Run("protogen.bat", null, "../Proto/", false);
 			AssetDatabase.Refresh();
 		}
 	}

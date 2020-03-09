@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class FileVersionInfo
 	{

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using DCET;
+using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public class ServerManagerEditor: EditorWindow
 	{

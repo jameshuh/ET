@@ -19,7 +19,7 @@ namespace DCET
 			/*
 			[[
 			for k,v in pairs(DCET) do
-				if v ~= DCET.Runtime then
+				if v.__metadata__ and v.__metadata__.class  then
 					DCET.Game.getEventSystem():AddType(System.typeof(v))
 				end
 			end
@@ -29,14 +29,14 @@ namespace DCET
 #else
 		private static void InitByMono()
 		{
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Core);
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Config);
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.FairyGUI);
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Message);
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.BehaviorTree);
-			Game.EventSystem.AddAssemblyType(Runtime.MonoHelper.Hotfix);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.Core);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.Config);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.FairyGUI);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.Message);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.BehaviorTree);
+			Game.EventSystem.AddAssemblyType(DCETRuntime.MonoHelper.Hotfix);
 
-			Runtime.MongoHelper.LookupTypes(Game.EventSystem.GetAllType());
+			DCETRuntime.MongoHelper.LookupTypes(Game.EventSystem.GetAllType());
 		}
 #endif
 	}

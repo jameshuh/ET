@@ -48,7 +48,7 @@ System.namespace("DCET", function (namespace)
       return sb:ToString()
     end
     MessageToStr = function (message)
-      return DCET.Dumper.DumpAsString(message, "")
+      return DCET.JsonHelper.ToJson(message)
     end
     return {
       ToBytes = ToBytes,

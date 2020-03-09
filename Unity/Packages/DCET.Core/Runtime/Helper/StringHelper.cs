@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public static class StringHelper
 	{

@@ -169,6 +169,7 @@ public static class CustomSettings
 		_GT(typeof(AddressFamily)),
 		_GT(typeof(SocketType)),
 		_GT(typeof(ProtocolType)),
+		_GT(typeof(SocketAsyncEventArgs)),
 		_GT(typeof(SerializableAttribute)),
 		_GT(typeof(BridgeMonoBehaviour)),
 		_GT(typeof(Path)),
@@ -347,6 +348,11 @@ public static class CustomSettings
 							}
 
 							if (type.IsGenericType)
+							{
+								continue;
+							}
+
+							if (type.IsInterface)
 							{
 								continue;
 							}

@@ -1,34 +1,52 @@
+// 客户端由于Lua模式需要自行配置父接口的字段（如RpcId、ActorId等），服务器则不需要。
 package DCET;
 
 message C2M_TestRequest // IActorLocationRequest
 {
-	required string request = 1;
+	required int32 RpcId = 1;
+	required int64 ActorId = 2;
+	
+	required string request = 3;
 }
 
 message M2C_TestResponse // IActorLocationResponse
 {
-	required string response = 1;
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	required string response = 4;
 }
 
 message Actor_TransferRequest // IActorLocationRequest
 {
-	required int32 MapIndex = 1;
+	required int32 RpcId = 1;
+	required int64 ActorId = 2;
+	
+	required int32 MapIndex = 3;
 }
 
 message Actor_TransferResponse // IActorLocationResponse
 {
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
 }
 
 message C2G_EnterMap // IRequest
 {
+	required int32 RpcId = 1;
 }
 
 message G2C_EnterMap // IResponse
-{
+{		
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	
 	// 自己的unit id
-	required int64 UnitId = 1;
+	required int64 UnitId = 4;
 	// 所有的unit
-	required repeated UnitInfo Units = 2;
+	repeated UnitInfo Units = 5;
 }
 
 message UnitInfo
@@ -42,36 +60,46 @@ message UnitInfo
 
 message M2C_CreateUnits // IActorMessage
 {
-    repeated UnitInfo Units = 1;
+	required int64 ActorId = 1;
+	
+    repeated UnitInfo Units = 2;
 }
 
 message Frame_ClickMap // IActorLocationMessage
 {
-	required float X = 1;
-	required float Y = 2;
-	required float Z = 3;
+	required int32 RpcId = 1;
+	required int64 ActorId = 2;
+	required float X = 3;
+	required float Y = 4;
+	required float Z = 5;
 }
 
 message M2C_PathfindingResult // IActorMessage
 {
-	required int64 Id = 1;
-
-	required float X = 2;
-	required float Y = 3;
-	required float Z = 4;
+	required int64 ActorId = 1;
 	
-	repeated float Xs = 5;
-	repeated float Ys = 6;
-	repeated float Zs = 7;
+	required int64 Id = 2;
+
+	required float X = 3;
+	required float Y = 4;
+	required float Z = 5;
+	
+	repeated float Xs = 6;
+	repeated float Ys = 7;
+	repeated float Zs = 8;
 }
 
 
 message C2R_Ping // IRequest
 {
+	required int32 RpcId = 1;
 }
 
 message R2C_Ping // IResponse
 {
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
 }
 
 message G2C_Test // IMessage
@@ -80,36 +108,50 @@ message G2C_Test // IMessage
 
 message C2M_Reload // IRequest
 {
-	required string Account = 1;
-	required string Password = 2;
+	required int32 RpcId = 1;
+	required string Account = 2;
+	required string Password = 3;
 }
 
 message M2C_Reload // IResponse
 {
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
 }
 
 message C2R_Login // IRequest
 {
-	required string	Account	 = 1;	// 帐号
-	required string	Password = 2;	// 密码
+	required int32 RpcId = 1;
+	required string	Account	 = 2;	// 帐号
+	required string	Password = 3;	// 密码
 }
 
 message R2C_Login // IResponse
 {
-	required string Address = 1;
-	required int64 Key	    = 2;
-	required int64 GateId = 3;
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	
+	required string Address = 4;
+	required int64 Key = 5;
+	required int64 GateId = 6;
 }
 
 message C2G_LoginGate // IRequest
 {
-	required int64 Key = 1;	// 帐号
-	required int64 GateId = 2;
+	required int32 RpcId = 1;
+	required int64 Key = 2;	// 帐号
+	required int64 GateId = 3;
 }
 
 message G2C_LoginGate // IResponse
 {
-	required int64 PlayerId = 1;
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	
+	required int64 PlayerId = 4;
 }
 
 message G2C_TestHotfixMessage // IMessage
@@ -119,12 +161,19 @@ message G2C_TestHotfixMessage // IMessage
 
 message C2M_TestActorRequest // IActorLocationRequest
 {
-	required string Info = 1;
+	required int32 RpcId = 1;
+	required int64 ActorId = 2;
+	
+	required string Info = 3;
 }
 
 message M2C_TestActorResponse // IActorLocationResponse
 {
-	required string Info = 1;
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	
+	required string Info = 4;
 }
 
 message PlayerInfo // IMessage
@@ -134,13 +183,18 @@ message PlayerInfo // IMessage
 
 message C2G_PlayerInfo // IRequest
 {
+	required int32 RpcId = 1;
 }
 
 message G2C_PlayerInfo // IResponse
 {
-	required PlayerInfo PlayerInfo = 1;
-	repeated PlayerInfo PlayerInfos = 2;
-    repeated string TestRepeatedString = 3;
-    repeated int32 TestRepeatedInt32 = 4;
-    repeated int64 TestRepeatedInt64 = 5;
+	required int32 Error = 1;
+	required string Message = 2;
+	required int32 RpcId = 3;
+	
+	required PlayerInfo PlayerInfo = 4;
+	repeated PlayerInfo PlayerInfos = 5;
+    repeated string TestRepeatedString = 6;
+    repeated int32 TestRepeatedInt32 = 7;
+    repeated int64 TestRepeatedInt64 = 8;
 }

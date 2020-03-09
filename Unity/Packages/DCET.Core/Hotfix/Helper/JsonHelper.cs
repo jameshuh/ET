@@ -13,7 +13,7 @@
 		*/
 			return t;
 #else
-			return Runtime.MongoHelper.ToJson(obj);
+			return DCETRuntime.MongoHelper.ToJson(obj);
 #endif
 		}
 
@@ -28,7 +28,7 @@
 		*/
 			return t;	
 #else
-			return Runtime.MongoHelper.FromJson<T>(str);
+			return DCETRuntime.MongoHelper.FromJson<T>(str);
 #endif
 		}
 	}

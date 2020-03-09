@@ -1,4 +1,4 @@
-﻿namespace DCET.Runtime
+﻿namespace DCETRuntime
 {
 	public abstract class IStaticMethod
 	{

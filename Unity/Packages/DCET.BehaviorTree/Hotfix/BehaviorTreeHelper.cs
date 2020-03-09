@@ -1,5 +1,5 @@
 ﻿using BehaviorDesigner.Runtime;
-using DCET.Runtime;
+using DCETRuntime;
 using UnityEngine;
 
 namespace DCET

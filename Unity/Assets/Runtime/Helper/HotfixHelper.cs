@@ -1,4 +1,4 @@
-﻿namespace DCET.Runtime
+﻿namespace DCETRuntime
 {
 	public static class HotfixHelper
 	{

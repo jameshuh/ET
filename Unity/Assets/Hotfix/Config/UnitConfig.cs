@@ -1,4 +1,4 @@
-using DCET.Runtime;
+using DCETRuntime;
 
 namespace DCET
 {

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using ICSharpCode.SharpZipLib.Zip.Compression;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public static class ZipHelper
 	{

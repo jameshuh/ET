@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     [TypeDrawer]
     public class ColorTypeDrawer: ITypeDrawer

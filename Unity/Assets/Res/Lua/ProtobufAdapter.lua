@@ -1,4 +1,4 @@
-require("3rd.pbc.protobuf")
+require("pbc.protobuf")
 
 local protobuf = protobuf
 local pairs = pairs

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class AssetLoaderAsync : IDisposable
 	{

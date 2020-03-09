@@ -1,9 +1,9 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public class RsyncEditor: EditorWindow
 	{
@@ -25,7 +25,7 @@ namespace DCET.Editor
 				return;
 			}
 			string s = File.ReadAllText(ConfigFile);
-			this.rsyncConfig = JsonHelper.FromJson<RsyncConfig>(s);
+			this.rsyncConfig = MongoHelper.FromJson<RsyncConfig>(s);
 		}
 
 		private void OnGUI()
@@ -59,7 +59,7 @@ namespace DCET.Editor
 
 			if (GUILayout.Button("保存"))
 			{
-				File.WriteAllText(ConfigFile, JsonHelper.ToJson(this.rsyncConfig));
+				File.WriteAllText(ConfigFile, MongoHelper.ToJson(this.rsyncConfig));
 				using (StreamWriter sw = new StreamWriter(new FileStream(@"..\Tools\cwRsync\Config\exclude.txt", FileMode.Create)))
 				{
 					foreach (string s in this.rsyncConfig.Exclude)

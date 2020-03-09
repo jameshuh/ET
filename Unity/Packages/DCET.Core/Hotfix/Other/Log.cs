@@ -11,7 +11,7 @@ namespace DCET
 		public static void Warning(string msg)
 		{
 #if !SERVER
-			Runtime.Log.Warning(msg);
+			DCETRuntime.Log.Warning(msg);
 #else
 			globalLog.Warning(msg);
 #endif
@@ -20,7 +20,7 @@ namespace DCET
 		public static void Info(string msg)
 		{
 #if !SERVER
-			Runtime.Log.Info(msg);
+			DCETRuntime.Log.Info(msg);
 #else
 			globalLog.Info(msg);
 #endif
@@ -29,7 +29,7 @@ namespace DCET
 		public static void Error(Exception e)
 		{
 #if !SERVER
-			Runtime.Log.Error(e.ToStr());			
+			DCETRuntime.Log.Error(e.ToStr());			
 #else
 			globalLog.Error(e.ToStr());
 #endif
@@ -38,7 +38,7 @@ namespace DCET
 		public static void Error(string msg)
 		{
 #if !SERVER
-			Runtime.Log.Error(msg);
+			DCETRuntime.Log.Error(msg);
 #else
 			globalLog.Error(msg);
 #endif
@@ -47,7 +47,7 @@ namespace DCET
 		public static void Debug(string msg)
 		{
 #if !SERVER
-			Runtime.Log.Debug(msg);			
+			DCETRuntime.Log.Debug(msg);			
 #else
 			globalLog.Debug(msg);
 #endif
@@ -55,7 +55,7 @@ namespace DCET
 
 		public static void Msg(object msg)
 		{
-			Debug(Dumper.DumpAsString(msg));
+			Debug(StringHelper.MessageToStr(msg));
 		}
 	}
 }

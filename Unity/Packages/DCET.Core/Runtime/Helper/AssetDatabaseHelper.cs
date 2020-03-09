@@ -2,7 +2,7 @@
 using UnityEditor;
 #endif
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public static class AssetDatabaseHelper
 	{

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
     public class ComponentView: MonoBehaviour
     {

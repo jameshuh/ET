@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DCET
+namespace DCETRuntime
 {
     public sealed class MonoBehaviourBridge : MonoBehaviour
     {

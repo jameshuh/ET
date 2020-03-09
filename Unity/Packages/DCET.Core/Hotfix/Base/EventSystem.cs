@@ -47,6 +47,9 @@ namespace DCET
 			return allType;
 		}
 
+		/// <summary>
+		/// 加入带有Attribute的Type，用于自动绑定类型事件
+		/// </summary>
 		public void AddType(Type type)
 		{
 			if (type != null)
@@ -55,17 +58,7 @@ namespace DCET
 			}
 		}
 
-		public void AddRangeType(IEnumerable<Type> typeList)
-		{
-			if(typeList != null)
-			{
-				foreach(var item in typeList)
-				{
-					AddType(item);
-				}
-			}
-		}
-
+#if !__CSharpLua__
 		public void AddAssemblyType(string dllName)
 		{
 			var assembly = Assembly.Load(dllName);
@@ -76,27 +69,29 @@ namespace DCET
 			}
 		}
 
+		public void AddRangeType(IEnumerable<Type> typeList)
+		{
+			if (typeList != null)
+			{
+				foreach (var item in typeList)
+				{
+					if(item.IsAbstract && item.IsSealed)
+					{
+						continue;
+					}
+
+					AddType(item);
+				}
+			}
+		}
+#endif
+
 		public void Init()
 		{
 			attributeTypeMap.Clear();
 
 			foreach (Type type in allType)
 			{
-#if !__CSharpLua__
-				if (type.IsAbstract && type.IsSealed)
-				{
-					continue;
-				}
-#else			
-				/*
-				[[
-				if type:EqualsStatic() then
-					continue = true
-					break
-				end
-				]]
-				*/
-#endif
 				object[] objects = type.GetCustomAttributes(typeof(BaseAttribute), true);
 
 				if (objects.Length == 0)

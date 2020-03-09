@@ -2,7 +2,7 @@
 #if SERVER
 using System.IO;
 #else
-using DCET.Runtime;
+using DCETRuntime;
 using UnityEngine;
 #endif
 
@@ -29,7 +29,7 @@ namespace DCET
 		
 		public static T ToObject<T>(string str)
 		{
-			return Runtime.MongoHelper.FromJson<T>(str);
+			return DCETRuntime.MongoHelper.FromJson<T>(str);
 		}
 	}
 }

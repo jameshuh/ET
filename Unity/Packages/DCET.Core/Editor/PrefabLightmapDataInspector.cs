@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
-using DCET.Runtime;
+using DCETRuntime;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     [CustomEditor(typeof(PrefabLightmapData))]
     public class PrefabLightmapDataInspector : UnityEditor.Editor

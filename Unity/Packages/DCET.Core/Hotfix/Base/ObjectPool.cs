@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 #if !SERVER
 using UnityEngine;
-using DCET.Runtime;
+using DCETRuntime;
 #endif
 
 namespace DCET

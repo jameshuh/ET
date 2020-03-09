@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     public static class SerializationTypeExtension
     {

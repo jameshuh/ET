@@ -8,7 +8,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public struct CellInfo
 	{
@@ -62,9 +62,9 @@ namespace DCET.Editor
 
 					ExportAll(clientPath);
 
-					ExportAllClass(@"./Assets/Hotfix/Config", "using DCET.Runtime;\n\nnamespace DCET\n{\n");
+					ExportAllClass(@"./Assets/Hotfix/Config", "using DCETRuntime;\n\nnamespace DCET\n{\n");
 
-					Log.Info($"导出客户端配置完成!");
+					DCETRuntime.Log.Info($"导出客户端配置完成!");
 				}
 
 				if (GUILayout.Button("导出服务端配置"))
@@ -75,12 +75,12 @@ namespace DCET.Editor
 
 					ExportAllClass(@"../Server/Model/Module/Demo/Config", "namespace DCET\n{\n");
 
-					Log.Info($"导出服务端配置完成!");
+					DCETRuntime.Log.Info($"导出服务端配置完成!");
 				}
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				DCETRuntime.Log.Error(e);
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace DCET.Editor
 				}
 
 				ExportClass(filePath, exportDir, csHead);
-				Log.Info($"生成{Path.GetFileName(filePath)}类");
+				DCETRuntime.Log.Info($"生成{Path.GetFileName(filePath)}类");
 			}
 			AssetDatabase.Refresh();
 		}
@@ -180,7 +180,7 @@ namespace DCET.Editor
 			}
 			else
 			{
-				this.md5Info = JsonHelper.FromJson<ExcelMD5Info>(File.ReadAllText(md5File));
+				this.md5Info = DCETRuntime.MongoHelper.FromJson<ExcelMD5Info>(File.ReadAllText(md5File));
 			}
 
 			foreach (string filePath in Directory.GetFiles(ExcelPath))
@@ -195,7 +195,7 @@ namespace DCET.Editor
 				}
 				string fileName = Path.GetFileName(filePath);
 				string oldMD5 = this.md5Info.Get(fileName);
-				string md5 = Runtime.MD5Helper.FileMD5(filePath);
+				string md5 = DCETRuntime.MD5Helper.FileMD5(filePath);
 				this.md5Info.Add(fileName, md5);
 				// if (md5 == oldMD5)
 				// {
@@ -207,7 +207,7 @@ namespace DCET.Editor
 
 			File.WriteAllText(md5File, this.md5Info.ToJson());
 
-			Log.Info("所有表导表完成");
+			DCETRuntime.Log.Info("所有表导表完成");
 			AssetDatabase.Refresh();
 		}
 
@@ -219,7 +219,7 @@ namespace DCET.Editor
 				xssfWorkbook = new XSSFWorkbook(file);
 			}
 			string protoName = Path.GetFileNameWithoutExtension(fileName);
-			Log.Info($"{protoName}导表开始");
+			DCETRuntime.Log.Info($"{protoName}导表开始");
 			string exportPath = Path.Combine(exportDir, $"{protoName}.txt");
 			using (FileStream txt = new FileStream(exportPath, FileMode.Create))
 			using (StreamWriter sw = new StreamWriter(txt))
@@ -230,7 +230,7 @@ namespace DCET.Editor
 					ExportSheet(sheet, sw);
 				}
 			}
-			Log.Info($"{protoName}导表完成");
+			DCETRuntime.Log.Info($"{protoName}导表完成");
 		}
 
 		private void ExportSheet(ISheet sheet, StreamWriter sw)

@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace DCET.Runtime
+namespace DCETRuntime
 {
 	public class FUIDownloader : IDisposable
 	{

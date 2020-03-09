@@ -1,11 +1,11 @@
-using DCET.Runtime;
+using DCETRuntime;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	[CustomEditor(typeof (ComponentView))]
     public class ComponentViewEditor: UnityEditor.Editor

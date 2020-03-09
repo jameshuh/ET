@@ -1,9 +1,9 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	[InitializeOnLoad]
 	public class GenHotfix

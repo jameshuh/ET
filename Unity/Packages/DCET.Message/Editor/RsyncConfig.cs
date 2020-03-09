@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public class RsyncConfig
 	{

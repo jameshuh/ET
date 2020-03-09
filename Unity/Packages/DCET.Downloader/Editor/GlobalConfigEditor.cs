@@ -1,9 +1,9 @@
-﻿using DCET.Runtime;
+﻿using DCETRuntime;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public class GlobalProtoEditor: EditorWindow
     {

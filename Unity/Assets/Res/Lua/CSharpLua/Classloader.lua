@@ -66,3 +66,4 @@ end
 
 require("CSharpLua.All")("CSharpLua", config)
 require("UnityAdapter")
+require("ProtobufAdapter")

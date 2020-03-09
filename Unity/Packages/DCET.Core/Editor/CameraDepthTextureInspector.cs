@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
-using DCET.Runtime;
+using DCETRuntime;
 using UnityEngine;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
     [CustomEditor(typeof(CameraDepthTexture))]
     public class CameraDepthTextureInspector : UnityEditor.Editor

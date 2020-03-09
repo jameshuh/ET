@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Text;
-using DCET.Runtime;
+using DCETRuntime;
 using UnityEditor;
 
-namespace DCET.Editor
+namespace DCETEditor
 {
 	public static class BuildHelper
 	{
