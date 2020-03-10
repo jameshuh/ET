@@ -27,7 +27,19 @@ namespace DCET
 				this.acceptCallback -= value;
 			}
 		}
-		
+
+		public override void Dispose()
+		{
+			if (IsDisposed)
+			{
+				return;
+			}
+
+			base.Dispose();
+
+			acceptCallback = null;
+		}
+
 		protected void OnAccept(AChannel channel)
 		{
 			this.acceptCallback.Invoke(channel);

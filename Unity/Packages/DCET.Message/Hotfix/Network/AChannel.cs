@@ -60,7 +60,21 @@ namespace DCET
 
         protected void OnError(int e)
         {
-            this.Error = e;
+			switch (e)
+			{
+				case DCETRuntime.ErrorCode.ERR_PeerDisconnect:
+					this.Error = ErrorCode.ERR_PeerDisconnect;
+					break;
+
+				case DCETRuntime.ErrorCode.ERR_SocketError:
+					this.Error = ErrorCode.ERR_SocketError;
+					break;
+
+				default:
+					this.Error = e;
+					break;
+			}
+
             this.errorCallback?.Invoke(this, e);
         }
 
@@ -83,6 +97,8 @@ namespace DCET
             base.Dispose();
 
             this.Service.Remove(this.Id);
-        }
+			errorCallback = null;
+			readCallback = null;
+		}
     }
 }

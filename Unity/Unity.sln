@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.MongoDB.Runtime", "Unity.MongoDB.Runtime.csproj", "{847D3640-7FC2-C576-ECC2-980D265728B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ProtoBuf.Runtime", "Unity.ProtoBuf.Runtime.csproj", "{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}"

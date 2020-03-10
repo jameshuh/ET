@@ -111,7 +111,7 @@ System.namespace("DCET", function (namespace)
         end
       until 1
 
-      this.sendBuffer:Write(this.packetSizeCache, 0, #this.packetSizeCache)
+      this.sendBuffer:Write(this.packetSizeCache:toArray(), 0, #this.packetSizeCache)
       this.sendBuffer:WriteStream(stream)
 
       GetService(this):MarkNeedStartSend(this.Id)

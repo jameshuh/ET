@@ -21,7 +21,6 @@ namespace DCET
 		private AChannel channel;
 
 		private readonly Dictionary<int, Action<IResponse>> requestCallback = new Dictionary<int, Action<IResponse>>();
-		private readonly byte[] opcodeBytes = new byte[2];
 
 		public long LastRecvTime { get; private set; }
 		public long LastSendTime { get; private set; }
@@ -264,8 +263,7 @@ namespace DCET
 			this.Network.MessagePacker.SerializeTo(message, stream);
 			stream.Seek(0, SeekOrigin.Begin);
 			
-			opcodeBytes.WriteTo(0, opcode);
-			Array.Copy(opcodeBytes, 0, stream.GetBuffer(), 0, opcodeBytes.Length);
+			DCETRuntime.PacketParser.Copy(opcode, stream);
 			
 			this.Send(stream);
 		}
