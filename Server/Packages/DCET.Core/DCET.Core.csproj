@@ -15,7 +15,8 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Base\BaseAttribute.cs">
       <Link>Base\BaseAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Base\Circularbuffer.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Other\Log.cs" Link="Other\Log.cs" />
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Base\Circularbuffer.cs">
       <Link>Base\Circularbuffer.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Base\Entity.cs">
@@ -96,12 +97,6 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Entity\SceneType.cs">
       <Link>Entity\SceneType.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Event\Env.cs">
-      <Link>Event\Env.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Event\EnvKey.cs">
-      <Link>Event\EnvKey.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Event\EventAttribute.cs">
       <Link>Event\EventAttribute.cs</Link>
     </Compile>
@@ -132,20 +127,14 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Generic\UnOrderMultiMapSet.cs">
       <Link>Generic\UnOrderMultiMapSet.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\ByteHelper.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Helper\ByteHelper.cs">
       <Link>Helper\ByteHelper.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\ComponentHelper.cs">
       <Link>Helper\ComponentHelper.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\Dumper.cs">
-      <Link>Helper\Dumper.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\EnumHelper.cs">
       <Link>Helper\EnumHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\ExceptionHelper.cs">
-      <Link>Helper\ExceptionHelper.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\IdGenerater.cs">
       <Link>Helper\IdGenerater.cs</Link>
@@ -180,24 +169,22 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Other\LayerNames.cs">
       <Link>Other\LayerNames.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Other\Log.cs">
-      <Link>Other\Log.cs</Link>
-    </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Other\MotionType.cs">
       <Link>Other\MotionType.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\RecyclableMemoryStream\Events.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\RecyclableMemoryStream\Events.cs">
       <Link>RecyclableMemoryStream\Events.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\RecyclableMemoryStream\RecyclableMemoryStream.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStream.cs">
       <Link>RecyclableMemoryStream\RecyclableMemoryStream.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\RecyclableMemoryStream\RecyclableMemoryStreamManager.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\RecyclableMemoryStream\RecyclableMemoryStreamManager.cs">
       <Link>RecyclableMemoryStream\RecyclableMemoryStreamManager.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Base\OneThreadSynchronizationContext.cs">
       <Link>Base\OneThreadSynchronizationContext.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Unity\Log.cs" Link="Logger\Log.cs" />
   </ItemGroup>
 
   <ItemGroup>

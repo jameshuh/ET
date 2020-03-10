@@ -44,7 +44,7 @@ System.namespace("DCET", function (namespace)
           --TestBehaviorTree();
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end, true)
     end

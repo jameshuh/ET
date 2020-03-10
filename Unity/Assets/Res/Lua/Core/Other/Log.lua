@@ -7,32 +7,32 @@ System.import(function (out)
 end)
 System.namespace("DCET", function (namespace)
   namespace.class("Log", function (namespace)
-    local Warning, Info, Error, Error1, Debug, Msg
+    local Warning, Info, Exception, Error, Debug, Print
     Warning = function (msg)
       DCETRuntime.Log.Warning(msg)
     end
     Info = function (msg)
       DCETRuntime.Log.Info(msg)
     end
-    Error = function (e)
-      DCETRuntime.Log.Error(DCET.ExceptionHelper.ToStr(e))
+    Exception = function (e)
+      Error(e:ToString())
     end
-    Error1 = function (msg)
+    Error = function (msg)
       DCETRuntime.Log.Error(msg)
     end
     Debug = function (msg)
       DCETRuntime.Log.Debug(msg)
     end
-    Msg = function (msg)
-      Debug(DCET.StringHelper.MessageToStr(msg))
+    Print = function (msg)
+      Debug(DCET.StringHelper.ToString(msg))
     end
     return {
       Warning = Warning,
       Info = Info,
+      Exception = Exception,
       Error = Error,
-      Error1 = Error1,
       Debug = Debug,
-      Msg = Msg
+      Print = Print
     }
   end)
 end)

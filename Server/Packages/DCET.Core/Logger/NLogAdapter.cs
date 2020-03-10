@@ -1,6 +1,6 @@
 ﻿using NLog;
 
-namespace DCET
+namespace DCETRuntime
 {
 	public class NLogAdapter : ILog
 	{

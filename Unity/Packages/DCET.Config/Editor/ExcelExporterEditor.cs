@@ -36,20 +36,21 @@ namespace DCETEditor
 
 	public class ExcelExporterEditor : EditorWindow
 	{
+		private const string ExcelImportDir = "../Excel";
+		private const string ServerConfigExportDir = "../Config/";
+		private const string ClientScriptExportDir = @"./Assets/Hotfix/Config";
+		private const string ClientScriptHead = "using DCETRuntime;\n\nnamespace DCET\n{\n";
+		private const string ServerScriptExportDir = @"../Server/Assets/Runtime/Config";
+		private const string ServerScriptHead = "namespace DCET\n{\n";
+		private bool isClient;
+		private ExcelMD5Info md5Info;
+
 		[MenuItem("Tools/Start Config")]
 		private static void ShowWindow()
 		{
 			GetWindow(typeof(ExcelExporterEditor));
 		}
 
-		private const string ExcelPath = "../Excel";
-		private const string ServerConfigPath = "../Config/";
-
-		private bool isClient;
-
-		private ExcelMD5Info md5Info;
-
-		// Update is called once per frame
 		private void OnGUI()
 		{
 			try
@@ -62,7 +63,7 @@ namespace DCETEditor
 
 					ExportAll(clientPath);
 
-					ExportAllClass(@"./Assets/Hotfix/Config", "using DCETRuntime;\n\nnamespace DCET\n{\n");
+					ExportAllClass(ClientScriptExportDir, ClientScriptHead);
 
 					DCETRuntime.Log.Info($"导出客户端配置完成!");
 				}
@@ -71,22 +72,22 @@ namespace DCETEditor
 				{
 					this.isClient = false;
 
-					ExportAll(ServerConfigPath);
+					ExportAll(ServerConfigExportDir);
 
-					ExportAllClass(@"../Server/Assets/Hotfix/Config", "namespace DCET\n{\n");
+					ExportAllClass(ServerScriptExportDir, ServerScriptHead);
 
 					DCETRuntime.Log.Info($"导出服务端配置完成!");
 				}
 			}
 			catch (Exception e)
 			{
-				DCETRuntime.Log.Error(e);
+				DCETRuntime.Log.Exception(e);
 			}
 		}
 
 		private void ExportAllClass(string exportDir, string csHead)
 		{
-			foreach (string filePath in Directory.GetFiles(ExcelPath))
+			foreach (string filePath in Directory.GetFiles(ExcelImportDir))
 			{
 				if (Path.GetExtension(filePath) != ".xlsx")
 				{
@@ -167,7 +168,7 @@ namespace DCETEditor
 
 		private void ExportAll(string exportDir)
 		{
-			string md5File = Path.Combine(ExcelPath, "md5.txt");
+			string md5File = Path.Combine(ExcelImportDir, "md5.txt");
 			if (!File.Exists(md5File))
 			{
 				this.md5Info = new ExcelMD5Info();
@@ -177,7 +178,7 @@ namespace DCETEditor
 				this.md5Info = DCETRuntime.MongoHelper.FromJson<ExcelMD5Info>(File.ReadAllText(md5File));
 			}
 
-			foreach (string filePath in Directory.GetFiles(ExcelPath))
+			foreach (string filePath in Directory.GetFiles(ExcelImportDir))
 			{
 				if (Path.GetExtension(filePath) != ".xlsx")
 				{

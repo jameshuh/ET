@@ -76,7 +76,7 @@ System.namespace("DCET", function (namespace)
           this:Start()
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
           this:OnError(103004 --[[ErrorCode.ERR_WebsocketConnectError]])
         end)
       end, true, this, url)
@@ -117,7 +117,7 @@ System.namespace("DCET", function (namespace)
               end
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
               this:OnError(103005 --[[ErrorCode.ERR_WebsocketSendError]])
               return true
             end)
@@ -127,7 +127,7 @@ System.namespace("DCET", function (namespace)
           end
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
         if default then
           return
@@ -171,7 +171,7 @@ System.namespace("DCET", function (namespace)
           end
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
           this:OnError(103006 --[[ErrorCode.ERR_WebsocketRecvError]])
         end)
         if default then

@@ -83,7 +83,6 @@
     <Compile Include="Packages\DCET.Message\Hotfix\Network\KCP\KChannel.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Network\KCP\KService.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Network\SessionComponent.cs" />
-    <Compile Include="Packages\DCET.Message\Hotfix\Network\TCP\PacketParser.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Network\TCP\TChannel.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Network\TCP\TService.cs" />
     <Compile Include="Packages\DCET.Message\Hotfix\Network\WebSocket\WChannel.cs" />

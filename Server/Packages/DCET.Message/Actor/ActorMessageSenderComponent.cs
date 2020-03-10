@@ -78,7 +78,7 @@ namespace DCET
         {
             if (actorId == 0)
             {
-                throw new Exception($"actor id is 0: {Runtime.MongoHelper.ToJson(message)}");
+                throw new Exception($"actor id is 0: {DCETRuntime.MongoHelper.ToJson(message)}");
             }
             string address = StartConfigComponent.Instance.GetProcessInnerAddress(IdGenerater.GetProcessId(actorId));
             Session session = NetInnerComponent.Instance.Get(address);
@@ -90,7 +90,7 @@ namespace DCET
         {
             if (actorId == 0)
             {
-                throw new Exception($"actor id is 0: {Runtime.MongoHelper.ToJson(message)}");
+                throw new Exception($"actor id is 0: {DCETRuntime.MongoHelper.ToJson(message)}");
             }
 
             string address = StartConfigComponent.Instance.GetProcessInnerAddress(IdGenerater.GetProcessId(actorId));
@@ -103,7 +103,7 @@ namespace DCET
             {
                 if (ErrorCode.IsRpcNeedThrowException(response.Error))
                 {
-                    tcs.SetException(new Exception($"Rpc error: {Runtime.MongoHelper.ToJson(response)}"));
+                    tcs.SetException(new Exception($"Rpc error: {DCETRuntime.MongoHelper.ToJson(response)}"));
                     return;
                 }
 
@@ -118,7 +118,7 @@ namespace DCET
         {
             if (actorId == 0)
             {
-                throw new Exception($"actor id is 0: {Runtime.MongoHelper.ToJson(message)}");
+                throw new Exception($"actor id is 0: {DCETRuntime.MongoHelper.ToJson(message)}");
             }
 
             string address = StartConfigComponent.Instance.GetProcessInnerAddress(IdGenerater.GetProcessId(actorId));
@@ -140,7 +140,7 @@ namespace DCET
             ActorMessageSender actorMessageSender;
             if (!requestCallback.TryGetValue(response.RpcId, out actorMessageSender))
             {
-                Log.Error($"not found rpc, maybe request timeout, response message: {StringHelper.MessageToStr(response)}");
+                Log.Error($"not found rpc, maybe request timeout, response message: {StringHelper.ToString(response)}");
                 return;
             }
             requestCallback.Remove(response.RpcId);

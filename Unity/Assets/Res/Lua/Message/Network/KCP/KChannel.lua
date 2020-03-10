@@ -131,16 +131,16 @@ System.namespace("DCET", function (namespace)
 
       System.try(function ()
         local buffer = this.memoryStream:GetBuffer()
-        DCET.ByteHelper.WriteTo2(buffer, 0, 2 --[[KcpProtocalType.ACK]])
-        DCET.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        DCET.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
+        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 2 --[[KcpProtocalType.ACK]])
+        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
+        DCETRuntime.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
         this.socket:SendTo(buffer, 0, 9, 0 --[[SocketFlags.None]], this.remoteEndPoint)
 
         -- 200毫秒后再次update发送connect请求
         GetService(this):AddToUpdateNextTime(timeNow + 200, this.Id)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
         this:OnError(102009 --[[ErrorCode.ERR_SocketCantSend]])
       end)
     end
@@ -154,15 +154,15 @@ System.namespace("DCET", function (namespace)
         this.lastRecvTime = timeNow
 
         local buffer = this.memoryStream:GetBuffer()
-        DCET.ByteHelper.WriteTo2(buffer, 0, 1 --[[KcpProtocalType.SYN]])
-        DCET.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
+        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 1 --[[KcpProtocalType.SYN]])
+        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
         this.socket:SendTo(buffer, 0, 5, 0 --[[SocketFlags.None]], this.remoteEndPoint)
 
         -- 200毫秒后再次update发送connect请求
         GetService(this):AddToUpdateNextTime(timeNow + 300, this.Id)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
         this:OnError(102009 --[[ErrorCode.ERR_SocketCantSend]])
       end)
     end
@@ -172,14 +172,14 @@ System.namespace("DCET", function (namespace)
       end
       System.try(function ()
         local buffer = this.memoryStream:GetBuffer()
-        DCET.ByteHelper.WriteTo2(buffer, 0, 3 --[[KcpProtocalType.FIN]])
-        DCET.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        DCET.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
-        DCET.ByteHelper.WriteTo(buffer, 9, System.toUInt32(this.Error))
+        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 3 --[[KcpProtocalType.FIN]])
+        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
+        DCETRuntime.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
+        DCETRuntime.ByteHelper.WriteTo(buffer, 9, System.toUInt32(this.Error))
         this.socket:SendTo(buffer, 0, 13, 0 --[[SocketFlags.None]], this.remoteEndPoint)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
         this:OnError(102009 --[[ErrorCode.ERR_SocketCantSend]])
       end)
     end
@@ -227,7 +227,7 @@ System.namespace("DCET", function (namespace)
         DCETRuntime.Kcp.KcpUpdate(this.kcp, timeNow)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
         this:OnError(102010 --[[ErrorCode.ERR_SocketError]])
         return true
       end)
@@ -296,19 +296,19 @@ System.namespace("DCET", function (namespace)
       end
       local default = System.try(function ()
         if count == 0 then
-          DCET.Log.Error1("output 0" .. "")
+          DCET.Log.Error("output 0" .. "")
           return true
         end
 
         local buffer = this.memoryStream:GetBuffer()
-        DCET.ByteHelper.WriteTo2(buffer, 0, 4 --[[KcpProtocalType.MSG]])
+        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 4 --[[KcpProtocalType.MSG]])
         -- 每个消息头部写下该channel的id;
-        DCET.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
+        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
         SystemInteropServices.Marshal.Copy(bytes, buffer, 5, count)
         this.socket:SendTo(buffer, 0, count + 5, 0 --[[SocketFlags.None]], this.remoteEndPoint)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
         this:OnError(102009 --[[ErrorCode.ERR_SocketCantSend]])
       end)
       if default then

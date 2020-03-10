@@ -88,7 +88,7 @@ System.namespace("DCET", function (namespace)
             messageLength = default
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
             continue = true
             return
           end)
@@ -199,7 +199,7 @@ System.namespace("DCET", function (namespace)
       end
       local aChannel = GetChannel(class.Instance, System.cast(System.UInt32, user))
       if aChannel == nil then
-        DCET.Log.Error1("not found kchannel, " .. System.cast(System.UInt32, user))
+        DCET.Log.Error("not found kchannel, " .. System.cast(System.UInt32, user))
         return
       end
 

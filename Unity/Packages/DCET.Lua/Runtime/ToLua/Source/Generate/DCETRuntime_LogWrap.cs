@@ -7,70 +7,23 @@ public class DCETRuntime_LogWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginStaticLibs("Log");
-		L.RegFunction("Trace", Trace);
-		L.RegFunction("Debug", Debug);
-		L.RegFunction("Info", Info);
 		L.RegFunction("Warning", Warning);
+		L.RegFunction("Info", Info);
+		L.RegFunction("Exception", Exception);
 		L.RegFunction("Error", Error);
-		L.RegFunction("Fatal", Fatal);
+		L.RegFunction("Debug", Debug);
 		L.EndStaticLibs();
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Trace(IntPtr L)
+	static int Warning(IntPtr L)
 	{
 		try
 		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Trace(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Trace(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Trace");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Debug(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Debug(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Debug(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Debug");
-			}
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			DCETRuntime.Log.Warning(arg0);
+			return 0;
 		}
 		catch (Exception e)
 		{
@@ -83,25 +36,10 @@ public class DCETRuntime_LogWrap
 	{
 		try
 		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Info(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Info(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Info");
-			}
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			DCETRuntime.Log.Info(arg0);
+			return 0;
 		}
 		catch (Exception e)
 		{
@@ -110,29 +48,14 @@ public class DCETRuntime_LogWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Warning(IntPtr L)
+	static int Exception(IntPtr L)
 	{
 		try
 		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Warning(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Warning(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Warning");
-			}
+			ToLua.CheckArgsCount(L, 1);
+			System.Exception arg0 = (System.Exception)ToLua.CheckObject<System.Exception>(L, 1);
+			DCETRuntime.Log.Exception(arg0);
+			return 0;
 		}
 		catch (Exception e)
 		{
@@ -145,31 +68,10 @@ public class DCETRuntime_LogWrap
 	{
 		try
 		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Error(arg0);
-				return 0;
-			}
-			else if (count == 1 && TypeChecker.CheckTypes<System.Exception>(L, 1))
-			{
-				System.Exception arg0 = (System.Exception)ToLua.ToObject(L, 1);
-				DCETRuntime.Log.Error(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Error(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Error");
-			}
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			DCETRuntime.Log.Error(arg0);
+			return 0;
 		}
 		catch (Exception e)
 		{
@@ -178,29 +80,14 @@ public class DCETRuntime_LogWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Fatal(IntPtr L)
+	static int Debug(IntPtr L)
 	{
 		try
 		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				DCETRuntime.Log.Fatal(arg0);
-				return 0;
-			}
-			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
-			{
-				string arg0 = ToLua.ToString(L, 1);
-				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
-				DCETRuntime.Log.Fatal(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.Log.Fatal");
-			}
+			ToLua.CheckArgsCount(L, 1);
+			string arg0 = ToLua.CheckString(L, 1);
+			DCETRuntime.Log.Debug(arg0);
+			return 0;
 		}
 		catch (Exception e)
 		{

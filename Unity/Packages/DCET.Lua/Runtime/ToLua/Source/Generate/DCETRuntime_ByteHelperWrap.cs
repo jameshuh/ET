@@ -8,6 +8,9 @@ public class DCETRuntime_ByteHelperWrap
 	{
 		L.BeginStaticLibs("ByteHelper");
 		L.RegFunction("ToHex", ToHex);
+		L.RegFunction("ToStr", ToStr);
+		L.RegFunction("Utf8ToStr", Utf8ToStr);
+		L.RegFunction("WriteTo", WriteTo);
 		L.EndStaticLibs();
 	}
 
@@ -16,12 +19,129 @@ public class DCETRuntime_ByteHelperWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1 && TypeChecker.CheckTypes<byte>(L, 1))
+			{
+				byte arg0 = (byte)LuaDLL.lua_tonumber(L, 1);
+				string o = DCETRuntime.ByteHelper.ToHex(arg0);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 1 && TypeChecker.CheckTypes<byte[]>(L, 1))
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				string o = DCETRuntime.ByteHelper.ToHex(arg0);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 2)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				string arg1 = ToLua.CheckString(L, 2);
+				string o = DCETRuntime.ByteHelper.ToHex(arg0, arg1);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 3)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				string o = DCETRuntime.ByteHelper.ToHex(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.ByteHelper.ToHex");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ToStr(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				string o = DCETRuntime.ByteHelper.ToStr(arg0);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 3)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				string o = DCETRuntime.ByteHelper.ToStr(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.ByteHelper.ToStr");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Utf8ToStr(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				string o = DCETRuntime.ByteHelper.Utf8ToStr(arg0);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 3)
+			{
+				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				string o = DCETRuntime.ByteHelper.Utf8ToStr(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: DCETRuntime.ByteHelper.Utf8ToStr");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int WriteTo(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
 			byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
-			string arg1 = ToLua.CheckString(L, 2);
-			string o = DCETRuntime.ByteHelper.ToHex(arg0, arg1);
-			LuaDLL.lua_pushstring(L, o);
-			return 1;
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+			uint arg2 = (uint)LuaDLL.luaL_checknumber(L, 3);
+			DCETRuntime.ByteHelper.WriteTo(arg0, arg1, arg2);
+			return 0;
 		}
 		catch (Exception e)
 		{

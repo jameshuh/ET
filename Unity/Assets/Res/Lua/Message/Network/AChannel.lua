@@ -30,10 +30,23 @@ System.namespace("DCET", function (namespace)
       this.readCallback(memoryStream)
     end
     OnError = function (this, e)
-      this.Error = e
-      local default = this.errorCallback
-      if default ~= nil then
-        default(this, e)
+      repeat
+        local default = e
+        if default == 102008 --[[ErrorCode.ERR_PeerDisconnect]] then
+          this.Error = 102008 --[[ErrorCode.ERR_PeerDisconnect]]
+          break
+        elseif default == 102010 --[[ErrorCode.ERR_SocketError]] then
+          this.Error = 102010 --[[ErrorCode.ERR_SocketError]]
+          break
+        else
+          this.Error = e
+          break
+        end
+      until 1
+
+      local extern = this.errorCallback
+      if extern ~= nil then
+        extern(this, e)
       end
     end
     Dispose = function (this)
@@ -44,6 +57,8 @@ System.namespace("DCET", function (namespace)
       DCET.Entity.Dispose(this)
 
       this.Service:Remove(this.Id)
+      this.errorCallback = nil
+      this.readCallback = nil
     end
     return {
       base = function (out)

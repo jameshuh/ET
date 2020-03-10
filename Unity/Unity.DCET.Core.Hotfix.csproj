@@ -110,7 +110,6 @@
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\ComponentHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\DependenciesHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\EnumHelper.cs" />
-    <Compile Include="Packages\DCET.Core\Hotfix\Helper\ExceptionHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\IdGenerater.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\JsonHelper.cs" />
     <Compile Include="Packages\DCET.Core\Hotfix\Helper\MethodInfoHelper.cs" />

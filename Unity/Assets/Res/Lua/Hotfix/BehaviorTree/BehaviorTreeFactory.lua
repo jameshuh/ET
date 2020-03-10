@@ -30,7 +30,7 @@ System.namespace("DCET", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
       if default then
         return extern
@@ -57,7 +57,7 @@ System.namespace("DCET", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
       if default then
         return extern
@@ -85,7 +85,7 @@ System.namespace("DCET", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
       if default then
         return extern
@@ -113,7 +113,7 @@ System.namespace("DCET", function (namespace)
         return true, component
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
       if default then
         return extern

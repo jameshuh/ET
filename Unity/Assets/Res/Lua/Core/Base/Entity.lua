@@ -114,7 +114,7 @@ System.namespace("DCET", function (namespace)
       if this.parent ~= nil then
         -- parent相同，不设置
         if this.parent.InstanceId == value.InstanceId then
-          DCET.Log.Error1("重复设置了Parent: " .. this:GetType():getName() .. " parent: " .. this.parent:GetType():getName())
+          DCET.Log.Error("重复设置了Parent: " .. this:GetType():getName() .. " parent: " .. this.parent:GetType():getName())
           return
         end
 
@@ -151,7 +151,7 @@ System.namespace("DCET", function (namespace)
 
       -- 检测自己的domain是不是跟父亲一样
       if getDomain(this) ~= nil and getDomain(this.parent) ~= nil and getDomain(this).InstanceId ~= getDomain(this.parent).InstanceId and not (System.is(this, DCET.Scene)) then
-        DCET.Log.Error1("自己的domain跟parent不一样: " .. this:GetType():getName())
+        DCET.Log.Error("自己的domain跟parent不一样: " .. this:GetType():getName())
       end
 
       if UnityEngine.op_Inequality(this.ViewGO, nil) and UnityEngine.op_Inequality(this.parent.ViewGO, nil) then
@@ -359,7 +359,7 @@ System.namespace("DCET", function (namespace)
         end
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
     end
     AddToComponentsDB = function (this, component)

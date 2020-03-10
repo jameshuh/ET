@@ -142,7 +142,7 @@ System.namespace("DCET", function (namespace)
             local obj = System.Activator.CreateInstance(type)
             local iEvent = System.as(obj, DCET.IEvent)
             if iEvent == nil then
-              DCET.Log.Error1(obj:GetType():getName() .. " 没有继承IEvent")
+              DCET.Log.Error(obj:GetType():getName() .. " 没有继承IEvent")
             end
             RegisterEvent(this, aEventAttribute.Type, iEvent)
           end
@@ -218,7 +218,7 @@ System.namespace("DCET", function (namespace)
             deserializeSystem:Run(component)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -251,7 +251,7 @@ System.namespace("DCET", function (namespace)
             iAwake:Run(component)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -284,7 +284,7 @@ System.namespace("DCET", function (namespace)
             iAwake:Run(component, p1)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -317,7 +317,7 @@ System.namespace("DCET", function (namespace)
             iAwake:Run(component, p1, p2)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -350,7 +350,7 @@ System.namespace("DCET", function (namespace)
             iAwake:Run(component, p1, p2, p3)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -383,7 +383,7 @@ System.namespace("DCET", function (namespace)
             iAwake:Run(component, p1, p2, p3, p4)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -410,7 +410,7 @@ System.namespace("DCET", function (namespace)
             iChangeSystem:Run(component)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -449,7 +449,7 @@ System.namespace("DCET", function (namespace)
               iLoadSystem:Run(component)
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
             end)
           end
           continue = true
@@ -485,7 +485,7 @@ System.namespace("DCET", function (namespace)
               iStartSystem:Run(component)
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
             end)
           end
           continue = true
@@ -513,7 +513,7 @@ System.namespace("DCET", function (namespace)
             iDestroySystem:Run(component)
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -554,7 +554,7 @@ System.namespace("DCET", function (namespace)
               iUpdateSystem:Run(component)
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
             end)
           end
           continue = true
@@ -596,7 +596,7 @@ System.namespace("DCET", function (namespace)
               iLateUpdateSystem:Run(component)
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
             end)
           end
           continue = true
@@ -621,7 +621,7 @@ System.namespace("DCET", function (namespace)
           aEvent:Run()
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end
     end
@@ -645,7 +645,7 @@ System.namespace("DCET", function (namespace)
           end
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end
     end
@@ -669,7 +669,7 @@ System.namespace("DCET", function (namespace)
           end
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end
     end
@@ -693,7 +693,7 @@ System.namespace("DCET", function (namespace)
           end
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end
     end

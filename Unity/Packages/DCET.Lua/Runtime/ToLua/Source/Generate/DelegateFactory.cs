@@ -47,6 +47,8 @@ public class DelegateFactory
 		dict.Add(typeof(System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>), factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		dict.Add(typeof(DCETRuntime.KcpOutput), factory.DCETRuntime_KcpOutput);
+		dict.Add(typeof(System.Action<System.IO.MemoryStream>), factory.System_Action_System_IO_MemoryStream);
+		dict.Add(typeof(System.Action<System.Net.Sockets.Socket>), factory.System_Action_System_Net_Sockets_Socket);
 		dict.Add(typeof(BehaviorDesigner.Runtime.Behavior.BehaviorHandler), factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		dict.Add(typeof(System.Func<float>), factory.System_Func_float);
 		dict.Add(typeof(System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>), factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -140,6 +142,8 @@ public class DelegateFactory
 		DelegateTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		DelegateTraits<DCETRuntime.KcpOutput>.Init(factory.DCETRuntime_KcpOutput);
+		DelegateTraits<System.Action<System.IO.MemoryStream>>.Init(factory.System_Action_System_IO_MemoryStream);
+		DelegateTraits<System.Action<System.Net.Sockets.Socket>>.Init(factory.System_Action_System_Net_Sockets_Socket);
 		DelegateTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		DelegateTraits<System.Func<float>>.Init(factory.System_Func_float);
 		DelegateTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -233,6 +237,8 @@ public class DelegateFactory
 		TypeTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Init(factory.Check_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		TypeTraits<DCETRuntime.KcpOutput>.Init(factory.Check_DCETRuntime_KcpOutput);
+		TypeTraits<System.Action<System.IO.MemoryStream>>.Init(factory.Check_System_Action_System_IO_MemoryStream);
+		TypeTraits<System.Action<System.Net.Sockets.Socket>>.Init(factory.Check_System_Action_System_Net_Sockets_Socket);
 		TypeTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Init(factory.Check_BehaviorDesigner_Runtime_Behavior_BehaviorHandler);
 		TypeTraits<System.Func<float>>.Init(factory.Check_System_Func_float);
 		TypeTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Init(factory.Check_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
@@ -326,6 +332,8 @@ public class DelegateFactory
 		StackTraits<System.Action<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Push = factory.Push_System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator;
 		StackTraits<DCETRuntime.KcpOutput>.Push = factory.Push_DCETRuntime_KcpOutput;
+		StackTraits<System.Action<System.IO.MemoryStream>>.Push = factory.Push_System_Action_System_IO_MemoryStream;
+		StackTraits<System.Action<System.Net.Sockets.Socket>>.Push = factory.Push_System_Action_System_Net_Sockets_Socket;
 		StackTraits<BehaviorDesigner.Runtime.Behavior.BehaviorHandler>.Push = factory.Push_BehaviorDesigner_Runtime_Behavior_BehaviorHandler;
 		StackTraits<System.Func<float>>.Push = factory.Push_System_Func_float;
 		StackTraits<System.Func<BehaviorDesigner.Runtime.Tasks.TaskStatus>>.Push = factory.Push_System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus;
@@ -2269,6 +2277,120 @@ public class DelegateFactory
 	}
 
 	void Push_DCETRuntime_KcpOutput(IntPtr L, DCETRuntime.KcpOutput o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_System_IO_MemoryStream_Event : LuaDelegate
+	{
+		public System_Action_System_IO_MemoryStream_Event(LuaFunction func) : base(func) { }
+		public System_Action_System_IO_MemoryStream_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(System.IO.MemoryStream param0)
+		{
+			func.BeginPCall();
+			func.PushObject(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(System.IO.MemoryStream param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PushObject(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<System.IO.MemoryStream> System_Action_System_IO_MemoryStream(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<System.IO.MemoryStream> fn = delegate(System.IO.MemoryStream param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_System_IO_MemoryStream_Event target = new System_Action_System_IO_MemoryStream_Event(func);
+			System.Action<System.IO.MemoryStream> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_System_IO_MemoryStream_Event target = new System_Action_System_IO_MemoryStream_Event(func, self);
+			System.Action<System.IO.MemoryStream> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_System_IO_MemoryStream(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<System.IO.MemoryStream>), L, pos);
+	}
+
+	void Push_System_Action_System_IO_MemoryStream(IntPtr L, System.Action<System.IO.MemoryStream> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_System_Net_Sockets_Socket_Event : LuaDelegate
+	{
+		public System_Action_System_Net_Sockets_Socket_Event(LuaFunction func) : base(func) { }
+		public System_Action_System_Net_Sockets_Socket_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(System.Net.Sockets.Socket param0)
+		{
+			func.BeginPCall();
+			func.PushObject(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(System.Net.Sockets.Socket param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.PushObject(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<System.Net.Sockets.Socket> System_Action_System_Net_Sockets_Socket(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<System.Net.Sockets.Socket> fn = delegate(System.Net.Sockets.Socket param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_System_Net_Sockets_Socket_Event target = new System_Action_System_Net_Sockets_Socket_Event(func);
+			System.Action<System.Net.Sockets.Socket> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_System_Net_Sockets_Socket_Event target = new System_Action_System_Net_Sockets_Socket_Event(func, self);
+			System.Action<System.Net.Sockets.Socket> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_System_Net_Sockets_Socket(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<System.Net.Sockets.Socket>), L, pos);
+	}
+
+	void Push_System_Action_System_Net_Sockets_Socket(IntPtr L, System.Action<System.Net.Sockets.Socket> o)
 	{
 		ToLua.Push(L, o);
 	}

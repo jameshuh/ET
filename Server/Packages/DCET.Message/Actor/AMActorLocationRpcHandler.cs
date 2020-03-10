@@ -46,7 +46,7 @@ namespace DCET
 				}
 				catch (Exception exception)
 				{
-					Log.Error(exception);
+					Log.Exception(exception);
 					response.Error = ErrorCode.ERR_RpcFail;
 					response.Message = e.ToString();
 					Reply();

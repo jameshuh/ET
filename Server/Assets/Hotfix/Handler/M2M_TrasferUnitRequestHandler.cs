@@ -10,7 +10,7 @@ namespace DCET
 		{
 			Unit unit = request.Unit;
 			// 将unit加入事件系统
-			Log.Debug(Runtime.MongoHelper.ToJson(request.Unit));
+			Log.Debug(DCETRuntime.MongoHelper.ToJson(request.Unit));
 			// 这里不需要注册location，因为unlock会更新位置
 			unit.AddComponent<MailBoxComponent>();
 			scene.GetComponent<UnitComponent>().Add(unit);

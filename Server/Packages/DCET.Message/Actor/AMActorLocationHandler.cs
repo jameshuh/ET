@@ -32,7 +32,7 @@ namespace DCET
 			}
 			catch (Exception exception)
 			{
-				Log.Error(exception);
+				Log.Exception(exception);
 			}
 		}
 

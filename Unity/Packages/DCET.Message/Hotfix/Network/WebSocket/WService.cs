@@ -92,7 +92,7 @@ namespace DCET
                     }
                     catch (Exception e)
                     {
-                        Log.Error(e);
+                        Log.Exception(e);
                     }
                 }
             }
@@ -103,11 +103,11 @@ namespace DCET
                     throw new Exception($"CMD管理员中输入: netsh http add urlacl url=http://*:8080/ user=Everyone", e);
                 }
 
-                Log.Error(e);
+                Log.Exception(e);
             }
             catch (Exception e)
             {
-                Log.Error(e);
+                Log.Exception(e);
             }
         }
     }

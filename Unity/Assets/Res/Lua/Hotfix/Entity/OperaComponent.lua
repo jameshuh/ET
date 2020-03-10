@@ -84,7 +84,7 @@ System.namespace("DCET", function (namespace)
           DCET.Log.Info(response.Info)
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end, true, this)
     end

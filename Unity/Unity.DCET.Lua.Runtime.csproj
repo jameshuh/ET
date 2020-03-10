@@ -200,6 +200,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_CircularBufferWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ComponentViewWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_DefineWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ErrorCodeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_FileHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_FileVersionInfoWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_FUIPackageWrap.cs" />
@@ -210,13 +211,15 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_GlobalProtoWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_IStaticMethodWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_KcpWrap.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_LogTypeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_LogWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_MD5HelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_MongoHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_MonoBehaviourBridgeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_MonoStaticMethodWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_OneThreadSynchronizationContextWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_PacketParserWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_PacketWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ParserStateWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_PathHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_PrefabLightmapData_MeshRendererLightmapDataWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_PrefabLightmapData_TerrainLightmapDataWrap.cs" />
@@ -228,6 +231,8 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ReferenceLoaderWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ResourcesHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_StringHelperWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_TChannelProxyWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_TServiceProxyWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_UnityWebRequestAsyncWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_VersionConfigWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\DCETRuntime_ZipHelperWrap.cs" />

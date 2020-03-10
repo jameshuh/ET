@@ -4,7 +4,7 @@ local DCET = DCET
 System.namespace("DCET", function (namespace)
 
   namespace.class("AService", function (namespace)
-    local addAcceptCallback, removeAcceptCallback, OnAccept, __ctor__
+    local addAcceptCallback, removeAcceptCallback, Dispose, OnAccept, __ctor__
     __ctor__ = function (this)
       DCET.Entity.__ctor__(this)
     end
@@ -13,6 +13,15 @@ System.namespace("DCET", function (namespace)
     end
     removeAcceptCallback = function (this, value)
       this.acceptCallback = this.acceptCallback - value
+    end
+    Dispose = function (this)
+      if this:getIsDisposed() then
+        return
+      end
+
+      DCET.Entity.Dispose(this)
+
+      this.acceptCallback = nil
     end
     OnAccept = function (this, channel)
       this.acceptCallback(channel)
@@ -25,6 +34,7 @@ System.namespace("DCET", function (namespace)
       end,
       addAcceptCallback = addAcceptCallback,
       removeAcceptCallback = removeAcceptCallback,
+      Dispose = Dispose,
       OnAccept = OnAccept,
       __ctor__ = __ctor__
     }

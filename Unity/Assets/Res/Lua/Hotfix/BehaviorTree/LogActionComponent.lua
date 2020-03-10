@@ -35,7 +35,7 @@ System.namespace("DCET", function (namespace)
       end
     end
     OnTick = function (this)
-      DCET.Log.Error1("Hello HotfixAction")
+      DCET.Log.Error("Hello HotfixAction")
       return 2 --[[TaskStatus.Success]]
     end
     Dispose = function (this)

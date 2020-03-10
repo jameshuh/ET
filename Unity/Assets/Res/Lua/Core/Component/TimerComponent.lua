@@ -86,7 +86,7 @@ System.namespace("DCET", function (namespace)
         this.Callback()
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
     end
     return {
@@ -142,7 +142,7 @@ System.namespace("DCET", function (namespace)
         this.Callback()
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
     end
     Dispose = function (this)
@@ -153,7 +153,7 @@ System.namespace("DCET", function (namespace)
       local id = this.Id
 
       if id == 0 then
-        DCET.Log.Error1("RepeatedTimer可能多次释放了" .. "")
+        DCET.Log.Error("RepeatedTimer可能多次释放了" .. "")
         return
       end
 

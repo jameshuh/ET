@@ -14,7 +14,7 @@ namespace DCET
 
 		public IMessageDispatcher MessageDispatcher { get; set; }
 
-		public void Awake(NetworkProtocol protocol, int packetSize = Packet.PacketSizeLength4)
+		public void Awake(NetworkProtocol protocol, int packetSize = DCETRuntime.Packet.PacketSizeLength4)
 		{
 			switch (protocol)
 			{
@@ -30,7 +30,7 @@ namespace DCET
 			}
 		}
 
-		public void Awake(NetworkProtocol protocol, string address, int packetSize = Packet.PacketSizeLength4)
+		public void Awake(NetworkProtocol protocol, string address, int packetSize = DCETRuntime.Packet.PacketSizeLength4)
 		{
 			try
 			{

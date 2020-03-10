@@ -113,7 +113,7 @@ System.namespace("DCET", function (namespace)
 
       local motionSpeed = animationClip:getlength() / time
       if motionSpeed < 0.01 or motionSpeed > 1000 then
-        DCET.Log.Error1("motionSpeed数值异常, " .. motionSpeed .. ", 此动作跳过")
+        DCET.Log.Error("motionSpeed数值异常, " .. motionSpeed .. ", 此动作跳过")
         return
       end
       this.MotionType = motionType

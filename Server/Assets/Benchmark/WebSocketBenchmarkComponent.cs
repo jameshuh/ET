@@ -29,7 +29,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -49,11 +49,11 @@ namespace DCET
 			}
 			catch (RpcException e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -76,7 +76,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 	}

@@ -9,7 +9,7 @@ System.import(function (out)
 end)
 System.namespace("DCET", function (namespace)
   namespace.class("StringHelper", function (namespace)
-    local ToBytes, ToByteArray, ToUtf8, HexToBytes, Fmt, ListToString, MessageToStr
+    local ToBytes, ToByteArray, ToUtf8, HexToBytes, Fmt, ListToString, ToString
     ToBytes = function (str)
       local byteArray = SystemText.Encoding.getDefault():GetBytes(str)
       return byteArray
@@ -47,7 +47,7 @@ System.namespace("DCET", function (namespace)
       end
       return sb:ToString()
     end
-    MessageToStr = function (message)
+    ToString = function (message)
       return DCET.JsonHelper.ToJson(message)
     end
     return {
@@ -57,7 +57,7 @@ System.namespace("DCET", function (namespace)
       HexToBytes = HexToBytes,
       Fmt = Fmt,
       ListToString = ListToString,
-      MessageToStr = MessageToStr
+      ToString = ToString
     }
   end)
 end)

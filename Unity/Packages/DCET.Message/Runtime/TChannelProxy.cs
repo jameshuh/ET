@@ -244,7 +244,7 @@ namespace DCETRuntime
 				}
 				catch (Exception ee)
 				{
-					Log.Error(ee);
+					Log.Exception(ee);
 				}
 			}
 

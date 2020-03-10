@@ -41,7 +41,7 @@ System.namespace("DCET", function (namespace)
           local g2CPlayerInfo = System.cast(DCET.G2C_PlayerInfo, async:await(DCET.SessionComponent.Instance:getSession():Call(DCET.C2G_PlayerInfo())))
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end, true, account)
     end

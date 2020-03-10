@@ -120,14 +120,14 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
 		private void Run(MemoryStream memoryStream)
 		{
-			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
-			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
+			memoryStream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
+			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), DCETRuntime.Packet.OpcodeIndex);
 			
 			object message;
 			try
@@ -137,7 +137,7 @@ namespace DCET
 
 				if (OpcodeHelper.IsNeedDebugLogMessage(opcode))
 				{
-					Log.Msg(message);
+					Log.Print(message);
 				}
 			}
 			catch (Exception e)
@@ -173,7 +173,7 @@ namespace DCET
 			Action<IResponse> action;
 			if (!this.requestCallback.TryGetValue(response.RpcId, out action))
 			{
-				throw new Exception($"not found rpc, response message: {StringHelper.MessageToStr(response)}");
+				throw new Exception($"not found rpc, response message: {StringHelper.ToString(response)}");
 			}
 			this.requestCallback.Remove(response.RpcId);
             
@@ -253,13 +253,13 @@ namespace DCET
 			
 			if (OpcodeHelper.IsNeedDebugLogMessage(opcode) )
 			{
-				Log.Msg(message);
+				Log.Print(message);
 			}
 
 			MemoryStream stream = this.Stream;
 			
-			stream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
-			stream.SetLength(Packet.MessageIndex);
+			stream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
+			stream.SetLength(DCETRuntime.Packet.MessageIndex);
 			this.Network.MessagePacker.SerializeTo(message, stream);
 			stream.Seek(0, SeekOrigin.Begin);
 			

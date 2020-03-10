@@ -35,7 +35,7 @@ namespace DCET
 			}
 			catch (Exception exception)
 			{
-				Log.Error(exception);
+				Log.Exception(exception);
 			}
 		}
 
@@ -124,7 +124,7 @@ namespace DCET
 				}
 				catch (Exception e)
 				{
-					Log.Error(e);
+					Log.Exception(e);
 				}
 			}
 

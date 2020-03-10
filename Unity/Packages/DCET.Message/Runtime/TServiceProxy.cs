@@ -88,7 +88,7 @@ namespace DCETRuntime
 			}
 			catch (Exception exception)
 			{
-				Log.Error(exception);
+				Log.Exception(exception);
 			}
 
 			if (this.acceptor == null)

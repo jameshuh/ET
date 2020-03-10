@@ -80,7 +80,7 @@ System.namespace("DCET", function (namespace)
 
           local iMHandler = System.as(System.Activator.CreateInstance(type), DCET.IMHandler)
           if iMHandler == nil then
-            DCET.Log.Error1("message handle " .. type:getName() .. " 需要继承 IMHandler")
+            DCET.Log.Error("message handle " .. type:getName() .. " 需要继承 IMHandler")
             continue = true
             break
           end
@@ -88,7 +88,7 @@ System.namespace("DCET", function (namespace)
           local messageType = iMHandler:GetMessageType()
           local opcode = this:getParent():GetComponent(DCET.OpcodeTypeComponent):GetOpcode(messageType)
           if opcode == 0 then
-            DCET.Log.Error1("消息opcode为0: " .. messageType:getName())
+            DCET.Log.Error("消息opcode为0: " .. messageType:getName())
             continue = true
             break
           end
@@ -111,8 +111,8 @@ System.namespace("DCET", function (namespace)
       local default
       default, actions = this.handlers:TryGetValue(opcode)
       if not default then
-        DCET.Log.Error1("消息没有处理: opcode=" .. opcode)
-        DCET.Log.Error1("消息没有处理: message=" .. DCETRuntime.MongoHelper.ToJson(message))
+        DCET.Log.Error("消息没有处理: opcode=" .. opcode)
+        DCET.Log.Error("消息没有处理: message=" .. DCETRuntime.MongoHelper.ToJson(message))
         return
       end
 
@@ -121,7 +121,7 @@ System.namespace("DCET", function (namespace)
           ev:Handle(session, message)
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end
     end

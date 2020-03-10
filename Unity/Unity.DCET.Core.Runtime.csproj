@@ -91,7 +91,6 @@
     <Compile Include="Packages\DCET.Core\Runtime\Unity\CameraDepthTexture.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\GizmosDebug.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\Log.cs" />
-    <Compile Include="Packages\DCET.Core\Runtime\Unity\LogType.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\MonoBehaviourBridge.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\PrefabLightmapData.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Unity\ReferenceCollector.cs" />

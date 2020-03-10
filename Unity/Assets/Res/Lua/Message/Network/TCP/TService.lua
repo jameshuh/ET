@@ -3,9 +3,6 @@ local System = System
 local Linq = System.Linq.Enumerable
 local DCET = DCET
 local DCETRuntime = DCETRuntime
-local MicrosoftIO = Microsoft.IO
-local SystemNetSockets = System.Net.Sockets
-local ListInt64 = System.List(System.Int64)
 local DCET
 local DictInt64TChannel
 System.import(function (out)
@@ -14,13 +11,10 @@ System.import(function (out)
 end)
 System.namespace("DCET", function (namespace)
   namespace.class("TService", function (namespace)
-    local Dispose, OnComplete, AcceptAsync, OnAcceptComplete, GetChannel, ConnectChannel, ConnectChannel1, MarkNeedStartSend, 
-    Remove, Update, internal, __ctor1__, __ctor2__
+    local OnAcceptSocket, Dispose, GetChannel, ConnectChannel, ConnectChannel1, MarkNeedStartSend, Remove, Update, 
+    internal, __ctor1__, __ctor2__
     internal = function (this)
       this.idChannels = DictInt64TChannel()
-      this.innArgs = SystemNetSockets.SocketAsyncEventArgs()
-      this.MemoryStreamManager = MicrosoftIO.RecyclableMemoryStreamManager()
-      this.needStartSendChannel = ListInt64()
     end
     -- <summary>
     -- 即可做client也可做server
@@ -28,22 +22,26 @@ System.namespace("DCET", function (namespace)
     __ctor1__ = function (this, packetSizeLength, ipEndPoint, acceptCallback)
       internal(this)
       System.base(this).__ctor__(this)
-      this.PacketSizeLength = packetSizeLength
+      this.Proxy = DCETRuntime.TServiceProxy(packetSizeLength, ipEndPoint)
+      this.Proxy.OnAccept = this.Proxy.OnAccept + System.fn(this, OnAcceptSocket)
       this:addAcceptCallback(acceptCallback)
-
-      this.acceptor = SystemNetSockets.Socket(2 --[[AddressFamily.InterNetwork]], 1 --[[SocketType.Stream]], 6 --[[ProtocolType.Tcp]])
-      this.acceptor:SetSocketOption(65535 --[[SocketOptionLevel.Socket]], 4 --[[SocketOptionName.ReuseAddress]], true)
-      this.innArgs:addCompleted(System.fn(this, OnComplete))
-
-      this.acceptor:Bind(ipEndPoint)
-      this.acceptor:Listen(1000)
-
-      AcceptAsync(this)
     end
     __ctor2__ = function (this, packetSizeLength)
       internal(this)
       System.base(this).__ctor__(this)
-      this.PacketSizeLength = packetSizeLength
+      this.Proxy = DCETRuntime.TServiceProxy(packetSizeLength)
+    end
+    OnAcceptSocket = function (this, acceptSocket)
+      local channel = System.new(DCET.TChannel, 2, acceptSocket, this)
+      this.idChannels:set(channel.Id, channel)
+      channel:setParent(this)
+
+      System.try(function ()
+        this:OnAccept(channel)
+      end, function (default)
+        local exception = default
+        DCET.Log.Exception(exception)
+      end)
     end
     Dispose = function (this)
       if this:getIsDisposed() then
@@ -56,58 +54,11 @@ System.namespace("DCET", function (namespace)
         local channel = this.idChannels:get(id)
         channel:Dispose()
       end
-      local default = this.acceptor
+
+      local default = this.Proxy
       if default ~= nil then
-        default:Close()
+        default:Dispose()
       end
-      this.acceptor = nil
-      this.innArgs:Dispose()
-    end
-    OnComplete = function (this, sender, e)
-      repeat
-        local default = e:getLastOperation()
-        if default == 1 --[[SocketAsyncOperation.Accept]] then
-          DCETRuntime.OneThreadSynchronizationContext.getInstance():Post(System.fn(this, OnAcceptComplete), e)
-          break
-        else
-          System.throw(System.Exception("socket accept error: " .. e:getLastOperation():EnumToString(SystemNetSockets.SocketAsyncOperation)))
-        end
-      until 1
-    end
-    AcceptAsync = function (this)
-      this.innArgs:setAcceptSocket(nil)
-      if this.acceptor:AcceptAsync(this.innArgs) then
-        return
-      end
-      OnAcceptComplete(this, this.innArgs)
-    end
-    OnAcceptComplete = function (this, o)
-      if this.acceptor == nil then
-        return
-      end
-      local e = System.cast(SystemNetSockets.SocketAsyncEventArgs, o)
-
-      if e:getSocketError() ~= 0 --[[SocketError.Success]] then
-        DCET.Log.Error1("accept error " .. e:getSocketError():EnumToString(SystemNetSockets.SocketError))
-        AcceptAsync(this)
-        return
-      end
-      local channel = System.new(DCET.TChannel, 2, e:getAcceptSocket(), this)
-      this.idChannels:set(channel.Id, channel)
-      channel:setParent(this)
-
-      System.try(function ()
-        this:OnAccept(channel)
-      end, function (default)
-        local exception = default
-        DCET.Log.Error(exception)
-      end)
-
-      if this.acceptor == nil then
-        return
-      end
-
-      AcceptAsync(this)
     end
     GetChannel = function (this, id)
       local channel = nil
@@ -126,7 +77,7 @@ System.namespace("DCET", function (namespace)
       return ConnectChannel(this, ipEndPoint)
     end
     MarkNeedStartSend = function (this, id)
-      this.needStartSendChannel:Add(id)
+      this.Proxy:MarkNeedStartSend(id)
     end
     Remove = function (this, id)
       local channel
@@ -142,7 +93,7 @@ System.namespace("DCET", function (namespace)
       channel:Dispose()
     end
     Update = function (this)
-      for _, id in System.each(this.needStartSendChannel) do
+      for _, id in System.each(this.Proxy.needStartSendChannel) do
         local continue
         repeat
           local channel
@@ -162,7 +113,7 @@ System.namespace("DCET", function (namespace)
             channel:StartSend()
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
           continue = true
         until 1
@@ -171,7 +122,7 @@ System.namespace("DCET", function (namespace)
         end
       end
 
-      this.needStartSendChannel:Clear()
+      this.Proxy.needStartSendChannel:Clear()
     end
     return {
       base = function (out)
@@ -179,9 +130,7 @@ System.namespace("DCET", function (namespace)
           out.DCET.AService
         }
       end,
-      PacketSizeLength = 0,
       Dispose = Dispose,
-      AcceptAsync = AcceptAsync,
       GetChannel = GetChannel,
       ConnectChannel = ConnectChannel,
       ConnectChannel1 = ConnectChannel1,

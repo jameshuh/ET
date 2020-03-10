@@ -9,11 +9,11 @@ System.namespace("DCET", function (namespace)
         System.async(function (async, this, session, msg)
           local message = System.as(msg, Message)
           if message == nil then
-            DCET.Log.Error1("消息类型转换错误: " .. msg:GetType():getName() .. " to " .. System.typeof(Message):getName())
+            DCET.Log.Error("消息类型转换错误: " .. msg:GetType():getName() .. " to " .. System.typeof(Message):getName())
             return
           end
           if session:getIsDisposed() then
-            DCET.Log.Error1("session disconnect " .. System.toString(msg))
+            DCET.Log.Error("session disconnect " .. System.toString(msg))
             return
           end
 
@@ -21,7 +21,7 @@ System.namespace("DCET", function (namespace)
             async:await(this:Run(session, message))
           end, function (default)
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end)
         end, true, this, session, msg)
       end

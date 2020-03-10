@@ -1,4 +1,4 @@
-﻿namespace DCET
+﻿namespace DCETRuntime
 {
 	public interface ILog
 	{

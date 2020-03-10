@@ -82,7 +82,7 @@ System.namespace("DCET", function (namespace)
               this:OnAccept(channel)
             end, function (default)
               local e = default
-              DCET.Log.Error(e)
+              DCET.Log.Exception(e)
             end)
           end
         end, function (default)
@@ -92,10 +92,10 @@ System.namespace("DCET", function (namespace)
               System.throw(System.Exception("CMD管理员中输入: netsh http add urlacl url=http://*:8080/ user=Everyone" .. "", e))
             end
 
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           else
             local e = default
-            DCET.Log.Error(e)
+            DCET.Log.Exception(e)
           end
         end)
       end, true, this, prefixs)

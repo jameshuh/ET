@@ -31,7 +31,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -85,7 +85,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -110,7 +110,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -122,7 +122,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -134,7 +134,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -146,7 +146,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -158,7 +158,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 
@@ -179,7 +179,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 	}

@@ -95,7 +95,7 @@ namespace DCET
 				}
 				catch (Exception e)
 				{
-					Log.Error(e);
+					Log.Exception(e);
 				}
 			}
 		}

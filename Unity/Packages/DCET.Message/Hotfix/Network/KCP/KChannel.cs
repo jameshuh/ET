@@ -179,7 +179,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				this.OnError(ErrorCode.ERR_SocketCantSend);
 			}
 		}
@@ -205,7 +205,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				this.OnError(ErrorCode.ERR_SocketCantSend);
 			}
 		}
@@ -227,7 +227,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				this.OnError(ErrorCode.ERR_SocketCantSend);
 			}
 		}
@@ -282,7 +282,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				this.OnError(ErrorCode.ERR_SocketError);
 				return;
 			}
@@ -380,7 +380,7 @@ namespace DCET
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				this.OnError(ErrorCode.ERR_SocketCantSend);
 			}
 		}

@@ -199,7 +199,7 @@ System.namespace("DCET", function (namespace)
         end
         sb:Append("\n")
       end
-      DCET.Log.Error1(sb:ToString())
+      DCET.Log.Error(sb:ToString())
     end
     Check = function (this)
       local dict = MultiMapSet_2StringString()

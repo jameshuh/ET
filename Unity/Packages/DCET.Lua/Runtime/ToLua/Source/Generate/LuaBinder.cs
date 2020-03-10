@@ -113,6 +113,8 @@ public static class LuaBinder
 		L.RegFunction("Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Predicate_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Action_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
 		L.RegFunction("Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator", System_Comparison_BehaviorDesigner_Runtime_Tasks_HotfixDecorator);
+		L.RegFunction("Action_System_IO_MemoryStream", System_Action_System_IO_MemoryStream);
+		L.RegFunction("Action_System_Net_Sockets_Socket", System_Action_System_Net_Sockets_Socket);
 		L.RegFunction("Func_float", System_Func_float);
 		L.RegFunction("Func_BehaviorDesigner_Runtime_Tasks_TaskStatus", System_Func_BehaviorDesigner_Runtime_Tasks_TaskStatus);
 		L.RegFunction("Func_object_bool", System_Func_object_bool);
@@ -211,6 +213,12 @@ public static class LuaBinder
 		DCETRuntime_FileVersionInfoWrap.Register(L);
 		DCETRuntime_VersionConfigWrap.Register(L);
 		DCETRuntime_KcpWrap.Register(L);
+		DCETRuntime_ParserStateWrap.Register(L);
+		DCETRuntime_PacketWrap.Register(L);
+		DCETRuntime_PacketParserWrap.Register(L);
+		DCETRuntime_ErrorCodeWrap.Register(L);
+		DCETRuntime_TChannelProxyWrap.Register(L);
+		DCETRuntime_TServiceProxyWrap.Register(L);
 		DCETRuntime_FUIPackageWrap.Register(L);
 		DCETRuntime_CircularBufferWrap.Register(L);
 		DCETRuntime_ComponentViewWrap.Register(L);
@@ -237,7 +245,6 @@ public static class LuaBinder
 		DCETRuntime_CameraDepthTextureWrap.Register(L);
 		DCETRuntime_GizmosDebugWrap.Register(L);
 		DCETRuntime_LogWrap.Register(L);
-		DCETRuntime_LogTypeWrap.Register(L);
 		DCETRuntime_MonoBehaviourBridgeWrap.Register(L);
 		DCETRuntime_PrefabLightmapDataWrap.Register(L);
 		DCETRuntime_ReferenceCollectorDataWrap.Register(L);
@@ -1577,6 +1584,60 @@ public static class LuaBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<System.Comparison<BehaviorDesigner.Runtime.Tasks.HotfixDecorator>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Action_System_IO_MemoryStream(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Action<System.IO.MemoryStream>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Action<System.IO.MemoryStream>>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int System_Action_System_Net_Sockets_Socket(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<System.Action<System.Net.Sockets.Socket>>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<System.Action<System.Net.Sockets.Socket>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

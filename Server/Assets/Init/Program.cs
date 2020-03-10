@@ -1,5 +1,5 @@
 ﻿using CommandLine;
-using DCET.Runtime;
+using DCETRuntime;
 using NLog;
 using System;
 using System.IO;
@@ -90,13 +90,13 @@ namespace DCET
 					}
 					catch (Exception e)
 					{
-						Log.Error(e);
+						Log.Exception(e);
 					}
 				}
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 			}
 		}
 	}

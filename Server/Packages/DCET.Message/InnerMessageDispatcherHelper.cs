@@ -17,7 +17,7 @@
 			Entity entity = Game.EventSystem.Get(iActorRequest.ActorId);
 			if (entity == null)
 			{
-				Log.Warning($"not found actor: {Runtime.MongoHelper.ToJson(iActorRequest)}");
+				Log.Warning($"not found actor: {DCETRuntime.MongoHelper.ToJson(iActorRequest)}");
 				ActorResponse response = new ActorResponse
 				{
 					Error = ErrorCode.ERR_NotFoundActor,
@@ -51,7 +51,7 @@
 			Entity entity = Game.EventSystem.Get(iActorMessage.ActorId);
 			if (entity == null)
 			{
-				Log.Error($"not found actor: {Runtime.MongoHelper.ToJson(iActorMessage)}");
+				Log.Error($"not found actor: {DCETRuntime.MongoHelper.ToJson(iActorMessage)}");
 				return;
 			}
 	

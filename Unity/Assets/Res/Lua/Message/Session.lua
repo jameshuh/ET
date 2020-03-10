@@ -3,7 +3,6 @@ local System = System
 local Linq = System.Linq.Enumerable
 local DCET = DCET
 local DCETRuntime = DCETRuntime
-local ArrayByte = System.Array(System.Byte)
 local DCET
 local DictInt32Delegate
 System.import(function (out)
@@ -37,7 +36,6 @@ System.namespace("DCET", function (namespace)
     Send1, Send2, __ctor__
     __ctor__ = function (this)
       this.requestCallback = DictInt32Delegate()
-      this.opcodeBytes = ArrayByte:new(2)
       System.base(this).__ctor__(this)
     end
     RpcId = 0
@@ -104,7 +102,7 @@ System.namespace("DCET", function (namespace)
         Run(this, memoryStream)
       end, function (default)
         local e = default
-        DCET.Log.Error(e)
+        DCET.Log.Exception(e)
       end)
     end
     Run = function (this, memoryStream)
@@ -117,12 +115,12 @@ System.namespace("DCET", function (namespace)
         message = getNetwork(this).MessagePacker:DeserializeFrom3(instance, memoryStream)
 
         if DCET.OpcodeHelper.IsNeedDebugLogMessage(opcode) then
-          DCET.Log.Msg(message)
+          DCET.Log.Print(message)
         end
       end, function (default)
         local e = default
         -- 出现任何消息解析异常都要断开Session，防止客户端伪造消息
-        DCET.Log.Error1("opcode: " .. opcode .. " " .. getNetwork(this):getCount() .. " " .. System.toString(e) .. ", ip: " .. getRemoteAddress(this))
+        DCET.Log.Error("opcode: " .. opcode .. " " .. getNetwork(this):getCount() .. " " .. System.toString(e) .. ", ip: " .. getRemoteAddress(this))
         setError(this, 100005 --[[ErrorCode.ERR_PacketParserError]])
         getNetwork(this):Remove(this.Id)
         return true
@@ -147,7 +145,7 @@ System.namespace("DCET", function (namespace)
       local default
       default, action = this.requestCallback:TryGetValue(response:getRpcId())
       if not default then
-        System.throw(System.Exception("not found rpc, response message: " .. DCET.StringHelper.MessageToStr(response)))
+        System.throw(System.Exception("not found rpc, response message: " .. DCET.StringHelper.ToString(response)))
       end
       this.requestCallback:RemoveKey(response:getRpcId())
 
@@ -213,7 +211,7 @@ System.namespace("DCET", function (namespace)
       this.LastSendTime = DCET.TimeHelper.Now()
 
       if DCET.OpcodeHelper.IsNeedDebugLogMessage(opcode) then
-        DCET.Log.Msg(message)
+        DCET.Log.Print(message)
       end
 
       local stream = getStream(this)
@@ -223,8 +221,7 @@ System.namespace("DCET", function (namespace)
       getNetwork(this).MessagePacker:SerializeTo1(message, stream)
       stream:Seek(0, 0 --[[SeekOrigin.Begin]])
 
-      DCET.ByteHelper.WriteTo4(this.opcodeBytes, 0, opcode)
-      System.Array.Copy(this.opcodeBytes, 0, stream:GetBuffer(), 0, #this.opcodeBytes)
+      DCETRuntime.PacketParser.Copy(opcode, stream)
 
       Send2(this, stream)
     end

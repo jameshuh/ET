@@ -30,7 +30,7 @@ System.namespace("DCET", function (namespace)
           DCET.Game.getEventSystem():Run("EnterMapFinish" --[[EventIdType.EnterMapFinish]])
         end, function (default)
           local e = default
-          DCET.Log.Error(e)
+          DCET.Log.Exception(e)
         end)
       end, true, sceneName)
     end

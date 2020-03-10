@@ -66,7 +66,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error($"url: {versionUrl}", e);
+				Log.Error($"url: {versionUrl} {e}");
 				return false;
 			}
 
@@ -227,7 +227,7 @@ namespace DCETRuntime
 			}
 			catch (Exception e)
 			{
-				Log.Error(e);
+				Log.Exception(e);
 				result = false;
 			}
 

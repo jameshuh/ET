@@ -98,7 +98,7 @@ namespace DCET
             }
             catch (Exception e)
             {
-                Log.Error(e);
+                Log.Exception(e);
                 this.OnError(ErrorCode.ERR_WebsocketConnectError);
             }
         }
@@ -150,7 +150,7 @@ namespace DCET
                     }
                     catch (Exception e)
                     {
-                        Log.Error(e);
+                        Log.Exception(e);
                         this.OnError(ErrorCode.ERR_WebsocketSendError);
                         return;
                     }
@@ -158,7 +158,7 @@ namespace DCET
             }
             catch (Exception e)
             {
-                Log.Error(e);
+                Log.Exception(e);
             }
         }
 
@@ -219,7 +219,7 @@ namespace DCET
             }
             catch (Exception e)
             {
-                Log.Error(e);
+                Log.Exception(e);
                 this.OnError(ErrorCode.ERR_WebsocketRecvError);
             }
         }

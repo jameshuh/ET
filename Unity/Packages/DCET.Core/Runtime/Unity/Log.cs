@@ -4,69 +4,56 @@ namespace DCETRuntime
 {
 	public static class Log
 	{
-		public static void Trace(string msg)
-		{
-			UnityEngine.Debug.Log(msg);
-		}
-		
-		public static void Debug(string msg)
-		{
-			UnityEngine.Debug.Log(msg);
-		}
-		
-		public static void Info(string msg)
-		{
-			UnityEngine.Debug.Log(msg);
-		}
+#if SERVER
+		private static readonly ILog globalLog = new NLogAdapter();
+#endif
 
 		public static void Warning(string msg)
 		{
+#if !SERVER
 			UnityEngine.Debug.LogWarning(msg);
+#else
+			globalLog.Warning(msg);
+#endif
+		}
+
+		public static void Info(string msg)
+		{
+#if !SERVER
+			UnityEngine.Debug.Log(msg);
+#else
+			globalLog.Info(msg);
+#endif
+		}
+
+		public static void Exception(Exception e)
+		{
+			Error(e.ToString());
 		}
 
 		public static void Error(string msg)
 		{
+#if !SERVER
 			UnityEngine.Debug.LogError(msg);
-		}
-		
-		public static void Error(Exception e)
-		{
-			UnityEngine.Debug.LogException(e);
+#else
+			globalLog.Error(msg);
+#endif
 		}
 
-		public static void Fatal(string msg)
+		public static void Debug(string msg)
 		{
-			UnityEngine.Debug.LogAssertion(msg);
+#if !SERVER
+			UnityEngine.Debug.Log(msg);
+#else
+			globalLog.Debug(msg);
+#endif
 		}
 
-		public static void Trace(string message, params object[] args)
+#if SERVER
+		public static void Print(object msg)
 		{
-			UnityEngine.Debug.LogFormat(message, args);
+			Debug(MongoHelper.ToJson(msg));
 		}
-
-		public static void Warning(string message, params object[] args)
-		{
-			UnityEngine.Debug.LogWarningFormat(message, args);
-		}
-
-		public static void Info(string message, params object[] args)
-		{
-			UnityEngine.Debug.LogFormat(message, args);
-		}
-
-		public static void Debug(string message, params object[] args)
-		{
-			UnityEngine.Debug.LogFormat(message, args);
-		}
-
-		public static void Error(string message, params object[] args)
-		{
-			UnityEngine.Debug.LogErrorFormat(message, args);
-		}
-
-		public static void Fatal(string message, params object[] args)
-		{
-			UnityEngine.Debug.LogAssertionFormat(message, args);
-		}
+#endif
 	}
 }

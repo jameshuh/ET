@@ -7,11 +7,11 @@ namespace DCET
 
 	public class UnitConfig: IConfig
 	{
-		public long Id { get; set; }
-		public string Name;
-		public string Desc;
-		public int Position;
-		public int Height;
-		public int Weight;
+		public long _id {get; set;}
+		public string Name {get; set;}
+		public string Desc {get; set;}
+		public int Position {get; set;}
+		public int Height {get; set;}
+		public int Weight {get; set;}
 	}
 }
