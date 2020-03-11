@@ -69,7 +69,7 @@ public class Pathfinding_AstarDataWrap
 			ToLua.CheckArgsCount(L, 1);
 			Pathfinding.AstarData obj = (Pathfinding.AstarData)ToLua.CheckObject<Pathfinding.AstarData>(L, 1);
 			byte[] o = obj.GetData();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -154,7 +154,7 @@ public class Pathfinding_AstarDataWrap
 			{
 				Pathfinding.AstarData obj = (Pathfinding.AstarData)ToLua.CheckObject<Pathfinding.AstarData>(L, 1);
 				byte[] o = obj.SerializeGraphs();
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 2)
@@ -162,7 +162,7 @@ public class Pathfinding_AstarDataWrap
 				Pathfinding.AstarData obj = (Pathfinding.AstarData)ToLua.CheckObject<Pathfinding.AstarData>(L, 1);
 				PF.SerializeSettings arg0 = (PF.SerializeSettings)ToLua.CheckObject<PF.SerializeSettings>(L, 2);
 				byte[] o = obj.SerializeGraphs(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 3)
@@ -171,7 +171,7 @@ public class Pathfinding_AstarDataWrap
 				PF.SerializeSettings arg0 = (PF.SerializeSettings)ToLua.CheckObject<PF.SerializeSettings>(L, 2);
 				uint arg1;
 				byte[] o = obj.SerializeGraphs(arg0, out arg1);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				LuaDLL.lua_pushnumber(L, arg1);
 				return 2;
 			}
@@ -440,7 +440,7 @@ public class Pathfinding_AstarDataWrap
 			o = ToLua.ToObject(L, 1);
 			Pathfinding.AstarData obj = (Pathfinding.AstarData)o;
 			byte[] ret = obj.data_cachedStartup;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

@@ -11,12 +11,12 @@ System.namespace("DCET", function (namespace)
   -- 封装Socket,将回调push到主线程处理
   -- </summary>
   namespace.class("TChannel", function (namespace)
-    local Dispose, Start, GetService, getStream, Send, OnStartRecv, getIsSending, StartSend, 
+    local Dispose, Start, GetService, getStream, Send, MarkNeedStartSend, getIsSending, StartSend, 
     __ctor1__, __ctor2__
     __ctor1__ = function (this, ipEndPoint, service)
       System.base(this).__ctor__(this, service, 0 --[[ChannelType.Connect]])
       this.Proxy = DCETRuntime.TChannelProxy(ipEndPoint, service.Proxy)
-      this.Proxy.OnStartRecv = this.Proxy.OnStartRecv + System.fn(this, OnStartRecv)
+      this.Proxy.OnMarkNeedStartSend = this.Proxy.OnMarkNeedStartSend + System.fn(this, MarkNeedStartSend)
       this.Proxy.OnRead = this.Proxy.OnRead + System.fn(this, this.OnRead)
       this.Proxy.OnError = this.Proxy.OnError + System.fn(this, this.OnError)
       this.RemoteAddress = this.Proxy:getRemoteAddress()
@@ -25,6 +25,9 @@ System.namespace("DCET", function (namespace)
     __ctor2__ = function (this, socket, service)
       System.base(this).__ctor__(this, service, 1 --[[ChannelType.Accept]])
       this.Proxy = DCETRuntime.TChannelProxy(socket, service.Proxy)
+      this.Proxy.OnMarkNeedStartSend = this.Proxy.OnMarkNeedStartSend + System.fn(this, MarkNeedStartSend)
+      this.Proxy.OnRead = this.Proxy.OnRead + System.fn(this, this.OnRead)
+      this.Proxy.OnError = this.Proxy.OnError + System.fn(this, this.OnError)
       this.RemoteAddress = this.Proxy:getRemoteAddress()
       this.remoteIpEndPoint = System.cast(SystemNet.IPEndPoint, socket:getRemoteEndPoint())
     end
@@ -60,9 +63,8 @@ System.namespace("DCET", function (namespace)
       end
 
       this.Proxy:Send(stream)
-      GetService(this):MarkNeedStartSend(this.Id)
     end
-    OnStartRecv = function (this)
+    MarkNeedStartSend = function (this)
       GetService(this):MarkNeedStartSend(this.Id)
     end
     getIsSending = function (this)

@@ -17,10 +17,11 @@ namespace DCETRuntime
 	public sealed class TChannelProxy : IDisposable
 	{
 		public Action<int> OnError;
-		public Action OnStartRecv;
+		public Action OnMarkNeedStartSend;
 		public Action<MemoryStream> OnRead;
 		public string RemoteAddress { get; }
 		public MemoryStream Stream { get; }
+		public bool IsSending { get; private set; }
 
 		private SocketAsyncEventArgs innArgs = new SocketAsyncEventArgs();
 		private SocketAsyncEventArgs outArgs = new SocketAsyncEventArgs();
@@ -110,6 +111,8 @@ namespace DCETRuntime
 
 			this.sendBuffer.Write(this.packetSizeCache, 0, this.packetSizeCache.Length);
 			this.sendBuffer.WriteStream(stream);
+
+			this.OnMarkNeedStartSend?.Invoke();
 		}
 
 		private void OnComplete(object sender, SocketAsyncEventArgs e)
@@ -161,7 +164,7 @@ namespace DCETRuntime
 			this.isConnected = true;
 			this.StartRecv();
 
-			this.OnStartRecv?.Invoke();
+			this.OnMarkNeedStartSend?.Invoke();
 		}
 
 		private void OnDisconnectComplete(object o)
@@ -255,8 +258,6 @@ namespace DCETRuntime
 			
 			this.StartRecv();
 		}
-
-		public bool IsSending { get; private set; }
 
 		public void StartSend()
 		{

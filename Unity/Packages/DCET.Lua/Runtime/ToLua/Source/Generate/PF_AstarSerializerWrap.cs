@@ -119,7 +119,7 @@ public class PF_AstarSerializerWrap
 			ToLua.CheckArgsCount(L, 1);
 			PF.AstarSerializer obj = (PF.AstarSerializer)ToLua.CheckObject<PF.AstarSerializer>(L, 1);
 			byte[] o = obj.CloseSerialize();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -154,7 +154,7 @@ public class PF_AstarSerializerWrap
 			PF.AstarSerializer obj = (PF.AstarSerializer)ToLua.CheckObject<PF.AstarSerializer>(L, 1);
 			PF.NavGraph arg0 = (PF.NavGraph)ToLua.CheckObject<PF.NavGraph>(L, 2);
 			byte[] o = obj.Serialize(arg0);
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -303,7 +303,7 @@ public class PF_AstarSerializerWrap
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			byte[] o = PF.AstarSerializer.LoadFromFile(arg0);
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

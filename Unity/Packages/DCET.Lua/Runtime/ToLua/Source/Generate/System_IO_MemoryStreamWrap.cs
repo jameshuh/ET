@@ -174,7 +174,7 @@ public class System_IO_MemoryStreamWrap
 			ToLua.CheckArgsCount(L, 1);
 			System.IO.MemoryStream obj = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 1);
 			byte[] o = obj.GetBuffer();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -367,7 +367,7 @@ public class System_IO_MemoryStreamWrap
 			ToLua.CheckArgsCount(L, 1);
 			System.IO.MemoryStream obj = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 1);
 			byte[] o = obj.ToArray();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

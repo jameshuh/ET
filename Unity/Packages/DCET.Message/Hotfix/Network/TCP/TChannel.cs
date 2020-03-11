@@ -17,7 +17,7 @@ namespace DCET
 		public TChannel(IPEndPoint ipEndPoint, TService service): base(service, ChannelType.Connect)
 		{
 			this.Proxy = new TChannelProxy(ipEndPoint, service.Proxy);
-			this.Proxy.OnStartRecv += OnStartRecv;
+			this.Proxy.OnMarkNeedStartSend += MarkNeedStartSend;
 			this.Proxy.OnRead += OnRead;
 			this.Proxy.OnError += OnError;
 			this.RemoteAddress = Proxy.RemoteAddress;
@@ -27,6 +27,9 @@ namespace DCET
 		public TChannel(Socket socket, TService service): base(service, ChannelType.Accept)
 		{
 			this.Proxy = new TChannelProxy(socket, service.Proxy);
+			this.Proxy.OnMarkNeedStartSend += MarkNeedStartSend;
+			this.Proxy.OnRead += OnRead;
+			this.Proxy.OnError += OnError;
 			this.RemoteAddress = Proxy.RemoteAddress;
 			this.remoteIpEndPoint = (IPEndPoint)socket.RemoteEndPoint;
 		}
@@ -77,10 +80,9 @@ namespace DCET
 			}
 
 			this.Proxy.Send(stream);
-			this.GetService().MarkNeedStartSend(this.Id);
 		}
 
-		private void OnStartRecv()
+		private void MarkNeedStartSend()
 		{
 			this.GetService().MarkNeedStartSend(this.Id);
 		}

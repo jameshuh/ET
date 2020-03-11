@@ -17,7 +17,7 @@ public class DCETRuntime_TChannelProxyWrap
 		L.RegFunction("New", _CreateDCETRuntime_TChannelProxy);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("OnError", get_OnError, set_OnError);
-		L.RegVar("OnStartRecv", get_OnStartRecv, set_OnStartRecv);
+		L.RegVar("OnMarkNeedStartSend", get_OnMarkNeedStartSend, set_OnMarkNeedStartSend);
 		L.RegVar("OnRead", get_OnRead, set_OnRead);
 		L.RegVar("RemoteAddress", get_RemoteAddress, null);
 		L.RegFunction("getRemoteAddress", get_RemoteAddress);
@@ -202,7 +202,7 @@ public class DCETRuntime_TChannelProxyWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_OnStartRecv(IntPtr L)
+	static int get_OnMarkNeedStartSend(IntPtr L)
 	{
 		object o = null;
 
@@ -210,13 +210,13 @@ public class DCETRuntime_TChannelProxyWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			DCETRuntime.TChannelProxy obj = (DCETRuntime.TChannelProxy)o;
-			System.Action ret = obj.OnStartRecv;
+			System.Action ret = obj.OnMarkNeedStartSend;
 			ToLua.Push(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnStartRecv on a nil value");
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnMarkNeedStartSend on a nil value");
 		}
 	}
 
@@ -316,7 +316,7 @@ public class DCETRuntime_TChannelProxyWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_OnStartRecv(IntPtr L)
+	static int set_OnMarkNeedStartSend(IntPtr L)
 	{
 		object o = null;
 
@@ -325,12 +325,12 @@ public class DCETRuntime_TChannelProxyWrap
 			o = ToLua.ToObject(L, 1);
 			DCETRuntime.TChannelProxy obj = (DCETRuntime.TChannelProxy)o;
 			System.Action arg0 = (System.Action)ToLua.CheckDelegate<System.Action>(L, 2);
-			obj.OnStartRecv = arg0;
+			obj.OnMarkNeedStartSend = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnStartRecv on a nil value");
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index OnMarkNeedStartSend on a nil value");
 		}
 	}
 

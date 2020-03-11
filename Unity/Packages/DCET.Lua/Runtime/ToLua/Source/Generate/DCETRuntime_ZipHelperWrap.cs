@@ -20,7 +20,7 @@ public class DCETRuntime_ZipHelperWrap
 			ToLua.CheckArgsCount(L, 1);
 			byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
 			byte[] o = DCETRuntime.ZipHelper.Compress(arg0);
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -40,7 +40,7 @@ public class DCETRuntime_ZipHelperWrap
 			{
 				byte[] arg0 = ToLua.CheckByteBuffer(L, 1);
 				byte[] o = DCETRuntime.ZipHelper.Decompress(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 3)
@@ -49,7 +49,7 @@ public class DCETRuntime_ZipHelperWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
 				byte[] o = DCETRuntime.ZipHelper.Decompress(arg0, arg1, arg2);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else

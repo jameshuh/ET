@@ -86,7 +86,7 @@ public class PF_GuidWrap
 			ToLua.CheckArgsCount(L, 1);
 			PF.Guid obj = (PF.Guid)ToLua.CheckObject(L, 1, typeof(PF.Guid));
 			byte[] o = obj.ToByteArray();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			ToLua.SetBack(L, 1, obj);
 			return 1;
 		}

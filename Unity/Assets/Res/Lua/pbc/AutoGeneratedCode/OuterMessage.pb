@@ -1,6 +1,11 @@
 
-›
-OuterMessage.protoDCET"B
+î
+OuterMessage.protoDCET"Q
+SettingProto
+Values (	
+SettingsMark (
+Hello (	
+Test ("B
 C2M_TestRequest
 RpcId (
 ActorId (

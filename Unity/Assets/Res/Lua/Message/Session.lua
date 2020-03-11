@@ -107,12 +107,12 @@ System.namespace("DCET", function (namespace)
     end
     Run = function (this, memoryStream)
       memoryStream:Seek(2 --[[Packet.MessageIndex]], 0 --[[SeekOrigin.Begin]])
-      local opcode = System.BitConverter.ToUInt16(memoryStream:GetBuffer(), 0 --[[Packet.OpcodeIndex]])
+      local opcode = DCETRuntime.PacketParser.ReadOpcode(memoryStream, 0 --[[Packet.OpcodeIndex]])
 
       local message
       local default = System.try(function ()
         local instance = DCET.OpcodeTypeComponent.Instance:GetInstance(opcode)
-        message = getNetwork(this).MessagePacker:DeserializeFrom3(instance, memoryStream)
+        message = getNetwork(this).MessagePacker:DeserializeFrom(instance, memoryStream)
 
         if DCET.OpcodeHelper.IsNeedDebugLogMessage(opcode) then
           DCET.Log.Print(message)
@@ -218,10 +218,10 @@ System.namespace("DCET", function (namespace)
 
       stream:Seek(2 --[[Packet.MessageIndex]], 0 --[[SeekOrigin.Begin]])
       stream:SetLength(2 --[[Packet.MessageIndex]])
-      getNetwork(this).MessagePacker:SerializeTo1(message, stream)
+      getNetwork(this).MessagePacker:SerializeTo(message, stream)
       stream:Seek(0, 0 --[[SeekOrigin.Begin]])
 
-      DCETRuntime.PacketParser.Copy(opcode, stream)
+      DCETRuntime.PacketParser.WriteOpcode(opcode, stream)
 
       Send2(this, stream)
     end

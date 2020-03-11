@@ -68,7 +68,7 @@ public class FairyGUI_Utils_ZipReaderWrap
 			FairyGUI.Utils.ZipReader obj = (FairyGUI.Utils.ZipReader)ToLua.CheckObject<FairyGUI.Utils.ZipReader>(L, 1);
 			FairyGUI.Utils.ZipReader.ZipEntry arg0 = (FairyGUI.Utils.ZipReader.ZipEntry)ToLua.CheckObject<FairyGUI.Utils.ZipReader.ZipEntry>(L, 2);
 			byte[] o = obj.GetEntryData(arg0);
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

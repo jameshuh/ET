@@ -106,7 +106,7 @@ public class Microsoft_IO_RecyclableMemoryStreamWrap
 			ToLua.CheckArgsCount(L, 1);
 			Microsoft.IO.RecyclableMemoryStream obj = (Microsoft.IO.RecyclableMemoryStream)ToLua.CheckObject(L, 1, typeof(Microsoft.IO.RecyclableMemoryStream));
 			byte[] o = obj.GetBuffer();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

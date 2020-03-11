@@ -86,7 +86,7 @@ public class System_Text_EncodingWrap
 				System.Text.Encoding arg1 = (System.Text.Encoding)ToLua.CheckObject<System.Text.Encoding>(L, 2);
 				byte[] arg2 = ToLua.CheckByteBuffer(L, 3);
 				byte[] o = System.Text.Encoding.Convert(arg0, arg1, arg2);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 5)
@@ -97,7 +97,7 @@ public class System_Text_EncodingWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
 				int arg4 = (int)LuaDLL.luaL_checknumber(L, 5);
 				byte[] o = System.Text.Encoding.Convert(arg0, arg1, arg2, arg3, arg4);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else
@@ -201,7 +201,7 @@ public class System_Text_EncodingWrap
 			ToLua.CheckArgsCount(L, 1);
 			System.Text.Encoding obj = (System.Text.Encoding)ToLua.CheckObject<System.Text.Encoding>(L, 1);
 			byte[] o = obj.GetPreamble();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)
@@ -283,7 +283,7 @@ public class System_Text_EncodingWrap
 				System.Text.Encoding obj = (System.Text.Encoding)ToLua.CheckObject<System.Text.Encoding>(L, 1);
 				char[] arg0 = ToLua.CheckCharBuffer(L, 2);
 				byte[] o = obj.GetBytes(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
@@ -291,7 +291,7 @@ public class System_Text_EncodingWrap
 				System.Text.Encoding obj = (System.Text.Encoding)ToLua.CheckObject<System.Text.Encoding>(L, 1);
 				string arg0 = ToLua.ToString(L, 2);
 				byte[] o = obj.GetBytes(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 4)
@@ -301,7 +301,7 @@ public class System_Text_EncodingWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				byte[] o = obj.GetBytes(arg0, arg1, arg2);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes<char[], int, int, byte[], int>(L, 2))

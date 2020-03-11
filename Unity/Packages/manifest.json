@@ -3,7 +3,6 @@
     "com.fairygui.runtime": "file:/./Packages/com.fairygui.runtime",
     "com.opsive.behaviordesigner": "file:/./Packages/com.opsive.behaviordesigner",
     "com.mongodb.bson": "file:/./Packages/com.mongodb.bson",
-	"com.protobuf.net": "file:/./Packages/com.protobuf.net",
     "com.dukechiang.dcet.core": "file:/./Packages/com.dukechiang.dcet.core",	
     "com.dukechiang.dcet.downloader": "file:/./Packages/com.dukechiang.dcet.downloader",
     "com.dukechiang.dcet.behaviortree": "file:/./Packages/com.dukechiang.dcet.behaviortree",

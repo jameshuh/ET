@@ -183,7 +183,7 @@ public class System_Net_Sockets_SocketAsyncEventArgsWrap
 			o = ToLua.ToObject(L, 1);
 			System.Net.Sockets.SocketAsyncEventArgs obj = (System.Net.Sockets.SocketAsyncEventArgs)o;
 			byte[] ret = obj.Buffer;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

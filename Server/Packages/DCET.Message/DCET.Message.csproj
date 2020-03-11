@@ -13,7 +13,6 @@
     <ProjectReference Include="..\DCET.Core\DCET.Core.csproj" />
     <ProjectReference Include="..\DCET.CoroutineLock\DCET.CoroutineLock.csproj" />
     <ProjectReference Include="..\KcpLib\KcpLib.csproj" />
-    <ProjectReference Include="..\Protobuf\Protobuf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -121,6 +120,12 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\SessionIdleCheckComponent.cs">
       <Link>SessionIdleCheckComponent.cs</Link>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\Unity\Packages\DCET.Message\Plugins\protobuf-net.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

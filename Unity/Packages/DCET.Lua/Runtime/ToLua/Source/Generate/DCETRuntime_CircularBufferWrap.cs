@@ -407,7 +407,7 @@ public class DCETRuntime_CircularBufferWrap
 			o = ToLua.ToObject(L, 1);
 			DCETRuntime.CircularBuffer obj = (DCETRuntime.CircularBuffer)o;
 			byte[] ret = obj.First;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)
@@ -426,7 +426,7 @@ public class DCETRuntime_CircularBufferWrap
 			o = ToLua.ToObject(L, 1);
 			DCETRuntime.CircularBuffer obj = (DCETRuntime.CircularBuffer)o;
 			byte[] ret = obj.Last;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

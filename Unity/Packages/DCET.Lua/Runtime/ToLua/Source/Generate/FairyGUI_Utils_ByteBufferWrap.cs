@@ -131,7 +131,7 @@ public class FairyGUI_Utils_ByteBufferWrap
 				FairyGUI.Utils.ByteBuffer obj = (FairyGUI.Utils.ByteBuffer)ToLua.CheckObject<FairyGUI.Utils.ByteBuffer>(L, 1);
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 				byte[] o = obj.ReadBytes(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 4)
@@ -141,7 +141,7 @@ public class FairyGUI_Utils_ByteBufferWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				byte[] o = obj.ReadBytes(arg0, arg1, arg2);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else
@@ -552,7 +552,7 @@ public class FairyGUI_Utils_ByteBufferWrap
 			o = ToLua.ToObject(L, 1);
 			FairyGUI.Utils.ByteBuffer obj = (FairyGUI.Utils.ByteBuffer)o;
 			byte[] ret = obj.buffer;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

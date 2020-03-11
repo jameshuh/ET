@@ -55,7 +55,7 @@ namespace DCET
 		
         protected void OnRead(MemoryStream memoryStream)
         {
-            this.readCallback.Invoke(memoryStream);
+           this.readCallback.Invoke(memoryStream);
         }
 
         protected void OnError(int e)

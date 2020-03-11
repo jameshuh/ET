@@ -187,7 +187,7 @@ public class UnityEngine_Texture2DWrap
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			byte[] o = obj.GetRawTextureData();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

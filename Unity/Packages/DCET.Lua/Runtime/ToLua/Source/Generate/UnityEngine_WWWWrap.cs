@@ -389,7 +389,7 @@ public class UnityEngine_WWWWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.WWW obj = (UnityEngine.WWW)o;
 			byte[] ret = obj.bytes;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

@@ -34,6 +34,10 @@
     <ProjectReference Include="..\..\Packages\DCET.Core\DCET.Core.csproj" />
     <ProjectReference Include="..\..\Packages\DCET.Message\DCET.Message.csproj" />
     <ProjectReference Include="..\..\Packages\DCET.Pathfinding\DCET.Pathfinding.csproj" />
-    <ProjectReference Include="..\..\Packages\Protobuf\Protobuf.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\Unity\Packages\DCET.Message\Plugins\protobuf-net.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

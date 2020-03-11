@@ -113,7 +113,7 @@ public class UnityEngine_TextAssetWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.TextAsset obj = (UnityEngine.TextAsset)o;
 			byte[] ret = obj.bytes;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

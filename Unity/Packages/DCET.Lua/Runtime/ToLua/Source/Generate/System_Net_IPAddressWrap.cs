@@ -129,7 +129,7 @@ public class System_Net_IPAddressWrap
 			ToLua.CheckArgsCount(L, 1);
 			System.Net.IPAddress obj = (System.Net.IPAddress)ToLua.CheckObject<System.Net.IPAddress>(L, 1);
 			byte[] o = obj.GetAddressBytes();
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

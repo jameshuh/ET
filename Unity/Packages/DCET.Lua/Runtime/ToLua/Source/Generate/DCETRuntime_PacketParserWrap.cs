@@ -9,7 +9,10 @@ public class DCETRuntime_PacketParserWrap
 		L.BeginClass(typeof(DCETRuntime.PacketParser), typeof(System.Object));
 		L.RegFunction("Parse", Parse);
 		L.RegFunction("GetPacket", GetPacket);
-		L.RegFunction("Copy", Copy);
+		L.RegFunction("WriteOpcode", WriteOpcode);
+		L.RegFunction("ReadOpcode", ReadOpcode);
+		L.RegFunction("ReadBytes", ReadBytes);
+		L.RegFunction("WriteBytes", WriteBytes);
 		L.RegFunction("New", _CreateDCETRuntime_PacketParser);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("memoryStream", get_memoryStream, set_memoryStream);
@@ -78,14 +81,66 @@ public class DCETRuntime_PacketParserWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Copy(IntPtr L)
+	static int WriteOpcode(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
 			ushort arg0 = (ushort)LuaDLL.luaL_checknumber(L, 1);
 			System.IO.MemoryStream arg1 = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 2);
-			DCETRuntime.PacketParser.Copy(arg0, arg1);
+			DCETRuntime.PacketParser.WriteOpcode(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReadOpcode(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			System.IO.MemoryStream arg0 = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 1);
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+			ushort o = DCETRuntime.PacketParser.ReadOpcode(arg0, arg1);
+			LuaDLL.lua_pushnumber(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReadBytes(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			System.IO.MemoryStream arg0 = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 1);
+			byte[] o = DCETRuntime.PacketParser.ReadBytes(arg0);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int WriteBytes(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			System.IO.MemoryStream arg0 = (System.IO.MemoryStream)ToLua.CheckObject<System.IO.MemoryStream>(L, 1);
+			byte[] arg1 = ToLua.CheckByteBuffer(L, 2);
+			DCETRuntime.PacketParser.WriteBytes(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)

@@ -107,7 +107,7 @@ public class FairyGUI_PixelHitTestDataWrap
 			o = ToLua.ToObject(L, 1);
 			FairyGUI.PixelHitTestData obj = (FairyGUI.PixelHitTestData)o;
 			byte[] ret = obj.pixels;
-			ToLua.Push(L, ret);
+			LuaDLL.tolua_pushlstring(L, ret, ret.Length);
 			return 1;
 		}
 		catch(Exception e)

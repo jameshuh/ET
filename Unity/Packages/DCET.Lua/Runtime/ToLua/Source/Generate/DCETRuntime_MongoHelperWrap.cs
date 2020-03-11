@@ -95,7 +95,7 @@ public class DCETRuntime_MongoHelperWrap
 			{
 				object arg0 = ToLua.ToVarObject(L, 1);
 				byte[] o = DCETRuntime.MongoHelper.ToBson(arg0);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 2)

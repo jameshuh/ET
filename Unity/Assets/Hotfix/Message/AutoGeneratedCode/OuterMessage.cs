@@ -4,6 +4,24 @@ using System.Collections.Generic;
 namespace DCET
 {
 // 客户端由于Lua模式需要自行配置父接口的字段（如RpcId、ActorId等），服务器则不需要。
+	[Message(OuterOpcode.SettingProto)]
+	[ProtoContract]
+	public partial class SettingProto
+	{
+		[ProtoMember(1, IsRequired = true)]
+		public List<string> Values { get; set; } = new List<string>();
+
+		[ProtoMember(2, IsRequired = true)]
+		public int SettingsMark { get; set; }
+
+		[ProtoMember(3, IsRequired = true)]
+		public string Hello { get; set; }
+
+		[ProtoMember(4, IsRequired = true)]
+		public long Test { get; set; }
+
+	}
+
 	[Message(OuterOpcode.C2M_TestRequest)]
 	[ProtoContract]
 	public partial class C2M_TestRequest: IActorLocationRequest

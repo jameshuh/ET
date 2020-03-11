@@ -127,7 +127,7 @@ namespace DCET
 		private void Run(MemoryStream memoryStream)
 		{
 			memoryStream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
-			ushort opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), DCETRuntime.Packet.OpcodeIndex);
+			var opcode = DCETRuntime.PacketParser.ReadOpcode(memoryStream, DCETRuntime.Packet.OpcodeIndex);
 			
 			object message;
 			try
@@ -263,7 +263,7 @@ namespace DCET
 			this.Network.MessagePacker.SerializeTo(message, stream);
 			stream.Seek(0, SeekOrigin.Begin);
 			
-			DCETRuntime.PacketParser.Copy(opcode, stream);
+			DCETRuntime.PacketParser.WriteOpcode(opcode, stream);
 			
 			this.Send(stream);
 		}

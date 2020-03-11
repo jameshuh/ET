@@ -18,12 +18,6 @@ public class ProtoBuf_ProtoMemberAttributeWrap
 		L.RegFunction("setDataFormat", set_DataFormat);
 		L.RegVar("Tag", get_Tag, null);
 		L.RegFunction("getTag", get_Tag);
-		L.RegVar("TypeName", get_TypeName, set_TypeName);
-		L.RegFunction("getTypeName", get_TypeName);
-		L.RegFunction("setTypeName", set_TypeName);
-		L.RegVar("KeyTypeName", get_KeyTypeName, set_KeyTypeName);
-		L.RegFunction("getKeyTypeName", get_KeyTypeName);
-		L.RegFunction("setKeyTypeName", set_KeyTypeName);
 		L.RegVar("IsRequired", get_IsRequired, set_IsRequired);
 		L.RegFunction("getIsRequired", get_IsRequired);
 		L.RegFunction("setIsRequired", set_IsRequired);
@@ -158,44 +152,6 @@ public class ProtoBuf_ProtoMemberAttributeWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Tag on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_TypeName(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			ProtoBuf.ProtoMemberAttribute obj = (ProtoBuf.ProtoMemberAttribute)o;
-			string ret = obj.TypeName;
-			LuaDLL.lua_pushstring(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index TypeName on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_KeyTypeName(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			ProtoBuf.ProtoMemberAttribute obj = (ProtoBuf.ProtoMemberAttribute)o;
-			string ret = obj.KeyTypeName;
-			LuaDLL.lua_pushstring(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index KeyTypeName on a nil value");
 		}
 	}
 
@@ -348,44 +304,6 @@ public class ProtoBuf_ProtoMemberAttributeWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index DataFormat on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_TypeName(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			ProtoBuf.ProtoMemberAttribute obj = (ProtoBuf.ProtoMemberAttribute)o;
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.TypeName = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index TypeName on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_KeyTypeName(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			ProtoBuf.ProtoMemberAttribute obj = (ProtoBuf.ProtoMemberAttribute)o;
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.KeyTypeName = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index KeyTypeName on a nil value");
 		}
 	}
 

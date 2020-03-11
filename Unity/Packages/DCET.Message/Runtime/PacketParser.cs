@@ -106,10 +106,41 @@ namespace DCETRuntime
 
 		private static readonly byte[] opcodeBytes = new byte[2];
 
-		public static void Copy(ushort opcode, MemoryStream stream)
-		{       
-			opcodeBytes.WriteTo(0, opcode);
-			Array.Copy(opcodeBytes, 0, stream.GetBuffer(), 0, opcodeBytes.Length);
+		public static void WriteOpcode(ushort opcode, MemoryStream stream)
+		{      
+			if(stream != null)
+			{
+				opcodeBytes.WriteTo(0, opcode);
+				Array.Copy(opcodeBytes, 0, stream.GetBuffer(), 0, opcodeBytes.Length);
+			}
+		}
+
+		public static ushort ReadOpcode(MemoryStream stream, int opcodeIndex)
+		{
+			if(stream != null)
+			{
+				return BitConverter.ToUInt16(stream.GetBuffer(), opcodeIndex);
+			}
+
+			return 0;
+		}
+
+		public static byte[] ReadBytes(MemoryStream memoryStream)
+		{
+			if(memoryStream != null)
+			{
+				return memoryStream.ToArray();
+			}
+
+			return null;
+		}
+
+		public static void WriteBytes(MemoryStream memoryStream, byte[] bytes)
+		{
+			if (memoryStream != null && bytes != null)
+			{
+				memoryStream.Write(bytes, 0, bytes.Length);
+			}
 		}
 	}
 }

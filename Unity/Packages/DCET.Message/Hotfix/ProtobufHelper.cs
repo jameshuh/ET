@@ -1,7 +1,6 @@
 ﻿#if !__CSharpLua__
 using ProtoBuf.Meta;
 #endif
-using System;
 using System.IO;
 
 namespace DCET
@@ -19,26 +18,6 @@ namespace DCET
 #endif
 		}
 
-		public static byte[] ToBytes(object message)
-		{
-#if !__CSharpLua__
-			using (MemoryStream memoryStream = new MemoryStream())
-			{
-				RuntimeTypeModel.Default.Serialize(memoryStream, message);
-
-				return memoryStream.ToArray();
-			}
-#else
-			byte[] bytes = null;
-			/*
-			[[
-			 bytes = encodeProtobuf(message)
-			]]
-			*/
-			return bytes;
-#endif
-		}
-
 		public static void ToStream(object message, MemoryStream memoryStream)
 		{
 #if !__CSharpLua__
@@ -52,74 +31,28 @@ namespace DCET
 			]]
 			*/
 
-			if(bytes != null)
-			{
-				memoryStream.Write(bytes, 0, bytes.Length);
-			}
+			DCETRuntime.PacketParser.WriteBytes(memoryStream, bytes);
 #endif
 		}
 
-		public static object FromBytes(Type type, byte[] bytes, int index, int count)
+		public static object FromStream(object message, MemoryStream memoryStream)
 		{
+			if(message != null)
+			{
 #if !__CSharpLua__
-			using (MemoryStream s = new MemoryStream(bytes, index, count))
-			{
-				return RuntimeTypeModel.Default.Deserialize(s, null, type);
-			}
+				return RuntimeTypeModel.Default.Deserialize(memoryStream, null, message.GetType());
 #else
-			using (MemoryStream s = new MemoryStream(bytes, index, count))
-			{
-				byte[] datas = s.ToArray();
+				byte[] bytes = DCETRuntime.PacketParser.ReadBytes(memoryStream);
 
 				if(bytes != null)
 				{
 					/*
 					[[
-					return decodeProtobuf(datas, type)
+					return decodeProtobuf(bytes, message)
 					]]
 					*/
 				}
-
-				return null;
-			}
 #endif
-		}
-
-		public static object FromBytes(object instance, byte[] bytes, int index, int count)
-		{
-			if(instance != null)
-			{
-				return FromBytes(instance.GetType(), bytes, index, count);
-			}
-
-			return null;
-		}
-		
-		public static object FromStream(Type type, MemoryStream stream)
-		{
-#if !__CSharpLua__
-			return RuntimeTypeModel.Default.Deserialize(stream, null, type);
-#else
-			byte[] bytes = stream.ToArray();
-
-			if(bytes != null)
-			{
-				/*
-				[[
-				return decodeProtobuf(bytes, type)
-				]]
-				*/
-			}
-
-			return null;
-#endif
-		}
-
-		public static object FromStream(object message, MemoryStream stream)
-		{
-			if(message != null)
-			{
-				return FromStream(message.GetType(), stream);
 			}
 
 			return null;

@@ -1003,7 +1003,7 @@ public class System_Net_Sockets_SocketWrap
 				System.IAsyncResult arg1 = (System.IAsyncResult)ToLua.CheckObject<System.IAsyncResult>(L, 3);
 				System.Net.Sockets.Socket o = obj.EndAccept(out arg0, arg1);
 				ToLua.PushObject(L, o);
-				ToLua.Push(L, arg0);
+				LuaDLL.tolua_pushlstring(L, arg0, arg0.Length);
 				return 2;
 			}
 			else if (count == 4)
@@ -1014,7 +1014,7 @@ public class System_Net_Sockets_SocketWrap
 				System.IAsyncResult arg2 = (System.IAsyncResult)ToLua.CheckObject<System.IAsyncResult>(L, 4);
 				System.Net.Sockets.Socket o = obj.EndAccept(out arg0, out arg1, arg2);
 				ToLua.PushObject(L, o);
-				ToLua.Push(L, arg0);
+				LuaDLL.tolua_pushlstring(L, arg0, arg0.Length);
 				LuaDLL.lua_pushinteger(L, arg1);
 				return 3;
 			}
@@ -1509,7 +1509,7 @@ public class System_Net_Sockets_SocketWrap
 				System.Net.Sockets.SocketOptionName arg1 = (System.Net.Sockets.SocketOptionName)LuaDLL.luaL_checknumber(L, 3);
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				byte[] o = obj.GetSocketOption(arg0, arg1, arg2);
-				ToLua.Push(L, o);
+				LuaDLL.tolua_pushlstring(L, o, o.Length);
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes<byte[]>(L, 4))

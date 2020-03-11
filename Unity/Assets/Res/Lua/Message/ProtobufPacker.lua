@@ -6,24 +6,12 @@ System.import(function (out)
 end)
 System.namespace("DCET", function (namespace)
   namespace.class("ProtobufPacker", function (namespace)
-    local SerializeTo, SerializeTo1, DeserializeFrom, DeserializeFrom1, DeserializeFrom2, DeserializeFrom3
-    SerializeTo = function (this, obj)
-      return DCET.ProtobufHelper.ToBytes(obj)
-    end
-    SerializeTo1 = function (this, obj, stream)
+    local SerializeTo, DeserializeFrom
+    SerializeTo = function (this, obj, stream)
       DCET.ProtobufHelper.ToStream(obj, stream)
     end
-    DeserializeFrom = function (this, type, bytes, index, count)
-      return DCET.ProtobufHelper.FromBytes(type, bytes, index, count)
-    end
-    DeserializeFrom1 = function (this, instance, bytes, index, count)
-      return DCET.ProtobufHelper.FromBytes1(instance, bytes, index, count)
-    end
-    DeserializeFrom2 = function (this, type, stream)
-      return DCET.ProtobufHelper.FromStream(type, stream)
-    end
-    DeserializeFrom3 = function (this, instance, stream)
-      return DCET.ProtobufHelper.FromStream1(instance, stream)
+    DeserializeFrom = function (this, instance, stream)
+      return DCET.ProtobufHelper.FromStream(instance, stream)
     end
     return {
       base = function (out)
@@ -32,11 +20,7 @@ System.namespace("DCET", function (namespace)
         }
       end,
       SerializeTo = SerializeTo,
-      SerializeTo1 = SerializeTo1,
-      DeserializeFrom = DeserializeFrom,
-      DeserializeFrom1 = DeserializeFrom1,
-      DeserializeFrom2 = DeserializeFrom2,
-      DeserializeFrom3 = DeserializeFrom3
+      DeserializeFrom = DeserializeFrom
     }
   end)
 end)

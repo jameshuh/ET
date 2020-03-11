@@ -19,7 +19,7 @@ public class DCETRuntime_StringHelperWrap
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			byte[] o = DCETRuntime.StringHelper.ToByteArray(arg0);
-			ToLua.Push(L, o);
+			LuaDLL.tolua_pushlstring(L, o, o.Length);
 			return 1;
 		}
 		catch (Exception e)

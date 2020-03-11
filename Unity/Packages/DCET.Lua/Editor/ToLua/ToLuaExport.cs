@@ -593,8 +593,7 @@ public static class ToLuaExport
                     sb.AppendFormat("{0}{1} o = {2}.{3}({4});\r\n", head, ret, obj, method.Name, sbArgs.ToString());
                 }
 
-                bool isbuffer = IsByteBuffer();
-                GenPushStr(retType, "o", head, isbuffer);
+                GenPushStr(retType, "o", head);
             }
 
             for (int i = 0; i < refList.Count; i++)
@@ -2836,7 +2835,7 @@ public static class ToLuaExport
         return false;
     }
 
-    static void GenPushStr(Type t, string arg, string head, bool isByteBuffer = false)
+    static void GenPushStr(Type t, string arg, string head)
     {
         if (t == typeof(int))
         {
@@ -2872,7 +2871,7 @@ public static class ToLuaExport
         }
         else
         {           
-            if (isByteBuffer && t == typeof(byte[]))
+            if (t == typeof(byte[]))
             {                
                 sb.AppendFormat("{0}LuaDLL.tolua_pushlstring(L, {1}, {1}.Length);\r\n", head, arg);
             }
@@ -3303,7 +3302,7 @@ public static class ToLuaExport
         }
     }
 
-    static void GenGetFieldStr(string varName, Type varType, bool isStatic, bool isByteBuffer, bool beOverride = false)
+    static void GenGetFieldStr(string varName, Type varType, bool isStatic, bool beOverride = false)
     {
         sb.AppendLineEx("\r\n\t[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]");
         sb.AppendFormat("\tstatic int {0}_{1}(IntPtr L)\r\n", beOverride ? "_get" : "get", varName);
@@ -3313,7 +3312,7 @@ public static class ToLuaExport
         {
             string arg = string.Format("{0}.{1}", className, varName);
             BeginTry();
-            GenPushStr(varType, arg, "\t\t\t", isByteBuffer);
+            GenPushStr(varType, arg, "\t\t\t");
             sb.AppendLineEx("\t\t\treturn 1;");
             EndTry();
         }
@@ -3324,7 +3323,7 @@ public static class ToLuaExport
             sb.AppendLineEx("\t\t\to = ToLua.ToObject(L, 1);");
             sb.AppendFormat("\t\t\t{0} obj = ({0})o;\r\n", className);                               
             sb.AppendFormat("\t\t\t{0} ret = obj.{1};\r\n", GetTypeStr(varType), varName);
-            GenPushStr(varType, "ret", "\t\t\t", isByteBuffer);
+            GenPushStr(varType, "ret", "\t\t\t");
             sb.AppendLineEx("\t\t\treturn 1;");
 
             sb.AppendLineEx("\t\t}");
@@ -3357,8 +3356,7 @@ public static class ToLuaExport
                 continue;
             }
 
-            bool beBuffer = IsByteBuffer(fields[i]);
-            GenGetFieldStr(fields[i].Name, fields[i].FieldType, fields[i].IsStatic, beBuffer);
+            GenGetFieldStr(fields[i].Name, fields[i].FieldType, fields[i].IsStatic);
         }
 
         for (int i = 0; i < props.Length; i++)
@@ -3377,9 +3375,8 @@ public static class ToLuaExport
             }
 
             _MethodBase md = methods.Find((p) => { return p.Name == "get_" + props[i].Name; });
-            bool beBuffer = IsByteBuffer(props[i]);            
-
-            GenGetFieldStr(props[i].Name, props[i].PropertyType, isStatic, beBuffer, md != null);
+       
+            GenGetFieldStr(props[i].Name, props[i].PropertyType, isStatic, md != null);
         }
 
         for (int i = 0; i < events.Length; i++)
