@@ -343,9 +343,6 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
@@ -768,6 +765,10 @@
     <ProjectReference Include="Unity.DCET.Lua.Runtime.csproj">
       <Project>{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}</Project>
       <Name>Unity.DCET.Lua.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
+      <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
+      <Name>Unity.ProtoBuf.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

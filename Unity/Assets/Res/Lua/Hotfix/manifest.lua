@@ -128,7 +128,6 @@ return function (path)
       "DCET.R2C_Login",
       "DCET.R2C_Ping",
       "DCET.SeekActionComponentAwakeSystem",
-      "DCET.SettingProto",
       "DCET.TurnComponentUpdateSystem",
       "DCET.TypeHelper",
       "DCET.UnitAwakeSystem",

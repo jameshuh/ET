@@ -353,9 +353,6 @@
     <Reference Include="MikuHook">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Lua/Plugins/MikuHook.dll</HintPath>
     </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Message/Plugins/protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>F:/DukeChiangGit/ET/Unity/Packages/DCET.Pathfinding/Plugins/AstarPathfindingProject/Clipper/Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
@@ -739,9 +736,9 @@
       <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>
       <Name>Unity.DCET.Core.Hotfix</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
-      <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
-      <Name>Unity.MongoDB.Runtime</Name>
+    <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
+      <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
+      <Name>Unity.ProtoBuf.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

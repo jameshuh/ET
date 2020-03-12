@@ -13,6 +13,7 @@
     <ProjectReference Include="..\DCET.Core\DCET.Core.csproj" />
     <ProjectReference Include="..\DCET.CoroutineLock\DCET.CoroutineLock.csproj" />
     <ProjectReference Include="..\KcpLib\KcpLib.csproj" />
+    <ProjectReference Include="..\Protobuf\Protobuf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

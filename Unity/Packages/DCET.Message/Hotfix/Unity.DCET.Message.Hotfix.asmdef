@@ -4,7 +4,7 @@
         "Unity.DCET.Core.Runtime",
         "Unity.DCET.Message.Runtime",
         "Unity.DCET.Core.Hotfix",
-        "Unity.MongoDB.Runtime"
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

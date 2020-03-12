@@ -1,4 +1,5 @@
 ﻿#if !__CSharpLua__
+using DCETRuntime;
 using ProtoBuf.Meta;
 #endif
 using System.IO;

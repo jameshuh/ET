@@ -13,7 +13,8 @@
         "Unity.FairyGUI.Runtime",
         "Unity.DCET.Core.Hotfix",
         "Unity.DCET.Message.Hotfix",
-        "Unity.DCET.Lua.Runtime"
+        "Unity.DCET.Lua.Runtime",
+        "Unity.ProtoBuf.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
