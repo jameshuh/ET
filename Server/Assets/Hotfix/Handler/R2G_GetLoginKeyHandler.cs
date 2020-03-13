@@ -8,7 +8,7 @@ namespace DCET
 	{
 		protected override async Task Run(Scene scene, R2G_GetLoginKey request, G2R_GetLoginKey response, Action reply)
 		{
-			long key = RandomHelper.RandInt64();
+			var key = RandomHelper.RandInt64().ToString();
 			scene.GetComponent<GateSessionKeyComponent>().Add(key, request.Account);
 			response.Key = key;
 			response.GateId = scene.Id;

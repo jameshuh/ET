@@ -162,6 +162,9 @@ public static class CustomSettings
 		_GT(typeof(Resources)),
 		_GT(typeof(LuaProfiler)),
 
+		_GT(typeof(UnityEngine.SceneManagement.SceneManager)),
+		_GT(typeof(RuntimeAnimatorController)),
+		_GT(typeof(AnimatorControllerParameter)),
 		_GT(typeof(Socket)),
 		_GT(typeof(IPEndPoint)),
 		_GT(typeof(EndPoint)),

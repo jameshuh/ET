@@ -260,6 +260,7 @@ namespace DCET
 			
 			stream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
 			stream.SetLength(DCETRuntime.Packet.MessageIndex);
+			
 			this.Network.MessagePacker.SerializeTo(message, stream);
 			stream.Seek(0, SeekOrigin.Begin);
 			

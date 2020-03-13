@@ -134,14 +134,14 @@ message R2C_Login // IResponse
 	required int32 RpcId = 3;
 	
 	required string Address = 4;
-	required int64 Key = 5;
+	required string Key = 5;
 	required int64 GateId = 6;
 }
 
 message C2G_LoginGate // IRequest
 {
 	required int32 RpcId = 1;
-	required int64 Key = 2;	// 帐号
+	required string Key = 2;	// 帐号
 	required int64 GateId = 3;
 }
 

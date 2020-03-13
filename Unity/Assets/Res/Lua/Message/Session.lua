@@ -218,6 +218,7 @@ System.namespace("DCET", function (namespace)
 
       stream:Seek(2 --[[Packet.MessageIndex]], 0 --[[SeekOrigin.Begin]])
       stream:SetLength(2 --[[Packet.MessageIndex]])
+
       getNetwork(this).MessagePacker:SerializeTo(message, stream)
       stream:Seek(0, 0 --[[SeekOrigin.Begin]])
 

@@ -80,11 +80,11 @@ M2C_Reload
 Message (	
 RpcId (
 Address (	
-Key (
+Key (	
 GateId (";
 C2G_LoginGate
 RpcId (
-Key (
+Key (	
 GateId ("P
 G2C_LoginGate
 Error (

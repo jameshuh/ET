@@ -263,8 +263,8 @@ namespace DCET
     [ProtoMember(4, IsRequired = true, DataFormat = DataFormat.Default)]
     public string Address { get; set; }
     
-    [ProtoMember(5, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
-    public long Key { get; set; }
+    [ProtoMember(5, IsRequired = true, DataFormat = DataFormat.Default)]
+    public string Key { get; set; }
     
     [ProtoMember(6, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public long GateId { get; set; }
@@ -277,8 +277,8 @@ namespace DCET
     [ProtoMember(1, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public int RpcId { get; set; }
     
-    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
-    public long Key { get; set; }
+    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.Default)]
+    public string Key { get; set; }
     
     [ProtoMember(3, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public long GateId { get; set; }

@@ -129,7 +129,15 @@ namespace DCETRuntime
 		{
 			if(memoryStream != null)
 			{
-				return memoryStream.ToArray();
+				var count = memoryStream.Length - Packet.MessageIndex;
+
+				if(count > 0)
+				{
+					var bytes = new byte[count];
+					memoryStream.Read(bytes, 0, bytes.Length);
+
+					return bytes;
+				}
 			}
 
 			return null;

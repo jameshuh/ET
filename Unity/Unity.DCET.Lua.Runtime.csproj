@@ -643,6 +643,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimationClipWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimationStateWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimationWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimatorControllerParameterWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AnimatorWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_ApplicationWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_AssetBundleManifestWrap.cs" />
@@ -681,6 +682,8 @@
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_RenderTextureWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_ResourcesWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_RigidbodyWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_RuntimeAnimatorControllerWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_SceneManagement_SceneManagerWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_ScreenWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_ScriptableObjectWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\ToLua\Source\Generate\UnityEngine_ShaderWrap.cs" />

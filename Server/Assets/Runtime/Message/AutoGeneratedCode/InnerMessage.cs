@@ -116,7 +116,7 @@ namespace DCET
 
 		public string Message { get; set; }
 
-		public long Key { get; set; }
+		public string Key { get; set; }
 
 		public long GateId { get; set; }
 
