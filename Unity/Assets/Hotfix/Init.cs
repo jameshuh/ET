@@ -66,7 +66,7 @@ namespace DCET
 				//BehaviorTreeHelper.Init(externalBehavior);
 				//runtimeBehaivorTree.Ensure<BehaviorTreeController>().SetExternalBehavior(externalBehavior);
 
-				(runtimeBehaivorTree.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
+				(GameObjectHelper.Ensure(runtimeBehaivorTree.gameObject, typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
 			}
 
 			var behaviorTree = BehaviorTreeFactory.Create(Game.Scene, runtimeBehaivorTree);
@@ -100,6 +100,9 @@ namespace DCET
 
 		public static void OnApplicationQuit()
 		{
+			GameLoop.onUpdate -= Update;
+			GameLoop.onLateUpdate -= LateUpdate;
+			GameLoop.onApplicationQuit -= OnApplicationQuit;
 			Game.Close();
 		}
 	}

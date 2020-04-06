@@ -263,6 +263,40 @@ namespace DCETRuntime
             }
         }
 
+		public void WriteInt(int num)
+		{
+			InternalWriteByte((byte)(num & 0xff));
+			InternalWriteByte((byte)((num & 0xff00) >> 8));
+			InternalWriteByte((byte)((num & 0xff0000) >> 16));
+			InternalWriteByte((byte)((num & 0xff000000) >> 24));
+		}
+
+		public void WriteUshort(ushort num)
+		{
+			InternalWriteByte((byte)(num & 0xff));
+			InternalWriteByte((byte)((num & 0xff00) >> 8));
+		}
+
+		public void InternalWriteByte(byte b)
+		{
+			if (LastIndex == ChunkSize)
+			{
+				AddLast();
+				LastIndex = 0;
+			}
+
+			if (ChunkSize - LastIndex > 1)
+			{
+				lastBuffer[LastIndex] = b; 
+				LastIndex += 1;
+			}
+			else
+			{
+				lastBuffer[LastIndex] = b;
+				LastIndex = ChunkSize;
+			}
+		}
+
 	    public override void Flush()
 	    {
 		    throw new NotImplementedException();

@@ -80,7 +80,7 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\Network\SessionComponent.cs">
       <Link>Network\SessionComponent.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Message\Runtime\PacketParser.cs">
+    <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\Network\TCP\PacketParser.cs">
       <Link>Network\TCP\PacketParser.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\Network\TCP\TChannel.cs">
@@ -88,12 +88,6 @@
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\Network\TCP\TService.cs">
       <Link>Network\TCP\TService.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Message\Runtime\TChannelProxy.cs">
-      <Link>Network\TCP\TChannelProxy.cs</Link>
-    </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Message\Runtime\TServiceProxy.cs">
-      <Link>Network\TCP\TServiceProxy.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Message\Hotfix\Network\WebSocket\WChannel.cs">
       <Link>Network\WebSocket\WChannel.cs</Link>

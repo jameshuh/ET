@@ -168,14 +168,16 @@ namespace DCETRuntime
 			{
 				GameLoop.onApplicationQuit?.Invoke();
 
+				OneThreadSynchronizationContext.Instance.Clear();
+
+				AssetBundles.Default.Dispose();
+
 				if (Define.IsLua)
 				{
-#if TOLUA
+#if XLUA
 					Lua.Default.Dispose();
 #endif
 				}
-
-				AssetBundles.Default.Dispose();
 			}
 			catch (Exception e)
 			{

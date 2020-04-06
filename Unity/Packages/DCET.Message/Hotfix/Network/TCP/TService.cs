@@ -1,47 +1,47 @@
-﻿using DCETRuntime;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using DCETRuntime;
+using Microsoft.IO;
 
 namespace DCET
 {
 	public sealed class TService : AService
 	{
-		public TServiceProxy Proxy { get; }
-
 		private readonly Dictionary<long, TChannel> idChannels = new Dictionary<long, TChannel>();
 
+		private readonly SocketAsyncEventArgs innArgs = new SocketAsyncEventArgs();
+		private Socket acceptor;
+		
+		public RecyclableMemoryStreamManager MemoryStreamManager = new RecyclableMemoryStreamManager();
+		
+		public List<long> needStartSendChannel = new List<long>();
+		
+		public int PacketSizeLength { get; }
+		
 		/// <summary>
 		/// 即可做client也可做server
 		/// </summary>
 		public TService(int packetSizeLength, IPEndPoint ipEndPoint, Action<AChannel> acceptCallback)
 		{
-			this.Proxy = new TServiceProxy(packetSizeLength, ipEndPoint);
-			this.Proxy.OnAccept += OnAcceptSocket;
+			this.PacketSizeLength = packetSizeLength;
 			this.AcceptCallback += acceptCallback;
-		}
+			
+			this.acceptor = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			this.acceptor.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+			this.innArgs.Completed += this.OnComplete;
+			
+			this.acceptor.Bind(ipEndPoint);
+			this.acceptor.Listen(1000);
 
-		private void OnAcceptSocket(Socket acceptSocket)
-		{
-			TChannel channel = new TChannel(acceptSocket, this);
-			this.idChannels[channel.Id] = channel;
-			channel.Parent = this;
-
-			try
-			{
-				this.OnAccept(channel);
-			}
-			catch (Exception exception)
-			{
-				Log.Exception(exception);
-			}
+			this.AcceptAsync();
 		}
 
 		public TService(int packetSizeLength)
 		{
-			this.Proxy = new TServiceProxy(packetSizeLength);
+			this.PacketSizeLength = packetSizeLength;
 		}
 		
 		public override void Dispose()
@@ -59,9 +59,69 @@ namespace DCET
 				channel.Dispose();
 			}
 
-			this.Proxy?.Dispose();
+			this.innArgs.Completed -= this.OnComplete;
+			this.acceptor?.Close();
+			this.acceptor = null;
+			this.innArgs.Dispose();
 		}
 
+		private void OnComplete(object sender, SocketAsyncEventArgs e)
+		{
+			switch (e.LastOperation)
+			{
+				case SocketAsyncOperation.Accept:
+					OneThreadSynchronizationContext.Instance.Post(this.OnAcceptComplete, e);
+					break;
+				default:
+					throw new Exception($"socket accept error: {e.LastOperation}");
+			}
+		}
+		
+		public void AcceptAsync()
+		{
+			this.innArgs.AcceptSocket = null;
+			if (this.acceptor.AcceptAsync(this.innArgs))
+			{
+				return;
+			}
+			OnAcceptComplete(this.innArgs);
+		}
+
+		private void OnAcceptComplete(object o)
+		{
+			if (this.acceptor == null)
+			{
+				return;
+			}
+			SocketAsyncEventArgs e = (SocketAsyncEventArgs)o;
+			
+			if (e.SocketError != SocketError.Success)
+			{
+				Log.Error($"accept error {e.SocketError}");
+				this.AcceptAsync();
+				return;
+			}
+			TChannel channel = new TChannel(e.AcceptSocket, this);
+			this.idChannels[channel.Id] = channel;
+			channel.Parent = this;
+			
+			try
+			{
+				this.OnAccept(channel);
+			}
+			catch (Exception exception)
+			{
+				Log.Exception(exception);
+			}
+
+			if (this.acceptor == null)
+			{
+				return;
+			}
+			
+			this.AcceptAsync();
+		}
+		
 		public override AChannel GetChannel(long id)
 		{
 			TChannel channel = null;
@@ -85,7 +145,7 @@ namespace DCET
 
 		public void MarkNeedStartSend(long id)
 		{
-			this.Proxy.MarkNeedStartSend(id);
+			this.needStartSendChannel.Add(id);
 		}
 
 		public override void Remove(long id)
@@ -105,7 +165,7 @@ namespace DCET
 
 		public override void Update()
 		{
-			foreach (long id in this.Proxy.needStartSendChannel)
+			foreach (long id in this.needStartSendChannel)
 			{
 				TChannel channel;
 				if (!this.idChannels.TryGetValue(id, out channel))
@@ -127,8 +187,8 @@ namespace DCET
 					Log.Exception(e);
 				}
 			}
-
-			this.Proxy.needStartSendChannel.Clear();
+			
+			this.needStartSendChannel.Clear();
 		}
 	}
 }

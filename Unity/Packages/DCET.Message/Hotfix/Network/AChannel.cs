@@ -62,11 +62,11 @@ namespace DCET
         {
 			switch (e)
 			{
-				case DCETRuntime.ErrorCode.ERR_PeerDisconnect:
+				case ErrorCode.ERR_PeerDisconnect:
 					this.Error = ErrorCode.ERR_PeerDisconnect;
 					break;
 
-				case DCETRuntime.ErrorCode.ERR_SocketError:
+				case ErrorCode.ERR_SocketError:
 					this.Error = ErrorCode.ERR_SocketError;
 					break;
 

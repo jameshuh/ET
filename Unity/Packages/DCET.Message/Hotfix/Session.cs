@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DCETRuntime;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -126,9 +127,9 @@ namespace DCET
 
 		private void Run(MemoryStream memoryStream)
 		{
-			memoryStream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
-			var opcode = DCETRuntime.PacketParser.ReadOpcode(memoryStream, DCETRuntime.Packet.OpcodeIndex);
-			
+			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
+			var opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
+
 			object message;
 			try
 			{
@@ -258,14 +259,14 @@ namespace DCET
 
 			MemoryStream stream = this.Stream;
 			
-			stream.Seek(DCETRuntime.Packet.MessageIndex, SeekOrigin.Begin);
-			stream.SetLength(DCETRuntime.Packet.MessageIndex);
+			stream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
+			stream.SetLength(Packet.MessageIndex);
 			
 			this.Network.MessagePacker.SerializeTo(message, stream);
 			stream.Seek(0, SeekOrigin.Begin);
-			
-			DCETRuntime.PacketParser.WriteOpcode(opcode, stream);
-			
+
+			ByteHelper.WriteTo(stream.GetBuffer(), 0, opcode);
+
 			this.Send(stream);
 		}
 

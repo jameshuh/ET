@@ -1,13 +1,26 @@
-﻿using CSharpLua;
-using LuaInterface;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using XLua;
 
 namespace DCETRuntime
 {
-	public class LuaLoader : LuaFileUtils
+	public class Lua : IDisposable
 	{
+		public static Lua Default
+		{
+			get
+			{
+				if (defaultLua == null)
+				{
+					defaultLua = new Lua();
+				}
+
+				return defaultLua;
+			}
+		}
+
 		public const string manifestFileName = "manifest.lua";
 		private const string luaExtensionName = ".lua";
 		private const string txtExtensionName = ".txt";
@@ -16,33 +29,38 @@ namespace DCETRuntime
 		private const string luaSuffixName = "/lua";
 		private const char dot = '.';
 		private const char backSlash = '/';
+		private static Lua defaultLua = null;
+		private static readonly Dictionary<string, string> bundleNameToLowerDic = new Dictionary<string, string>();
 
-		public LuaLoader()
+		public LuaEnv LuaEnv
 		{
-			instance = this;
-			beZip = false;
-		}
-
-		public override byte[] ReadFile(string fileName)
-		{
-			var buffer = base.ReadFile(fileName);
-
-			if (buffer == null)
+			get
 			{
-				if (Define.IsEditorMode)
+				if(luaEnv == null)
 				{
-					return EditorLoader(fileName);
-				}
-				else
-				{
-					return AssetBundleLoader(fileName);
-				}
-			}
+					luaEnv = new LuaEnv();
+					luaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
+					luaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+					luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+					luaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
 
-			return buffer;
+					if (Define.IsEditorMode)
+					{
+						luaEnv.AddLoader(EditorLoader);
+					}
+					else
+					{
+						luaEnv.AddLoader(AssetBundleLoader);
+					}
+				}
+
+				return luaEnv;
+			}
 		}
 
-		private byte[] EditorLoader(string filepath)
+		private LuaEnv luaEnv;
+
+		private byte[] EditorLoader(ref string filepath)
 		{
 			if (!string.IsNullOrWhiteSpace(filepath))
 			{
@@ -74,7 +92,7 @@ namespace DCETRuntime
 			return null;
 		}
 
-		private static byte[] AssetBundleLoader(string filepath)
+		private static byte[] AssetBundleLoader(ref string filepath)
 		{
 			if (!string.IsNullOrWhiteSpace(filepath))
 			{
@@ -86,7 +104,7 @@ namespace DCETRuntime
 
 					if (filepath.EndsWith(luaExtensionName) && splits.Length > 2)
 					{
-						var textAsset = AssetBundles.Default.LoadAsset(AssetBundleHelper.BundleNameToLower($"{splits[0]}_lua.unity3d"), $"{splits[l - 2]}.{splits[l - 1]}");
+						var textAsset = AssetBundles.Default.LoadAsset(BundleNameToLower($"{splits[0]}_lua.unity3d"), $"{splits[l - 2]}.{splits[l - 1]}");
 
 						if (textAsset != null && textAsset is TextAsset)
 						{
@@ -95,7 +113,7 @@ namespace DCETRuntime
 					}
 					else if (splits.Length > 1)
 					{
-						var textAsset = AssetBundles.Default.LoadAsset(AssetBundleHelper.BundleNameToLower($"{splits[0]}_lua.unity3d"), $"{splits[l - 1]}{luaExtensionName}");
+						var textAsset = AssetBundles.Default.LoadAsset(BundleNameToLower($"{splits[0]}_lua.unity3d"), $"{splits[l - 1]}{luaExtensionName}");
 
 						if (textAsset != null && textAsset is TextAsset)
 						{
@@ -108,43 +126,22 @@ namespace DCETRuntime
 			return null;
 		}
 
-	}
-
-	public class Lua : IDisposable
-	{
-		public static Lua Default
+		private static string BundleNameToLower(string value)
 		{
-			get
+			string result;
+
+			if (bundleNameToLowerDic.TryGetValue(value, out result))
 			{
-				if (defaultLua == null)
-				{
-					defaultLua = new Lua();
-				}
-
-				return defaultLua;
+				return result;
 			}
+
+			result = value.ToLower();
+			bundleNameToLowerDic[value] = result;
+			return result;
 		}
-
-		private static Lua defaultLua = null;
-
-		public CSharpLuaClient LuaEnv
-		{
-			get
-			{
-				if(luaEnv == null)
-				{
-					luaEnv = GameObject.Find("Game").AddComponent<CSharpLuaClient>();
-				}
-
-				return luaEnv;
-			}
-		}
-
-		private CSharpLuaClient luaEnv;
 
 		public void Dispose()
 		{
-			UnityEngine.Object.Destroy(luaEnv);
 			luaEnv = null;
 		}
 	}
@@ -153,7 +150,7 @@ namespace DCETRuntime
 	{
 		public static void StartHotfix()
 		{
-			Lua.Default.LuaEnv.Start();
+			Lua.Default.LuaEnv.DoString("require 'Main.lua'");
 		}
 	}
 }

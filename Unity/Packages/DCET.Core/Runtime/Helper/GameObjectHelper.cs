@@ -5,7 +5,7 @@ namespace DCETRuntime
 {
 	public static class GameObjectHelper
 	{
-		public static object Get(this GameObject gameObject, string key)
+		public static object Get(GameObject gameObject, string key)
 		{
 			try
 			{
@@ -17,9 +17,9 @@ namespace DCETRuntime
 			}
 		}
 
-		public static TextAsset GetTextAsset(this GameObject gameObject, string key)
+		public static TextAsset GetTextAsset(GameObject gameObject, string key)
 		{
-			var obj = gameObject.Get(key);
+			var obj = Get(gameObject, key);
 
 			if (obj is TextAsset)
 			{
@@ -29,9 +29,9 @@ namespace DCETRuntime
 			return null;
 		}
 
-		public static GameObject GetGameObject(this GameObject gameObject, string key)
+		public static GameObject GetGameObject(GameObject gameObject, string key)
 		{
-			var obj = gameObject.Get(key);
+			var obj = Get(gameObject, key);
 
 			if (obj is GameObject)
 			{
@@ -41,7 +41,7 @@ namespace DCETRuntime
 			return null;
 		}
 
-		public static Component Ensure(this GameObject gameObject, Type component)
+		public static Component Ensure(GameObject gameObject, Type component)
 		{
 			if (gameObject && component != null && component.IsSubclassOf(typeof(Component)))
 			{

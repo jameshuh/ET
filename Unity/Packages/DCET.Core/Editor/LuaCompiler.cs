@@ -74,7 +74,7 @@ namespace DCETEditor
 			string[] metas = new string[] { toolsDir + "/UnityEngine.xml" };
 			string lib = string.Join(";", libs.ToArray());
 			string meta = string.Join(";", metas);
-			string args = $"{csharpLua}  -s \"{dllDir}\" -d \"{outputDir}\" -l \"{lib}\" -m {meta} -c -a";
+			string args = $"{csharpLua}  -s \"{dllDir}\" -d \"{outputDir}\" -l \"{lib}\" -m {meta} -c -a -e -ei";
 			UnityEngine.Debug.Log(args);
 			if (isModule)
 			{

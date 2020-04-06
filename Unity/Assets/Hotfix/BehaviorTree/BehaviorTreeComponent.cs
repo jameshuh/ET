@@ -40,7 +40,7 @@ namespace DCET
             behaviorTree.StartWhenEnabled = false;
             behaviorTree.ResetValuesOnRestart = false;
 
-            var behaviorTreeController = behaviorTree.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController;
+            var behaviorTreeController = GameObjectHelper.Ensure(behaviorTree.gameObject, typeof(BehaviorTreeController)) as BehaviorTreeController;
 
             behaviorTreeController.Init();
 

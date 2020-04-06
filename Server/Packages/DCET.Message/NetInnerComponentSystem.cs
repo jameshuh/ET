@@ -6,7 +6,7 @@
 		public override void Awake(NetInnerComponent self)
 		{
 			NetInnerComponent.Instance = self;
-			self.Awake(NetworkProtocol.TCP, DCETRuntime.Packet.PacketSizeLength4);
+			self.Awake(NetworkProtocol.TCP, Packet.PacketSizeLength4);
 			self.MessagePacker = new MongoPacker();
 			self.MessageDispatcher = new InnerMessageDispatcher();
 		}
@@ -18,7 +18,7 @@
 		public override void Awake(NetInnerComponent self, string a)
 		{
 			NetInnerComponent.Instance = self;
-			self.Awake(NetworkProtocol.TCP, a, DCETRuntime.Packet.PacketSizeLength4);
+			self.Awake(NetworkProtocol.TCP, a, Packet.PacketSizeLength4);
 			self.MessagePacker = new MongoPacker();
 			self.MessageDispatcher = new InnerMessageDispatcher();
 		}

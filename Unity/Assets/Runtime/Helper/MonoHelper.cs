@@ -44,13 +44,13 @@ namespace DCETRuntime
 
 			if (code)
 			{
-				Assembly.Load(code.GetTextAsset(CoreDll).bytes, code.GetTextAsset(CorePdb).bytes);
-				Assembly.Load(code.GetTextAsset(MessageDll).bytes, code.GetTextAsset(MessagePdb).bytes);
-				Assembly.Load(code.GetTextAsset(ConfigDll).bytes, code.GetTextAsset(ConfigPdb).bytes);
-				Assembly.Load(code.GetTextAsset(BehaviorTreeDll).bytes, code.GetTextAsset(BehaviorTreePdb).bytes);
-				Assembly.Load(code.GetTextAsset(FairyGUIDll).bytes, code.GetTextAsset(FairyGUIPdb).bytes);
+				Assembly.Load(GameObjectHelper.GetTextAsset(code, CoreDll).bytes, GameObjectHelper.GetTextAsset(code, CorePdb).bytes);
+				Assembly.Load(GameObjectHelper.GetTextAsset(code, MessageDll).bytes, GameObjectHelper.GetTextAsset(code, MessagePdb).bytes);
+				Assembly.Load(GameObjectHelper.GetTextAsset(code, ConfigDll).bytes, GameObjectHelper.GetTextAsset(code, ConfigPdb).bytes);
+				Assembly.Load(GameObjectHelper.GetTextAsset(code, BehaviorTreeDll).bytes, GameObjectHelper.GetTextAsset(code, BehaviorTreePdb).bytes);
+				Assembly.Load(GameObjectHelper.GetTextAsset(code, FairyGUIDll).bytes, GameObjectHelper.GetTextAsset(code, FairyGUIPdb).bytes);
 
-				var mainAssembly = Assembly.Load(code.GetTextAsset(HotfixDll).bytes, code.GetTextAsset(HotfixPdb).bytes);
+				var mainAssembly = Assembly.Load(GameObjectHelper.GetTextAsset(code, HotfixDll).bytes, GameObjectHelper.GetTextAsset(code, HotfixPdb).bytes);
 				var start = new MonoStaticMethod(mainAssembly.GetType("DCET.Init"), "Start");
 				start.Run();
 			}			

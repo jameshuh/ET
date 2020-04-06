@@ -18,7 +18,7 @@ namespace DCET
 				return File.ReadAllText($"../Config/{key}.txt");
 #else
 				GameObject config = (GameObject)Game.Scene.GetComponent<ResourcesComponent>().GetAsset("config.unity3d", "Config");
-				return config.GetTextAsset(key).text;
+				return GameObjectHelper.GetTextAsset(config, key).text;
 #endif
 			}
 			catch (Exception e)

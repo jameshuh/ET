@@ -37,5 +37,13 @@ namespace DCETRuntime
 			
 			this.queue.Enqueue(() => { callback(state); });
 		}
+
+		public void Clear()
+		{
+			while (this.queue.Count > 0)
+			{
+				this.queue.TryDequeue(out a);
+			}
+		}
 	}
 }

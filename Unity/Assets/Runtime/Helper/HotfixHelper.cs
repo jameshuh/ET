@@ -4,7 +4,7 @@
 	{
 		public static void StartHotfix()
 		{
-#if TOLUA
+#if XLUA
 			LuaHelper.StartHotfix();
 #else
 			MonoHelper.StartHotfix();

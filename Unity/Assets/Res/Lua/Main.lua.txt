@@ -1,0 +1,13 @@
+local breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7003)
+
+require("CSharpLua.Classloader")
+require("xLuaAdapter")
+require("ProtobufAdapter")
+require("Core.manifest")("Core")
+require("Message.manifest")("Message")
+require("Config.manifest")("Config")
+require("BehaviorTree.manifest")("BehaviorTree")
+require("FairyGUI.manifest")("FairyGUI")
+require("Hotfix.manifest")("Hotfix")
+
+DCET.Init.Start()

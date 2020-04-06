@@ -45,6 +45,7 @@ namespace DCETEditor
 		public static void CompileLua(string dllName, string dllDir, string outDirName, List<string> referencedLuaAssemblies, bool isModule)
 		{
 			LuaCompiler.Compile(dllName, dllDir, outDirName, referencedLuaAssemblies, isModule);
+			FileHelper.ReplaceExtensionName(LuaCompiler.outDir + outDirName, LuaExtensionName, LuaTxtExtensionName);
 			ABNameEditor.SetFolderLuaABName(LuaCompiler.outDir + outDirName);
 			AssetDatabase.Refresh();
 		}

@@ -22,7 +22,7 @@ namespace DCET
                         {
                             if (bt)
                             {
-                                (bt.gameObject.Ensure(typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
+                                (GameObjectHelper.Ensure(bt.gameObject, typeof(BehaviorTreeController)) as BehaviorTreeController).Init();
                             }
                         }
                     }
