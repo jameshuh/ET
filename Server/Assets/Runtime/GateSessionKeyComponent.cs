@@ -4,27 +4,27 @@ namespace DCET
 {
 	public class GateSessionKeyComponent : Entity
 	{
-		private readonly Dictionary<string, string> sessionKey = new Dictionary<string, string>();
+		private readonly Dictionary<long, string> sessionKey = new Dictionary<long, string>();
 		
-		public void Add(string key, string account)
+		public void Add(long key, string account)
 		{
 			this.sessionKey.Add(key, account);
 			this.TimeoutRemoveKey(key);
 		}
 
-		public string Get(string key)
+		public string Get(long key)
 		{
 			string account = null;
 			this.sessionKey.TryGetValue(key, out account);
 			return account;
 		}
 
-		public void Remove(string key)
+		public void Remove(long key)
 		{
 			this.sessionKey.Remove(key);
 		}
 
-		private async void TimeoutRemoveKey(string key)
+		private async void TimeoutRemoveKey(long key)
 		{
 			await Game.Scene.GetComponent<TimerComponent>().WaitAsync(20000);
 			this.sessionKey.Remove(key);

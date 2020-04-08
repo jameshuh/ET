@@ -108,13 +108,16 @@ namespace DCET
     [ProtoMember(1, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public long UnitId { get; set; }
     
-    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.FixedSize)]
-    public float X { get; set; }
+    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
+    public DCET.UnitType UnitType { get; set; }
     
     [ProtoMember(3, IsRequired = true, DataFormat = DataFormat.FixedSize)]
-    public float Y { get; set; }
+    public float X { get; set; }
     
     [ProtoMember(4, IsRequired = true, DataFormat = DataFormat.FixedSize)]
+    public float Y { get; set; }
+    
+    [ProtoMember(5, IsRequired = true, DataFormat = DataFormat.FixedSize)]
     public float Z { get; set; }
     
   }
@@ -263,8 +266,8 @@ namespace DCET
     [ProtoMember(4, IsRequired = true, DataFormat = DataFormat.Default)]
     public string Address { get; set; }
     
-    [ProtoMember(5, IsRequired = true, DataFormat = DataFormat.Default)]
-    public string Key { get; set; }
+    [ProtoMember(5, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
+    public long Key { get; set; }
     
     [ProtoMember(6, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public long GateId { get; set; }
@@ -277,8 +280,8 @@ namespace DCET
     [ProtoMember(1, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public int RpcId { get; set; }
     
-    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.Default)]
-    public string Key { get; set; }
+    [ProtoMember(2, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
+    public long Key { get; set; }
     
     [ProtoMember(3, IsRequired = true, DataFormat = DataFormat.TwosComplement)]
     public long GateId { get; set; }
@@ -385,5 +388,16 @@ namespace DCET
     public List<long> TestRepeatedInt64 { get; set; } = new List<long>();
   
   }
+  
+    [ProtoContract]
+    public enum UnitType
+    {
+            
+      [ProtoEnum(Value=0)]
+      Hero = 0,
+            
+      [ProtoEnum(Value=1)]
+      Npc = 1
+    }
   
 }

@@ -1,4 +1,3 @@
-// 客户端由于Lua模式需要自行配置父接口的字段（如RpcId、ActorId等），服务器则不需要。
 package DCET;
 
 message C2M_TestRequest // IActorLocationRequest
@@ -49,13 +48,20 @@ message G2C_EnterMap // IResponse
 	repeated UnitInfo Units = 5;
 }
 
+enum UnitType
+{
+	Hero = 0;
+	Npc = 1;
+}
+
 message UnitInfo
 {
 	required int64 UnitId  = 1;
+	required UnitType UnitType  = 2;
 
-	required float X = 2;
-	required float Y = 3;
-	required float Z = 4;
+	required float X = 3;
+	required float Y = 4;
+	required float Z = 5;
 }
 
 message M2C_CreateUnits // IActorMessage
@@ -134,14 +140,14 @@ message R2C_Login // IResponse
 	required int32 RpcId = 3;
 	
 	required string Address = 4;
-	required string Key = 5;
+	required int64 Key = 5;
 	required int64 GateId = 6;
 }
 
 message C2G_LoginGate // IRequest
 {
 	required int32 RpcId = 1;
-	required string Key = 2;	// 帐号
+	required int64 Key = 2;	// 帐号
 	required int64 GateId = 3;
 }
 

@@ -59,7 +59,6 @@ namespace DCET
 				channel.Dispose();
 			}
 
-			this.innArgs.Completed -= this.OnComplete;
 			this.acceptor?.Close();
 			this.acceptor = null;
 			this.innArgs.Dispose();

@@ -1,5 +1,57 @@
 namespace DCET
 {
+	[Message(InnerOpcode.M2M_TrasferUnitRequest)]
+	public partial class M2M_TrasferUnitRequest : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.M2M_TrasferUnitResponse)]
+	public partial class M2M_TrasferUnitResponse : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.M2A_Reload)]
+	public partial class M2A_Reload : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.A2M_Reload)]
+	public partial class A2M_Reload : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.G2G_LockRequest)]
+	public partial class G2G_LockRequest : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.G2G_LockResponse)]
+	public partial class G2G_LockResponse : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.G2G_LockReleaseRequest)]
+	public partial class G2G_LockReleaseRequest : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.G2G_LockReleaseResponse)]
+	public partial class G2G_LockReleaseResponse : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.R2G_GetLoginKey)]
+	public partial class R2G_GetLoginKey : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.G2R_GetLoginKey)]
+	public partial class G2R_GetLoginKey : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.G2M_CreateUnit)]
+	public partial class G2M_CreateUnit : IActorRequest
+	{
+	}
+	[Message(InnerOpcode.M2G_CreateUnit)]
+	public partial class M2G_CreateUnit : IActorResponse
+	{
+	}
+	[Message(InnerOpcode.G2M_SessionDisconnect)]
+	public partial class G2M_SessionDisconnect : IActorLocationMessage
+	{
+	}
 	public static partial class InnerOpcode
 	{
 		 public const ushort M2M_TrasferUnitRequest = 1001;

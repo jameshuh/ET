@@ -1,4 +1,4 @@
-namespace DCET
+namespace 
 {
 	[Message(OuterOpcode.C2M_TestRequest)]
 	public partial class C2M_TestRequest : IActorLocationRequest

@@ -1,5 +1,45 @@
 namespace DCET
 {
+	[Message(FrameOpcode.ObjectAddRequest)]
+	public partial class ObjectAddRequest : IActorRequest
+	{
+	}
+	[Message(FrameOpcode.ObjectAddResponse)]
+	public partial class ObjectAddResponse : IActorResponse
+	{
+	}
+	[Message(FrameOpcode.ObjectLockRequest)]
+	public partial class ObjectLockRequest : IActorRequest
+	{
+	}
+	[Message(FrameOpcode.ObjectLockResponse)]
+	public partial class ObjectLockResponse : IActorResponse
+	{
+	}
+	[Message(FrameOpcode.ObjectUnLockRequest)]
+	public partial class ObjectUnLockRequest : IActorRequest
+	{
+	}
+	[Message(FrameOpcode.ObjectUnLockResponse)]
+	public partial class ObjectUnLockResponse : IActorResponse
+	{
+	}
+	[Message(FrameOpcode.ObjectRemoveRequest)]
+	public partial class ObjectRemoveRequest : IActorRequest
+	{
+	}
+	[Message(FrameOpcode.ObjectRemoveResponse)]
+	public partial class ObjectRemoveResponse : IActorResponse
+	{
+	}
+	[Message(FrameOpcode.ObjectGetRequest)]
+	public partial class ObjectGetRequest : IActorRequest
+	{
+	}
+	[Message(FrameOpcode.ObjectGetResponse)]
+	public partial class ObjectGetResponse : IActorResponse
+	{
+	}
 	public static partial class FrameOpcode
 	{
 		 public const ushort ObjectAddRequest = 101;

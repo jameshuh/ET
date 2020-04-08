@@ -2,12 +2,6 @@
 
 namespace DCET
 {
-	public enum UnitType
-	{
-		Hero,
-		Npc
-	}
-
 	[ObjectSystem]
 	public class UnitAwakeSystem : AwakeSystem<Unit, UnitType>
 	{

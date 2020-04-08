@@ -75,8 +75,6 @@ namespace DCET
 			base.Dispose();
 			
 			this.socket.Close();
-			this.innArgs.Completed -= OnComplete;
-			this.outArgs.Completed -= OnComplete;
 			this.innArgs.Dispose();
 			this.outArgs.Dispose();
 			this.innArgs = null;
