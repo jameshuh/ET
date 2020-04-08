@@ -136,6 +136,7 @@ return function (path)
       "DCET.UnitFactory",
       "DCET.UnitInfo",
       "DCET.UnitPathComponent",
+      "DCET.UnitType",
       "DCET.WithInRoomActionComponentAwakeSystem"
     }
   })

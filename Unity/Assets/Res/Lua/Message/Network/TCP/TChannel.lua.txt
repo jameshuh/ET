@@ -53,7 +53,7 @@ System.namespace("DCET", function (namespace)
 
       this.RemoteAddress = socket:getRemoteEndPoint():ToString()
       this.remoteIpEndPoint = System.cast(SystemNet.IPEndPoint, socket:getRemoteEndPoint())
-      this.isConnected = false
+      this.isConnected = true
       this.isSending = false
     end
     Dispose = function (this)
@@ -64,8 +64,6 @@ System.namespace("DCET", function (namespace)
       System.base(this).Dispose(this)
 
       this.socket:Close()
-      this.innArgs:removeCompleted(System.fn(this, OnComplete))
-      this.outArgs:removeCompleted(System.fn(this, OnComplete))
       this.innArgs:Dispose()
       this.outArgs:Dispose()
       this.innArgs = nil

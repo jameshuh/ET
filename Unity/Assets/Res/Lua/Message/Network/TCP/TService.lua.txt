@@ -57,7 +57,6 @@ System.namespace("DCET", function (namespace)
         channel:Dispose()
       end
 
-      this.innArgs:removeCompleted(System.fn(this, OnComplete))
       local default = this.acceptor
       if default ~= nil then
         default:Close()

@@ -61,7 +61,7 @@ namespace DCET
 
 			this.RemoteAddress = socket.RemoteEndPoint.ToString();
 			this.remoteIpEndPoint = (IPEndPoint)socket.RemoteEndPoint;
-			this.isConnected = false;
+			this.isConnected = true;
 			this.isSending = false;
 		}
 

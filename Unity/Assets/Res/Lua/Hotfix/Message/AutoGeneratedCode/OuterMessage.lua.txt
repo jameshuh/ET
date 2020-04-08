@@ -79,7 +79,7 @@ System.namespace("DCET", function (namespace)
             { "response", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10002 --[[OuterOpcode.M2C_TestResponse]]) }
+          class = { 0x6, out.DCET.MessageAttribute(10002 --[[OuterOpcode.M2C_TestResponse]]), out.ProtoBuf.ProtoContractAttribute() }
         }
       end
     }
@@ -109,7 +109,7 @@ System.namespace("DCET", function (namespace)
             { "MapIndex", 0x6, System.Int32, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10003 --[[OuterOpcode.Actor_TransferRequest]]) }
+          class = { 0x6, out.DCET.MessageAttribute(10003 --[[OuterOpcode.Actor_TransferRequest]]), out.ProtoBuf.ProtoContractAttribute() }
         }
       end
     }
@@ -141,7 +141,7 @@ System.namespace("DCET", function (namespace)
             { "Message", 0x106, System.String, getMessage, setMessage, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10004 --[[OuterOpcode.Actor_TransferResponse]]) }
+          class = { 0x6, out.DCET.MessageAttribute(10004 --[[OuterOpcode.Actor_TransferResponse]]), out.ProtoBuf.ProtoContractAttribute() }
         }
       end
     }
@@ -210,18 +210,24 @@ System.namespace("DCET", function (namespace)
   end)
 
   namespace.class("UnitInfo", function (namespace)
+    local __ctor__
+    __ctor__ = function (this)
+      this.UnitType = DCET.UnitType.Hero
+    end
     return {
       UnitId = 0,
       X = 0,
       Y = 0,
       Z = 0,
+      __ctor__ = __ctor__,
       __metadata__ = function (out)
         return {
           properties = {
             { "UnitId", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
-            { "X", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
-            { "Y", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
-            { "Z", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) }
+            { "UnitType", 0x6, out.DCET.UnitType, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
+            { "X", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
+            { "Y", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
+            { "Z", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(5), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) }
           },
           class = { 0x6, out.ProtoBuf.ProtoContractAttribute() }
         }
@@ -251,7 +257,7 @@ System.namespace("DCET", function (namespace)
             { "ActorId", 0x106, System.Int64, getActorId, setActorId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "Units", 0x6, System.List(out.DCET.UnitInfo), System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setDataFormat(ProtoBuf.DataFormat.Default) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10008 --[[OuterOpcode.M2C_CreateUnits]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10007 --[[OuterOpcode.M2C_CreateUnits]]) }
         }
       end
     }
@@ -285,7 +291,7 @@ System.namespace("DCET", function (namespace)
             { "Y", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
             { "Z", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(5), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10009 --[[OuterOpcode.Frame_ClickMap]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10008 --[[OuterOpcode.Frame_ClickMap]]) }
         }
       end
     }
@@ -325,7 +331,7 @@ System.namespace("DCET", function (namespace)
             { "Z", 0x6, System.Single, System.apply(out.ProtoBuf.ProtoMemberAttribute(5), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) },
             { "Zs", 0x6, System.List(System.Single), System.apply(out.ProtoBuf.ProtoMemberAttribute(8), function (default) default:setDataFormat(ProtoBuf.DataFormat.FixedSize) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10010 --[[OuterOpcode.M2C_PathfindingResult]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10009 --[[OuterOpcode.M2C_PathfindingResult]]) }
         }
       end
     }
@@ -348,7 +354,7 @@ System.namespace("DCET", function (namespace)
           properties = {
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10011 --[[OuterOpcode.C2R_Ping]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10010 --[[OuterOpcode.C2R_Ping]]) }
         }
       end
     }
@@ -380,7 +386,7 @@ System.namespace("DCET", function (namespace)
             { "Message", 0x106, System.String, getMessage, setMessage, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10012 --[[OuterOpcode.R2C_Ping]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10011 --[[OuterOpcode.R2C_Ping]]) }
         }
       end
     }
@@ -395,7 +401,7 @@ System.namespace("DCET", function (namespace)
       end,
       __metadata__ = function (out)
         return {
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10013 --[[OuterOpcode.G2C_Test]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10012 --[[OuterOpcode.G2C_Test]]) }
         }
       end
     }
@@ -420,7 +426,7 @@ System.namespace("DCET", function (namespace)
             { "Password", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10014 --[[OuterOpcode.C2M_Reload]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10013 --[[OuterOpcode.C2M_Reload]]) }
         }
       end
     }
@@ -452,7 +458,7 @@ System.namespace("DCET", function (namespace)
             { "Message", 0x106, System.String, getMessage, setMessage, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10015 --[[OuterOpcode.M2C_Reload]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10014 --[[OuterOpcode.M2C_Reload]]) }
         }
       end
     }
@@ -477,7 +483,7 @@ System.namespace("DCET", function (namespace)
             { "Password", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10016 --[[OuterOpcode.C2R_Login]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10015 --[[OuterOpcode.C2R_Login]]) }
         }
       end
     }
@@ -502,6 +508,7 @@ System.namespace("DCET", function (namespace)
       RpcId = 0,
       getRpcId = getRpcId,
       setRpcId = setRpcId,
+      Key = 0,
       GateId = 0,
       __metadata__ = function (out)
         return {
@@ -509,11 +516,11 @@ System.namespace("DCET", function (namespace)
             { "Address", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "Error", 0x106, System.Int32, getError, setError, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "GateId", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(6), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
-            { "Key", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(5), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
+            { "Key", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(5), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "Message", 0x106, System.String, getMessage, setMessage, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10017 --[[OuterOpcode.R2C_Login]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10016 --[[OuterOpcode.R2C_Login]]) }
         }
       end
     }
@@ -531,15 +538,16 @@ System.namespace("DCET", function (namespace)
       RpcId = 0,
       getRpcId = getRpcId,
       setRpcId = setRpcId,
+      Key = 0,
       GateId = 0,
       __metadata__ = function (out)
         return {
           properties = {
             { "GateId", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
-            { "Key", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
+            { "Key", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10018 --[[OuterOpcode.C2G_LoginGate]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10017 --[[OuterOpcode.C2G_LoginGate]]) }
         }
       end
     }
@@ -573,7 +581,7 @@ System.namespace("DCET", function (namespace)
             { "PlayerId", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(4), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10019 --[[OuterOpcode.G2C_LoginGate]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10018 --[[OuterOpcode.G2C_LoginGate]]) }
         }
       end
     }
@@ -591,7 +599,7 @@ System.namespace("DCET", function (namespace)
           properties = {
             { "Info", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10020 --[[OuterOpcode.G2C_TestHotfixMessage]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10019 --[[OuterOpcode.G2C_TestHotfixMessage]]) }
         }
       end
     }
@@ -620,7 +628,7 @@ System.namespace("DCET", function (namespace)
             { "Info", 0x6, System.String, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10021 --[[OuterOpcode.C2M_TestActorRequest]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10020 --[[OuterOpcode.C2M_TestActorRequest]]) }
         }
       end
     }
@@ -653,7 +661,7 @@ System.namespace("DCET", function (namespace)
             { "Message", 0x106, System.String, getMessage, setMessage, System.apply(out.ProtoBuf.ProtoMemberAttribute(2), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.Default) end) },
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(3), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10022 --[[OuterOpcode.M2C_TestActorResponse]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10021 --[[OuterOpcode.M2C_TestActorResponse]]) }
         }
       end
     }
@@ -672,7 +680,7 @@ System.namespace("DCET", function (namespace)
           properties = {
             { "RpcId", 0x6, System.Int64, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10023 --[[OuterOpcode.PlayerInfo]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10022 --[[OuterOpcode.PlayerInfo]]) }
         }
       end
     }
@@ -695,7 +703,7 @@ System.namespace("DCET", function (namespace)
           properties = {
             { "RpcId", 0x106, System.Int32, getRpcId, setRpcId, System.apply(out.ProtoBuf.ProtoMemberAttribute(1), function (default) default:setIsRequired(true)default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10024 --[[OuterOpcode.C2G_PlayerInfo]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10023 --[[OuterOpcode.C2G_PlayerInfo]]) }
         }
       end
     }
@@ -739,9 +747,16 @@ System.namespace("DCET", function (namespace)
             { "TestRepeatedInt64", 0x6, System.List(System.Int64), System.apply(out.ProtoBuf.ProtoMemberAttribute(8), function (default) default:setDataFormat(ProtoBuf.DataFormat.TwosComplement) end) },
             { "TestRepeatedString", 0x6, System.List(System.String), System.apply(out.ProtoBuf.ProtoMemberAttribute(6), function (default) default:setDataFormat(ProtoBuf.DataFormat.Default) end) }
           },
-          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10025 --[[OuterOpcode.G2C_PlayerInfo]]) }
+          class = { 0x6, out.ProtoBuf.ProtoContractAttribute(), out.DCET.MessageAttribute(10024 --[[OuterOpcode.G2C_PlayerInfo]]) }
         }
       end
+    }
+  end)
+
+  namespace.enum("UnitType", function ()
+    return {
+      Hero = 0,
+      Npc = 1
     }
   end)
 end)
