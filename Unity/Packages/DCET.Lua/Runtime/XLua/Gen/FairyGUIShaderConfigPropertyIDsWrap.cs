@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.ShaderConfig.PropertyIDs);
 			Utils.BeginObjectRegister(type, L, translator, 0, 26, 13, 13);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "get_ClipBox", _g_get__ClipBox);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "get_ClipSoftness", _g_get__ClipSoftness);
@@ -105,7 +106,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -134,8 +137,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

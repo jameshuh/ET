@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RecastTileUpdateHandler);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 1, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetGraph", _m_SetGraph);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ScheduleUpdate", _m_ScheduleUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdateDirtyTiles", _m_UpdateDirtyTiles);
@@ -60,7 +61,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -89,8 +92,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetGraph(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Util.GraphGizmoHelper);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 2, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Init", _m_Init);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnEnterPool", _m_OnEnterPool);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DrawConnections", _m_DrawConnections);
@@ -66,7 +67,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -95,8 +98,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Init(RealStatePtr L)
         {

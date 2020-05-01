@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.AStarConfig);
 			Utils.BeginObjectRegister(type, L, translator, 0, 27, 14, 13);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getmaxNearestNodeDistanceSqr", _g_get_maxNearestNodeDistanceSqr);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getgraphs", _g_get_graphs);
@@ -109,7 +110,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -138,8 +141,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

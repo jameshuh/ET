@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.ByteBuffer);
 			Utils.BeginObjectRegister(type, L, translator, 0, 29, 7, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Skip", _m_Skip);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReadByte", _m_ReadByte);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReadBytes", _m_ReadBytes);
@@ -93,7 +94,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -144,8 +147,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Skip(RealStatePtr L)
         {

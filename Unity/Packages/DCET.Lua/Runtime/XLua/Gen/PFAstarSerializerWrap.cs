@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.AstarSerializer);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetGraphIndexOffset", _m_SetGraphIndexOffset);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetChecksum", _m_GetChecksum);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OpenSerialize", _m_OpenSerialize);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -112,8 +115,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetGraphIndexOffset(RealStatePtr L)
         {

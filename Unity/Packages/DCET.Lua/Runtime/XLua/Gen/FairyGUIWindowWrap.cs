@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Window);
 			Utils.BeginObjectRegister(type, L, translator, 0, 29, 11, 6);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddUISource", _m_AddUISource);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Show", _m_Show);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ShowOn", _m_ShowOn);
@@ -99,7 +100,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -128,8 +131,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_AddUISource(RealStatePtr L)
         {

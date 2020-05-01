@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(DCETRuntime.MonoBehaviourBridge);
 			Utils.BeginObjectRegister(type, L, translator, 0, 106, 53, 53);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getonAwake", _g_get_onAwake);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getonFixedUpdate", _g_get_onFixedUpdate);
@@ -265,7 +266,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -294,8 +297,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GearTweenConfig);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 4);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "gettween", _g_get_tween);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "geteaseType", _g_get_easeType);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

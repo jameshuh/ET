@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.PopupMenu);
 			Utils.BeginObjectRegister(type, L, translator, 0, 17, 3, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddItem", _m_AddItem);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddItemAt", _m_AddItemAt);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddSeperator", _m_AddSeperator);
@@ -73,7 +74,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -111,8 +114,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_AddItem(RealStatePtr L)
         {

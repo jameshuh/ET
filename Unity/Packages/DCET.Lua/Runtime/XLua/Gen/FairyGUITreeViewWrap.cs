@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.TreeView);
 			Utils.BeginObjectRegister(type, L, translator, 0, 22, 8, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSelectedNode", _m_GetSelectedNode);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSelection", _m_GetSelection);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddSelection", _m_AddSelection);
@@ -87,7 +88,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -117,8 +120,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetSelectedNode(RealStatePtr L)
         {

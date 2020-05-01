@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.TextField);
 			Utils.BeginObjectRegister(type, L, translator, 0, 38, 19, 12);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EnableCharPositionSupport", _m_EnableCharPositionSupport);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Redraw", _m_Redraw);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasCharacter", _m_HasCharacter);
@@ -122,7 +123,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -151,8 +154,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_EnableCharPositionSupport(RealStatePtr L)
         {

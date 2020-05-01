@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.TargetMover);
 			Utils.BeginObjectRegister(type, L, translator, 0, 11, 4, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Start", _m_Start);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnGUI", _m_OnGUI);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdateTargetPosition", _m_UpdateTargetPosition);
@@ -72,7 +73,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -101,8 +104,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Start(RealStatePtr L)
         {

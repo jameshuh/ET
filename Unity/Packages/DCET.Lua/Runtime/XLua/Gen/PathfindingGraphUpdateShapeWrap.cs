@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.GraphUpdateShape);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 3, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetBounds", _m_GetBounds);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Contains", _m_Contains);
 						
@@ -68,7 +69,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -109,8 +112,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetBounds(RealStatePtr L)
         {

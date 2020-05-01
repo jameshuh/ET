@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.SerializeSettings);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 2);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getnodes", _g_get_nodes);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "geteditorSettings", _g_get_editorSettings);
@@ -63,7 +64,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -92,8 +95,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.IMovementPlane);
 			Utils.BeginObjectRegister(type, L, translator, 0, 2, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToPlane", _m_ToPlane);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToWorld", _m_ToWorld);
 						
@@ -55,7 +56,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -67,8 +70,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ToPlane(RealStatePtr L)
         {
@@ -94,7 +99,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Vector3>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Vector3>(L, 2)) 
                 {
                     UnityEngine.Vector3 _p;translator.Get(L, 2, out _p);
                     float _elevation;

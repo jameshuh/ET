@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(BehaviorDesigner.Runtime.BehaviorTreeController);
 			Utils.BeginObjectRegister(type, L, translator, 0, 7, 4, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetExternalBehavior", _m_SetExternalBehavior);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Clear", _m_Clear);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Init", _m_Init);
@@ -64,7 +65,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -93,8 +96,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetExternalBehavior(RealStatePtr L)
         {

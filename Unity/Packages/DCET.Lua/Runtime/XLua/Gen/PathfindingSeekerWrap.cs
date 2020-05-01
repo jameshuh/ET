@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Seeker);
 			Utils.BeginObjectRegister(type, L, translator, 0, 29, 9, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetCurrentPath", _m_GetCurrentPath);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CancelCurrentPathRequest", _m_CancelCurrentPathRequest);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDestroy", _m_OnDestroy);
@@ -100,7 +101,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -129,8 +132,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetCurrentPath(RealStatePtr L)
         {

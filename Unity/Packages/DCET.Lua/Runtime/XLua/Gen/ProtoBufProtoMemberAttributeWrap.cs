@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(ProtoBuf.ProtoMemberAttribute);
 			Utils.BeginObjectRegister(type, L, translator, 0, 18, 9, 8);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CompareTo", _m_CompareTo);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getName", _g_get_Name);
@@ -88,7 +89,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -118,8 +121,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CompareTo(RealStatePtr L)
         {

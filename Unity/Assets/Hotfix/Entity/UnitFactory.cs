@@ -13,7 +13,7 @@ namespace DCET
 	        
             UnitComponent unitComponent = Game.Scene.GetComponent<UnitComponent>();
             
-	        GameObject go = UnityEngine.Object.Instantiate(prefab);
+	        GameObject go = UnityEngine.Object.Instantiate((UnityEngine.Object)prefab) as GameObject;
 	        Unit unit = EntityFactory.CreateWithId<Unit, GameObject>(domain, id, go);
 	        
 			unit.AddComponent<AnimatorComponent>();

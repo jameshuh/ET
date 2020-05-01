@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AILerp);
 			Utils.BeginObjectRegister(type, L, translator, 0, 43, 20, 15);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDisable", _m_OnDisable);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Teleport", _m_Teleport);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SearchPath", _m_SearchPath);
@@ -131,7 +132,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -143,8 +146,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnDisable(RealStatePtr L)
         {

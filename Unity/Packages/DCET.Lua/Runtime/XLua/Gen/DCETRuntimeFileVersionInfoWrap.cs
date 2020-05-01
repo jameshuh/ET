@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(DCETRuntime.FileVersionInfo);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 3, 3);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getFile", _g_get_File);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getMD5", _g_get_MD5);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -94,8 +97,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

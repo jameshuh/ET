@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.GraphModifier);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnPostScan", _m_OnPostScan);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnPreScan", _m_OnPreScan);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnLatePostScan", _m_OnLatePostScan);
@@ -61,7 +62,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -73,8 +76,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_FindAllModifiers_xlua_st_(RealStatePtr L)
         {

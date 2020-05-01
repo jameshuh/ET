@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.ConstantPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 5, 5);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getstartNode", _g_get_startNode);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getstartPoint", _g_get_startPoint);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -103,8 +106,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Construct_xlua_st_(RealStatePtr L)
         {

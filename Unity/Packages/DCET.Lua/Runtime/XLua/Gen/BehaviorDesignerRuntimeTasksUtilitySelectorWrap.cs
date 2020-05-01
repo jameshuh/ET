@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(BehaviorDesigner.Runtime.Tasks.UtilitySelector);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnStart", _m_OnStart);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CurrentChildIndex", _m_CurrentChildIndex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnChildStarted", _m_OnChildStarted);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -94,8 +97,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnStart(RealStatePtr L)
         {

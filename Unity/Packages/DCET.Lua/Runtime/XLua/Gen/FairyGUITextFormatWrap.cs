@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.TextFormat);
 			Utils.BeginObjectRegister(type, L, translator, 0, 25, 11, 11);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetColor", _m_SetColor);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EqualStyle", _m_EqualStyle);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CopyFrom", _m_CopyFrom);
@@ -100,7 +101,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -129,8 +132,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetColor(RealStatePtr L)
         {

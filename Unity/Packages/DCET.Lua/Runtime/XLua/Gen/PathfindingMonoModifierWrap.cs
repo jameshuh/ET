@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.MonoModifier);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "PreProcess", _m_PreProcess);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Apply", _m_Apply);
 						
@@ -61,7 +62,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -73,8 +76,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_PreProcess(RealStatePtr L)
         {

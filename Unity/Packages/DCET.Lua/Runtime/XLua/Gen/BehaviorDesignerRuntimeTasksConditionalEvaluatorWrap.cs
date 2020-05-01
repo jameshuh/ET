@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(BehaviorDesigner.Runtime.Tasks.ConditionalEvaluator);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 2, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnAwake", _m_OnAwake);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnStart", _m_OnStart);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CanExecute", _m_CanExecute);
@@ -70,7 +71,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnAwake(RealStatePtr L)
         {

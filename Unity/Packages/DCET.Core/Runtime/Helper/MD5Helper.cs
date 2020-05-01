@@ -16,5 +16,16 @@ namespace DCETRuntime
 			}
 			return retVal.ToHex("x2");
 		}
+
+		private static string ToHex(this byte[] bytes, string format)
+		{
+			StringBuilder stringBuilder = new StringBuilder();
+			foreach (byte b in bytes)
+			{
+				stringBuilder.Append(b.ToString(format));
+			}
+			return stringBuilder.ToString();
+		}
+
 	}
 }

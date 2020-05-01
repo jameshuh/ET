@@ -54,19 +54,19 @@ namespace DCET
 						}
 						else
 						{
-							this.buffer.Read(this.memoryStream.GetBuffer(), 0, this.packetSizeLength);
+							this.buffer.ReadMemoryStream(this.memoryStream, 0, this.packetSizeLength);
 							
 							switch (this.packetSizeLength)
 							{
 								case Packet.PacketSizeLength4:
-									this.packetSize = BitConverter.ToInt32(this.memoryStream.GetBuffer(), 0);
+									this.packetSize = this.memoryStream.ToInt32(0);
 									if (this.packetSize > ushort.MaxValue * 16 || this.packetSize < Packet.MinPacketSize)
 									{
 										throw new Exception($"recv packet size error, 可能是外网探测端口: {this.packetSize}");
 									}
 									break;
 								case Packet.PacketSizeLength2:
-									this.packetSize = BitConverter.ToUInt16(this.memoryStream.GetBuffer(), 0);
+									this.packetSize = this.memoryStream.ToUInt16(0);
 									if (this.packetSize > ushort.MaxValue || this.packetSize < Packet.MinPacketSize)
 									{
 										throw new Exception($"recv packet size error:, 可能是外网探测端口: {this.packetSize}");
@@ -85,10 +85,7 @@ namespace DCET
 						}
 						else
 						{
-							this.memoryStream.Seek(0, SeekOrigin.Begin);
-							this.memoryStream.SetLength(this.packetSize);
-							byte[] bytes = this.memoryStream.GetBuffer();
-							this.buffer.Read(bytes, 0, this.packetSize);
+							this.buffer.ReadMemoryStream(memoryStream, 0, this.packetSize);
 							this.isOK = true;
 							this.state = ParserState.PacketSize;
 							finish = true;
@@ -103,32 +100,6 @@ namespace DCET
 		{
 			this.isOK = false;
 			return this.memoryStream;
-		}
-
-		public static byte[] ReadBytes(MemoryStream memoryStream)
-		{
-			if (memoryStream != null)
-			{
-				var count = memoryStream.Length - Packet.MessageIndex;
-
-				if (count > 0)
-				{
-					var bytes = new byte[count];
-					memoryStream.Read(bytes, 0, bytes.Length);
-
-					return bytes;
-				}
-			}
-
-			return null;
-		}
-
-		public static void WriteBytes(MemoryStream memoryStream, byte[] bytes)
-		{
-			if (memoryStream != null && bytes != null)
-			{
-				memoryStream.Write(bytes, 0, bytes.Length);
-			}
 		}
 	}
 }

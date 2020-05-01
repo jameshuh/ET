@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.UpdateContext);
 			Utils.BeginObjectRegister(type, L, translator, 0, 20, 8, 8);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Begin", _m_Begin);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "End", _m_End);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EnterClipping", _m_EnterClipping);
@@ -109,7 +110,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -138,8 +141,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Begin(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GObjectPool);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Clear", _m_Clear);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetObject", _m_GetObject);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReturnObject", _m_ReturnObject);
@@ -62,7 +63,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -92,8 +95,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Clear(RealStatePtr L)
         {

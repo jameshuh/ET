@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.NMaterial);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 6, 6);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getframeId", _g_get_frameId);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getclipId", _g_get_clipId);
@@ -77,7 +78,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -107,8 +110,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

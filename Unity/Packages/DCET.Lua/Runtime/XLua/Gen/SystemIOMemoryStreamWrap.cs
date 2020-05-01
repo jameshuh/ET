@@ -10,7 +10,7 @@ using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 
 using XLua;
 using System.Collections.Generic;
-
+using DCETRuntime;
 
 namespace XLua.CSObjectWrap
 {
@@ -21,8 +21,9 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(System.IO.MemoryStream);
-			Utils.BeginObjectRegister(type, L, translator, 0, 23, 6, 2);
+			Utils.BeginObjectRegister(type, L, translator, 0, 25, 6, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Flush", _m_Flush);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "FlushAsync", _m_FlushAsync);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetBuffer", _m_GetBuffer);
@@ -38,6 +39,8 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteAsync", _m_WriteAsync);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteByte", _m_WriteByte);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteTo", _m_WriteTo);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToInt32", _m_ToInt32);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToUInt16", _m_ToUInt16);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getCanRead", _g_get_CanRead);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getCanSeek", _g_get_CanSeek);
@@ -84,7 +87,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -177,8 +182,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Flush(RealStatePtr L)
         {
@@ -636,6 +643,68 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_ToInt32(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.MemoryStream gen_to_be_invoked = (System.IO.MemoryStream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.MemoryStream _memoryStream = (System.IO.MemoryStream)translator.GetObject(L, 1, typeof(System.IO.MemoryStream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    
+                        int gen_ret = gen_to_be_invoked.ToInt32( 
+                        _offset );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_ToUInt16(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.MemoryStream gen_to_be_invoked = (System.IO.MemoryStream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.MemoryStream _memoryStream = (System.IO.MemoryStream)translator.GetObject(L, 1, typeof(System.IO.MemoryStream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    
+                        ushort gen_ret = gen_to_be_invoked.ToUInt16( 
+                        _offset );
+                        LuaAPI.xlua_pushinteger(L, gen_ret);
+                    
+                    
+                    
+                    return 1;
                 }
                 
             } catch(System.Exception gen_e) {

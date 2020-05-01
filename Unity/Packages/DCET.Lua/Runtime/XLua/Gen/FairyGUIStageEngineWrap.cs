@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.StageEngine);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 2);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getObjectsOnStage", _g_get_ObjectsOnStage);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getGraphicsOnStage", _g_get_GraphicsOnStage);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -94,8 +97,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

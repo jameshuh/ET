@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GRichTextField);
 			Utils.BeginObjectRegister(type, L, translator, 0, 3, 2, 1);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getrichTextField", _g_get_richTextField);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getemojies", _g_get_emojies);
@@ -59,7 +60,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -88,8 +91,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

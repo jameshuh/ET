@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.BlendModeUtils.BlendFactor);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 3, 3);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getsrcFactor", _g_get_srcFactor);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getdstFactor", _g_get_dstFactor);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -107,8 +110,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

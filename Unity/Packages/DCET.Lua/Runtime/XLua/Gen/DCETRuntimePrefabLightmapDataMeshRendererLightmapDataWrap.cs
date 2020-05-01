@@ -21,8 +21,10 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(DCETRuntime.PrefabLightmapData.MeshRendererLightmapData);
-			Utils.BeginObjectRegister(type, L, translator, 0, 10, 5, 5);
+			Utils.BeginObjectRegister(type, L, translator, 0, 11, 5, 5);
 			
+            Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getrenderer", _g_get_renderer);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getlightmapIndex", _g_get_lightmapIndex);
@@ -73,7 +75,25 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
+		
+		
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				DCETRuntime.PrefabLightmapData.MeshRendererLightmapData gen_to_be_invoked;translator.Get(L, 1, out gen_to_be_invoked);
+				translator.Push(L, gen_to_be_invoked);
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -100,8 +120,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

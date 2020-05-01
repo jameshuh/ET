@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.TriangleMeshNode);
 			Utils.BeginObjectRegister(type, L, translator, 0, 25, 3, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdatePositionFromVertices", _m_UpdatePositionFromVertices);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertexIndex", _m_GetVertexIndex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertexArrayIndex", _m_GetVertexArrayIndex);
@@ -86,7 +87,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -115,8 +118,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetNavmeshHolder_xlua_st_(RealStatePtr L)
         {
@@ -674,7 +679,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 5&& translator.Assignable<PF.GraphNode>(L, 2)&& translator.Assignable<System.Collections.Generic.List<UnityEngine.Vector3>>(L, 3)&& translator.Assignable<System.Collections.Generic.List<UnityEngine.Vector3>>(L, 4)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 5)) 
+                if(gen_param_count == 7&& translator.Assignable<PF.GraphNode>(L, 2)&& translator.Assignable<System.Collections.Generic.List<UnityEngine.Vector3>>(L, 3)&& translator.Assignable<System.Collections.Generic.List<UnityEngine.Vector3>>(L, 4)&& LuaTypes.LUA_TBOOLEAN == LuaAPI.lua_type(L, 5)) 
                 {
                     PF.GraphNode _toNode = (PF.GraphNode)translator.GetObject(L, 2, typeof(PF.GraphNode));
                     System.Collections.Generic.List<UnityEngine.Vector3> _left = (System.Collections.Generic.List<UnityEngine.Vector3>)translator.GetObject(L, 3, typeof(System.Collections.Generic.List<UnityEngine.Vector3>));

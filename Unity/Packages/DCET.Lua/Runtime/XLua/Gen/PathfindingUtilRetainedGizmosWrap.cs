@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Util.RetainedGizmos);
 			Utils.BeginObjectRegister(type, L, translator, 0, 11, 2, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSingleFrameGizmoHelper", _m_GetSingleFrameGizmoHelper);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetGizmoHelper", _m_GetGizmoHelper);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasCachedMesh", _m_HasCachedMesh);
@@ -68,7 +69,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -97,8 +100,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetSingleFrameGizmoHelper(RealStatePtr L)
         {

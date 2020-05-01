@@ -20,7 +20,13 @@ namespace DCET
 		public void Awake(GameObject gameObject)
 		{
 			this.ViewGO = gameObject;
-			this.ViewGO.AddComponent<ComponentView>().Component = this;
+
+			var componentView = ViewGO.AddComponent(typeof(ComponentView)) as ComponentView;
+
+			if (componentView)
+			{
+				componentView.Component = this;
+			}
 		}
 		
 		public Vector3 Position

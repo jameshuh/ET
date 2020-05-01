@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Emoji);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 3, 3);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "geturl", _g_get_url);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getwidth", _g_get_width);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -106,8 +109,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

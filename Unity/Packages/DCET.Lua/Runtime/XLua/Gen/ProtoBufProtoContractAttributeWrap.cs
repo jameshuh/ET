@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(ProtoBuf.ProtoContractAttribute);
 			Utils.BeginObjectRegister(type, L, translator, 0, 20, 10, 10);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getName", _g_get_Name);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getImplicitFirstTag", _g_get_ImplicitFirstTag);
@@ -93,7 +94,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -122,8 +125,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

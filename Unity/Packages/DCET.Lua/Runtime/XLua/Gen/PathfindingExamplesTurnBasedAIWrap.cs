@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Examples.TurnBasedAI);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 5, 5);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getmovementPoints", _g_get_movementPoints);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getblockManager", _g_get_blockManager);
@@ -73,7 +74,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -102,8 +105,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

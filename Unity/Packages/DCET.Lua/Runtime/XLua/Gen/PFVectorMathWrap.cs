@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.VectorMath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 0, 0, 0);
 			
+            			
 						
             
 			
@@ -88,7 +89,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -100,8 +103,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ComplexMultiply_xlua_st_(RealStatePtr L)
         {
@@ -1123,7 +1128,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
+                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
                 {
                     UnityEngine.Vector3 _start1;translator.Get(L, 1, out _start1);
                     UnityEngine.Vector3 _dir1;translator.Get(L, 2, out _dir1);
@@ -1217,7 +1222,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 4&& translator.Assignable<PF.Int3>(L, 1)&& translator.Assignable<PF.Int3>(L, 2)&& translator.Assignable<PF.Int3>(L, 3)&& translator.Assignable<PF.Int3>(L, 4)) 
+                if(gen_param_count == 6&& translator.Assignable<PF.Int3>(L, 1)&& translator.Assignable<PF.Int3>(L, 2)&& translator.Assignable<PF.Int3>(L, 3)&& translator.Assignable<PF.Int3>(L, 4)) 
                 {
                     PF.Int3 _start1;translator.Get(L, 1, out _start1);
                     PF.Int3 _end1;translator.Get(L, 2, out _end1);
@@ -1243,7 +1248,7 @@ namespace XLua.CSObjectWrap
                     
                     return 3;
                 }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
+                if(gen_param_count == 6&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
                 {
                     UnityEngine.Vector3 _start1;translator.Get(L, 1, out _start1);
                     UnityEngine.Vector3 _end1;translator.Get(L, 2, out _end1);
@@ -1341,7 +1346,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
+                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Vector3>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<UnityEngine.Vector3>(L, 4)) 
                 {
                     UnityEngine.Vector3 _start1;translator.Get(L, 1, out _start1);
                     UnityEngine.Vector3 _end1;translator.Get(L, 2, out _end1);
@@ -1401,7 +1406,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector2>(L, 1)&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& translator.Assignable<UnityEngine.Vector2>(L, 3)&& translator.Assignable<UnityEngine.Vector2>(L, 4)) 
+                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Vector2>(L, 1)&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& translator.Assignable<UnityEngine.Vector2>(L, 3)&& translator.Assignable<UnityEngine.Vector2>(L, 4)) 
                 {
                     UnityEngine.Vector2 _start1;translator.Get(L, 1, out _start1);
                     UnityEngine.Vector2 _end1;translator.Get(L, 2, out _end1);
@@ -1515,7 +1520,7 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 1&& translator.Assignable<UnityEngine.Vector3>(L, 1)) 
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Vector3>(L, 1)) 
                 {
                     UnityEngine.Vector3 _v;translator.Get(L, 1, out _v);
                     float _magnitude;
@@ -1531,7 +1536,7 @@ namespace XLua.CSObjectWrap
                     
                     return 2;
                 }
-                if(gen_param_count == 1&& translator.Assignable<UnityEngine.Vector2>(L, 1)) 
+                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Vector2>(L, 1)) 
                 {
                     UnityEngine.Vector2 _v;translator.Get(L, 1, out _v);
                     float _magnitude;

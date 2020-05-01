@@ -35,7 +35,7 @@ namespace DCET
 
 		public void Awake()
 		{
-			Animator animator = this.GetParent<Unit>().ViewGO.GetComponent<Animator>();
+			Animator animator = this.GetParent<Unit>().ViewGO.GetComponent(typeof(Animator)) as Animator;
 
 			if (animator == null)
 			{

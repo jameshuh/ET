@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Util.PathInterpolator);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 6, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetPath", _m_SetPath);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MoveToSegment", _m_MoveToSegment);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MoveToClosestPoint", _m_MoveToClosestPoint);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -103,8 +106,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetPath(RealStatePtr L)
         {

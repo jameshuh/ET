@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.TextField.LineInfo);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 6, 6);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getwidth", _g_get_width);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getheight", _g_get_height);
@@ -79,7 +80,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -108,8 +111,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Borrow_xlua_st_(RealStatePtr L)
         {

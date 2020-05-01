@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.RichTextField);
 			Utils.BeginObjectRegister(type, L, translator, 0, 19, 8, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHtmlElement", _m_GetHtmlElement);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHtmlElementAt", _m_GetHtmlElementAt);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ShowHtmlObject", _m_ShowHtmlObject);
@@ -85,7 +86,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -114,8 +117,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetHtmlElement(RealStatePtr L)
         {

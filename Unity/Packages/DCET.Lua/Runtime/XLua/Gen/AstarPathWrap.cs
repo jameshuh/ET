@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(AstarPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 70, 34, 27);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetTagNames", _m_GetTagNames);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddWorkItem", _m_AddWorkItem);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "FlushGraphUpdates", _m_FlushGraphUpdates);
@@ -199,7 +200,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -211,8 +214,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetTagNames(RealStatePtr L)
         {

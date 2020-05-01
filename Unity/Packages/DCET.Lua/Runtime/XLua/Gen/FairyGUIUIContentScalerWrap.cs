@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.UIContentScaler);
 			Utils.BeginObjectRegister(type, L, translator, 0, 18, 8, 8);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ApplyModifiedProperties", _m_ApplyModifiedProperties);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ApplyChange", _m_ApplyChange);
 						
@@ -91,7 +92,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -120,8 +123,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ApplyModifiedProperties(RealStatePtr L)
         {

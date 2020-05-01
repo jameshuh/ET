@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.HtmlParseOptions);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 5, 5);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getlinkUnderline", _g_get_linkUnderline);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getlinkColor", _g_get_linkColor);
@@ -89,7 +90,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -118,8 +121,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

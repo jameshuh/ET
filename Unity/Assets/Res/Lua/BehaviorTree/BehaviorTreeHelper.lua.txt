@@ -10,12 +10,12 @@ System.namespace("DCET", function (namespace)
       if System.is(_object, UnityEngine.GameObject) then
         local go = System.as(_object, UnityEngine.GameObject)
 
-        if UnityEngine.op_Implicit(go) then
+        if UnityEngine.Object.op_Implicit(go) then
           local bts = go:GetComponentsInChildren(BehaviorDesignerRuntime.BehaviorTree)
 
           if bts ~= nil then
             for _, bt in System.each(bts) do
-              if UnityEngine.op_Implicit(bt) then
+              if UnityEngine.Object.op_Implicit(bt) then
                 (System.as(DCETRuntime.GameObjectHelper.Ensure(bt:getgameObject(), System.typeof(BehaviorDesignerRuntime.BehaviorTreeController)), BehaviorDesignerRuntime.BehaviorTreeController)):Init()
               end
             end
@@ -24,7 +24,7 @@ System.namespace("DCET", function (namespace)
       elseif System.is(_object, BehaviorDesignerRuntime.ExternalBehavior) then
         local externalBehavior = System.as(_object, BehaviorDesignerRuntime.ExternalBehavior)
 
-        if UnityEngine.op_Implicit(externalBehavior) then
+        if UnityEngine.Object.op_Implicit(externalBehavior) then
           externalBehavior:Init()
         end
       end

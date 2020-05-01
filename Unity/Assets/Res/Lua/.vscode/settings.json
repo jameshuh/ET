@@ -1,3 +1,7 @@
 {
-    "editor.snippetSuggestions": "bottom"
+    "editor.snippetSuggestions": "bottom",
+    "files.associations": {
+        ".txt":"lua"
+    },
+    "luaide.apiType":"xlua"
 }

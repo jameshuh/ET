@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.GraphMeta);
 			Utils.BeginObjectRegister(type, L, translator, 0, 9, 4, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetGraphType", _m_GetGraphType);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getversion", _g_get_version);
@@ -70,7 +71,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetGraphType(RealStatePtr L)
         {

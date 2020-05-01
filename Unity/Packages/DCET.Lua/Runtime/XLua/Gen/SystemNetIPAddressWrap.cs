@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(System.Net.IPAddress);
 			Utils.BeginObjectRegister(type, L, translator, 0, 14, 7, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAddressBytes", _m_GetAddressBytes);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToString", _m_ToString);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Equals", _m_Equals);
@@ -94,7 +95,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -143,8 +146,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_TryParse_xlua_st_(RealStatePtr L)
         {

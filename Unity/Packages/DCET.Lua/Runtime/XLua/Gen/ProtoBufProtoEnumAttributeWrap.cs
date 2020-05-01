@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(ProtoBuf.ProtoEnumAttribute);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 2, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasValue", _m_HasValue);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getValue", _g_get_Value);
@@ -62,7 +63,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -91,8 +94,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_HasValue(RealStatePtr L)
         {

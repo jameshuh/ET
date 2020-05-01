@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(UnityEngine.Vector4);
-			Utils.BeginObjectRegister(type, L, translator, 6, 18, 7, 4);
+			Utils.BeginObjectRegister(type, L, translator, 6, 19, 7, 4);
 			Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__add", __AddMeta);
             Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__sub", __SubMeta);
             Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__unm", __UnmMeta);
@@ -29,6 +29,8 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__div", __DivMeta);
             Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__eq", __EqMeta);
             
+            Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Set", _m_Set);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Scale", _m_Scale);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHashCode", _m_GetHashCode);
@@ -72,7 +74,7 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, __CSIndexer, __NewIndexer,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 23, 4, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 31, 4, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "Lerp", _m_Lerp_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "LerpUnclamped", _m_LerpUnclamped_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "MoveTowards", _m_MoveTowards_xlua_st_);
@@ -84,6 +86,14 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Magnitude", _m_Magnitude_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Min", _m_Min_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Max", _m_Max_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Addition",__AddMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Subtraction",__SubMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_UnaryNegation",__UnmMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Multiply",__MulMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Division",__DivMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Equality",__EqMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Inequality", _m_op_Inequality);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Implicit", _m_op_Implicit);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "SqrMagnitude", _m_SqrMagnitude_xlua_st_);
             
             Utils.RegisterObject(L, translator, Utils.CLS_IDX, "getkEpsilon", UnityEngine.Vector4.kEpsilon);
@@ -110,7 +120,25 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
+		
+		
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				UnityEngine.Vector4 gen_to_be_invoked;translator.Get(L, 1, out gen_to_be_invoked);
+				translator.PushUnityEngineVector4(L, gen_to_be_invoked);
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -377,8 +405,55 @@ namespace XLua.CSObjectWrap
             
         }
         
+
+		
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Inequality(RealStatePtr L)
+        {					
+			
+            
+			try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+			
+				if (translator.Assignable<UnityEngine.Vector4>(L, 1) && translator.Assignable<UnityEngine.Vector4>(L, 2))
+				{
+					UnityEngine.Vector4 leftside;translator.Get(L, 1, out leftside);
+					UnityEngine.Vector4 rightside;translator.Get(L, 2, out rightside);
+
+					LuaAPI.lua_pushboolean(L, leftside != rightside);
+					
+					return 1;
+				}
+            
+			}
+			catch(System.Exception gen_e) {
+				return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+			}
+            return LuaAPI.luaL_error(L, "invalid arguments to right hand of != operator, need UnityEngine.Vector4!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Implicit(RealStatePtr L)
+        {					
+			
+            
+			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+                UnityEngine.Vector4 rightside;translator.Get(L, 1, out rightside);
+				
+                translator.PushUnityEngineVector4(L,  rightside)
+				;
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+            
+        }
         
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Set(RealStatePtr L)
         {

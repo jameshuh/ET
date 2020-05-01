@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AstarProfiler.ProfilePoint);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 4);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getwatch", _g_get_watch);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "gettotalCalls", _g_get_totalCalls);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

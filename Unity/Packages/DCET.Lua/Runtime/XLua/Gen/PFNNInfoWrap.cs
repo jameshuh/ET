@@ -21,8 +21,10 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(PF.NNInfo);
-			Utils.BeginObjectRegister(type, L, translator, 0, 2, 2, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 3, 2, 0);
 			
+            Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getnode", _g_get_node);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getposition", _g_get_position);
@@ -41,8 +43,9 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 1, 0, 0);
-			
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 2, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Explicit", _m_op_Explicit);
+            
             
 			
 			
@@ -57,7 +60,25 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
+		
+		
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				PF.NNInfo gen_to_be_invoked;translator.Get(L, 1, out gen_to_be_invoked);
+				translator.Push(L, gen_to_be_invoked);
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -93,8 +114,28 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Explicit(RealStatePtr L)
+        {					
+			
+            
+			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+                PF.NNInfo rightside;translator.Get(L, 1, out rightside);
+				
+				translator.PushUnityEngineVector3(L, (UnityEngine.Vector3) rightside)
+				;
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+            
+        }
         
         
+		
         
         
         

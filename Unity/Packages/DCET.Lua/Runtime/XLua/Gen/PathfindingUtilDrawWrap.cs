@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Util.Draw);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Line", _m_Line);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CircleXZ", _m_CircleXZ);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Cylinder", _m_Cylinder);
@@ -62,7 +63,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -91,8 +94,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Line(RealStatePtr L)
         {

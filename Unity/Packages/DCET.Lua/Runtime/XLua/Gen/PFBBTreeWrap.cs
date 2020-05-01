@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.BBTree);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Clear", _m_Clear);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RebuildFrom", _m_RebuildFrom);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "QueryClosest", _m_QueryClosest);
@@ -58,7 +59,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -87,8 +90,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Clear(RealStatePtr L)
         {
@@ -158,7 +163,7 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<PF.NNConstraint>(L, 3)) 
+                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<PF.NNConstraint>(L, 3)) 
                 {
                     UnityEngine.Vector3 _p;translator.Get(L, 2, out _p);
                     PF.NNConstraint _constraint = (PF.NNConstraint)translator.GetObject(L, 3, typeof(PF.NNConstraint));

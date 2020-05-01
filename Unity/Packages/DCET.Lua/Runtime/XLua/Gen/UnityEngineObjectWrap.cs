@@ -24,6 +24,7 @@ namespace XLua.CSObjectWrap
 			Utils.BeginObjectRegister(type, L, translator, 1, 8, 2, 2);
 			Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__eq", __EqMeta);
             
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetInstanceID", _m_GetInstanceID);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHashCode", _m_GetHashCode);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Equals", _m_Equals);
@@ -50,13 +51,16 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 7, 0, 0);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "Instantiate", _m_Instantiate_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 10, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Implicit", _m_op_Implicit);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "Instantiate", _m_Instantiate_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Destroy", _m_Destroy_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "DestroyImmediate", _m_DestroyImmediate_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectsOfType", _m_FindObjectsOfType_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "DontDestroyOnLoad", _m_DontDestroyOnLoad_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "FindObjectOfType", _m_FindObjectOfType_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Equality",__EqMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Inequality", _m_op_Inequality);
             
             
 			
@@ -72,7 +76,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -127,8 +133,55 @@ namespace XLua.CSObjectWrap
             
         }
         
+
+		
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Implicit(RealStatePtr L)
+        {					
+			
+            
+			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+                UnityEngine.Object rightside = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+				
+                LuaAPI.lua_pushboolean(L,  rightside)
+				;
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Inequality(RealStatePtr L)
+        {					
+			
+            
+			try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+			
+				if (translator.Assignable<UnityEngine.Object>(L, 1) && translator.Assignable<UnityEngine.Object>(L, 2))
+				{
+					UnityEngine.Object leftside = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
+					UnityEngine.Object rightside = (UnityEngine.Object)translator.GetObject(L, 2, typeof(UnityEngine.Object));
+
+					LuaAPI.lua_pushboolean(L, leftside != rightside);
+					
+					return 1;
+				}
+            
+			}
+			catch(System.Exception gen_e) {
+				return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+			}
+            return LuaAPI.luaL_error(L, "invalid arguments to right hand of != operator, need UnityEngine.Object!");
+            
+        }
         
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetInstanceID(RealStatePtr L)
         {

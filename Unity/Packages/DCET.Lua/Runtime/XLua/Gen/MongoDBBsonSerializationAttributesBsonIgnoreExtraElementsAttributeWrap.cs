@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(MongoDB.Bson.Serialization.Attributes.BsonIgnoreExtraElementsAttribute);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Apply", _m_Apply);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getIgnoreExtraElements", _g_get_IgnoreExtraElements);
@@ -60,7 +61,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Apply(RealStatePtr L)
         {

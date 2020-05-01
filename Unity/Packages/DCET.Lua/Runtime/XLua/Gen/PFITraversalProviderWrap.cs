@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.ITraversalProvider);
 			Utils.BeginObjectRegister(type, L, translator, 0, 2, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CanTraverse", _m_CanTraverse);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetTraversalCost", _m_GetTraversalCost);
 						
@@ -55,7 +56,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -67,8 +70,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CanTraverse(RealStatePtr L)
         {

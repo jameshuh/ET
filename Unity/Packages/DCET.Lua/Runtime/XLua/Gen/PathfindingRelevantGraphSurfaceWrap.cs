@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RelevantGraphSurface);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdatePosition", _m_UpdatePosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDrawGizmos", _m_OnDrawGizmos);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDrawGizmosSelected", _m_OnDrawGizmosSelected);
@@ -70,7 +71,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_UpdatePosition(RealStatePtr L)
         {

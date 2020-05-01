@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.MeshNode);
 			Utils.BeginObjectRegister(type, L, translator, 0, 18, 1, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertex", _m_GetVertex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertexCount", _m_GetVertexCount);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ClosestPointOnNode", _m_ClosestPointOnNode);
@@ -73,7 +74,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -85,8 +88,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetVertex(RealStatePtr L)
         {

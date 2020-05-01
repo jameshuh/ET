@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.SimpleSmoothModifier);
 			Utils.BeginObjectRegister(type, L, translator, 0, 24, 10, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Apply", _m_Apply);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CurvedNonuniform", _m_CurvedNonuniform);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SmoothOffsetSimple", _m_SmoothOffsetSimple);
@@ -97,7 +98,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -126,8 +129,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Apply(RealStatePtr L)
         {

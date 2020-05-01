@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Microsoft.IO.RecyclableMemoryStreamManager);
 			Utils.BeginObjectRegister(type, L, translator, 0, 50, 14, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetStream", _m_GetStream);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getBlockSize", _g_get_BlockSize);
@@ -128,7 +129,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -168,8 +171,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetStream(RealStatePtr L)
         {

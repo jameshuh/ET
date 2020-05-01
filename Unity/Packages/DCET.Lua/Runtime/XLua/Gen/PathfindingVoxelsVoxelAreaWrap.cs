@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Voxels.VoxelArea);
 			Utils.BeginObjectRegister(type, L, translator, 0, 30, 14, 12);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Reset", _m_Reset);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSpanCountAll", _m_GetSpanCountAll);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSpanCount", _m_GetSpanCount);
@@ -117,7 +118,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -148,8 +151,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Reset(RealStatePtr L)
         {

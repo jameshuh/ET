@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Stage);
 			Utils.BeginObjectRegister(type, L, translator, 0, 29, 9, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Dispose", _m_Dispose);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetTouchPosition", _m_GetTouchPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAllTouch", _m_GetAllTouch);
@@ -107,7 +108,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -136,8 +139,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Instantiate_xlua_st_(RealStatePtr L)
         {

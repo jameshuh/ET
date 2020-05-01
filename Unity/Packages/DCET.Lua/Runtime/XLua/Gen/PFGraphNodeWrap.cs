@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.GraphNode);
 			Utils.BeginObjectRegister(type, L, translator, 0, 33, 9, 7);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdateRecursiveG", _m_UpdateRecursiveG);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "FloodFill", _m_FloodFill);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetConnections", _m_GetConnections);
@@ -106,7 +107,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -118,8 +121,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_UpdateRecursiveG(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.EventContext);
 			Utils.BeginObjectRegister(type, L, translator, 0, 11, 6, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StopPropagation", _m_StopPropagation);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "PreventDefault", _m_PreventDefault);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CaptureTouch", _m_CaptureTouch);
@@ -72,7 +73,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -101,8 +104,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_StopPropagation(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Voxels.RasterizationMesh);
 			Utils.BeginObjectRegister(type, L, translator, 0, 20, 9, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RecalculateBounds", _m_RecalculateBounds);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Pool", _m_Pool);
 						
@@ -91,7 +92,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -143,8 +146,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_RecalculateBounds(RealStatePtr L)
         {

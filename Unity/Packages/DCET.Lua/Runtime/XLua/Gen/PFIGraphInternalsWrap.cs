@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.IGraphInternals);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 1, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDestroy", _m_OnDestroy);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DestroyAllNodes", _m_DestroyAllNodes);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SerializeExtraInfo", _m_SerializeExtraInfo);
@@ -63,7 +64,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -75,8 +78,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnDestroy(RealStatePtr L)
         {

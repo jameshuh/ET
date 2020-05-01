@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GSlider);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 7, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Setup_AfterAdd", _m_Setup_AfterAdd);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getonChanged", _g_get_onChanged);
@@ -78,7 +79,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -107,8 +110,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Setup_AfterAdd(RealStatePtr L)
         {

@@ -21,8 +21,10 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(FairyGUI.UpdateContext.ClipInfo);
-			Utils.BeginObjectRegister(type, L, translator, 0, 14, 7, 7);
+			Utils.BeginObjectRegister(type, L, translator, 0, 15, 7, 7);
 			
+            Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getrect", _g_get_rect);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getclipBox", _g_get_clipBox);
@@ -81,7 +83,25 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
+		
+		
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				FairyGUI.UpdateContext.ClipInfo gen_to_be_invoked;translator.Get(L, 1, out gen_to_be_invoked);
+				translator.Push(L, gen_to_be_invoked);
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -108,8 +128,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

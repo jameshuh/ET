@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Microsoft.IO.RecyclableMemoryStreamManager.Events);
 			Utils.BeginObjectRegister(type, L, translator, 0, 11, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MemoryStreamCreated", _m_MemoryStreamCreated);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MemoryStreamDisposed", _m_MemoryStreamDisposed);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MemoryStreamDoubleDispose", _m_MemoryStreamDoubleDispose);
@@ -68,7 +69,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -97,8 +100,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_MemoryStreamCreated(RealStatePtr L)
         {

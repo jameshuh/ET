@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.RVOSimulator);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 6, 6);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetSimulator", _m_GetSimulator);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getdesiredSimulationFPS", _g_get_desiredSimulationFPS);
@@ -80,7 +81,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -109,8 +112,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetSimulator(RealStatePtr L)
         {

@@ -64,7 +64,7 @@ System.namespace("DCET", function (namespace)
         local default
         default, hit = UnityEngine.Physics.Raycast(ray, nil, 1000, this.mapMask)
         if default then
-          this.ClickPoint = hit.point:__clone__()
+          this.ClickPoint = hit:getpoint()
           this.frameClickMap.X = this.ClickPoint.x
           this.frameClickMap.Y = this.ClickPoint.y
           this.frameClickMap.Z = this.ClickPoint.z

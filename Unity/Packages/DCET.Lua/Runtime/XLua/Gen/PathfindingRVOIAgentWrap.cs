@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.IAgent);
 			Utils.BeginObjectRegister(type, L, translator, 0, 31, 15, 13);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetTarget", _m_SetTarget);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetCollisionNormal", _m_SetCollisionNormal);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ForceSetVelocity", _m_ForceSetVelocity);
@@ -112,7 +113,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -124,8 +127,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetTarget(RealStatePtr L)
         {

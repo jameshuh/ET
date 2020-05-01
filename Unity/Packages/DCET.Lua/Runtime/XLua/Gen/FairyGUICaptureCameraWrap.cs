@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.CaptureCamera);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 2);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getcachedTransform", _g_get_cachedTransform);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getcachedCamera", _g_get_cachedCamera);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -103,8 +106,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CheckMain_xlua_st_(RealStatePtr L)
         {

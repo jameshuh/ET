@@ -24,6 +24,7 @@ namespace XLua.CSObjectWrap
 			Utils.BeginObjectRegister(type, L, translator, 1, 103, 60, 0);
 			Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__eq", __EqMeta);
             
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MakePointerType", _m_MakePointerType);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MakeByRefType", _m_MakeByRefType);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "MakeArrayType", _m_MakeArrayType);
@@ -201,13 +202,15 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 23, 1, 0);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 25, 1, 0);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "GetType", _m_GetType_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeFromProgID", _m_GetTypeFromProgID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeFromCLSID", _m_GetTypeFromCLSID_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeCode", _m_GetTypeCode_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeHandle", _m_GetTypeHandle_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeArray", _m_GetTypeArray_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Equality",__EqMeta);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Inequality", _m_op_Inequality);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "ReflectionOnlyGetType", _m_ReflectionOnlyGetType_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "GetTypeFromHandle", _m_GetTypeFromHandle_xlua_st_);
             
@@ -239,7 +242,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -277,8 +282,37 @@ namespace XLua.CSObjectWrap
             
         }
         
+
+		
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_op_Inequality(RealStatePtr L)
+        {					
+			
+            
+			try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+			
+				if (translator.Assignable<System.Type>(L, 1) && translator.Assignable<System.Type>(L, 2))
+				{
+					System.Type leftside = (System.Type)translator.GetObject(L, 1, typeof(System.Type));
+					System.Type rightside = (System.Type)translator.GetObject(L, 2, typeof(System.Type));
+
+					LuaAPI.lua_pushboolean(L, leftside != rightside);
+					
+					return 1;
+				}
+            
+			}
+			catch(System.Exception gen_e) {
+				return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+			}
+            return LuaAPI.luaL_error(L, "invalid arguments to right hand of != operator, need System.Type!");
+            
+        }
         
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetType_xlua_st_(RealStatePtr L)
         {

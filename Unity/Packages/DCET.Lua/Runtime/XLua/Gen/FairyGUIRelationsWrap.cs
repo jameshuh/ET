@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Relations);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Add", _m_Add);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Remove", _m_Remove);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Contains", _m_Contains);
@@ -68,7 +69,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Add(RealStatePtr L)
         {

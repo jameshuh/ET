@@ -108,7 +108,7 @@ System.namespace("DCET", function (namespace)
     end
     Run = function (this, memoryStream)
       memoryStream:Seek(2 --[[Packet.MessageIndex]], SystemIO.SeekOrigin.Begin)
-      local opcode = System.BitConverter.ToUInt16(memoryStream:GetBuffer(), 0 --[[Packet.OpcodeIndex]])
+      local opcode = DCETRuntime.StreamHelper.ToUInt16(memoryStream, 0 --[[Packet.OpcodeIndex]])
 
       local message
       local default = System.try(function ()
@@ -221,9 +221,8 @@ System.namespace("DCET", function (namespace)
       stream:SetLength(2 --[[Packet.MessageIndex]])
 
       getNetwork(this).MessagePacker:SerializeTo(message, stream)
-      stream:Seek(0, SystemIO.SeekOrigin.Begin)
 
-      DCETRuntime.ByteHelper.WriteTo(stream:GetBuffer(), 0, opcode)
+      DCETRuntime.StreamHelper.WriteToUshort(stream, 0, opcode)
 
       Send2(this, stream)
     end

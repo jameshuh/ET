@@ -4,6 +4,7 @@ local BehaviorDesignerRuntime = BehaviorDesigner.Runtime
 local BehaviorDesignerTasks = BehaviorDesigner.Runtime.Tasks
 local DCET = DCET
 local DCETRuntime = DCETRuntime
+local UnityEngine = UnityEngine
 local DictHotfixActionEntity = System.Dictionary(BehaviorDesignerTasks.HotfixAction, DCET.Entity)
 local DictHotfixCompositeEntity = System.Dictionary(BehaviorDesignerTasks.HotfixComposite, DCET.Entity)
 local DictHotfixDecoratorEntity = System.Dictionary(BehaviorDesignerTasks.HotfixDecorator, DCET.Entity)
@@ -51,7 +52,7 @@ System.namespace("DCET", function (namespace)
 
       local behaviorTree = behavior.Behavior
 
-      if not UnityEngine.op_Implicit(behaviorTree) then
+      if not UnityEngine.Object.op_Implicit(behaviorTree) then
         return
       end
 

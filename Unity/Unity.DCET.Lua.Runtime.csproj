@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_12;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;NET452;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2018_4_12;UNITY_2018_4;UNITY_2018;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;NET452;THREAD_SAFE;XLUA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -113,7 +113,6 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeAssetDatabaseHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeAssetLoaderAsyncWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeBundleDownloaderWrap.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeByteHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeCameraDepthTextureWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeCircularBufferWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeComponentViewWrap.cs" />
@@ -144,8 +143,8 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeReferenceCollectorWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeReferenceLoaderWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeResourcesHelperWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStreamHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStringHelperWrap.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeUnityEngineHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeUnityWebRequestAsyncWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeVersionConfigWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeZipHelperWrap.cs" />
@@ -500,6 +499,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemCollectionsGenericList1SystemInt32Wrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemCollectionsGenericList1SystemStringWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemCollectionsIEnumeratorBridge.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemConvertWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemIOIOExceptionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemIOMemoryStreamWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\SystemIOPathWrap.cs" />
@@ -516,21 +516,27 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAnimationClipWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAnimationCurveWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAnimatorControllerParameterWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAnimatorWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAssetBundleManifestWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineAsyncOperationWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineBehaviourWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineBoundsWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineCameraWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineColorWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineComponentWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineDebugWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineGameObjectWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineInputWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineKeyframeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineLightWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineMathfWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineMonoBehaviourWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineObjectWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineParticleSystemWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEnginePhysicsWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineQuaternionWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineRay2DWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineRaycastHitWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineRayWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineRendererWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineResourcesWrap.cs" />

@@ -17,7 +17,7 @@ System.namespace("DCET", function (namespace)
 
       local unitComponent = DCET.Game.Scene:GetComponent(DCET.UnitComponent)
 
-      local go = UnityEngine.Object.Instantiate(prefab)
+      local go = System.as(UnityEngine.Object.Instantiate(prefab), UnityEngine.GameObject)
       local unit = DCET.EntityFactory.CreateWithId1(domain, id, go, DCET.Unit, UnityEngine.GameObject)
 
       unit:AddComponent(DCET.AnimatorComponent)

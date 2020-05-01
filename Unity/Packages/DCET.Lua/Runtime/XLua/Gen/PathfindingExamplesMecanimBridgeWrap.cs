@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Examples.MecanimBridge);
 			Utils.BeginObjectRegister(type, L, translator, 0, 2, 1, 1);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getvelocitySmoothing", _g_get_velocitySmoothing);
             
@@ -57,7 +58,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -86,8 +89,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

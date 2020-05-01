@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.DragDropManager);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartDrag", _m_StartDrag);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Cancel", _m_Cancel);
 						
@@ -61,7 +62,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -90,8 +93,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_StartDrag(RealStatePtr L)
         {

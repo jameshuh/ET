@@ -15,14 +15,14 @@ System.namespace("DCET", function (namespace)
       return UnityEngine.Vector3(pos.x, 0, pos.z)
     end
     AngleToQuaternion = function (angle)
-      return UnityEngine.Quaternion.AngleAxis(- angle, UnityEngine.Vector3.getup()) * UnityEngine.Quaternion.AngleAxis(90, UnityEngine.Vector3.getup())
+      return UnityEngine.Quaternion.op_Multiply(UnityEngine.Quaternion.AngleAxis(- angle, UnityEngine.Vector3.getup()), UnityEngine.Quaternion.AngleAxis(90, UnityEngine.Vector3.getup()))
     end
     GetVector3ToQuaternion = function (source, dire)
       local nowPos = source:__clone__()
-      if nowPos == dire then
+      if UnityEngine.Vector3.op_Equality(nowPos, dire) then
         return UnityEngine.Quaternion()
       end
-      local direction = (dire - nowPos):getnormalized()
+      local direction = (UnityEngine.Vector3.op_Subtraction(dire, nowPos)):getnormalized()
       return UnityEngine.Quaternion.LookRotation(direction, UnityEngine.Vector3.getup())
     end
     Distance2D = function (v1, v2)
@@ -31,7 +31,7 @@ System.namespace("DCET", function (namespace)
       return UnityEngine.Vector2.Distance(d1, d2)
     end
     GetAngleToQuaternion = function (angle)
-      return UnityEngine.Quaternion.AngleAxis(- angle, UnityEngine.Vector3.getup()) * UnityEngine.Quaternion.AngleAxis(90, UnityEngine.Vector3.getup())
+      return UnityEngine.Quaternion.op_Multiply(UnityEngine.Quaternion.AngleAxis(- angle, UnityEngine.Vector3.getup()), UnityEngine.Quaternion.AngleAxis(90, UnityEngine.Vector3.getup()))
     end
     Vector3ToAngle360 = function (from, to)
       local angle = UnityEngine.Vector3.Angle(from, to)
@@ -65,10 +65,10 @@ System.namespace("DCET", function (namespace)
     -- <returns></returns>
     RayCastSphere = function (ray, center, redius, dist)
       dist = 0
-      local ma = center - ray.origin:__clone__()
-      local distance = UnityEngine.Vector3.Cross(ma, ray.direction:__clone__()):getmagnitude() / ray.direction:__clone__():getmagnitude()
+      local ma = UnityEngine.Vector3.op_Subtraction(center, ray:getorigin())
+      local distance = UnityEngine.Vector3.Cross(ma, ray:getdirection()):getmagnitude() / ray:getdirection():getmagnitude()
       if distance < redius then
-        local op = GGTheorem(UnityEngine.Vector3.Distance(center, ray.origin:__clone__()), distance)
+        local op = GGTheorem(UnityEngine.Vector3.Distance(center, ray:getorigin()), distance)
         local rp = GGTheorem(redius, distance)
         dist = op - rp
         return true, dist
@@ -96,7 +96,7 @@ System.namespace("DCET", function (namespace)
     PointOnLeftSideOfVector = function (vector3, originPoint, point)
       local originVec2 = IgnoreYAxis(originPoint)
 
-      local pointVec2 = (IgnoreYAxis(point) - originVec2):getnormalized()
+      local pointVec2 = (UnityEngine.Vector2.op_Subtraction(IgnoreYAxis(point), originVec2)):getnormalized()
 
       local vector2 = IgnoreYAxis(vector3)
 

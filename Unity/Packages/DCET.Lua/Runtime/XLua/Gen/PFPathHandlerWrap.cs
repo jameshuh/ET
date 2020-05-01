@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.PathHandler);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 6, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InitializeForPath", _m_InitializeForPath);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DestroyNode", _m_DestroyNode);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InitializeNode", _m_InitializeNode);
@@ -72,7 +73,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -103,8 +106,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_InitializeForPath(RealStatePtr L)
         {

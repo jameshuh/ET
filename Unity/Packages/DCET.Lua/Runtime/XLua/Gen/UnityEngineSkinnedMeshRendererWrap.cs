@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(UnityEngine.SkinnedMeshRenderer);
 			Utils.BeginObjectRegister(type, L, translator, 0, 19, 8, 8);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetBlendShapeWeight", _m_GetBlendShapeWeight);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetBlendShapeWeight", _m_SetBlendShapeWeight);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "BakeMesh", _m_BakeMesh);
@@ -88,7 +89,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -117,8 +120,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetBlendShapeWeight(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.RVOController);
 			Utils.BeginObjectRegister(type, L, translator, 0, 36, 17, 13);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CalculateMovementDelta", _m_CalculateMovementDelta);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetCollisionNormal", _m_SetCollisionNormal);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "To2D", _m_To2D);
@@ -119,7 +120,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -148,8 +151,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CalculateMovementDelta(RealStatePtr L)
         {
@@ -252,7 +257,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<UnityEngine.Vector3>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<UnityEngine.Vector3>(L, 2)) 
                 {
                     UnityEngine.Vector3 _p;translator.Get(L, 2, out _p);
                     float _elevation;

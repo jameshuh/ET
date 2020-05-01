@@ -2,6 +2,7 @@
 local System = System
 local DCET = DCET
 local DCETRuntime = DCETRuntime
+local SystemIO = System.IO
 local SystemNet = System.Net
 local SystemNetSockets = System.Net.Sockets
 local DCET
@@ -108,6 +109,8 @@ System.namespace("DCET", function (namespace)
         end
       until 1
 
+      stream:Seek(0, SystemIO.SeekOrigin.Begin)
+
       this.sendBuffer:WriteStream(stream)
 
       GetService(this):MarkNeedStartSend(this.Id)
@@ -146,7 +149,7 @@ System.namespace("DCET", function (namespace)
       local e = System.cast(SystemNetSockets.SocketAsyncEventArgs, o)
 
       if e:getSocketError() ~= SystemNetSockets.SocketError.Success then
-        this:OnError(e:getSocketError())
+        this:OnError(System.Convert.ToInt32(e:getSocketError()))
         return
       end
 
@@ -157,23 +160,18 @@ System.namespace("DCET", function (namespace)
     end
     OnDisconnectComplete = function (this, o)
       local e = System.cast(SystemNetSockets.SocketAsyncEventArgs, o)
-      this:OnError(e:getSocketError())
+      this:OnError(System.Convert.ToInt32(e:getSocketError()))
     end
     StartRecv = function (this)
-      local size = this.recvBuffer.ChunkSize - this.recvBuffer:getLastIndex()
-      RecvAsync(this, this.recvBuffer:getLast(), this.recvBuffer:getLastIndex(), size)
+      RecvAsync(this)
     end
-    RecvAsync = function (this, buffer, offset, count)
-      System.try(function ()
-        this.innArgs:SetBuffer(buffer, offset, count)
-      end, function (default)
-        local e = default
-        System.throw(System.Exception("socket set buffer error: " .. #buffer .. ", " .. offset .. ", " .. count, e))
-      end)
+    RecvAsync = function (this)
+      this.recvBuffer:SetLastBuffer(this.innArgs)
 
       if this.socket:ReceiveAsync(this.innArgs) then
         return
       end
+
       OnRecvComplete(this, this.innArgs)
     end
     OnRecvComplete = function (this, o)
@@ -183,7 +181,7 @@ System.namespace("DCET", function (namespace)
       local e = System.cast(SystemNetSockets.SocketAsyncEventArgs, o)
 
       if e:getSocketError() ~= SystemNetSockets.SocketError.Success then
-        this:OnError(e:getSocketError())
+        this:OnError(System.Convert.ToInt32(e:getSocketError()))
         return
       end
 
@@ -202,7 +200,7 @@ System.namespace("DCET", function (namespace)
       while true do
         local default = System.try(function ()
           if not this.parser:Parse() then
-            return
+            return false
           end
         end, function (default)
           local ee = default
@@ -212,6 +210,8 @@ System.namespace("DCET", function (namespace)
         end)
         if default then
           return
+        elseif default == false then
+          break
         end
 
         System.try(function ()
@@ -244,20 +244,11 @@ System.namespace("DCET", function (namespace)
 
       this.isSending = true
 
-      local sendSize = this.sendBuffer.ChunkSize - this.sendBuffer:getFirstIndex()
-      if sendSize > this.sendBuffer:getLength() then
-        sendSize = System.toInt32(this.sendBuffer:getLength())
-      end
-
-      SendAsync(this, this.sendBuffer:getFirst(), this.sendBuffer:getFirstIndex(), sendSize)
+      SendAsync(this)
     end
-    SendAsync = function (this, buffer, offset, count)
-      System.try(function ()
-        this.outArgs:SetBuffer(buffer, offset, count)
-      end, function (default)
-        local e = default
-        System.throw(System.Exception("socket set buffer error: " .. #buffer .. ", " .. offset .. ", " .. count, e))
-      end)
+    SendAsync = function (this)
+      this.sendBuffer:SetFirstBuffer(this.outArgs)
+
       if this.socket:SendAsync(this.outArgs) then
         return
       end
@@ -270,7 +261,7 @@ System.namespace("DCET", function (namespace)
       local e = System.cast(SystemNetSockets.SocketAsyncEventArgs, o)
 
       if e:getSocketError() ~= SystemNetSockets.SocketError.Success then
-        this:OnError(e:getSocketError())
+        this:OnError(System.Convert.ToInt32(e:getSocketError()))
         return
       end
 

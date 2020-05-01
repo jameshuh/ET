@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AstarData);
 			Utils.BeginObjectRegister(type, L, translator, 0, 27, 6, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetData", _m_GetData);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetData", _m_SetData);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Awake", _m_Awake);
@@ -90,7 +91,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -119,8 +122,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetData(RealStatePtr L)
         {
@@ -294,7 +299,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<PF.SerializeSettings>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<PF.SerializeSettings>(L, 2)) 
                 {
                     PF.SerializeSettings _settings = (PF.SerializeSettings)translator.GetObject(L, 2, typeof(PF.SerializeSettings));
                     uint _checksum;

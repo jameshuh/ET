@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.GraphUpdateObject);
 			Utils.BeginObjectRegister(type, L, translator, 0, 31, 14, 14);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WillUpdateNode", _m_WillUpdateNode);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RevertFromBackup", _m_RevertFromBackup);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Apply", _m_Apply);
@@ -112,7 +113,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -150,8 +153,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_WillUpdateNode(RealStatePtr L)
         {

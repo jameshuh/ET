@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.PlayTransitionAction);
 			Utils.BeginObjectRegister(type, L, translator, 0, 9, 4, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Setup", _m_Setup);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "gettransitionName", _g_get_transitionName);
@@ -70,7 +71,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Setup(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.Path);
 			Utils.BeginObjectRegister(type, L, translator, 0, 29, 13, 10);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetTotalLength", _m_GetTotalLength);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WaitForPath", _m_WaitForPath);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsDone", _m_IsDone);
@@ -105,7 +106,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -117,8 +120,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetTotalLength(RealStatePtr L)
         {

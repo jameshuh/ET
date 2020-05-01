@@ -132,11 +132,10 @@ System.namespace("DCET", function (namespace)
       local timeNow = GetService(this).TimeNow
 
       System.try(function ()
-        local buffer = this.memoryStream:GetBuffer()
-        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 2 --[[KcpProtocalType.ACK]])
-        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        DCETRuntime.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
-        this.socket:SendTo(buffer, 0, 9, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
+        DCETRuntime.StreamHelper.WriteToByte(this.memoryStream, 0, 2 --[[KcpProtocalType.ACK]])
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 1, getLocalConn(this))
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 5, this.RemoteConn)
+        this.socket:SendTo(this.memoryStream:GetBuffer(), 0, 9, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
 
         -- 200毫秒后再次update发送connect请求
         GetService(this):AddToUpdateNextTime(timeNow + 200, this.Id)
@@ -155,10 +154,9 @@ System.namespace("DCET", function (namespace)
 
         this.lastRecvTime = timeNow
 
-        local buffer = this.memoryStream:GetBuffer()
-        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 1 --[[KcpProtocalType.SYN]])
-        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        this.socket:SendTo(buffer, 0, 5, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
+        DCETRuntime.StreamHelper.WriteToByte(this.memoryStream, 0, 1 --[[KcpProtocalType.SYN]])
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 1, getLocalConn(this))
+        this.socket:SendTo(this.memoryStream:GetBuffer(), 0, 5, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
 
         -- 200毫秒后再次update发送connect请求
         GetService(this):AddToUpdateNextTime(timeNow + 300, this.Id)
@@ -173,12 +171,11 @@ System.namespace("DCET", function (namespace)
         return
       end
       System.try(function ()
-        local buffer = this.memoryStream:GetBuffer()
-        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 3 --[[KcpProtocalType.FIN]])
-        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        DCETRuntime.ByteHelper.WriteTo(buffer, 5, this.RemoteConn)
-        DCETRuntime.ByteHelper.WriteTo(buffer, 9, System.toUInt32(this.Error))
-        this.socket:SendTo(buffer, 0, 13, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
+        DCETRuntime.StreamHelper.WriteToByte(this.memoryStream, 0, 3 --[[KcpProtocalType.FIN]])
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 1, getLocalConn(this))
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 5, this.RemoteConn)
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 9, System.toUInt32(this.Error))
+        this.socket:SendTo(this.memoryStream:GetBuffer(), 0, 13, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
       end, function (default)
         local e = default
         DCET.Log.Exception(e)
@@ -302,12 +299,11 @@ System.namespace("DCET", function (namespace)
           return true
         end
 
-        local buffer = this.memoryStream:GetBuffer()
-        DCETRuntime.ByteHelper.WriteTo(buffer, 0, 4 --[[KcpProtocalType.MSG]])
+        DCETRuntime.StreamHelper.WriteToByte(this.memoryStream, 0, 4 --[[KcpProtocalType.MSG]])
         -- 每个消息头部写下该channel的id;
-        DCETRuntime.ByteHelper.WriteTo(buffer, 1, getLocalConn(this))
-        SystemInteropServices.Marshal.Copy(bytes, buffer, 5, count)
-        this.socket:SendTo(buffer, 0, count + 5, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
+        DCETRuntime.StreamHelper.WriteToUint(this.memoryStream, 1, getLocalConn(this))
+        SystemInteropServices.Marshal.Copy(bytes, this.memoryStream:GetBuffer(), 5, count)
+        this.socket:SendTo(this.memoryStream:GetBuffer(), 0, count + 5, SystemNetSockets.SocketFlags.None, this.remoteEndPoint)
       end, function (default)
         local e = default
         DCET.Log.Exception(e)

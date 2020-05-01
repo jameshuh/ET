@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.EuclideanEmbedding);
 			Utils.BeginObjectRegister(type, L, translator, 0, 13, 5, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetHeuristic", _m_GetHeuristic);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "RecalculatePivots", _m_RecalculatePivots);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnDrawGizmos", _m_OnDrawGizmos);
@@ -76,7 +77,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -105,8 +108,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetHeuristic(RealStatePtr L)
         {

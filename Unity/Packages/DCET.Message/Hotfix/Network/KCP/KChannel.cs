@@ -168,11 +168,10 @@ namespace DCET
 
 			try
 			{
-				byte[] buffer = this.memoryStream.GetBuffer();
-				buffer.WriteTo(0, KcpProtocalType.ACK);
-				buffer.WriteTo(1, LocalConn);
-				buffer.WriteTo(5, RemoteConn);
-				this.socket.SendTo(buffer, 0, 9, SocketFlags.None, remoteEndPoint);
+				this.memoryStream.WriteToByte(0, KcpProtocalType.ACK);
+				this.memoryStream.WriteToUint(1, LocalConn);
+				this.memoryStream.WriteToUint(5, RemoteConn);
+				this.socket.SendTo(this.memoryStream.GetBuffer(), 0, 9, SocketFlags.None, remoteEndPoint);
 				
 				// 200毫秒后再次update发送connect请求
 				this.GetService().AddToUpdateNextTime(timeNow + 200, this.Id);
@@ -195,10 +194,9 @@ namespace DCET
 				
 				this.lastRecvTime = timeNow;
 				
-				byte[] buffer = this.memoryStream.GetBuffer();
-				buffer.WriteTo(0, KcpProtocalType.SYN);
-				buffer.WriteTo(1, this.LocalConn);
-				this.socket.SendTo(buffer, 0, 5, SocketFlags.None, remoteEndPoint);
+				memoryStream.WriteToByte(0, KcpProtocalType.SYN);
+				memoryStream.WriteToUint(1, this.LocalConn);
+				this.socket.SendTo(memoryStream.GetBuffer(), 0, 5, SocketFlags.None, remoteEndPoint);
 				
 				// 200毫秒后再次update发送connect请求
 				this.GetService().AddToUpdateNextTime(timeNow + 300, this.Id);
@@ -218,12 +216,11 @@ namespace DCET
 			}
 			try
 			{
-				byte[] buffer = this.memoryStream.GetBuffer();
-				buffer.WriteTo(0, KcpProtocalType.FIN);
-				buffer.WriteTo(1, this.LocalConn);
-				buffer.WriteTo(5, this.RemoteConn);
-				buffer.WriteTo(9, (uint)this.Error);
-				this.socket.SendTo(buffer, 0, 13, SocketFlags.None, remoteEndPoint);
+				memoryStream.WriteToByte(0, KcpProtocalType.FIN);
+				memoryStream.WriteToUint(1, this.LocalConn);
+				memoryStream.WriteToUint(5, this.RemoteConn);
+				memoryStream.WriteToUint(9, (uint)this.Error);
+				this.socket.SendTo(memoryStream.GetBuffer(), 0, 13, SocketFlags.None, remoteEndPoint);
 			}
 			catch (Exception e)
 			{
@@ -371,12 +368,11 @@ namespace DCET
 					return;
 				}
 
-				byte[] buffer = this.memoryStream.GetBuffer();
-				buffer.WriteTo(0, KcpProtocalType.MSG);
+				memoryStream.WriteToByte(0, KcpProtocalType.MSG);
 				// 每个消息头部写下该channel的id;
-				buffer.WriteTo(1, this.LocalConn);
-				Marshal.Copy(bytes, buffer, 5, count);
-				this.socket.SendTo(buffer, 0, count + 5, SocketFlags.None, this.remoteEndPoint);
+				memoryStream.WriteToUint(1, this.LocalConn);
+				Marshal.Copy(bytes, memoryStream.GetBuffer(), 5, count);
+				this.socket.SendTo(memoryStream.GetBuffer(), 0, count + 5, SocketFlags.None, this.remoteEndPoint);
 			}
 			catch (Exception e)
 			{

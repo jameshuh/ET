@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.RandomPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 4);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getsearchLength", _g_get_searchLength);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getspread", _g_get_spread);
@@ -70,7 +71,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Construct_xlua_st_(RealStatePtr L)
         {

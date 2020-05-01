@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GList);
 			Utils.BeginObjectRegister(type, L, translator, 0, 66, 22, 17);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Dispose", _m_Dispose);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetFromPool", _m_GetFromPool);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddItemFromPool", _m_AddItemFromPool);
@@ -158,7 +159,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -187,8 +190,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Dispose(RealStatePtr L)
         {

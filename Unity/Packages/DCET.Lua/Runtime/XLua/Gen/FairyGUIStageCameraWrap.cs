@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.StageCamera);
 			Utils.BeginObjectRegister(type, L, translator, 0, 7, 3, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ApplyModifiedProperties", _m_ApplyModifiedProperties);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getconstantSize", _g_get_constantSize);
@@ -89,7 +90,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -118,8 +121,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ApplyModifiedProperties(RealStatePtr L)
         {

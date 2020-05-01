@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.IHtmlObject);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 4, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Create", _m_Create);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetPosition", _m_SetPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Add", _m_Add);
@@ -67,7 +68,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -79,8 +82,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Create(RealStatePtr L)
         {

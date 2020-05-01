@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GObject);
 			Utils.BeginObjectRegister(type, L, translator, 0, 183, 97, 49);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetXY", _m_SetXY);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetPosition", _m_SetPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Center", _m_Center);
@@ -384,7 +385,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -413,8 +416,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetXY(RealStatePtr L)
         {

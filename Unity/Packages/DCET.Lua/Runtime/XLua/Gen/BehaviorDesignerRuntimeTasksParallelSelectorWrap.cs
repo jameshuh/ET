@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(BehaviorDesigner.Runtime.Tasks.ParallelSelector);
 			Utils.BeginObjectRegister(type, L, translator, 0, 9, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnAwake", _m_OnAwake);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnChildStarted", _m_OnChildStarted);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CanRunParallelChildren", _m_CanRunParallelChildren);
@@ -62,7 +63,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -91,8 +94,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnAwake(RealStatePtr L)
         {

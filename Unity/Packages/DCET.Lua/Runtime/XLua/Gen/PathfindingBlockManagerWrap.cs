@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.BlockManager);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "NodeContainsAnyOf", _m_NodeContainsAnyOf);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "NodeContainsAnyExcept", _m_NodeContainsAnyExcept);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InternalBlock", _m_InternalBlock);
@@ -57,7 +58,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -86,8 +89,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_NodeContainsAnyOf(RealStatePtr L)
         {

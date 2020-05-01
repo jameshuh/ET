@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(BehaviorDesigner.Runtime.Tasks.HotfixComposite);
 			Utils.BeginObjectRegister(type, L, translator, 0, 95, 33, 33);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetPriority", _m_GetPriority);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetUtility", _m_GetUtility);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnAwake", _m_OnAwake);
@@ -214,7 +215,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -243,8 +246,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetPriority(RealStatePtr L)
         {

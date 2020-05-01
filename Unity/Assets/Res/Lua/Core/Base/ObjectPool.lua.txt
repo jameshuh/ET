@@ -34,7 +34,7 @@ System.namespace("DCET", function (namespace)
       this.ViewGO:gettransform():SetParent(Game:gettransform(), false)
       local componentView = System.as(this.ViewGO:AddComponent(System.typeof(DCETRuntime.ComponentView)), DCETRuntime.ComponentView)
 
-      if UnityEngine.op_Implicit(componentView) then
+      if UnityEngine.Object.op_Implicit(componentView) then
         componentView:setComponent(this)
       end
     end
@@ -92,7 +92,7 @@ System.namespace("DCET", function (namespace)
       this.ViewGO:gettransform():SetParent(Game:gettransform(), false)
       local componentView = System.as(this.ViewGO:AddComponent(System.typeof(DCETRuntime.ComponentView)), DCETRuntime.ComponentView)
 
-      if UnityEngine.op_Implicit(componentView) then
+      if UnityEngine.Object.op_Implicit(componentView) then
         componentView:setComponent(this)
       end
     end
@@ -123,7 +123,7 @@ System.namespace("DCET", function (namespace)
         queue = DCET.ComponentQueue(type:getName())
 
 
-        if UnityEngine.op_Inequality(queue.ViewGO, nil) then
+        if UnityEngine.Object.op_Inequality(queue.ViewGO, nil) then
           queue.ViewGO:gettransform():SetParent(this.ViewGO:gettransform())
           queue.ViewGO:setname(type:getName() .. "s")
         end
@@ -132,7 +132,7 @@ System.namespace("DCET", function (namespace)
       end
 
 
-      if UnityEngine.op_Inequality(obj.ViewGO, nil) then
+      if UnityEngine.Object.op_Inequality(obj.ViewGO, nil) then
         obj.ViewGO:gettransform():SetParent(queue.ViewGO:gettransform())
       end
 

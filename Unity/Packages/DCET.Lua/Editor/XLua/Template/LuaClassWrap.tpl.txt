@@ -50,6 +50,14 @@ local OpCallNameMap = {
     op_RightShift = ">>",
 }
 
+local CSOpCallNameMap = {
+    op_Inequality = "!=",
+	op_Implicit = "",
+	op_Explicit = "",
+	op_GreaterThan = ">",	
+	op_GreaterThanOrEqual  = ">=",
+}
+
 local obj_method_count = 0
 local obj_getter_count = 0
 local obj_setter_count = 0
@@ -65,6 +73,10 @@ ForEachCsList(methods, function(method)
 	    obj_method_count = obj_method_count + 1
     end 
 end)
+
+if type.IsValueType then
+    obj_method_count = obj_method_count + 1
+end
 
 ForEachCsList(events, function(event)
     if event.IsStatic then
@@ -143,6 +155,8 @@ namespace XLua.CSObjectWrap
 			Utils.BeginObjectRegister(type, L, translator, <%=meta_func_count%>, <%=obj_method_count%>, <%=obj_getter_count%>, <%=obj_setter_count%>);
 			<%ForEachCsList(operators, function(operator)%>Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "<%=(OpNameMap[operator.Name]):gsub('Meta', ''):lower()%>", <%=OpNameMap[operator.Name]%>);
             <%end)%>
+            <%if type.IsValueType then %>Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            <%end%>			
 			<%ForEachCsList(methods, function(method) if not method.IsStatic and not HasInternalExtensionMethod(method, type) then %>Utils.RegisterFunc(L, Utils.METHOD_IDX, "<%=method.Name%>", _m_<%=method.Name%>);
 			<% end end)%>			
             <%ForEachCsList(getters, function(getter) if not getter.IsStatic then %>Utils.RegisterFunc(L, Utils.METHOD_IDX, "get<%=getter.Name%>", _g_get_<%=getter.Name%>);
@@ -169,7 +183,7 @@ namespace XLua.CSObjectWrap
 			    null, null, null);
 
 		    Utils.BeginClassRegister(type, L, __CreateInstance, <%=cls_field_count + cls_getter_count + cls_setter_count%>, <%=cls_getter_count%>, <%=cls_setter_count%>);
-			<%ForEachCsList(methods, function(method) if method.IsStatic or HasInternalExtensionMethod(method, type) then %>Utils.RegisterFunc(L, Utils.CLS_IDX, "<%=method.Overloads[0].Name%>", _m_<%=method.Name%>);
+			<%ForEachCsList(methods, function(method) if method.IsStatic or HasInternalExtensionMethod(method, type) then %>Utils.RegisterFunc(L, Utils.CLS_IDX, "<%=method.Overloads[0].Name%>",<%if OpNameMap[method.Name] == nil then%> _m_<%=method.Name%><%else%><%= OpNameMap[method.Name]%><%end%>);
             <% end end)%>
             <%ForEachCsList(getters, function(getter) if getter.IsStatic and getter.ReadOnly then %>Utils.RegisterObject(L, translator, Utils.CLS_IDX, "get<%=getter.Name%>", <%=CsFullTypeName(type).."."..getter.Name%>);
             <%end end)%>
@@ -197,7 +211,25 @@ namespace XLua.CSObjectWrap
             <%end end)%>
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		<%if type.IsValueType then %>
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				<%=GetSelfStatement(type)%>;
+				<%=GetPushStatement(type, "gen_to_be_invoked")%>;
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
+        <%end%>
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -216,7 +248,7 @@ namespace XLua.CSObjectWrap
 					end
 					local def_count = constructor_def_vals[ci]
 					local param_count = parameters.Length
-					local in_num = CalcCsList(parameters, function(p) return not (p.IsOut and p.ParameterType.IsByRef) end)
+					local in_num = CalcCsList(parameters, function(p) return true end)
                     local out_num = CalcCsList(parameters, function(p) return p.IsOut or p.ParameterType.IsByRef end)
 					local real_param_count = param_count - def_count
                     local has_v_params = param_count > 0 and IsParams(parameters[param_count - 1])
@@ -225,7 +257,8 @@ namespace XLua.CSObjectWrap
                 if pi >= real_param_count then return end 
                 local parameterType = parameter.ParameterType
                 if has_v_params and pi == param_count - 1 then  parameterType = parameterType:GetElementType() end
-				if not (parameter.IsOut and parameter.ParameterType.IsByRef) then in_pos = in_pos + 1
+				in_pos = in_pos + 1
+				if not (parameter.IsOut and parameter.ParameterType.IsByRef) then 
                 %> && <%=GetCheckStatement(parameterType, in_pos+1, has_v_params and pi == param_count - 1)%><% 
 				end
 				end)%>)
@@ -239,9 +272,7 @@ namespace XLua.CSObjectWrap
                     <%local in_pos = 0
                     ForEachCsList(parameters, function(parameter, pi)
                         if pi >= real_param_count then return end
-                        if not (parameter.IsOut and parameter.ParameterType.IsByRef) then 
-                            in_pos = in_pos + 1
-                        end
+                        in_pos = in_pos + 1
                         if parameter.ParameterType.IsByRef then
                         %><%=GetPushStatement(parameter.ParameterType:GetElementType(), LocalName(parameter.Name))%>;
                         <%if not parameter.IsOut and parameter.ParameterType.IsByRef and NeedUpdate(parameter.ParameterType) then 
@@ -405,8 +436,53 @@ namespace XLua.CSObjectWrap
             <%end%>
         }
         <%end)%>
+
+		<%ForEachCsList(methods, function(operator) if string.find(operator.Name, "op_", 1) == 1 and OpNameMap[operator.Name] == nil then %>
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_<%=operator.Name%>(RealStatePtr L)
+        {					
+			
+            <%if operator.Name ~= "op_Implicit" and operator.Name ~= "op_Explicit" then %>
+			try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            <%ForEachCsList(operator.Overloads, function(overload)
+                local left_param = overload:GetParameters()[0]
+                local right_param = overload:GetParameters()[1]
+            %>
+			
+				if (<%=GetCheckStatement(left_param.ParameterType, 1)%> && <%=GetCheckStatement(right_param.ParameterType, 2)%>)
+				{
+					<%=GetCasterStatement(left_param.ParameterType, 1, "leftside", true)%>;
+					<%=GetCasterStatement(right_param.ParameterType, 2, "rightside", true)%>;
+
+					<%=GetPushStatement(overload.ReturnType, "leftside " .. CSOpCallNameMap[operator.Name] .. " rightside")%>;
+					
+					return 1;
+				}
+            <%end)%>
+			}
+			catch(System.Exception gen_e) {
+				return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+			}
+            return LuaAPI.luaL_error(L, "invalid arguments to right hand of <%=CSOpCallNameMap[operator.Name]%> operator, need <%=CsFullTypeName(type)%>!");
+            <%else%>
+			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+                <%=GetCasterStatement(type, 1, "rightside", true)%>;
+				<%if operator.Name ~= "op_Explicit" then%>
+                <%=GetPushStatement(operator.Overloads[0].ReturnType, CSOpCallNameMap[operator.Name] .. " rightside")%>
+				<%else%>
+				<%=GetPushStatement(operator.Overloads[0].ReturnType, "(" .. operator.Overloads[0].ReturnType.FullName .. ") rightside")%>
+				<%end%>;
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+            <%end%>
+        }
+        <%end end)%>
         
-        <%ForEachCsList(methods, function(method)%>
+		<%ForEachCsList(methods, function(method) if string.find(method.Name, "op_", 1) ~= 1 then %>
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_<%=method.Name%>(RealStatePtr L)
         {
@@ -425,7 +501,7 @@ namespace XLua.CSObjectWrap
             <%end%>
                 <%ForEachCsList(method.Overloads, function(overload, oi)
                 local parameters = GetMethodParameters(overload)
-                local in_num = CalcCsList(parameters, function(p) return not (p.IsOut and p.ParameterType.IsByRef) end)
+                local in_num = CalcCsList(parameters, function(p) return true end)
 				local param_offset = method.IsStatic and 0 or 1
                 local out_num = CalcCsList(parameters, function(p) return p.IsOut or p.ParameterType.IsByRef end)
                 local in_pos = 0
@@ -443,7 +519,8 @@ namespace XLua.CSObjectWrap
                         if pi >= real_param_count then return end
                         local parameterType = parameter.ParameterType
                         if has_v_params and pi == param_count - 1 then  parameterType = parameterType:GetElementType() end
-                        if not (parameter.IsOut and parameter.ParameterType.IsByRef) then in_pos = in_pos + 1; 
+						in_pos = in_pos + 1
+                        if not (parameter.IsOut and parameter.ParameterType.IsByRef) then 
                         %>&& <%=GetCheckStatement(parameterType , in_pos+param_offset-extension_method_param_offset, has_v_params and pi == param_count - 1)%><% 
                         end 
                     end)%>) <%end%>
@@ -461,8 +538,7 @@ namespace XLua.CSObjectWrap
                     in_pos = 0;
                     ForEachCsList(parameters, function(parameter, pi) 
                         if pi >= real_param_count then return end
-                        %><%if not (parameter.IsOut and parameter.ParameterType.IsByRef) then 
-                            in_pos = in_pos + 1
+                        %><%in_pos = in_pos + 1 if not (parameter.IsOut and parameter.ParameterType.IsByRef) then                             
                         %><%=GetCasterStatement(parameter.ParameterType, in_pos+param_offset-extension_method_param_offset, LocalName(parameter.Name), true, has_v_params and pi == param_count - 1)%><%
 					    else%><%=CsFullTypeName(parameter.ParameterType)%> <%=LocalName(parameter.Name)%><%end%>;
                     <%end)%>
@@ -491,9 +567,7 @@ namespace XLua.CSObjectWrap
                     local in_pos = 0
                     ForEachCsList(parameters, function(parameter, pi)
                         if pi >= real_param_count then return end
-                        if not (parameter.IsOut and parameter.ParameterType.IsByRef) then 
-                            in_pos = in_pos + 1
-                        end
+                        in_pos = in_pos + 1
                         if parameter.ParameterType.IsByRef then
                         %><%=GetPushStatement(parameter.ParameterType:GetElementType(), LocalName(parameter.Name))%>;
                         <%if not parameter.IsOut and parameter.ParameterType.IsByRef and NeedUpdate(parameter.ParameterType) then 
@@ -518,7 +592,7 @@ namespace XLua.CSObjectWrap
             return LuaAPI.luaL_error(L, "invalid arguments to <%=CsFullTypeName(type)%>.<%=method.Overloads[0].Name%>!");
             <%end%>
         }
-        <% end)%>
+        <%end end)%>
         
         
         <%ForEachCsList(getters, function(getter) 

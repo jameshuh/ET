@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RecastBBTree);
 			Utils.BeginObjectRegister(type, L, translator, 0, 3, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "QueryInBounds", _m_QueryInBounds);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Remove", _m_Remove);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Insert", _m_Insert);
@@ -56,7 +57,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -85,8 +88,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_QueryInBounds(RealStatePtr L)
         {

@@ -12,7 +12,7 @@ namespace DCET
 	}
 
 	public sealed class Unit: Entity
-	{
+	{		
 		public UnitType UnitType { get; private set; }
 		
 		public Vector3 Position { get; set; }

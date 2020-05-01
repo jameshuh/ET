@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AdvancedSmooth.MaxTurn);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnTangentUpdate", _m_OnTangentUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Prepare", _m_Prepare);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "TangentToTangent", _m_TangentToTangent);
@@ -59,7 +60,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -88,8 +91,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnTangentUpdate(RealStatePtr L)
         {

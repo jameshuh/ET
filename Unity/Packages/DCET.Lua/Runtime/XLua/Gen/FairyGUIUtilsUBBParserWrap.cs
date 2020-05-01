@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.UBBParser);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 2, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Parse", _m_Parse);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getdefaultImgWidth", _g_get_defaultImgWidth);
@@ -66,7 +67,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -95,8 +98,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Parse(RealStatePtr L)
         {

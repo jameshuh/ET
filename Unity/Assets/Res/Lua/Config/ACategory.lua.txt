@@ -33,11 +33,11 @@ System.namespace("DCET", function (namespace)
         for _, str in System.each(configStr:Split(ArrayString("\n"), nil, System.StringSplitOptions.None)) do
           local continue
           repeat
-            System.try(function ()
+            local default = System.try(function ()
               local str2 = str:Trim()
               if str2 == "" then
                 continue = true
-                return
+                return false
               end
               local t = DCET.ConfigHelper.ToObject(str2, T)
               this.dict:AddKeyValue(t:get_id(), t)
@@ -45,6 +45,9 @@ System.namespace("DCET", function (namespace)
               local e = default
               System.throw(System.Exception("parser json fail: " .. str, e))
             end)
+            if default == false then
+              break
+            end
             continue = true
           until 1
           if not continue then

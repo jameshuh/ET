@@ -307,7 +307,7 @@ namespace CSObjectWrapEditor
             //warnning: filter all method start with "op_"  "add_" "remove_" may  filter some ordinary method
             parameters.Set("methods", type.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.IgnoreCase | BindingFlags.DeclaredOnly)
                 //.Where(method => !isDefined(method, typeof(ExtensionAttribute)) || method.GetParameters()[0].ParameterType.IsInterface || method.DeclaringType != type)
-                .Where(method => !method.IsSpecialName
+                .Where(method => (!method.IsSpecialName || method.Name.StartsWith("op_"))
                     || (
                          ((method.Name == "get_Item" && method.GetParameters().Length == 1) || (method.Name == "set_Item" && method.GetParameters().Length == 2))
                          && method.GetParameters()[0].ParameterType.IsAssignableFrom(typeof(string))
@@ -316,7 +316,7 @@ namespace CSObjectWrapEditor
                 .Concat(extension_methods)
                 .Where(method => !IsDoNotGen(type, method.Name))
                 .Where(method => !isMethodInBlackList(method) && (!method.IsGenericMethod || extension_methods.Contains(method) || isSupportedGenericMethod(method)) && !isObsolete(method))
-                .GroupBy(method => (method.Name + ((method.IsStatic && (!isDefined(method, typeof(ExtensionAttribute)) || method.GetParameters()[0].ParameterType.IsInterface)) ? "_xlua_st_" : "")), (k, v) =>
+                .GroupBy(method => (method.Name + ((!method.Name.StartsWith("op_") && method.IsStatic && (!isDefined(method, typeof(ExtensionAttribute)) || method.GetParameters()[0].ParameterType.IsInterface)) ? "_xlua_st_" : "")), (k, v) =>
                 {
                     var overloads = new List<MethodBase>();
                     List<int> def_vals = new List<int>();

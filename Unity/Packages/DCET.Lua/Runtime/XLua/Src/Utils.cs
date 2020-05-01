@@ -498,16 +498,12 @@ namespace XLua
 
 				if (method_name.StartsWith("op_") && method.IsSpecialName) // 操作符
 				{
-					if (InternalGlobals.supportOp.ContainsKey(method_name))
+					if (overloads == null)
 					{
-						if (overloads == null)
-						{
-							overloads = new List<MemberInfo>();
-							pending_methods.Add(method_key, overloads);
-						}
-						overloads.Add(method);
+						overloads = new List<MemberInfo>();
+						pending_methods.Add(method_key, overloads);
 					}
-					continue;
+					overloads.Add(method);
 				}
 				else if (method_name.StartsWith("get_") && method.IsSpecialName && method.GetParameters().Length != 1) // getter of property
 				{
@@ -561,7 +557,7 @@ namespace XLua
 
 			foreach (var kv in pending_methods)
 			{
-				if (kv.Key.Name.StartsWith("op_")) // 操作符
+				if (kv.Key.Name.StartsWith("op_") && InternalGlobals.supportOp.ContainsKey(kv.Key.Name)) // 操作符
 				{
 					LuaAPI.xlua_pushasciistring(L, InternalGlobals.supportOp[kv.Key.Name]);
 					translator.PushFixCSFunction(L,
@@ -954,6 +950,17 @@ namespace XLua
 			translator.PushFixCSFunction(L, constructor);
 			LuaAPI.lua_rawset(L, cls_meta);
 
+			if (type != null && type.IsValueType())
+			{
+				LuaAPI.xlua_pushasciistring(L, "default");
+#if GEN_CODE_MINIMIZE
+                translator.PushCSharpWrapper(L, constructor);
+#else
+				LuaAPI.lua_pushstdcallcfunction(L, constructor);
+#endif
+				LuaAPI.lua_rawset(L, cls_field);
+			}
+
 			LuaAPI.lua_pushvalue(L, cls_meta);
 			LuaAPI.lua_setmetatable(L, cls_field);
 
@@ -1210,6 +1217,20 @@ namespace XLua
 				LuaAPI.lua_pushstring(L, "__name__");
 				translator.PushAny(L, type.FullName);
 				LuaAPI.lua_rawset(L, -3);
+			}
+
+			if (type != null && type.IsValueType())
+			{
+				if(creator != null)
+				{
+					LuaAPI.xlua_pushasciistring(L, "default");
+#if GEN_CODE_MINIMIZE
+                translator.PushCSharpWrapper(L, creator);
+#else
+					LuaAPI.lua_pushstdcallcfunction(L, creator);
+#endif
+					LuaAPI.lua_rawset(L, -3);
+				}
 			}
 
 			int cls_table = LuaAPI.lua_gettop(L);

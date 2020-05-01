@@ -10,7 +10,7 @@ using LuaCSFunction = XLua.LuaDLL.lua_CSFunction;
 
 using XLua;
 using System.Collections.Generic;
-
+using DCETRuntime;
 
 namespace XLua.CSObjectWrap
 {
@@ -21,8 +21,9 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(System.IO.Stream);
-			Utils.BeginObjectRegister(type, L, translator, 0, 29, 8, 3);
+			Utils.BeginObjectRegister(type, L, translator, 0, 34, 8, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CopyToAsync", _m_CopyToAsync);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CopyTo", _m_CopyTo);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Close", _m_Close);
@@ -41,6 +42,11 @@ namespace XLua.CSObjectWrap
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReadByte", _m_ReadByte);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Write", _m_Write);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteByte", _m_WriteByte);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteToUint", _m_WriteToUint);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteToInt", _m_WriteToInt);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteToByte", _m_WriteToByte);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteToShort", _m_WriteToShort);
+			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WriteToUshort", _m_WriteToUshort);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getCanRead", _g_get_CanRead);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getCanSeek", _g_get_CanSeek);
@@ -96,7 +102,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -108,8 +116,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CopyToAsync(RealStatePtr L)
         {
@@ -797,6 +807,166 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 1;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_WriteToUint(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.Stream gen_to_be_invoked = (System.IO.Stream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.Stream _stream = (System.IO.Stream)translator.GetObject(L, 1, typeof(System.IO.Stream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    uint _num = LuaAPI.xlua_touint(L, 3);
+                    
+                    gen_to_be_invoked.WriteToUint( 
+                        _offset,  
+                        _num );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_WriteToInt(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.Stream gen_to_be_invoked = (System.IO.Stream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.Stream _stream = (System.IO.Stream)translator.GetObject(L, 1, typeof(System.IO.Stream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    int _num = LuaAPI.xlua_tointeger(L, 3);
+                    
+                    gen_to_be_invoked.WriteToInt( 
+                        _offset,  
+                        _num );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_WriteToByte(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.Stream gen_to_be_invoked = (System.IO.Stream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.Stream _stream = (System.IO.Stream)translator.GetObject(L, 1, typeof(System.IO.Stream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    byte _num = (byte)LuaAPI.xlua_tointeger(L, 3);
+                    
+                    gen_to_be_invoked.WriteToByte( 
+                        _offset,  
+                        _num );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_WriteToShort(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.Stream gen_to_be_invoked = (System.IO.Stream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.Stream _stream = (System.IO.Stream)translator.GetObject(L, 1, typeof(System.IO.Stream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    short _num = (short)LuaAPI.xlua_tointeger(L, 3);
+                    
+                    gen_to_be_invoked.WriteToShort( 
+                        _offset,  
+                        _num );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_WriteToUshort(RealStatePtr L)
+        {
+		    try {
+			
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+                System.IO.Stream gen_to_be_invoked = (System.IO.Stream)translator.FastGetCSObj(L, 1);
+            
+            
+                
+                {
+                    System.IO.Stream _stream = (System.IO.Stream)translator.GetObject(L, 1, typeof(System.IO.Stream));
+                    int _offset = LuaAPI.xlua_tointeger(L, 2);
+                    ushort _num = (ushort)LuaAPI.xlua_tointeger(L, 3);
+                    
+                    gen_to_be_invoked.WriteToUshort( 
+                        _offset,  
+                        _num );
+                    
+                    
+                    
+                    return 0;
                 }
                 
             } catch(System.Exception gen_e) {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(System.Text.Encoding);
 			Utils.BeginObjectRegister(type, L, translator, 0, 30, 14, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetPreamble", _m_GetPreamble);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Clone", _m_Clone);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetByteCount", _m_GetByteCount);
@@ -117,7 +118,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -129,8 +132,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Convert_xlua_st_(RealStatePtr L)
         {

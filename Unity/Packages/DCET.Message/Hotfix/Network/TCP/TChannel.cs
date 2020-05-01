@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DCETRuntime;
+using System;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using DCETRuntime;
-using Microsoft.IO;
 
 namespace DCET
 {
@@ -135,6 +132,8 @@ namespace DCET
 					throw new Exception("packet size must be 2 or 4!");
 			}
 
+			stream.Seek(0, SeekOrigin.Begin);
+
 			this.sendBuffer.WriteStream(stream);
 
 			this.GetService().MarkNeedStartSend(this.Id);
@@ -199,25 +198,18 @@ namespace DCET
 
 		public void StartRecv()
 		{
-			int size = this.recvBuffer.ChunkSize - this.recvBuffer.LastIndex;
-			this.RecvAsync(this.recvBuffer.Last, this.recvBuffer.LastIndex, size);
+			this.RecvAsync();
 		}
 
-		public void RecvAsync(byte[] buffer, int offset, int count)
+		public void RecvAsync()
 		{
-			try
-			{
-				this.innArgs.SetBuffer(buffer, offset, count);
-			}
-			catch (Exception e)
-			{
-				throw new Exception($"socket set buffer error: {buffer.Length}, {offset}, {count}", e);
-			}
-			
+			this.recvBuffer.SetLastBuffer(this.innArgs);
+
 			if (this.socket.ReceiveAsync(this.innArgs))
 			{
 				return;
 			}
+
 			OnRecvComplete(this.innArgs);
 		}
 
@@ -301,25 +293,13 @@ namespace DCET
 
 			this.isSending = true;
 
-			int sendSize = this.sendBuffer.ChunkSize - this.sendBuffer.FirstIndex;
-			if (sendSize > this.sendBuffer.Length)
-			{
-				sendSize = (int)this.sendBuffer.Length;
-			}
-
-			this.SendAsync(this.sendBuffer.First, this.sendBuffer.FirstIndex, sendSize);
+			this.SendAsync();
 		}
 
-		public void SendAsync(byte[] buffer, int offset, int count)
+		public void SendAsync()
 		{
-			try
-			{
-				this.outArgs.SetBuffer(buffer, offset, count);
-			}
-			catch (Exception e)
-			{
-				throw new Exception($"socket set buffer error: {buffer.Length}, {offset}, {count}", e);
-			}
+			this.sendBuffer.SetFirstBuffer(this.outArgs);
+
 			if (this.socket.SendAsync(this.outArgs))
 			{
 				return;

@@ -17,6 +17,7 @@
 		<type fullname="System.Text.Encoding" preserve="all"/>
 		<type fullname="System.IO.Stream" preserve="all"/>
 		<type fullname="System.IO.MemoryStream" preserve="all"/>
+		<type fullname="System.Convert" preserve="all"/>
 		
 	</assembly>
 
@@ -45,12 +46,16 @@
 		<type fullname="UnityEngine.Light" preserve="all"/>
 		<type fullname="UnityEngine.Mathf" preserve="all"/>
 		<type fullname="UnityEngine.Debug" preserve="all"/>
+		<type fullname="UnityEngine.Input" preserve="all"/>
+		<type fullname="UnityEngine.Camera" preserve="all"/>
 		<type fullname="UnityEngine.SceneManagement.SceneManager" preserve="all"/>
+		<type fullname="UnityEngine.AsyncOperation" preserve="all"/>
 		
 	</assembly>
 
 	<assembly fullname="UnityEngine.AnimationModule">
 	    <type fullname="UnityEngine.AnimationClip" preserve="all"/>
+		<type fullname="UnityEngine.Animator" preserve="all"/>
 		<type fullname="UnityEngine.RuntimeAnimatorController" preserve="all"/>
 		<type fullname="UnityEngine.AnimatorControllerParameter" preserve="all"/>
 		
@@ -58,6 +63,12 @@
 
 	<assembly fullname="UnityEngine.ParticleSystemModule">
 	    <type fullname="UnityEngine.ParticleSystem" preserve="all"/>
+		
+	</assembly>
+
+	<assembly fullname="UnityEngine.PhysicsModule">
+	    <type fullname="UnityEngine.RaycastHit" preserve="all"/>
+		<type fullname="UnityEngine.Physics" preserve="all"/>
 		
 	</assembly>
 
@@ -557,7 +568,6 @@
 		<type fullname="DCETRuntime.MonoStaticMethod" preserve="all"/>
 		<type fullname="DCETRuntime.OneThreadSynchronizationContext" preserve="all"/>
 		<type fullname="DCETRuntime.AssetDatabaseHelper" preserve="all"/>
-		<type fullname="DCETRuntime.ByteHelper" preserve="all"/>
 		<type fullname="DCETRuntime.FileHelper" preserve="all"/>
 		<type fullname="DCETRuntime.GameObjectHelper" preserve="all"/>
 		<type fullname="DCETRuntime.MD5Helper" preserve="all"/>
@@ -565,8 +575,8 @@
 		<type fullname="DCETRuntime.PathHelper" preserve="all"/>
 		<type fullname="DCETRuntime.ProcessHelper" preserve="all"/>
 		<type fullname="DCETRuntime.ResourcesHelper" preserve="all"/>
+		<type fullname="DCETRuntime.StreamHelper" preserve="all"/>
 		<type fullname="DCETRuntime.StringHelper" preserve="all"/>
-		<type fullname="DCETRuntime.UnityEngineHelper" preserve="all"/>
 		<type fullname="DCETRuntime.ZipHelper" preserve="all"/>
 		<type fullname="DCETRuntime.AssetBundleLoaderAsync" preserve="all"/>
 		<type fullname="DCETRuntime.AssetBundles" preserve="all"/>

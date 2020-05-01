@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.MultiTargetPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 21, 11, 10);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getinverted", _g_get_inverted);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getcallbacks", _g_get_callbacks);
@@ -96,7 +97,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -125,8 +128,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Construct_xlua_st_(RealStatePtr L)
         {

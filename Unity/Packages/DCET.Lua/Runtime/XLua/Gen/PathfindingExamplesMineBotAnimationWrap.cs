@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Examples.MineBotAnimation);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 4);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getanim", _g_get_anim);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getsleepVelocity", _g_get_sleepVelocity);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

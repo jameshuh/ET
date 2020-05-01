@@ -107,6 +107,11 @@ public static class GenConfig
 		typeof(Action<string>),
 		typeof(Debug),
 
+		typeof(RaycastHit),
+		typeof(Input),
+		typeof(Physics),
+		typeof(Camera),
+		typeof(Animator),
 		typeof(List<string>),		
 		typeof(UnityEngine.SceneManagement.SceneManager),
 		typeof(Type),
@@ -149,6 +154,8 @@ public static class GenConfig
 		typeof(ProtoIncludeAttribute),
 		typeof(ProtoPartialIgnoreAttribute),
 		typeof(ProtoPartialMemberAttribute),
+		typeof(AsyncOperation),
+		typeof(Convert),
 	};
 
 	//C#静态调用Lua的配置（包括事件的原型），仅可以配delegate，interface

@@ -59,13 +59,13 @@ System.namespace("DCET", function (namespace)
       System.base(this).__ctor__(this)
     end
     Awake = function (this)
-      local animator = this:GetParent(DCET.Unit).ViewGO:GetComponent(UnityEngine.Animator)
+      local animator = System.as(this:GetParent(DCET.Unit).ViewGO:GetComponent(System.typeof(UnityEngine.Animator)), UnityEngine.Animator)
 
-      if UnityEngine.op_Equality(animator, nil) then
+      if UnityEngine.Object.op_Equality(animator, nil) then
         return
       end
 
-      if UnityEngine.op_Equality(animator:getruntimeAnimatorController(), nil) then
+      if UnityEngine.Object.op_Equality(animator:getruntimeAnimatorController(), nil) then
         return
       end
 
@@ -142,7 +142,7 @@ System.namespace("DCET", function (namespace)
       end
       this.isStop = true
 
-      if UnityEngine.op_Equality(this.Animator, nil) then
+      if UnityEngine.Object.op_Equality(this.Animator, nil) then
         return
       end
       this.stopSpeed = this.Animator:getspeed()
@@ -155,7 +155,7 @@ System.namespace("DCET", function (namespace)
 
       this.isStop = false
 
-      if UnityEngine.op_Equality(this.Animator, nil) then
+      if UnityEngine.Object.op_Equality(this.Animator, nil) then
         return
       end
       this.Animator:setspeed(this.stopSpeed)

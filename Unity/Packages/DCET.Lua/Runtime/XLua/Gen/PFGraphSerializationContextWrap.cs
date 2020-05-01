@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.GraphSerializationContext);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 4, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SerializeNodeReference", _m_SerializeNodeReference);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DeserializeNodeReference", _m_DeserializeNodeReference);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SerializeVector3", _m_SerializeVector3);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -111,8 +114,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SerializeNodeReference(RealStatePtr L)
         {

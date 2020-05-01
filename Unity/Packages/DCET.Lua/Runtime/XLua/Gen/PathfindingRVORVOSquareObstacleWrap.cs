@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.RVOSquareObstacle);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 3, 3);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getheight", _g_get_height);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getsize", _g_get_size);
@@ -65,7 +66,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -94,8 +97,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

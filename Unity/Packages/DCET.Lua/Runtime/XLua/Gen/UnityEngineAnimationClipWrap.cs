@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(UnityEngine.AnimationClip);
 			Utils.BeginObjectRegister(type, L, translator, 0, 22, 12, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddEvent", _m_AddEvent);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SampleAnimation", _m_SampleAnimation);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetCurve", _m_SetCurve);
@@ -92,7 +93,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -121,8 +124,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_AddEvent(RealStatePtr L)
         {

@@ -72,7 +72,7 @@ namespace DCET
 			this.Network?.Remove(this.Id);
 
 			base.Dispose();
-			
+
 			foreach (Action<IResponse> action in this.requestCallback.Values.ToArray())
 			{
 				action.Invoke(new ErrorResponse { Error = this.Error });
@@ -128,7 +128,7 @@ namespace DCET
 		private void Run(MemoryStream memoryStream)
 		{
 			memoryStream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
-			var opcode = BitConverter.ToUInt16(memoryStream.GetBuffer(), Packet.OpcodeIndex);
+			var opcode = memoryStream.ToUInt16(Packet.OpcodeIndex);
 
 			object message;
 			try
@@ -261,11 +261,10 @@ namespace DCET
 			
 			stream.Seek(Packet.MessageIndex, SeekOrigin.Begin);
 			stream.SetLength(Packet.MessageIndex);
-			
-			this.Network.MessagePacker.SerializeTo(message, stream);
-			stream.Seek(0, SeekOrigin.Begin);
 
-			ByteHelper.WriteTo(stream.GetBuffer(), 0, opcode);
+			this.Network.MessagePacker.SerializeTo(message, stream);
+
+			stream.WriteToUshort(0, opcode);
 
 			this.Send(stream);
 		}

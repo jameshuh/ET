@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Util.RetainedGizmos.Builder);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DrawMesh", _m_DrawMesh);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DrawWireCube", _m_DrawWireCube);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "DrawLine", _m_DrawLine);
@@ -57,7 +58,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -86,8 +89,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_DrawMesh(RealStatePtr L)
         {

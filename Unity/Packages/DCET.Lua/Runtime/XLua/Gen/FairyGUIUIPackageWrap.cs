@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.UIPackage);
 			Utils.BeginObjectRegister(type, L, translator, 0, 16, 6, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "LoadAllAssets", _m_LoadAllAssets);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UnloadAssets", _m_UnloadAssets);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReloadAssets", _m_ReloadAssets);
@@ -93,7 +94,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -122,8 +125,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetById_xlua_st_(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Voxels.VoxelContourSet);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 2);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getconts", _g_get_conts);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getbounds", _g_get_bounds);
@@ -61,7 +62,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -90,8 +93,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

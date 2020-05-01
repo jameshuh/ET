@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.NavGraph);
 			Utils.BeginObjectRegister(type, L, translator, 0, 18, 7, 7);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CountNodes", _m_CountNodes);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetNodes", _m_GetNodes);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetNearest", _m_GetNearest);
@@ -85,7 +86,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -97,8 +100,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CountNodes(RealStatePtr L)
         {

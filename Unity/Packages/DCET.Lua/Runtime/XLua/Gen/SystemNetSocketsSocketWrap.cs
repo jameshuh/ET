@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(System.Net.Sockets.Socket);
 			Utils.BeginObjectRegister(type, L, translator, 0, 84, 23, 14);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Connect", _m_Connect);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Send", _m_Send);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SendFile", _m_SendFile);
@@ -181,7 +182,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -232,8 +235,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Connect(RealStatePtr L)
         {
@@ -387,7 +392,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 3&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)) 
+                if(gen_param_count == 4&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)) 
                 {
                     System.Collections.Generic.IList<System.ArraySegment<byte>> _buffers = (System.Collections.Generic.IList<System.ArraySegment<byte>>)translator.GetObject(L, 2, typeof(System.Collections.Generic.IList<System.ArraySegment<byte>>));
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 3, out _socketFlags);
@@ -423,7 +428,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 5&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)) 
+                if(gen_param_count == 6&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)) 
                 {
                     byte[] _buffer = LuaAPI.lua_tobytes(L, 2);
                     int _offset = LuaAPI.xlua_tointeger(L, 3);
@@ -675,7 +680,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 3&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)) 
+                if(gen_param_count == 4&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)) 
                 {
                     System.Collections.Generic.IList<System.ArraySegment<byte>> _buffers = (System.Collections.Generic.IList<System.ArraySegment<byte>>)translator.GetObject(L, 2, typeof(System.Collections.Generic.IList<System.ArraySegment<byte>>));
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 3, out _socketFlags);
@@ -711,7 +716,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 5&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)) 
+                if(gen_param_count == 6&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)) 
                 {
                     byte[] _buffer = LuaAPI.lua_tobytes(L, 2);
                     int _offset = LuaAPI.xlua_tointeger(L, 3);
@@ -1106,13 +1111,13 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 5&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)&& translator.Assignable<System.AsyncCallback>(L, 4)&& translator.Assignable<object>(L, 5)) 
+                if(gen_param_count == 6&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)&& translator.Assignable<System.AsyncCallback>(L, 5)&& translator.Assignable<object>(L, 6)) 
                 {
                     System.Collections.Generic.IList<System.ArraySegment<byte>> _buffers = (System.Collections.Generic.IList<System.ArraySegment<byte>>)translator.GetObject(L, 2, typeof(System.Collections.Generic.IList<System.ArraySegment<byte>>));
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 3, out _socketFlags);
                     System.Net.Sockets.SocketError _errorCode;
-                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 4);
-                    object _state = translator.GetObject(L, 5, typeof(object));
+                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 5);
+                    object _state = translator.GetObject(L, 6, typeof(object));
                     
                         System.IAsyncResult gen_ret = gen_to_be_invoked.BeginSend( 
                         _buffers, 
@@ -1150,15 +1155,15 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 7&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)&& translator.Assignable<System.AsyncCallback>(L, 6)&& translator.Assignable<object>(L, 7)) 
+                if(gen_param_count == 8&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)&& translator.Assignable<System.AsyncCallback>(L, 7)&& translator.Assignable<object>(L, 8)) 
                 {
                     byte[] _buffer = LuaAPI.lua_tobytes(L, 2);
                     int _offset = LuaAPI.xlua_tointeger(L, 3);
                     int _size = LuaAPI.xlua_tointeger(L, 4);
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 5, out _socketFlags);
                     System.Net.Sockets.SocketError _errorCode;
-                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 6);
-                    object _state = translator.GetObject(L, 7, typeof(object));
+                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 7);
+                    object _state = translator.GetObject(L, 8, typeof(object));
                     
                         System.IAsyncResult gen_ret = gen_to_be_invoked.BeginSend( 
                         _buffer, 
@@ -1210,7 +1215,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.IAsyncResult>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<System.IAsyncResult>(L, 2)) 
                 {
                     System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 2, typeof(System.IAsyncResult));
                     System.Net.Sockets.SocketError _errorCode;
@@ -1266,13 +1271,13 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 5&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)&& translator.Assignable<System.AsyncCallback>(L, 4)&& translator.Assignable<object>(L, 5)) 
+                if(gen_param_count == 6&& translator.Assignable<System.Collections.Generic.IList<System.ArraySegment<byte>>>(L, 2)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 3)&& translator.Assignable<System.AsyncCallback>(L, 5)&& translator.Assignable<object>(L, 6)) 
                 {
                     System.Collections.Generic.IList<System.ArraySegment<byte>> _buffers = (System.Collections.Generic.IList<System.ArraySegment<byte>>)translator.GetObject(L, 2, typeof(System.Collections.Generic.IList<System.ArraySegment<byte>>));
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 3, out _socketFlags);
                     System.Net.Sockets.SocketError _errorCode;
-                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 4);
-                    object _state = translator.GetObject(L, 5, typeof(object));
+                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 5);
+                    object _state = translator.GetObject(L, 6, typeof(object));
                     
                         System.IAsyncResult gen_ret = gen_to_be_invoked.BeginReceive( 
                         _buffers, 
@@ -1310,15 +1315,15 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 7&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)&& translator.Assignable<System.AsyncCallback>(L, 6)&& translator.Assignable<object>(L, 7)) 
+                if(gen_param_count == 8&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& translator.Assignable<System.Net.Sockets.SocketFlags>(L, 5)&& translator.Assignable<System.AsyncCallback>(L, 7)&& translator.Assignable<object>(L, 8)) 
                 {
                     byte[] _buffer = LuaAPI.lua_tobytes(L, 2);
                     int _offset = LuaAPI.xlua_tointeger(L, 3);
                     int _size = LuaAPI.xlua_tointeger(L, 4);
                     System.Net.Sockets.SocketFlags _socketFlags;translator.Get(L, 5, out _socketFlags);
                     System.Net.Sockets.SocketError _errorCode;
-                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 6);
-                    object _state = translator.GetObject(L, 7, typeof(object));
+                    System.AsyncCallback _callback = translator.GetDelegate<System.AsyncCallback>(L, 7);
+                    object _state = translator.GetObject(L, 8, typeof(object));
                     
                         System.IAsyncResult gen_ret = gen_to_be_invoked.BeginReceive( 
                         _buffer, 
@@ -1370,7 +1375,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.IAsyncResult>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<System.IAsyncResult>(L, 2)) 
                 {
                     System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 2, typeof(System.IAsyncResult));
                     System.Net.Sockets.SocketError _errorCode;
@@ -1490,10 +1495,10 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.IAsyncResult>(L, 2)) 
+                if(gen_param_count == 3&& translator.Assignable<System.IAsyncResult>(L, 3)) 
                 {
                     byte[] _buffer;
-                    System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 2, typeof(System.IAsyncResult));
+                    System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 3, typeof(System.IAsyncResult));
                     
                         System.Net.Sockets.Socket gen_ret = gen_to_be_invoked.EndAccept( 
                         out _buffer, 
@@ -1506,11 +1511,11 @@ namespace XLua.CSObjectWrap
                     
                     return 2;
                 }
-                if(gen_param_count == 2&& translator.Assignable<System.IAsyncResult>(L, 2)) 
+                if(gen_param_count == 4&& translator.Assignable<System.IAsyncResult>(L, 4)) 
                 {
                     byte[] _buffer;
                     int _bytesTransferred;
-                    System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 2, typeof(System.IAsyncResult));
+                    System.IAsyncResult _asyncResult = (System.IAsyncResult)translator.GetObject(L, 4, typeof(System.IAsyncResult));
                     
                         System.Net.Sockets.Socket gen_ret = gen_to_be_invoked.EndAccept( 
                         out _buffer, 

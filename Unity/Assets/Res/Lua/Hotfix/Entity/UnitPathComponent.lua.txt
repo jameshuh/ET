@@ -24,9 +24,9 @@ System.namespace("DCET", function (namespace)
           if i == 0 then
             -- 矫正移动速度
             local clientPos = this:GetParent(DCET.Unit):getPosition()
-            local serverf = (this.ServerPos - v):getmagnitude()
+            local serverf = (UnityEngine.Vector3.op_Subtraction(this.ServerPos, v)):getmagnitude()
             if serverf > 0.1 then
-              local clientf = (clientPos - v):getmagnitude()
+              local clientf = (UnityEngine.Vector3.op_Subtraction(clientPos, v)):getmagnitude()
               speed = clientf / serverf * speed
             end
           end

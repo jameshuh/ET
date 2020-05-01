@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RecastMeshObj);
 			Utils.BeginObjectRegister(type, L, translator, 0, 9, 3, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetBounds", _m_GetBounds);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetMeshFilter", _m_GetMeshFilter);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetCollider", _m_GetCollider);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -98,8 +101,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetAllInBounds_xlua_st_(RealStatePtr L)
         {

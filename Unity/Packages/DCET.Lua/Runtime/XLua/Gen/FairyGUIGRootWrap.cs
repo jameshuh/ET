@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GRoot);
 			Utils.BeginObjectRegister(type, L, translator, 0, 31, 7, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetContentScaleFactor", _m_SetContentScaleFactor);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ApplyContentScaleFactor", _m_ApplyContentScaleFactor);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ShowWindow", _m_ShowWindow);
@@ -97,7 +98,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -126,8 +129,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetContentScaleFactor(RealStatePtr L)
         {

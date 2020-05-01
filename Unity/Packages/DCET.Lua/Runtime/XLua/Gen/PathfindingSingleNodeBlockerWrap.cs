@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.SingleNodeBlocker);
 			Utils.BeginObjectRegister(type, L, translator, 0, 7, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "BlockAtCurrentPosition", _m_BlockAtCurrentPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "BlockAt", _m_BlockAt);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Block", _m_Block);
@@ -63,7 +64,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -92,8 +95,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_BlockAtCurrentPosition(RealStatePtr L)
         {

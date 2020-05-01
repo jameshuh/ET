@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.ControllerAction);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 2, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Run", _m_Run);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Setup", _m_Setup);
 						
@@ -64,7 +65,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -93,8 +96,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CreateAction_xlua_st_(RealStatePtr L)
         {

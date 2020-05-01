@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GoWrapper);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 4, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetWrapTarget", _m_SetWrapTarget);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CacheRenderers", _m_CacheRenderers);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Update", _m_Update);
@@ -73,7 +74,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -111,8 +114,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetWrapTarget(RealStatePtr L)
         {

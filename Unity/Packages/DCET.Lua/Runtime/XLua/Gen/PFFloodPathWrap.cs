@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.FloodPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 4, 4);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasPathTo", _m_HasPathTo);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetParent", _m_GetParent);
 						
@@ -72,7 +73,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -101,8 +104,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_HasPathTo(RealStatePtr L)
         {

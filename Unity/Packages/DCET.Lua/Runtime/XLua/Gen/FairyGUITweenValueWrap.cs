@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.TweenValue);
 			Utils.BeginObjectRegister(type, L, translator, 0, 19, 9, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetZero", _m_SetZero);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getvec2", _g_get_vec2);
@@ -90,7 +91,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -170,8 +173,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetZero(RealStatePtr L)
         {

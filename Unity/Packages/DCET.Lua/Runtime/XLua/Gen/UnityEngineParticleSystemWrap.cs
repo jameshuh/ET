@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(UnityEngine.ParticleSystem);
 			Utils.BeginObjectRegister(type, L, translator, 0, 46, 31, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetCustomParticleData", _m_SetCustomParticleData);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetCustomParticleData", _m_GetCustomParticleData);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "TriggerSubEmitter", _m_TriggerSubEmitter);
@@ -134,7 +135,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -163,8 +166,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetCustomParticleData(RealStatePtr L)
         {

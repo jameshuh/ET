@@ -21,8 +21,10 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(Pathfinding.RVO.Line);
-			Utils.BeginObjectRegister(type, L, translator, 0, 4, 2, 2);
+			Utils.BeginObjectRegister(type, L, translator, 0, 5, 2, 2);
 			
+            Utils.RegisterFunc(L, Utils.METHOD_IDX, "__clone__", __clone__);
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getpoint", _g_get_point);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getdir", _g_get_dir);
@@ -61,7 +63,25 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
+		
+		
+		[MonoPInvokeCallback(typeof(LuaCSFunction))]
+		public static int __clone__(RealStatePtr L)
+		{
+			try
+			{
+				ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+				Pathfinding.RVO.Line gen_to_be_invoked;translator.Get(L, 1, out gen_to_be_invoked);
+				translator.Push(L, gen_to_be_invoked);
+				return 1;
+			}
+			catch (System.Exception e)
+			{
+				return LuaAPI.luaL_error(L, "c# exception in StructClone:" + e);
+			}
+		}
         
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -88,8 +108,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

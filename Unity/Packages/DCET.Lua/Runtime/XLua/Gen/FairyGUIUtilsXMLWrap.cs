@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.XML);
 			Utils.BeginObjectRegister(type, L, translator, 0, 14, 2, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "HasAttribute", _m_HasAttribute);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAttribute", _m_GetAttribute);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAttributeInt", _m_GetAttributeInt);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -99,8 +102,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_HasAttribute(RealStatePtr L)
         {

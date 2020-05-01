@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace DCETRuntime
@@ -199,6 +200,56 @@ namespace DCETRuntime
 		    return n;
 	    }
 
+		public int ReadMemoryStream(MemoryStream memoryStream, int offset, int count)
+		{
+			memoryStream.Seek(offset, SeekOrigin.Begin);
+			memoryStream.SetLength(count);
+
+			if (memoryStream.Capacity < offset + count)
+			{
+				throw new Exception($"bufferList length < coutn, buffer length: {memoryStream.Capacity} {offset} {count}");
+			}
+
+			long length = Length;
+			if (length < count)
+			{
+				count = (int)length;
+			}
+
+			int alreadyCopyCount = 0;
+			while (alreadyCopyCount < count)
+			{
+				int n = count - alreadyCopyCount;
+				if (ChunkSize - FirstIndex > n)
+				{
+					memoryStream.Seek(alreadyCopyCount + offset, SeekOrigin.Begin);
+
+					for(int i = 0; i < n; i++)
+					{
+						memoryStream.WriteByte(First[FirstIndex + i]);
+					}
+
+					FirstIndex += n;
+					alreadyCopyCount += n;
+				}
+				else
+				{
+					memoryStream.Seek(alreadyCopyCount + offset, SeekOrigin.Begin);
+
+					for (int i = 0; i < ChunkSize - FirstIndex; i++)
+					{
+						memoryStream.WriteByte(First[FirstIndex + i]);
+					}
+
+					alreadyCopyCount += ChunkSize - FirstIndex;
+					FirstIndex = 0;
+					RemoveFirst();
+				}
+			}
+
+			return count;
+		}
+
 	    // 把CircularBuffer中数据写入buffer
         public override int Read(byte[] buffer, int offset, int count)
         {
@@ -337,5 +388,48 @@ namespace DCETRuntime
 	    }
 
 	    public override long Position { get; set; }
+
+		public void SetFirstBuffer(SocketAsyncEventArgs eventArgs)
+		{
+			if (eventArgs == null)
+			{
+				return;
+			}
+
+			int count = ChunkSize - FirstIndex;
+
+			if (count > Length)
+			{
+				count = (int)Length;
+			}
+
+			try
+			{
+				eventArgs.SetBuffer(First, FirstIndex, count);
+			}
+			catch (Exception e)
+			{
+				throw new Exception($"socket set buffer error: {Length}, {FirstIndex}, {count}", e);
+			}
+		}
+
+		public void SetLastBuffer(SocketAsyncEventArgs eventArgs)
+		{
+			if(eventArgs == null)
+			{
+				return;
+			}
+
+			var count = ChunkSize - LastIndex;
+
+			try
+			{
+				eventArgs.SetBuffer(Last, LastIndex, count);
+			}
+			catch (Exception e)
+			{
+				throw new Exception($"socket set buffer error: {Length}, {LastIndex}, {count}", e);
+			}
+		}
     }
 }

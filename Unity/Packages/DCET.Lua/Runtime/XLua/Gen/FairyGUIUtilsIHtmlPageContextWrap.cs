@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.IHtmlPageContext);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CreateObject", _m_CreateObject);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "FreeObject", _m_FreeObject);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetImageTexture", _m_GetImageTexture);
@@ -57,7 +58,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -69,8 +72,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CreateObject(RealStatePtr L)
         {

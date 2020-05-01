@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.Simulator);
 			Utils.BeginObjectRegister(type, L, translator, 0, 21, 7, 3);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetAgents", _m_GetAgents);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetObstacles", _m_GetObstacles);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ClearAgents", _m_ClearAgents);
@@ -84,7 +85,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -116,8 +119,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetAgents(RealStatePtr L)
         {

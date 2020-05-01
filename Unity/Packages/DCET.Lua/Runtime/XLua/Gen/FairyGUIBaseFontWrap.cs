@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.BaseFont);
 			Utils.BeginObjectRegister(type, L, translator, 0, 26, 11, 10);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetFormat", _m_SetFormat);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "PrepareCharacters", _m_PrepareCharacters);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetGlyphSize", _m_GetGlyphSize);
@@ -100,7 +101,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -129,8 +132,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetFormat(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(DCETRuntime.GizmosDebug);
 			Utils.BeginObjectRegister(type, L, translator, 0, 2, 1, 1);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getPath", _g_get_Path);
             
@@ -59,7 +60,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -88,8 +91,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

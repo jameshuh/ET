@@ -24,6 +24,7 @@ namespace XLua.CSObjectWrap
 			Utils.BeginObjectRegister(type, L, translator, 1, 7, 3, 0);
 			Utils.RegisterFunc(L, Utils.OBJ_META_IDX, "__mul", __MulMeta);
             
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "WorldUpAtGraphPosition", _m_WorldUpAtGraphPosition);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Transform", _m_Transform);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "TransformVector", _m_TransformVector);
@@ -48,8 +49,9 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 3, 0, 0);
-			
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 4, 0, 0);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "op_Multiply",__MulMeta);
+            
             Utils.RegisterObject(L, translator, Utils.CLS_IDX, "getidentityTransform", PF.GraphTransform.identityTransform);
             
 			
@@ -66,7 +68,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -133,8 +137,10 @@ namespace XLua.CSObjectWrap
             
         }
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_WorldUpAtGraphPosition(RealStatePtr L)
         {

@@ -38,7 +38,10 @@ System.namespace("DCET", function (namespace)
       this.readCallback = this.readCallback - value
     end
     OnRead = function (this, memoryStream)
-      this.readCallback(memoryStream)
+      local default = this.readCallback
+      if default ~= nil then
+        default(memoryStream)
+      end
     end
     OnError = function (this, e)
       repeat

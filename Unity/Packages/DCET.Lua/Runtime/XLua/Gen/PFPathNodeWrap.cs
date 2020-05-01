@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.PathNode);
 			Utils.BeginObjectRegister(type, L, translator, 0, 20, 10, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "UpdateG", _m_UpdateG);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getcost", _g_get_cost);
@@ -92,7 +93,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -121,8 +124,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_UpdateG(RealStatePtr L)
         {

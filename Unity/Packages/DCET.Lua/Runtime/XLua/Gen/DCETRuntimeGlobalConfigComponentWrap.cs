@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(DCETRuntime.GlobalConfigComponent);
 			Utils.BeginObjectRegister(type, L, translator, 0, 2, 1, 1);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getGlobalProto", _g_get_GlobalProto);
             
@@ -60,7 +61,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -89,8 +92,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetGlobal_xlua_st_(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GMovieClip);
 			Utils.BeginObjectRegister(type, L, translator, 0, 23, 9, 8);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Rewind", _m_Rewind);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SyncStatus", _m_SyncStatus);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Advance", _m_Advance);
@@ -93,7 +94,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -122,8 +125,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Rewind(RealStatePtr L)
         {

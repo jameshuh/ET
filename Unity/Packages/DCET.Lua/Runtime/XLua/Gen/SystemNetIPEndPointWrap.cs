@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(System.Net.IPEndPoint);
 			Utils.BeginObjectRegister(type, L, translator, 0, 10, 3, 2);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ToString", _m_ToString);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Serialize", _m_Serialize);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Create", _m_Create);
@@ -72,7 +73,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -113,8 +116,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ToString(RealStatePtr L)
         {

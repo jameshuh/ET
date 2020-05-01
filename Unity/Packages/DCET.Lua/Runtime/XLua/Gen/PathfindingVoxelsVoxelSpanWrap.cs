@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.Voxels.VoxelSpan);
 			Utils.BeginObjectRegister(type, L, translator, 0, 8, 4, 4);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getbottom", _g_get_bottom);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "gettop", _g_get_top);
@@ -69,7 +70,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -101,8 +104,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.PathProcessor);
 			Utils.BeginObjectRegister(type, L, translator, 0, 19, 2, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "PausePathfinding", _m_PausePathfinding);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "TickNonMultithreaded", _m_TickNonMultithreaded);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "JoinThreads", _m_JoinThreads);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -86,8 +89,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_PausePathfinding(RealStatePtr L)
         {

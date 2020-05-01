@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.EMRenderTarget);
 			Utils.BeginObjectRegister(type, L, translator, 0, 4, 1, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EM_BeforeUpdate", _m_EM_BeforeUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EM_Update", _m_EM_Update);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "EM_Reload", _m_EM_Reload);
@@ -58,7 +59,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -70,8 +73,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_EM_BeforeUpdate(RealStatePtr L)
         {

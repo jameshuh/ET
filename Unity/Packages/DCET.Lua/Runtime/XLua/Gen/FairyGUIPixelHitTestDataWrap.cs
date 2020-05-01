@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.PixelHitTestData);
 			Utils.BeginObjectRegister(type, L, translator, 0, 11, 5, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Load", _m_Load);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getpixelWidth", _g_get_pixelWidth);
@@ -74,7 +75,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -103,8 +106,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Load(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.RVO.RVONavmesh);
 			Utils.BeginObjectRegister(type, L, translator, 0, 6, 1, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnPostCacheLoad", _m_OnPostCacheLoad);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnGraphsPostUpdate", _m_OnGraphsPostUpdate);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnLatePostScan", _m_OnLatePostScan);
@@ -61,7 +62,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -90,8 +93,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_OnPostCacheLoad(RealStatePtr L)
         {

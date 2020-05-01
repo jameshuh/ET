@@ -10,7 +10,12 @@ setmetatable(System.IO,  {__index = CS.System.IO})
 setmetatable(System.Text, {__index = CS.System.Text})
 setmetatable(System.Linq, {__index = CS.System.Linq})
 
-UnityEngine = setmetatable({}, {__index = CS.UnityEngine})
-UnityEngine.op_Implicit = CS.DCETRuntime.UnityEngineHelper.op_Implicit
-UnityEngine.op_Equality = CS.DCETRuntime.UnityEngineHelper.op_Equality
-UnityEngine.op_Inequality = CS.DCETRuntime.UnityEngineHelper.op_Inequality
+local ToInt32 = System.Convert.ToInt32;
+
+System.Convert.ToInt32 = function(value)
+  if type(value) == "userdata" then
+    return CS.System.Convert.ToInt32(value)
+  else
+    return ToInt32(value)
+  end
+end

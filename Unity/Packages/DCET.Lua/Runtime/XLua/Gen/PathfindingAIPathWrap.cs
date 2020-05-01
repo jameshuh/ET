@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AIPath);
 			Utils.BeginObjectRegister(type, L, translator, 0, 25, 14, 9);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Teleport", _m_Teleport);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnTargetReached", _m_OnTargetReached);
 						
@@ -101,7 +102,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -130,8 +133,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_Teleport(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(UnityEngine.Behaviour);
 			Utils.BeginObjectRegister(type, L, translator, 0, 3, 2, 1);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getenabled", _g_get_enabled);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getisActiveAndEnabled", _g_get_isActiveAndEnabled);
@@ -59,7 +60,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -88,8 +91,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

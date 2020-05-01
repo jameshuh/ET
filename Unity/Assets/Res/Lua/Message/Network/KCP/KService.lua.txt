@@ -82,7 +82,7 @@ System.namespace("DCET", function (namespace)
         local continue
         repeat
           local messageLength = 0
-          System.try(function ()
+          local default = System.try(function ()
             local default
             default, this.ipEndPoint = this.socket:ReceiveFrom(this.cache, this.ipEndPoint)
             messageLength = default
@@ -90,8 +90,11 @@ System.namespace("DCET", function (namespace)
             local e = default
             DCET.Log.Exception(e)
             continue = true
-            return
+            return false
           end)
+          if default == false then
+            break
+          end
 
           -- 长度小于1，不是正常的消息
           if messageLength < 1 then
@@ -106,28 +109,28 @@ System.namespace("DCET", function (namespace)
           local localConn = 0
           local kChannel = nil
           repeat
-            local default = flag
-            if default == 1 --[[KcpProtocalType.SYN]] then
+            local extern = flag
+            if extern == 1 --[[KcpProtocalType.SYN]] then
               if messageLength ~= 5 then
                 break
               end
               local acceptIpEndPoint = System.cast(SystemNet.IPEndPoint, this.ipEndPoint)
               this.ipEndPoint = SystemNet.IPEndPoint(0, 0)
               remoteConn = System.BitConverter.ToUInt32(this.cache, 1)
-              local extern
-              extern, kChannel = this.waitConnectChannels:TryGetValue(remoteConn)
-              if extern then
+              local ref
+              ref, kChannel = this.waitConnectChannels:TryGetValue(remoteConn)
+              if ref then
                 break
               end
-              local ref = this.IdGenerater + 1
-              this.IdGenerater = ref
-              localConn = ref
+              local out = this.IdGenerater + 1
+              this.IdGenerater = out
+              localConn = out
               kChannel = DCET.KChannel(localConn, remoteConn, this.socket, acceptIpEndPoint, this)
               this.localConnChannels:set(kChannel:getLocalConn(), kChannel)
               this.waitConnectChannels:set(remoteConn, kChannel)
               this:OnAccept(kChannel)
               break
-            elseif default == 2 --[[KcpProtocalType.ACK]] then
+            elseif extern == 2 --[[KcpProtocalType.ACK]] then
               if messageLength ~= 9 then
                 break
               end
@@ -138,7 +141,7 @@ System.namespace("DCET", function (namespace)
                 kChannel:HandleConnnect(remoteConn)
               end
               break
-            elseif default == 3 --[[KcpProtocalType.FIN]] then
+            elseif extern == 3 --[[KcpProtocalType.FIN]] then
               if messageLength ~= 13 then
                 break
               end
@@ -152,7 +155,7 @@ System.namespace("DCET", function (namespace)
                 end
               end
               break
-            elseif default == 4 --[[KcpProtocalType.MSG]] then
+            elseif extern == 4 --[[KcpProtocalType.MSG]] then
               if messageLength < 9 then
                 break
               end

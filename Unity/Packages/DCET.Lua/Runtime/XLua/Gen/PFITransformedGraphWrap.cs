@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.ITransformedGraph);
 			Utils.BeginObjectRegister(type, L, translator, 0, 1, 1, 0);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "gettransform", _g_get_transform);
             
@@ -55,7 +56,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -67,8 +70,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

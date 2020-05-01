@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.IKeyboard);
 			Utils.BeginObjectRegister(type, L, translator, 0, 5, 2, 0);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetInput", _m_GetInput);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Open", _m_Open);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Close", _m_Close);
@@ -60,7 +61,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -72,8 +75,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetInput(RealStatePtr L)
         {

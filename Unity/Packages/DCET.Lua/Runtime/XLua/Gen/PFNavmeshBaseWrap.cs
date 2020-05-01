@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.NavmeshBase);
 			Utils.BeginObjectRegister(type, L, translator, 0, 43, 12, 10);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetTile", _m_GetTile);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertex", _m_GetVertex);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetVertexInGraphSpace", _m_GetVertexInGraphSpace);
@@ -127,7 +128,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -139,8 +142,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetTile(RealStatePtr L)
         {
@@ -302,7 +307,7 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 2&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
+                if(gen_param_count == 4&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 2)) 
                 {
                     int _tileIndex = LuaAPI.xlua_tointeger(L, 2);
                     int _x;
@@ -628,7 +633,7 @@ namespace XLua.CSObjectWrap
                     
                     return 1;
                 }
-                if(gen_param_count == 4&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)) 
+                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)) 
                 {
                     UnityEngine.Vector3 _origin;translator.Get(L, 2, out _origin);
                     UnityEngine.Vector3 _end;translator.Get(L, 3, out _end);
@@ -648,13 +653,13 @@ namespace XLua.CSObjectWrap
                     
                     return 2;
                 }
-                if(gen_param_count == 5&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)&& translator.Assignable<System.Collections.Generic.List<PF.GraphNode>>(L, 5)) 
+                if(gen_param_count == 6&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)&& translator.Assignable<System.Collections.Generic.List<PF.GraphNode>>(L, 6)) 
                 {
                     UnityEngine.Vector3 _origin;translator.Get(L, 2, out _origin);
                     UnityEngine.Vector3 _end;translator.Get(L, 3, out _end);
                     PF.GraphNode _hint = (PF.GraphNode)translator.GetObject(L, 4, typeof(PF.GraphNode));
                     PF.GraphHitInfo _hit;
-                    System.Collections.Generic.List<PF.GraphNode> _trace = (System.Collections.Generic.List<PF.GraphNode>)translator.GetObject(L, 5, typeof(System.Collections.Generic.List<PF.GraphNode>));
+                    System.Collections.Generic.List<PF.GraphNode> _trace = (System.Collections.Generic.List<PF.GraphNode>)translator.GetObject(L, 6, typeof(System.Collections.Generic.List<PF.GraphNode>));
                     
                         bool gen_ret = gen_to_be_invoked.Linecast( 
                         _origin, 
@@ -690,7 +695,7 @@ namespace XLua.CSObjectWrap
             
 			    int gen_param_count = LuaAPI.lua_gettop(L);
             
-                if(gen_param_count == 4&& translator.Assignable<PF.NavmeshBase>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)) 
+                if(gen_param_count == 5&& translator.Assignable<PF.NavmeshBase>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)) 
                 {
                     PF.NavmeshBase _graph = (PF.NavmeshBase)translator.GetObject(L, 1, typeof(PF.NavmeshBase));
                     UnityEngine.Vector3 _origin;translator.Get(L, 2, out _origin);
@@ -712,14 +717,14 @@ namespace XLua.CSObjectWrap
                     
                     return 2;
                 }
-                if(gen_param_count == 5&& translator.Assignable<PF.NavmeshBase>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)&& translator.Assignable<System.Collections.Generic.List<PF.GraphNode>>(L, 5)) 
+                if(gen_param_count == 6&& translator.Assignable<PF.NavmeshBase>(L, 1)&& translator.Assignable<UnityEngine.Vector3>(L, 2)&& translator.Assignable<UnityEngine.Vector3>(L, 3)&& translator.Assignable<PF.GraphNode>(L, 4)&& translator.Assignable<System.Collections.Generic.List<PF.GraphNode>>(L, 6)) 
                 {
                     PF.NavmeshBase _graph = (PF.NavmeshBase)translator.GetObject(L, 1, typeof(PF.NavmeshBase));
                     UnityEngine.Vector3 _origin;translator.Get(L, 2, out _origin);
                     UnityEngine.Vector3 _end;translator.Get(L, 3, out _end);
                     PF.GraphNode _hint = (PF.GraphNode)translator.GetObject(L, 4, typeof(PF.GraphNode));
                     PF.GraphHitInfo _hit;
-                    System.Collections.Generic.List<PF.GraphNode> _trace = (System.Collections.Generic.List<PF.GraphNode>)translator.GetObject(L, 5, typeof(System.Collections.Generic.List<PF.GraphNode>));
+                    System.Collections.Generic.List<PF.GraphNode> _trace = (System.Collections.Generic.List<PF.GraphNode>)translator.GetObject(L, 6, typeof(System.Collections.Generic.List<PF.GraphNode>));
                     
                         bool gen_ret = PF.NavmeshBase.Linecast( 
                         _graph, 

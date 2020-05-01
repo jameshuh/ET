@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.Utils.ZipReader.ZipEntry);
 			Utils.BeginObjectRegister(type, L, translator, 0, 14, 7, 7);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getname", _g_get_name);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getcompress", _g_get_compress);
@@ -81,7 +82,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -110,8 +113,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.GGraph);
 			Utils.BeginObjectRegister(type, L, translator, 0, 12, 2, 1);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ReplaceMe", _m_ReplaceMe);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddBeforeMe", _m_AddBeforeMe);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "AddAfterMe", _m_AddAfterMe);
@@ -68,7 +69,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -97,8 +100,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_ReplaceMe(RealStatePtr L)
         {

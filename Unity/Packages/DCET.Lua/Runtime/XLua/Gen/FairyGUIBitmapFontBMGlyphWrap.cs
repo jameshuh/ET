@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.BitmapFont.BMGlyph);
 			Utils.BeginObjectRegister(type, L, translator, 0, 16, 8, 8);
 			
+            			
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getoffsetX", _g_get_offsetX);
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "getoffsetY", _g_get_offsetY);
@@ -85,7 +86,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -114,8 +117,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         
         
         

@@ -117,10 +117,4 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="protobuf-net">
-      <HintPath>..\..\..\Unity\Packages\DCET.Message\Plugins\protobuf-net.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

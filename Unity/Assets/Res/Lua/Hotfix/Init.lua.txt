@@ -55,9 +55,9 @@ System.namespace("DCET", function (namespace)
       -- 全局共享变量用法
       DCET.Game.Scene:AddComponent(DCET.BehaviorTreeVariableComponent):SetVariable("全局变量", 1, System.Int32)
 
-      local runtimeBehaivorTree = UnityEngine.Object.Instantiate(System.as(DCETRuntime.ResourcesHelper.Load("Cube"), UnityEngine.GameObject)):GetComponent(BehaviorDesignerRuntime.BehaviorTree)
+      local runtimeBehaivorTree = UnityEngine.Object.Instantiate(System.as(DCETRuntime.ResourcesHelper.Load("Cube"), UnityEngine.GameObject), UnityEngine.GameObject):GetComponent(BehaviorDesignerRuntime.BehaviorTree)
 
-      if UnityEngine.op_Implicit(runtimeBehaivorTree) then
+      if UnityEngine.Object.op_Implicit(runtimeBehaivorTree) then
         --建议在资源预加载时进行初始化，以免游戏对局中反序列化GC卡顿
         DCET.BehaviorTreeHelper.Init(runtimeBehaivorTree:getgameObject());
 

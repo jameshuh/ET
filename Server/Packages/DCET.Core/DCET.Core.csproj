@@ -127,8 +127,8 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Generic\UnOrderMultiMapSet.cs">
       <Link>Generic\UnOrderMultiMapSet.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Helper\ByteHelper.cs">
-      <Link>Helper\ByteHelper.cs</Link>
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Helper\StreamHelper.cs">
+      <Link>Helper\StreamHelper.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\ComponentHelper.cs">
       <Link>Helper\ComponentHelper.cs</Link>

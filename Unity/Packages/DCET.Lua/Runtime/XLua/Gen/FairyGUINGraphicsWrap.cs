@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.NGraphics);
 			Utils.BeginObjectRegister(type, L, translator, 0, 41, 19, 15);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetShaderAndTexture", _m_SetShaderAndTexture);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Tint", _m_Tint);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "SetMeshDirty", _m_SetMeshDirty);
@@ -128,7 +129,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -158,8 +161,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_SetShaderAndTexture(RealStatePtr L)
         {

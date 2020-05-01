@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(FairyGUI.NTexture);
 			Utils.BeginObjectRegister(type, L, translator, 0, 25, 13, 5);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetDrawRect", _m_GetDrawRect);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetUV", _m_GetUV);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetMaterialManager", _m_GetMaterialManager);
@@ -99,7 +100,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -175,8 +178,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_DisposeEmpty_xlua_st_(RealStatePtr L)
         {

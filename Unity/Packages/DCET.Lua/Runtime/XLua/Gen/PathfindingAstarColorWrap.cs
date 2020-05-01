@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(Pathfinding.AstarColor);
 			Utils.BeginObjectRegister(type, L, translator, 0, 15, 7, 7);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnEnable", _m_OnEnable);
 						
             Utils.RegisterFunc(L, Utils.METHOD_IDX, "get_NodeConnection", _g_get__NodeConnection);
@@ -107,7 +108,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -136,8 +139,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetAreaColor_xlua_st_(RealStatePtr L)
         {

@@ -23,6 +23,7 @@ namespace XLua.CSObjectWrap
 			System.Type type = typeof(PF.RecastGraph);
 			Utils.BeginObjectRegister(type, L, translator, 0, 63, 30, 24);
 			
+            			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CalculateTransform", _m_CalculateTransform);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InitializeTileInfo", _m_InitializeTileInfo);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "ScanAllTiles", _m_ScanAllTiles);
@@ -174,7 +175,9 @@ namespace XLua.CSObjectWrap
 			
 			Utils.EndClassRegister(type, L, translator);
         }
-        
+		
+		
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int __CreateInstance(RealStatePtr L)
         {
@@ -203,8 +206,10 @@ namespace XLua.CSObjectWrap
 		
         
         
+
+		
         
-        
+		
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_CalculateTransform(RealStatePtr L)
         {

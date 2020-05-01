@@ -179,7 +179,7 @@ System.namespace("DCET", function (namespace)
           assetBundle = UnityEngine.AssetBundle.LoadFromFile(p)
         end
 
-        if UnityEngine.op_Equality(assetBundle, nil) then
+        if UnityEngine.Object.op_Equality(assetBundle, nil) then
           System.throw(System.Exception("assets bundle not found: " .. assetBundleName))
         end
 
@@ -259,7 +259,7 @@ System.namespace("DCET", function (namespace)
             assetBundle = async:await(assetsBundleLoaderAsync:LoadAsync(p))
           end)
 
-          if UnityEngine.op_Equality(assetBundle, nil) then
+          if UnityEngine.Object.op_Equality(assetBundle, nil) then
             System.throw(System.Exception("assets bundle not found: " .. assetBundleName))
           end
 

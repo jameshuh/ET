@@ -32,7 +32,7 @@ namespace DCET
 			]]
 			*/
 
-			PacketParser.WriteBytes(memoryStream, bytes);
+			DCETRuntime.StreamHelper.WriteBytes(memoryStream, bytes);
 #endif
 		}
 
@@ -43,7 +43,7 @@ namespace DCET
 #if !__CSharpLua__
 				return RuntimeTypeModel.Default.Deserialize(memoryStream, null, message.GetType());
 #else
-				byte[] bytes = PacketParser.ReadBytes(memoryStream);
+				byte[] bytes = DCETRuntime.StreamHelper.ReadBytes(memoryStream, DCET.Packet.MessageIndex);
 
 				if(bytes != null)
 				{
