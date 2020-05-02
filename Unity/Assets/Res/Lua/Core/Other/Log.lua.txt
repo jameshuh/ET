@@ -15,7 +15,11 @@ System.namespace("DCET", function (namespace)
       DCETRuntime.Log.Info(msg)
     end
     Exception = function (e)
-      Error(e:ToString())
+      if e ~= nil then
+        Error(e:ToString())
+      else
+        Error("Unknown exception")
+      end
     end
     Error = function (msg)
       DCETRuntime.Log.Error(msg)

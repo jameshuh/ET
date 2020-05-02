@@ -70,20 +70,20 @@ namespace DCETRuntime
 				{
 					if (filepath.EndsWith(luaExtensionName))
 					{
-						var path = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash).Replace(luaSuffixName, luaExtensionName) + txtExtensionName);
+						filepath = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash).Replace(luaSuffixName, luaExtensionName) + txtExtensionName);
 
-						if (File.Exists(path))
+						if (File.Exists(filepath))
 						{
-							return File.ReadAllBytes(path);
+							return File.ReadAllBytes(filepath);
 						}
 					}
 					else
 					{
-						var path = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash) + luaTxtExtensionName);
+						filepath = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash) + luaTxtExtensionName);
 
-						if (File.Exists(path))
+						if (File.Exists(filepath))
 						{
-							return File.ReadAllBytes(path);
+							return File.ReadAllBytes(filepath);
 						}
 					}
 				}
@@ -108,6 +108,8 @@ namespace DCETRuntime
 
 						if (textAsset != null && textAsset is TextAsset)
 						{
+							filepath = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash).Replace(luaSuffixName, luaExtensionName) + txtExtensionName);
+
 							return (textAsset as TextAsset).bytes;
 						}
 					}
@@ -117,6 +119,8 @@ namespace DCETRuntime
 
 						if (textAsset != null && textAsset is TextAsset)
 						{
+							filepath = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash) + luaTxtExtensionName);
+
 							return (textAsset as TextAsset).bytes;
 						}
 					}

@@ -16,7 +16,14 @@ namespace DCET
 
 		public static void Exception(Exception e)
 		{
-			Error(e.ToString());
+			if (e != null)
+			{
+				Error(e.ToString());
+			}
+			else
+			{
+				Error("Unknown exception");
+			}
 		}
 
 		public static void Error(string msg)

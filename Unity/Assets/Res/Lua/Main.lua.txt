@@ -1,5 +1,7 @@
-local breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7003)
---require("LuaPanda").start("127.0.0.1",8818)
+--luaide Debug
+--require("LuaDebug")("localhost",7003)
+--LuaPanda Debug
+require("LuaPanda").start("127.0.0.1",8818)
 
 require("CSharpLua.Classloader")
 require("xLuaAdapter")
