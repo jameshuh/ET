@@ -56,6 +56,7 @@ local CSOpCallNameMap = {
 	op_Explicit = "",
 	op_GreaterThan = ">",	
 	op_GreaterThanOrEqual  = ">=",
+	op_UnaryPlus = "+",
 }
 
 local obj_method_count = 0
@@ -442,7 +443,7 @@ namespace XLua.CSObjectWrap
         static int _m_<%=operator.Name%>(RealStatePtr L)
         {					
 			
-            <%if operator.Name ~= "op_Implicit" and operator.Name ~= "op_Explicit" then %>
+            <%if operator.Name ~= "op_Implicit" and operator.Name ~= "op_Explicit" and operator.Name ~= "op_UnaryPlus" then %>
 			try {
                 ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
             <%ForEachCsList(operator.Overloads, function(overload)
