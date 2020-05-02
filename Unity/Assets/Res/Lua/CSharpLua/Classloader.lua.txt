@@ -28,6 +28,10 @@ local config = {
       return typeof(T)
     end
     return nil
+  end,
+
+  currentTimeMillis = function ()
+    return CS.DCETRuntime.LocalTimeHelper.CurrentMilliseconds()
   end
 }
 

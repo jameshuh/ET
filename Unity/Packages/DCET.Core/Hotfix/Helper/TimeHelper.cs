@@ -1,27 +1,15 @@
-﻿using System;
-
-namespace DCET
+﻿namespace DCET
 {
 	public static class TimeHelper
 	{
-		private static readonly long epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
-		/// <summary>
-		/// 客户端时间
-		/// </summary>
-		/// <returns></returns>
-		public static long ClientNow()
+		public static long CurrentLocalMilliseconds()
 		{
-			return (DateTime.UtcNow.Ticks - epoch) / 10000;
+			return DCETRuntime.LocalTimeHelper.CurrentMilliseconds();
 		}
 
-		public static long ClientNowSeconds()
+		public static long CurrentLocalSeconds()
 		{
-			return (DateTime.UtcNow.Ticks - epoch) / 10000000;
-		}
-
-		public static long Now()
-		{
-			return ClientNow();
+			return DCETRuntime.LocalTimeHelper.CurrentSeconds();
 		}
     }
 }

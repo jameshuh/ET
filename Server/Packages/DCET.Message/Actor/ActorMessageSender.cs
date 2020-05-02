@@ -12,7 +12,7 @@ namespace DCET
 
 		public ActorMessageSender(Action<IActorResponse> callback)
 		{
-			this.CreateTime = TimeHelper.Now();
+			this.CreateTime = TimeHelper.CurrentLocalMilliseconds();
 			this.Callback = callback;
 		}
 	}

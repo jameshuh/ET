@@ -70,7 +70,7 @@ namespace DCET
 	{
 		public void Awake(long repeatedTime, Action callback)
 		{
-			StartTime = TimeHelper.Now();
+			StartTime = TimeHelper.CurrentLocalMilliseconds();
 			RepeatedTime = repeatedTime;
 			Callback = callback;
 			Count = 1;
@@ -169,7 +169,7 @@ namespace DCET
 				return;
 			}
 
-			long timeNow = TimeHelper.Now();
+			long timeNow = TimeHelper.CurrentLocalMilliseconds();
 
 			if (timeNow < minTime)
 			{
@@ -212,7 +212,7 @@ namespace DCET
 
 		public Task WaitTillAsync(long tillTime, CancellationToken cancellationToken)
 		{
-			if (TimeHelper.Now() > tillTime)
+			if (TimeHelper.CurrentLocalMilliseconds() > tillTime)
 			{
 				return Task.CompletedTask;
 			}
@@ -228,7 +228,7 @@ namespace DCET
 
 		public Task WaitTillAsync(long tillTime)
 		{
-			if (TimeHelper.Now() > tillTime)
+			if (TimeHelper.CurrentLocalMilliseconds() > tillTime)
 			{
 				return Task.CompletedTask;
 			}
@@ -241,9 +241,9 @@ namespace DCET
 
 		public Task WaitAsync(long time, CancellationToken cancellationToken)
 		{
-			long tillTime = TimeHelper.Now() + time;
+			long tillTime = TimeHelper.CurrentLocalMilliseconds() + time;
 
-            if (TimeHelper.Now() > tillTime)
+            if (TimeHelper.CurrentLocalMilliseconds() > tillTime)
             {
                 return Task.CompletedTask;
             }
@@ -258,7 +258,7 @@ namespace DCET
 
 		public Task WaitAsync(long time)
 		{
-			long tillTime = TimeHelper.Now() + time;
+			long tillTime = TimeHelper.CurrentLocalMilliseconds() + time;
 			var tcs = new TaskCompletionSource<bool>();
 			OnceWaitTimer timer = EntityFactory.CreateWithParent<OnceWaitTimer, TaskCompletionSource<bool>>(this, tcs);
 			timers[timer.Id] = timer;
@@ -278,7 +278,7 @@ namespace DCET
 			{
 				throw new Exception($"repeated time < 30");
 			}
-			long tillTime = TimeHelper.Now() + time;
+			long tillTime = TimeHelper.CurrentLocalMilliseconds() + time;
 			RepeatedTimer timer = EntityFactory.CreateWithParent<RepeatedTimer, long, Action>(this, time, action);
 			timers[timer.Id] = timer;
 			AddToTimeId(tillTime, timer.Id);

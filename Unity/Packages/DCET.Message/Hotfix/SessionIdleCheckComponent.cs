@@ -44,7 +44,7 @@
         public static void Check(this SessionIdleCheckerComponent self)
         {
             Session session = self.GetParent<Session>();
-            long timeNow = TimeHelper.Now();
+            long timeNow = TimeHelper.CurrentLocalMilliseconds();
             if (timeNow - session.LastRecvTime < self.RecvMaxIdleTime && timeNow - session.LastSendTime < self.SendMaxIdleTime)
             {
                 return;

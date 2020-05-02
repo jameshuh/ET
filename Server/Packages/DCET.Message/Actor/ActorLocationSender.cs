@@ -35,7 +35,7 @@ namespace DCET
 
         public void Awake()
         {
-            LastSendOrRecvTime = TimeHelper.Now();
+            LastSendOrRecvTime = TimeHelper.CurrentLocalMilliseconds();
             FailTimes = 0;
             ActorId = 0;
 
@@ -75,7 +75,7 @@ namespace DCET
                     return new ActorResponse() { Error = ErrorCode.ERR_ActorNotOnline };
                 }
 
-                LastSendOrRecvTime = TimeHelper.Now();
+                LastSendOrRecvTime = TimeHelper.CurrentLocalMilliseconds();
                 IActorResponse response = await ActorMessageSenderComponent.Instance.CallWithoutException(ActorId, iActorRequest);
 
                 switch (response.Error)
@@ -103,7 +103,7 @@ namespace DCET
                     }
                 }
 
-                LastSendOrRecvTime = TimeHelper.Now();
+                LastSendOrRecvTime = TimeHelper.CurrentLocalMilliseconds();
                 FailTimes = 0;
 
                 return response;

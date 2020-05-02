@@ -570,6 +570,7 @@
 		<type fullname="DCETRuntime.AssetDatabaseHelper" preserve="all"/>
 		<type fullname="DCETRuntime.FileHelper" preserve="all"/>
 		<type fullname="DCETRuntime.GameObjectHelper" preserve="all"/>
+		<type fullname="DCETRuntime.LocalTimeHelper" preserve="all"/>
 		<type fullname="DCETRuntime.MD5Helper" preserve="all"/>
 		<type fullname="DCETRuntime.MongoHelper" preserve="all"/>
 		<type fullname="DCETRuntime.PathHelper" preserve="all"/>

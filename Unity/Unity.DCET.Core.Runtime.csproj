@@ -73,6 +73,7 @@
     <Compile Include="Packages\DCET.Core\Runtime\Helper\AssetDatabaseHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\FileHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\GameObjectHelper.cs" />
+    <Compile Include="Packages\DCET.Core\Runtime\Helper\LocalTimeHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\MD5Helper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\MongoHelper.cs" />
     <Compile Include="Packages\DCET.Core\Runtime\Helper\PathHelper.cs" />

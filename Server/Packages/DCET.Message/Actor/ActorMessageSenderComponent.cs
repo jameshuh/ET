@@ -53,7 +53,7 @@ namespace DCET
 
         public void Check()
         {
-            long timeNow = TimeHelper.Now();
+            long timeNow = TimeHelper.CurrentLocalMilliseconds();
             foreach ((int key, ActorMessageSender value) in requestCallback)
             {
                 if (timeNow < value.CreateTime + TIMEOUT_TIME)

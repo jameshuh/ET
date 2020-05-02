@@ -27,7 +27,7 @@ System.namespace("DCET", function (namespace)
       return class.Head + id
     end
     GenerateId = function ()
-      local time = DCET.TimeHelper.ClientNowSeconds()
+      local time = DCET.TimeHelper.CurrentLocalSeconds()
 
       local default = value + 1
       value = default

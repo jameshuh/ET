@@ -35,7 +35,7 @@ namespace DCET
         {
             using (ListComponent<long> list = EntityFactory.Create<ListComponent<long>>(Domain))
             {
-                long timeNow = TimeHelper.Now();
+                long timeNow = TimeHelper.CurrentLocalMilliseconds();
                 foreach ((long key, Entity value) in Children)
                 {
                     ActorLocationSender actorLocationMessageSender = (ActorLocationSender)value;

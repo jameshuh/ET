@@ -15,7 +15,7 @@ namespace DCET
 	public class WebSocketBenchmarkComponent : Entity
 	{
 		public int k;
-		public long time1 = TimeHelper.ClientNow();
+		public long time1 = TimeHelper.CurrentLocalMilliseconds();
 
 		public void Awake(string address)
 		{
@@ -69,7 +69,7 @@ namespace DCET
 					return;
 				}
 
-				long time2 = TimeHelper.ClientNow();
+				long time2 = TimeHelper.CurrentLocalMilliseconds();
 				long time = time2 - time1;
 				time1 = time2;
 				Log.Info($"Benchmark k: {k} 每1W次耗时: {time} ms {session.Network.Count}");

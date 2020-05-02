@@ -39,7 +39,7 @@
 
         public static long GenerateId()
         {
-            long time = TimeHelper.ClientNowSeconds();
+            long time = TimeHelper.CurrentLocalSeconds();
 
             return Head + (time << 18) + ++value;
         }

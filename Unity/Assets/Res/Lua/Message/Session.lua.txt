@@ -50,7 +50,7 @@ System.namespace("DCET", function (namespace)
       this.channel.Error = value
     end
     Awake = function (this, aChannel)
-      local timeNow = DCET.TimeHelper.Now()
+      local timeNow = DCET.TimeHelper.CurrentLocalMilliseconds()
       this.LastRecvTime = timeNow
       this.LastSendTime = timeNow
 
@@ -133,7 +133,7 @@ System.namespace("DCET", function (namespace)
       RunMessage(this, opcode, message)
     end
     RunMessage = function (this, opcode, message)
-      this.LastRecvTime = DCET.TimeHelper.Now()
+      this.LastRecvTime = DCET.TimeHelper.CurrentLocalMilliseconds()
 
       local response = message
       if not (System.is(response, DCET.IResponse)) then
@@ -209,7 +209,7 @@ System.namespace("DCET", function (namespace)
         System.throw(System.Exception("session已经被Dispose了"))
       end
 
-      this.LastSendTime = DCET.TimeHelper.Now()
+      this.LastSendTime = DCET.TimeHelper.CurrentLocalMilliseconds()
 
       if DCET.OpcodeHelper.IsNeedDebugLogMessage(opcode) then
         DCET.Log.Print(message)

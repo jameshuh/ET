@@ -166,6 +166,9 @@
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Helper\TimeHelper.cs">
       <Link>Helper\TimeHelper.cs</Link>
     </Compile>
+    <Compile Include="..\..\..\Unity\Packages\DCET.Core\Runtime\Helper\LocalTimeHelper.cs">
+      <Link>Helper\LocalTimeHelper.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Unity\Packages\DCET.Core\Hotfix\Other\LayerNames.cs">
       <Link>Other\LayerNames.cs</Link>
     </Compile>

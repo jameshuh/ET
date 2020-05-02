@@ -191,13 +191,11 @@ end
 
 local timeZoneTicks, dstTicks = getTimeZone()
 
-local time = System.config.time or ostime
-System.time = time
-System.currentTimeMillis = function () return trunc(time() * 1000) end
+local currentTimeMillis = function () return trunc(ostime() * 1000) end
+System.currentTimeMillis = System.config.currentTimeMillis or currentTimeMillis
 
 local function now()
-  local seconds = time()
-  local ticks = seconds * 10000000 + timeZoneTicks + dstTicks + 621355968000000000
+  local ticks = System.currentTimeMillis() * 10000 + timeZoneTicks + dstTicks + 621355968000000000
   return DateTime(ticks, 2)
 end
 
@@ -380,8 +378,7 @@ DateTime = System.defStc("System.DateTime", {
   end,
   BaseUtcOffset = TimeSpan(timeZoneTicks),
   getUtcNow = function ()
-    local seconds = time()
-    local ticks = seconds * 10000000 + 621355968000000000
+    local ticks = System.currentTimeMillis() * 10000 + 621355968000000000
     return DateTime(ticks, 1)
   end,
   getNow = now,

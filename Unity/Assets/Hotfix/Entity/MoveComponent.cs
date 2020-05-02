@@ -37,7 +37,7 @@ namespace DCET
 			}
 			
 			Unit unit = this.GetParent<Unit>();
-			long timeNow = TimeHelper.Now();
+			long timeNow = TimeHelper.CurrentLocalMilliseconds();
 
 			if (timeNow - this.StartTime >= this.needTime)
 			{
@@ -65,7 +65,7 @@ namespace DCET
 
 			
 			this.StartPos = unit.Position;
-			this.StartTime = TimeHelper.Now();
+			this.StartTime = TimeHelper.CurrentLocalMilliseconds();
 			float distance = (this.Target - this.StartPos).magnitude;
 			if (Math.Abs(distance) < 0.1f)
 			{

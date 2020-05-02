@@ -127,7 +127,7 @@ System.namespace("DCET", function (namespace)
       DCET.Entity.__ctor__(this)
     end
     Awake = function (this, repeatedTime, callback)
-      this.StartTime = DCET.TimeHelper.Now()
+      this.StartTime = DCET.TimeHelper.CurrentLocalMilliseconds()
       this.RepeatedTime = repeatedTime
       this.Callback = callback
       this.Count = 1
@@ -236,7 +236,7 @@ System.namespace("DCET", function (namespace)
         return
       end
 
-      local timeNow = DCET.TimeHelper.Now()
+      local timeNow = DCET.TimeHelper.CurrentLocalMilliseconds()
 
       if timeNow < this.minTime then
         return
@@ -280,7 +280,7 @@ System.namespace("DCET", function (namespace)
       end
     end
     WaitTillAsync = function (this, tillTime, cancellationToken)
-      if DCET.TimeHelper.Now() > tillTime then
+      if DCET.TimeHelper.CurrentLocalMilliseconds() > tillTime then
         return System.Task.getCompletedTask()
       end
 
@@ -295,7 +295,7 @@ System.namespace("DCET", function (namespace)
       return tcs:getTask()
     end
     WaitTillAsync1 = function (this, tillTime)
-      if DCET.TimeHelper.Now() > tillTime then
+      if DCET.TimeHelper.CurrentLocalMilliseconds() > tillTime then
         return System.Task.getCompletedTask()
       end
       local tcs = System.TaskCompletionSource()
@@ -305,9 +305,9 @@ System.namespace("DCET", function (namespace)
       return tcs:getTask()
     end
     WaitAsync = function (this, time, cancellationToken)
-      local tillTime = DCET.TimeHelper.Now() + time
+      local tillTime = DCET.TimeHelper.CurrentLocalMilliseconds() + time
 
-      if DCET.TimeHelper.Now() > tillTime then
+      if DCET.TimeHelper.CurrentLocalMilliseconds() > tillTime then
         return System.Task.getCompletedTask()
       end
 
@@ -321,7 +321,7 @@ System.namespace("DCET", function (namespace)
       return tcs:getTask()
     end
     WaitAsync1 = function (this, time)
-      local tillTime = DCET.TimeHelper.Now() + time
+      local tillTime = DCET.TimeHelper.CurrentLocalMilliseconds() + time
       local tcs = System.TaskCompletionSource()
       local timer = DCET.EntityFactory.CreateWithParent2(this, tcs, DCET.OnceWaitTimer, System.TaskCompletionSource)
       this.timers:set(timer.Id, timer)
@@ -337,7 +337,7 @@ System.namespace("DCET", function (namespace)
       if time < 30 then
         System.throw(System.Exception("repeated time < 30" .. ""))
       end
-      local tillTime = DCET.TimeHelper.Now() + time
+      local tillTime = DCET.TimeHelper.CurrentLocalMilliseconds() + time
       local timer = DCET.EntityFactory.CreateWithParent3(this, time, action, DCET.RepeatedTimer, System.Int64, System.Delegate)
       this.timers:set(timer.Id, timer)
       AddToTimeId(this, tillTime, timer.Id)

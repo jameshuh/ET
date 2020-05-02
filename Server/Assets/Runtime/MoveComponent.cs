@@ -26,7 +26,7 @@ namespace DCET
         {
             Unit unit = this.GetParent<Unit>();
             this.StartPos = unit.Position;
-            this.StartTime = TimeHelper.Now();
+            this.StartTime = TimeHelper.CurrentLocalMilliseconds();
             float distance = (this.Target - this.StartPos).magnitude;
             if (Math.Abs(distance) < 0.1f)
             {
@@ -40,7 +40,7 @@ namespace DCET
             // 协程如果取消，将算出玩家的真实位置，赋值给玩家
             cancellationToken.Register(() =>
             {
-                long timeNow = TimeHelper.Now();
+                long timeNow = TimeHelper.CurrentLocalMilliseconds();
                 if (timeNow - this.StartTime >= this.needTime)
                 {
                     unit.Position = this.Target;
@@ -56,7 +56,7 @@ namespace DCET
             {
                 await timerComponent.WaitAsync(50, cancellationToken);
                 
-                long timeNow = TimeHelper.Now();
+                long timeNow = TimeHelper.CurrentLocalMilliseconds();
                 
                 if (timeNow - this.StartTime >= this.needTime)
                 {

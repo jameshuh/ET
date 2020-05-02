@@ -81,7 +81,7 @@ System.namespace("DCET", function (namespace)
     local Check
     Check = function (self)
       local session = self:GetParent(DCET.Session)
-      local timeNow = DCET.TimeHelper.Now()
+      local timeNow = DCET.TimeHelper.CurrentLocalMilliseconds()
       if timeNow - session.LastRecvTime < self.RecvMaxIdleTime and timeNow - session.LastSendTime < self.SendMaxIdleTime then
         return
       end

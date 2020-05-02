@@ -48,7 +48,7 @@ namespace DCET
 
 		public void Awake(AChannel aChannel)
 		{
-			long timeNow = TimeHelper.Now();
+			long timeNow = TimeHelper.CurrentLocalMilliseconds();
 			this.LastRecvTime = timeNow;
 			this.LastSendTime = timeNow;
 			
@@ -155,7 +155,7 @@ namespace DCET
 
 		private void RunMessage(ushort opcode, object message)
 		{
-			this.LastRecvTime = TimeHelper.Now();
+			this.LastRecvTime = TimeHelper.CurrentLocalMilliseconds();
             
 			if (!(message is IResponse response))
 			{
@@ -250,7 +250,7 @@ namespace DCET
 				throw new Exception("session已经被Dispose了");
 			}
 
-			this.LastSendTime = TimeHelper.Now();
+			this.LastSendTime = TimeHelper.CurrentLocalMilliseconds();
 			
 			if (OpcodeHelper.IsNeedDebugLogMessage(opcode) )
 			{

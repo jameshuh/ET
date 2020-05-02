@@ -127,6 +127,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeGlobalProtoWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeIStaticMethodWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeKcpWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeLocalTimeHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeLogWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeMD5HelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeMongoHelperWrap.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeResourcesHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStreamHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStringHelperWrap.cs" />
+    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeTimeHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeUnityWebRequestAsyncWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeVersionConfigWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeZipHelperWrap.cs" />

@@ -1579,18 +1579,21 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(DCETRuntime.GameObjectHelper), DCETRuntimeGameObjectHelperWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(DCETRuntime.LocalTimeHelper), DCETRuntimeLocalTimeHelperWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(DCETRuntime.MD5Helper), DCETRuntimeMD5HelperWrap.__Register);
         
         
             translator.DelayWrapLoader(typeof(DCETRuntime.MongoHelper), DCETRuntimeMongoHelperWrap.__Register);
         
-        
-            translator.DelayWrapLoader(typeof(DCETRuntime.PathHelper), DCETRuntimePathHelperWrap.__Register);
-        
         }
         
         static void wrapInit10(LuaEnv luaenv, ObjectTranslator translator)
         {
+        
+            translator.DelayWrapLoader(typeof(DCETRuntime.PathHelper), DCETRuntimePathHelperWrap.__Register);
+        
         
             translator.DelayWrapLoader(typeof(DCETRuntime.ProcessHelper), DCETRuntimeProcessHelperWrap.__Register);
         

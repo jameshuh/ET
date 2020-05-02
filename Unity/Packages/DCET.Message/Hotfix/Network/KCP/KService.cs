@@ -62,8 +62,8 @@ namespace DCET
 		{
 			this.AcceptCallback += acceptCallback;
 			
-			this.StartTime = TimeHelper.ClientNow();
-			this.TimeNow = (uint)(TimeHelper.ClientNow() - this.StartTime);
+			this.StartTime = TimeHelper.CurrentLocalMilliseconds();
+			this.TimeNow = (uint)(TimeHelper.CurrentLocalMilliseconds() - this.StartTime);
 			this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 			//this.socket.Blocking = false;
 			this.socket.Bind(ipEndPoint);
@@ -81,8 +81,8 @@ namespace DCET
 
 		public KService()
 		{
-			this.StartTime = TimeHelper.ClientNow();
-			this.TimeNow = (uint)(TimeHelper.ClientNow() - this.StartTime);
+			this.StartTime = TimeHelper.CurrentLocalMilliseconds();
+			this.TimeNow = (uint)(TimeHelper.CurrentLocalMilliseconds() - this.StartTime);
 			this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 			//this.socket.Blocking = false;
 			this.socket.Bind(new IPEndPoint(IPAddress.Any, 0));
@@ -331,7 +331,7 @@ namespace DCET
 		
 		public override void Update()
 		{
-			this.TimeNow = (uint) (TimeHelper.ClientNow() - this.StartTime);
+			this.TimeNow = (uint) (TimeHelper.CurrentLocalMilliseconds() - this.StartTime);
 
 			this.Recv();
 
@@ -370,7 +370,7 @@ namespace DCET
 
 		public override void Update()
 		{
-			this.TimeNow = (uint)(TimeHelper.ClientNow() - this.StartTime);
+			this.TimeNow = (uint)(TimeHelper.CurrentLocalMilliseconds() - this.StartTime);
 			
 			this.Recv();
 			

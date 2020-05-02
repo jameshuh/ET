@@ -40,7 +40,7 @@ System.namespace("DCET", function (namespace)
       end
 
       local unit = this:GetParent(DCET.Unit)
-      local timeNow = DCET.TimeHelper.Now()
+      local timeNow = DCET.TimeHelper.CurrentLocalMilliseconds()
 
       if timeNow - this.StartTime >= this.needTime then
         unit:setPosition(this.Target:__clone__())
@@ -64,7 +64,7 @@ System.namespace("DCET", function (namespace)
 
 
       this.StartPos = unit:getPosition()
-      this.StartTime = DCET.TimeHelper.Now()
+      this.StartTime = DCET.TimeHelper.CurrentLocalMilliseconds()
       local distance = (UnityEngine.Vector3.op_Subtraction(this.Target, this.StartPos)):getmagnitude()
       if math.Abs(distance) < 0.1 then
         return System.Task.getCompletedTask()

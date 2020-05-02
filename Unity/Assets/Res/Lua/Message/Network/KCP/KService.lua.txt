@@ -39,8 +39,8 @@ System.namespace("DCET", function (namespace)
     __ctor1__ = function (this)
       internal(this)
       System.base(this).__ctor__(this)
-      this.StartTime = DCET.TimeHelper.ClientNow()
-      this.TimeNow = System.toUInt32(DCET.TimeHelper.ClientNow() - this.StartTime)
+      this.StartTime = DCET.TimeHelper.CurrentLocalMilliseconds()
+      this.TimeNow = System.toUInt32(DCET.TimeHelper.CurrentLocalMilliseconds() - this.StartTime)
       this.socket = SystemNetSockets.Socket(SystemNetSockets.AddressFamily.InterNetwork, SystemNetSockets.SocketType.Dgram, SystemNetSockets.ProtocolType.Udp)
       --this.socket.Blocking = false;
       this.socket:Bind(SystemNet.IPEndPoint(SystemNet.IPAddress.Any, 0))
@@ -51,8 +51,8 @@ System.namespace("DCET", function (namespace)
       System.base(this).__ctor__(this)
       this:addAcceptCallback(acceptCallback)
 
-      this.StartTime = DCET.TimeHelper.ClientNow()
-      this.TimeNow = System.toUInt32(DCET.TimeHelper.ClientNow() - this.StartTime)
+      this.StartTime = DCET.TimeHelper.CurrentLocalMilliseconds()
+      this.TimeNow = System.toUInt32(DCET.TimeHelper.CurrentLocalMilliseconds() - this.StartTime)
       this.socket = SystemNetSockets.Socket(SystemNetSockets.AddressFamily.InterNetwork, SystemNetSockets.SocketType.Dgram, SystemNetSockets.ProtocolType.Udp)
       --this.socket.Blocking = false;
       this.socket:Bind(ipEndPoint)
@@ -252,7 +252,7 @@ System.namespace("DCET", function (namespace)
     AddToUpdateNextTime = function (this, time, id)
     end
     Update = function (this)
-      this.TimeNow = System.toUInt32(DCET.TimeHelper.ClientNow() - this.StartTime)
+      this.TimeNow = System.toUInt32(DCET.TimeHelper.CurrentLocalMilliseconds() - this.StartTime)
 
       Recv(this)
 
