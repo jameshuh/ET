@@ -10,6 +10,7 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 * 新增FGUI模块，包括UI加载、UI管理、UI控件管理代码自动生成插件等完整的FGUI工作流；
 * 新增行为树模块，包括可视化编辑器、双端运行时、逻辑全热更的完整的行为树工作流；
 * 新增Lua模块，包括CSharp.Lua（自动翻译热更层代码为Lua）、xLua(执行CSharp.Lua翻译的热更层Lua代码)、RapidJson、lua-protobuf、LuaSocket、LPeg、FFI for lua53等完整的Lua热更工作流。
+* 将框架模块化，并使用Unity的PackageManager进行管理，可以根据项目需求，按需选择模块引用。同时将框架和游戏逻辑分离，使更新框架代码更简单。
 
 ## 入门
 
