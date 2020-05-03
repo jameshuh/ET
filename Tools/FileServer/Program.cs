@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
 
-namespace ETFileServer
+namespace DCETRuntime
 {
     public class Program
     {

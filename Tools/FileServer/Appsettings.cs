@@ -1,4 +1,4 @@
-namespace ETFileServer
+namespace DCETRuntime
 {
     public class Appsettings
     {
