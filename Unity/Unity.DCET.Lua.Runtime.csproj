@@ -146,7 +146,6 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeResourcesHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStreamHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeStringHelperWrap.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeTimeHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeUnityWebRequestAsyncWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeVersionConfigWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\DCETRuntimeZipHelperWrap.cs" />
@@ -341,7 +340,6 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingAstarWorkItemWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingBlockManagerTraversalProviderWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingBlockManagerWrap.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingEditorResourceHelperWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingEnumFlagAttributeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingExamplesMecanimBridgeWrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\PathfindingExamplesMineBotAnimationWrap.cs" />
@@ -553,7 +551,6 @@
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\UnityEngineVector4Wrap.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\WrapPusher.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Gen\XLuaGenAutoRegister.cs" />
-    <Compile Include="Packages\DCET.Lua\Runtime\XLua\GenConfig.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Src\CodeEmit.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Src\CopyByValue.cs" />
     <Compile Include="Packages\DCET.Lua\Runtime\XLua\Src\DelegateBridge.cs" />

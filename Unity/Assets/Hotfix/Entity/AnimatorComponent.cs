@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DCETRuntime;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +59,7 @@ namespace DCET
 			}
 			foreach (AnimatorControllerParameter animatorControllerParameter in animator.parameters)
 			{
-				this.Parameter.Add(animatorControllerParameter.name);
+				this.Parameter.Add(animatorControllerParameter.GetName());
 			}
 		}
 

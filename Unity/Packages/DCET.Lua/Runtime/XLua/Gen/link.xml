@@ -258,7 +258,6 @@
 		<type fullname="Pathfinding.GraphUpdateScene" preserve="all"/>
 		<type fullname="Pathfinding.GraphUpdateShape" preserve="all"/>
 		<type fullname="Pathfinding.AstarDebugger" preserve="all"/>
-		<type fullname="Pathfinding.EditorResourceHelper" preserve="all"/>
 		<type fullname="Pathfinding.GraphEditorBase" preserve="all"/>
 		<type fullname="Pathfinding.GraphModifier" preserve="all"/>
 		<type fullname="Pathfinding.GraphUtilities" preserve="all"/>

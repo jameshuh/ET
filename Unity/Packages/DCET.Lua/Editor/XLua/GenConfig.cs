@@ -30,6 +30,11 @@ public static class GenConfig
 			"Unity.DCET.Pathfinding.Runtime.dll",
 		};
 
+	public static List<Type> blackTypeList = new List<Type>()
+	{
+		typeof(Pathfinding.EditorResourceHelper),
+	};
+
 	[LuaCallCSharp]
 	public static List<Type> assemblyTypes
 	{
@@ -60,7 +65,7 @@ public static class GenConfig
 						{
 							foreach (var item in types)
 							{
-								if (!list.Contains(item))
+								if (!list.Contains(item) && !blackTypeList.Contains(item))
 								{
 									list.Add(item);
 								}
@@ -191,10 +196,15 @@ public static class GenConfig
                 internalBlackList.Add(new List<string>() { "UnityEngine.Texture2D", "alphaIsTransparency" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.Security", "GetChainOfTrustValue" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.CanvasRenderer", "onRequestRebuild" });
+				internalBlackList.Add(new List<string>() { "UnityEngine.Input", "IsJoystickPreconfigured", "System.String" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.Light", "areaSize" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.Light", "lightmapBakeType" });
+				internalBlackList.Add(new List<string>() { "UnityEngine.Light", "SetLightDirty" });
+				internalBlackList.Add(new List<string>() { "UnityEngine.Light", "shadowRadius" });
+				internalBlackList.Add(new List<string>() { "UnityEngine.Light", "shadowAngle" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.WWW", "MovieTexture" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.WWW", "GetMovieTexture" });
+				internalBlackList.Add(new List<string>() { "UnityEngine.AnimatorControllerParameter", "name" });
 				internalBlackList.Add(new List<string>() { "UnityEngine.AnimatorOverrideController", "PerformOverrideClipListCleanup" });
     #if !UNITY_WEBPLAYER
                 internalBlackList.Add(new List<string>() { "UnityEngine.Application", "ExternalEval" });
@@ -214,10 +224,10 @@ public static class GenConfig
 				internalBlackList.AddRange(GetStreamBlackList(typeof(DCETRuntime.CircularBuffer).ToString()));
 				internalBlackList.AddRange(GetStreamBlackList(typeof(Microsoft.IO.RecyclableMemoryStream).ToString()));
 				internalBlackList.Add(new List<string>() { "System.Linq.Expressions.ElementInit", "GetArgument", "System.Int32" });
-				internalBlackList.Add(new List<string>() { "ReferenceCollector", "Add", "System.String", "UnityEngine.Object" });
-				internalBlackList.Add(new List<string>() { "ReferenceCollector", "Remove", "System.String" });
-				internalBlackList.Add(new List<string>() { "ReferenceCollector", "Clear" });
-				internalBlackList.Add(new List<string>() { "ReferenceCollector", "Sort" });
+				internalBlackList.Add(new List<string>() { "DCETRuntime.ReferenceCollector", "Add", "System.String", "UnityEngine.Object" });
+				internalBlackList.Add(new List<string>() { "DCETRuntime.ReferenceCollector", "Remove", "System.String" });
+				internalBlackList.Add(new List<string>() { "DCETRuntime.ReferenceCollector", "Clear" });
+				internalBlackList.Add(new List<string>() { "DCETRuntime.ReferenceCollector", "Sort" });
 				internalBlackList.Add(new List<string>() { "Pathfinding.AlternativePath", "AddComp", "UnityEditor.MenuCommand" });
 				internalBlackList.Add(new List<string>() { "Pathfinding.FunnelModifier", "AddComp", "UnityEditor.MenuCommand" });
 				internalBlackList.Add(new List<string>() { "Pathfinding.RadiusModifier", "AddComp", "UnityEditor.MenuCommand" });

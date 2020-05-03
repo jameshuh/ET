@@ -21,13 +21,9 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(DCETRuntime.ReferenceCollector);
-			Utils.BeginObjectRegister(type, L, translator, 0, 9, 1, 1);
+			Utils.BeginObjectRegister(type, L, translator, 0, 5, 1, 1);
 			
             			
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Add", _m_Add);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Remove", _m_Remove);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Clear", _m_Clear);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Sort", _m_Sort);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetObject", _m_GetObject);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnBeforeSerialize", _m_OnBeforeSerialize);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "OnAfterDeserialize", _m_OnAfterDeserialize);
@@ -100,120 +96,6 @@ namespace XLua.CSObjectWrap
 		
         
 		
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_Add(RealStatePtr L)
-        {
-		    try {
-			
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                DCETRuntime.ReferenceCollector gen_to_be_invoked = (DCETRuntime.ReferenceCollector)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    string _key = LuaAPI.lua_tostring(L, 2);
-                    UnityEngine.Object _obj = (UnityEngine.Object)translator.GetObject(L, 3, typeof(UnityEngine.Object));
-                    
-                    gen_to_be_invoked.Add( 
-                        _key, 
-                        _obj );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_Remove(RealStatePtr L)
-        {
-		    try {
-			
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                DCETRuntime.ReferenceCollector gen_to_be_invoked = (DCETRuntime.ReferenceCollector)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    string _key = LuaAPI.lua_tostring(L, 2);
-                    
-                    gen_to_be_invoked.Remove( 
-                        _key );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_Clear(RealStatePtr L)
-        {
-		    try {
-			
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                DCETRuntime.ReferenceCollector gen_to_be_invoked = (DCETRuntime.ReferenceCollector)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                    gen_to_be_invoked.Clear(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_Sort(RealStatePtr L)
-        {
-		    try {
-			
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                DCETRuntime.ReferenceCollector gen_to_be_invoked = (DCETRuntime.ReferenceCollector)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    
-                    gen_to_be_invoked.Sort(  );
-                    
-                    
-                    
-                    return 0;
-                }
-                
-            } catch(System.Exception gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
-            }
-            
-        }
-        
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_GetObject(RealStatePtr L)
         {

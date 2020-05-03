@@ -66,6 +66,7 @@
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\StartUp.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\Window\LuaDiffScrollView.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\Window\LuaProfilerWindow.cs" />
+    <Compile Include="Packages\DCET.Lua\Editor\XLua\GenConfig.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\Generator.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\Hotfix.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\LinkXmlGen\LinkXmlGen.cs" />

@@ -643,15 +643,12 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(Pathfinding.AstarDebugger), PathfindingAstarDebuggerWrap.__Register);
         
         
-            translator.DelayWrapLoader(typeof(Pathfinding.EditorResourceHelper), PathfindingEditorResourceHelperWrap.__Register);
+            translator.DelayWrapLoader(typeof(Pathfinding.GraphEditorBase), PathfindingGraphEditorBaseWrap.__Register);
         
         }
         
         static void wrapInit4(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(Pathfinding.GraphEditorBase), PathfindingGraphEditorBaseWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(Pathfinding.GraphModifier), PathfindingGraphModifierWrap.__Register);
         
@@ -802,13 +799,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(Pathfinding.Util.MovementUtilities), PathfindingUtilMovementUtilitiesWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(Pathfinding.Util.PathInterpolator), PathfindingUtilPathInterpolatorWrap.__Register);
+        
         }
         
         static void wrapInit5(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(Pathfinding.Util.PathInterpolator), PathfindingUtilPathInterpolatorWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(Pathfinding.Util.GraphGizmoHelper), PathfindingUtilGraphGizmoHelperWrap.__Register);
         
@@ -959,13 +956,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(FairyGUI.HitTestMode), FairyGUIHitTestModeWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(FairyGUI.IHitTest), FairyGUIIHitTestWrap.__Register);
+        
         }
         
         static void wrapInit6(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(FairyGUI.IHitTest), FairyGUIIHitTestWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(FairyGUI.MeshColliderHitTest), FairyGUIMeshColliderHitTestWrap.__Register);
         
@@ -1116,13 +1113,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(FairyGUI.InputEvent), FairyGUIInputEventWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(FairyGUI.BlurFilter), FairyGUIBlurFilterWrap.__Register);
+        
         }
         
         static void wrapInit7(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(FairyGUI.BlurFilter), FairyGUIBlurFilterWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(FairyGUI.ColorFilter), FairyGUIColorFilterWrap.__Register);
         
@@ -1273,13 +1270,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(FairyGUI.GComponent), FairyGUIGComponentWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(FairyGUI.GearAnimation), FairyGUIGearAnimationWrap.__Register);
+        
         }
         
         static void wrapInit8(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(FairyGUI.GearAnimation), FairyGUIGearAnimationWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(FairyGUI.GearBase), FairyGUIGearBaseWrap.__Register);
         
@@ -1430,13 +1427,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(FairyGUI.Utils.HtmlButton), FairyGUIUtilsHtmlButtonWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(FairyGUI.Utils.HtmlElementType), FairyGUIUtilsHtmlElementTypeWrap.__Register);
+        
         }
         
         static void wrapInit9(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(FairyGUI.Utils.HtmlElementType), FairyGUIUtilsHtmlElementTypeWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(FairyGUI.Utils.HtmlElement), FairyGUIUtilsHtmlElementWrap.__Register);
         
@@ -1587,13 +1584,13 @@ namespace XLua.CSObjectWrap
         
             translator.DelayWrapLoader(typeof(DCETRuntime.MongoHelper), DCETRuntimeMongoHelperWrap.__Register);
         
+        
+            translator.DelayWrapLoader(typeof(DCETRuntime.PathHelper), DCETRuntimePathHelperWrap.__Register);
+        
         }
         
         static void wrapInit10(LuaEnv luaenv, ObjectTranslator translator)
         {
-        
-            translator.DelayWrapLoader(typeof(DCETRuntime.PathHelper), DCETRuntimePathHelperWrap.__Register);
-        
         
             translator.DelayWrapLoader(typeof(DCETRuntime.ProcessHelper), DCETRuntimeProcessHelperWrap.__Register);
         
