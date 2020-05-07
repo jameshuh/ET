@@ -10,7 +10,7 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 * 新增FGUI模块，包括UI加载、UI管理、UI控件管理代码自动生成插件等完整的FGUI工作流；
 * 新增行为树模块，包括可视化编辑器、双端运行时、逻辑全热更的完整的行为树工作流；
 * 新增Lua模块，包括CSharp.Lua（自动翻译热更层代码为Lua）、xLua(执行CSharp.Lua翻译的热更层Lua代码)、RapidJson、lua-protobuf、LuaSocket、LPeg、FFI for lua53等完整的Lua热更工作流。
-* 将框架模块化，并使用Unity的PackageManager进行管理，可以根据项目需求，按需选择模块引用。同时将框架和游戏逻辑分离，使更新框架代码更简单。
+* 将框架模块化，并使用Unity的PackageManager进行管理，可以根据项目需求，按需选择模块引用。同时将框架和游戏业务分离，使维护框架代码更方便。
 
 ## 入门
 
@@ -37,7 +37,13 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 
 #### 3.开发指南
 
-​	待更新
+​	为了框架代码维护更方便，且按需引用更方便，现已将框架模块化，并通过Unity的[PackageManager](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html)和[Assembly Definition](https://docs.unity3d.com/Manual/class-AssemblyDefinitionImporter.html)进行管理，所以相对于ET的目录结构会存在一定的差异，但实际功能几乎没有差别。下文将分别阐述服务器和客户端的开发指南。
+
+- 服务器：服务器代码所在目录为`DCET/Server`，并通过`DCET/Server/Server.sln`解决方案管理所有项目(包括框架和游戏业务)，框架代码所在目录为`DCET/Server/Packages`，具体的项目将在进阶文档中详细介绍。游戏业务代码所在目录为`DCET/Server/Assets`，分为`Init、Runtime、Hotfix、Benchmark`四个项目，其中Init为入口项目，Runtime为非热更项目、Hotfix为热更项目、Benchmark为测试项目，依赖关系为Init→Benchmark→Hotfix→Runtime。
+
+- 客户端：客户代码所在目录为`DCET/Unity`，并通过`DCET/Unity/Unity.sln`解决方案管理所有项目(包括框架和游戏业务)，框架代码所在目录为`DCET/Unity/Packages`，具体的项目将在进阶文档中详细介绍。游戏业务代码所在目录为`DCET/Unity/Assets`，分为`Runtime、Hotfix、Editor`三个项目，其中Runtime为入口项目和非热更项目、Hotfix为热更项目、Editor为编辑器项目，依赖关系为Editor→Hotfix→Runtime，Runtime通过反射或Lua的方式启动Hotfix，所以不需要Runtime依赖Hotfix。
+
+  值得注意的是框架和游戏业务的依赖关系为：**游戏业务→框架**，依赖不当将导致项目混乱，不利于维护。
 
 ## 进阶
 
@@ -76,5 +82,3 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 ET群：474643097
 
 ET官网：[`http://bbs.etframework.net/`](http://bbs.etframework.net/)
-
-平时也要谨记这答案，90%以上问题都可以在FAQ里头找到答案。这些问题就别在群刷屏了。
