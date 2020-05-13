@@ -40,14 +40,19 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 ​	为了框架代码维护更方便，且按需引用更方便，现已将框架模块化，并通过Unity的[PackageManager](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html)和[Assembly Definition](https://docs.unity3d.com/Manual/class-AssemblyDefinitionImporter.html)进行管理，所以相对于ET的目录结构会存在一定的差异，但实际功能几乎没有差别。下文将分别阐述服务器和客户端的开发指南。
 
 - 服务器：服务器代码所在目录为`DCET/Server`，并通过`DCET/Server/Server.sln`解决方案管理所有项目(包括框架和游戏业务)，框架代码所在目录为`DCET/Server/Packages`，具体的项目将在进阶文档中详细介绍。游戏业务代码所在目录为`DCET/Server/Assets`，分为`Init、Runtime、Hotfix、Benchmark`四个项目，其中Init为入口项目，Runtime为非热更项目、Hotfix为热更项目、Benchmark为测试项目，依赖关系为Init→Benchmark→Hotfix→Runtime。
-
 - 客户端：客户代码所在目录为`DCET/Unity`，并通过`DCET/Unity/Unity.sln`解决方案管理所有项目(包括框架和游戏业务)，框架代码所在目录为`DCET/Unity/Packages`，具体的项目将在进阶文档中详细介绍。游戏业务代码所在目录为`DCET/Unity/Assets`，分为`Runtime、Hotfix、Editor`三个项目，其中Runtime为入口项目和非热更项目、Hotfix为热更项目、Editor为编辑器项目，依赖关系为Editor→Hotfix→Runtime，Runtime通过反射或Lua的方式启动Hotfix，所以不需要Runtime依赖Hotfix。
 
-  值得注意的是框架和游戏业务的依赖关系为：**游戏业务→框架**，依赖不当将导致项目混乱，不利于维护。
+​	值得注意的是框架和游戏业务的依赖关系为：**游戏业务→框架**，依赖不当将导致项目混乱，不利于维护。
+
+​	注：“A→B”表示A引用B，可以理解为A可以调用B，B不可以调用A。
 
 ## 进阶
 
 #### 1.模块概述
+
+​	DCET分为核心、下载器、配置、网络、协程锁、数值、寻路、行为树、FGUI、Lua模块， 每个模块一般分为Editor、Runtime、Hotfix三个项目（程序集），其中Editor为编辑器相关功能，Runtime为非热更相关功能，Hotfix为热更相关功能，依赖关系为Editor→Hotfix→Runtime。而模块间的依赖关系为Lua模块→其他模块→核心模块，用户可以遵循依赖关系轻松的移除或新增模块。
+
+​	注：客户端引用通过[Assembly Definition](https://docs.unity3d.com/Manual/class-AssemblyDefinitionImporter.html)进行管理，扩展名为`.asmdef`，存放于各模块的各个文件夹根目录；服务器引用通过`项目名/依赖项`右键进行管理。
 
 #### 2.核心模块
 

@@ -31,9 +31,4 @@
   <ItemGroup>
     <Folder Include="Http\" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="BehaviorDesignerRuntime">
-      <HintPath>..\Packages\BehaviorDesigner.Runtime\Core\BehaviorDesignerRuntime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>
