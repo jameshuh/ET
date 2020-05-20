@@ -96,7 +96,7 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 
   ​		根据以上示例可以看出，当为充能型技能时，可以为Skill加上SkillChargeComponent组件，技能释放时就可以走充能逻辑；当技能为直接释放型技能时，则不需要加SkillChargeComponent组件，也就不会走充能逻辑，这样一来则可以轻松重用代码逻辑，并且代码组织结构也十分清晰。
 
-  ​		此外，Entity与Unity的MonoBehaviour一样存在生命周期，而ET的生命周期实现方式略有不同，是通过Attribute标记和启动时根据标记信息自动注册，然后根据生命周期执行，具体实现方式如下：
+  ​		此外，Entity与Unity的MonoBehaviour一样存在生命周期，而ET的生命周期实现方式略有不同，是通过Attribute标记和启动时根据标记信息自动注册，然后根据生命周期执行，具体用法如下：
 
   ```c#
   	[ObjectSystem]
@@ -127,7 +127,7 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
   	}
   
   	[ObjectSystem]
-  	public class TestComponentFixedUpdateSystem : LateUpdateSystem<TestComponent>
+  	public class TestComponentLateUpdateSystem : LateUpdateSystem<TestComponent>
   	{
   		public override void LateUpdate(TestComponent self)
   		{
