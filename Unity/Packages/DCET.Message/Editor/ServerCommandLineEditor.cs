@@ -460,7 +460,7 @@ namespace DCETEditor
 			if (GUILayout.Button("启动"))
 			{
 				string arguments = $"--config={this.fileName}";
-				ProcessHelper.Run("App.exe", arguments, "../Bin/");
+				ProcessHelper.Run("DCET.Init.exe", arguments, "../Bin/");
 			}
 			if (GUILayout.Button("启动数据库"))
 			{
