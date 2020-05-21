@@ -99,55 +99,72 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
   ​		此外，Entity与Unity的MonoBehaviour一样存在生命周期，而ET的生命周期实现方式略有不同，是通过Attribute标记和启动时根据标记信息自动注册，然后根据生命周期执行，具体用法如下：
 
   ```c#
-  	[ObjectSystem]
-  	public class TestComponentAwakeSystem : AwakeSystem<TestComponent, string>
-  	{
-  		public override void Awake(TestComponent self, string param1)
-  		{
-  			self.Awake(param1);
-  		}
-  	}
+  [ObjectSystem]
+  public class TestComponentAwakeSystem : AwakeSystem<TestComponent, string>
+  {
+      public override void Awake(TestComponent self, string param1)
+      {
+          self.Awake(param1);
+      }
+  }
   
-  	[ObjectSystem]
-  	public class TestComponentLoadSystem : LoadSystem<TestComponent>
-  	{
-  		public override void Load(TestComponent self)
-  		{
-  			self.Load();
-  		}
-  	}
+  [ObjectSystem]
+  public class TestComponentLoadSystem : LoadSystem<TestComponent>
+  {
+      public override void Load(TestComponent self)
+      {
+          self.Load();
+      }
+  }
   
-  	[ObjectSystem]
-  	public class TestComponentUpdateSystem : UpdateSystem<TestComponent>
-  	{
-  		public override void Update(TestComponent self)
-  		{
-  			self.Update();
-  		}
-  	}
+  [ObjectSystem]
+  public class TestComponentUpdateSystem : UpdateSystem<TestComponent>
+  {
+      public override void Update(TestComponent self)
+      {
+          self.Update();
+      }
+  }
   
-  	[ObjectSystem]
-  	public class TestComponentLateUpdateSystem : LateUpdateSystem<TestComponent>
-  	{
-  		public override void LateUpdate(TestComponent self)
-  		{
-  			self.LateUpdate();
-  		}
-  	}
+  [ObjectSystem]
+  public class TestComponentLateUpdateSystem : LateUpdateSystem<TestComponent>
+  {
+      public override void LateUpdate(TestComponent self)
+      {
+          self.LateUpdate();
+      }
+  }
   
-  	[ObjectSystem]
-  	public class TestComponentDestroySystem : DestroySystem<TestComponent>
-  	{
-  		public override void Destroy(TestComponent self)
-  		{
-  			self.Destroy();
-  		}
-  	}
+  [ObjectSystem]
+  public class TestComponentDestroySystem : DestroySystem<TestComponent>
+  {
+      public override void Destroy(TestComponent self)
+      {
+          self.Destroy();
+      }
+  }
   ```
 
-  
-
 - EventSystem
+
+  ​		EventSystem即为事件系统，是解耦的重要方式。代码和现实世界一样，有着千丝万缕的`联系`，如果所有的`联系`都如同乱麻一般紧密的耦合在一起，将对代码的维护造成巨大的困难。这时候就需要将代码以`类`为单位，将`类引用`和`事件(或委托)`作为`联系`的桥梁，其中`类引用`是一种强联系的方式，这种方式是最直接，最简单，最方便，最紧密的联系方式，但如果仅仅只用这种联系方式也会造成代码混乱，耦合紧密，难以重用，难以维护的结果。这时候也就需要`事件(或委托)`进行联系，也就是解耦(一种弱联系)，当被引用类同时需要引用引用类时，就需要通过这种方式进行联系，这种方式是能为重用创作条件、避免代码形成网状结构的联系方式。最终代码结构就形成树状结构，清晰明了，利于重用和维护。
+
+  ​		ET的事件系统实现方式，与上文提到的生命周期实现方式原理相同，具体的用法如下：
+
+  ```c#
+  // 发起事件
+  Game.EventSystem.Run(EventIdType.Log, "Hello World");
+  
+  // 捕获事件
+  [Event(EventIdType.Log)]
+  public class Log_WriteLine: AEvent<string>
+  {
+      public override void Run(string param1)
+      {
+          Console.WriteLine(param1);
+      }
+  }
+  ```
 
 #### 3.下载器模块
 
