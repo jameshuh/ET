@@ -79,6 +79,7 @@
     <Compile Include="Assets\Hotfix\Entity\Player.cs" />
     <Compile Include="Assets\Hotfix\Entity\PlayerComponent.cs" />
     <Compile Include="Assets\Hotfix\Entity\PlayerFactory.cs" />
+    <Compile Include="Assets\Hotfix\Entity\SceneChangeComponent.cs" />
     <Compile Include="Assets\Hotfix\Entity\TurnComponent.cs" />
     <Compile Include="Assets\Hotfix\Entity\Unit.cs" />
     <Compile Include="Assets\Hotfix\Entity\UnitComponent.cs" />
@@ -770,13 +771,17 @@
       <Project>{A3E35FCC-C3CE-0A6C-0DA4-05D04E78720F}</Project>
       <Name>Unity.DCET.Config.Hotfix</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.Downloader.Runtime.csproj">
-      <Project>{E6BC9C59-AF6A-5A9D-06B7-3BEC288726E5}</Project>
-      <Name>Unity.DCET.Downloader.Runtime</Name>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Runtime.csproj">
+      <Project>{D1FC27D2-19A2-2B35-990D-088E7E112BB7}</Project>
+      <Name>Unity.DCET.AssetBundle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.ProtoBuf.Runtime.csproj">
       <Project>{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}</Project>
       <Name>Unity.ProtoBuf.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Hotfix.csproj">
+      <Project>{549D5BB2-DE19-A180-430F-29684BC675A7}</Project>
+      <Name>Unity.DCET.AssetBundle.Hotfix</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

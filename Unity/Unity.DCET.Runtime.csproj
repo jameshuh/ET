@@ -700,9 +700,9 @@
       <Project>{02078D6A-F042-765D-85AD-170AD6896D45}</Project>
       <Name>Unity.FairyGUI.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.Downloader.Runtime.csproj">
-      <Project>{E6BC9C59-AF6A-5A9D-06B7-3BEC288726E5}</Project>
-      <Name>Unity.DCET.Downloader.Runtime</Name>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Runtime.csproj">
+      <Project>{D1FC27D2-19A2-2B35-990D-088E7E112BB7}</Project>
+      <Name>Unity.DCET.AssetBundle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.DCET.FairyGUI.Runtime.csproj">
       <Project>{F57730E8-0F11-9C9D-04A0-CD3982B7B385}</Project>

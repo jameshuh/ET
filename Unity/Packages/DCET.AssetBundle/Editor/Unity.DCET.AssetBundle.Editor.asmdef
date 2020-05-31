@@ -2,7 +2,7 @@
     "name": "Unity.DCET.Downloader.Editor",
     "references": [
         "Unity.DCET.Core.Runtime",
-        "Unity.DCET.Downloader.Runtime",
+        "Unity.DCET.AssetBundle.Runtime",
         "Unity.DCET.Core.Editor"
     ],
     "optionalUnityReferences": [],

@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A3E35FCC-C3CE-0A6C-0DA4-05D04E78720F}</ProjectGuid>
+    <ProjectGuid>{D1FC27D2-19A2-2B35-990D-088E7E112BB7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.DCET.Config.Hotfix</AssemblyName>
+    <AssemblyName>Unity.DCET.AssetBundle.Runtime</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -63,24 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET.Config\Hotfix\ACategory.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\AConfigComponent.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\ClientConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\CopyConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\DBConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\HttpConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\InnerConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\MapConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\OuterConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\ProcessConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\RunServerConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\SceneConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\Config\StartConfig.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\ConfigAttribute.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\ConfigComponent.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\ConfigHelper.cs" />
-    <Compile Include="Packages\DCET.Config\Hotfix\IConfig.cs" />
-    <None Include="Packages\DCET.Config\Hotfix\Unity.DCET.Config.Hotfix.asmdef" />
+    <Compile Include="Packages\DCET.AssetBundle\Runtime\BundleDownloader.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Runtime\GlobalConfigComponent.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Runtime\GlobalProto.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Runtime\VersionConfig.cs" />
+    <None Include="Packages\DCET.AssetBundle\Runtime\Unity.DCET.AssetBundle.Runtime.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -701,21 +688,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.DCET.Core.Hotfix.csproj">
-      <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>
-      <Name>Unity.DCET.Core.Hotfix</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
-      <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
-      <Name>Unity.MongoDB.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.DCET.Core.Runtime.csproj">
       <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
       <Name>Unity.DCET.Core.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.AssetBundle.Hotfix.csproj">
-      <Project>{549D5BB2-DE19-A180-430F-29684BC675A7}</Project>
-      <Name>Unity.DCET.AssetBundle.Hotfix</Name>
+    <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
+      <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>
+      <Name>Unity.MongoDB.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

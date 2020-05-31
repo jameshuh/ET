@@ -3,7 +3,8 @@
     "references": [
         "Unity.DCET.Core.Runtime",
         "Unity.FairyGUI.Runtime",
-        "Unity.DCET.Core.Hotfix"
+        "Unity.DCET.Core.Hotfix",
+        "Unity.DCET.AssetBundle.Hotfix"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

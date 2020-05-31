@@ -5,7 +5,7 @@
     "com.mongodb.bson": "file:/./Packages/com.mongodb.bson",
     "com.protobuf.net": "file:/./Packages/com.protobuf.net",
     "com.dukechiang.dcet.core": "file:/./Packages/com.dukechiang.dcet.core",	
-    "com.dukechiang.dcet.downloader": "file:/./Packages/com.dukechiang.dcet.downloader",
+    "com.dukechiang.dcet.assetbundle": "file:/./Packages/com.dukechiang.dcet.assetbundle",
     "com.dukechiang.dcet.behaviortree": "file:/./Packages/com.dukechiang.dcet.behaviortree",
     "com.dukechiang.dcet.config": "file:/./Packages/com.dukechiang.dcet.config",
     "com.dukechiang.dcet.fairygui": "file:/./Packages/com.dukechiang.dcet.fairygui",

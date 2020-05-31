@@ -56,7 +56,7 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
 
 #### 2.核心模块
 
-​		核心模块是其他模块的基础，主要提供实体化(组件化)和事件系统的基础功能支持，也是ET框架设计中最为精髓的部分。下文将重点介绍这两个方面：
+​		核心模块是其他模块的基础，主要提供实体化(组件化)和事件系统的基础功能支持，也是ET框架设计中最为精髓的部分。所在目录为：`Packages/DCET.Core`，下文将重点介绍这两个方面：
 
 - Entity
 
@@ -166,11 +166,43 @@ DCET是基于ET4.0、5.0、6.0进行二次开发的分支版本，主要差异�
   }
   ```
 
-#### 3.下载器模块
+#### 3.AssetBundle模块
+
+​		AssetBundle模块主要负责资源打包、管理、下载等功能，所在目录为：`Packages/DCET.AssetBundle`，具体的使用方法如下：
+
+​		配置资源服务器地址和服务器地址：Tools/Start Global Config
+
+​		构建资源包和安装包：Tools/Build Installer (默认只会打包`Init`场景)
+
+​		启动资源服：Tools/Start Asset Server
+
+​		资源管理组件：Hotfix/ResourcesComponent.cs
 
 #### 4.配置模块
 
+​		配置模块主要负责Excel配置表导出、解析、管理等功能，所在目录为：`Packages/DCET.Config`，具体的使用方法如下：
+
+​		Excel配置表导出：Tools/Start Config
+
+​		配置表管理组件：Hotfix/ConfigComponent.cs
+
 #### 5.网络模块
+
+​		网络模块主要负责网络消息收发、消息序列化/反序列化、消息管理、TCP/KCP传输协议，服务器启动、更新、管理等功能，所在目录为：`Packages/DCET.Config`，具体使用方法如下：
+
+​		生成Protobuf消息协议：Tools/Gen Proto
+
+​		服务器同步：Tools/Rsync
+
+​		服务器命令行：Tools/Start Server Command
+
+​		服务器重载：Tools/Start Server Manager
+
+​		消息分发组件：MessageDispatcherComponent.cs
+
+​		网络数据发送组件：NetOuterComponent.cs (可以配置TCP/KCP/WebSocket传输协议)
+
+​		网络数据接收组件：NetInnerComponent.cs  (可以配置TCP/KCP/WebSocket传输协议)
 
 #### 6.协程锁模块
 

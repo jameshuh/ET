@@ -745,9 +745,9 @@
       <Project>{464E5413-897E-9A0C-198D-4BF4295325D1}</Project>
       <Name>Unity.DCET.Message.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.Downloader.Runtime.csproj">
-      <Project>{E6BC9C59-AF6A-5A9D-06B7-3BEC288726E5}</Project>
-      <Name>Unity.DCET.Downloader.Runtime</Name>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Runtime.csproj">
+      <Project>{D1FC27D2-19A2-2B35-990D-088E7E112BB7}</Project>
+      <Name>Unity.DCET.AssetBundle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.MongoDB.Runtime.csproj">
       <Project>{847D3640-7FC2-C576-ECC2-980D265728B0}</Project>

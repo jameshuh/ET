@@ -1,10 +1,8 @@
 {
-    "name": "Unity.DCET.Config.Hotfix",
+    "name": "Unity.DCET.AssetBundle.Runtime",
     "references": [
-        "Unity.DCET.Core.Hotfix",
-        "Unity.MongoDB.Runtime",
         "Unity.DCET.Core.Runtime",
-        "Unity.DCET.AssetBundle.Hotfix"
+        "Unity.MongoDB.Runtime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

@@ -12,8 +12,9 @@
         "Unity.DCET.Message.Hotfix",
         "Unity.DCET.BehaviorTree.Hotfix",
         "Unity.DCET.Config.Hotfix",
-        "Unity.DCET.Downloader.Runtime",
-        "Unity.ProtoBuf.Runtime"
+        "Unity.DCET.AssetBundle.Runtime",
+        "Unity.ProtoBuf.Runtime",
+        "Unity.DCET.AssetBundle.Hotfix"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

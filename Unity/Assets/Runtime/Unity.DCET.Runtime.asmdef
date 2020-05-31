@@ -3,7 +3,7 @@
     "references": [
         "Unity.DCET.Core.Runtime",
         "Unity.FairyGUI.Runtime",
-        "Unity.DCET.Downloader.Runtime",
+        "Unity.DCET.AssetBundle.Runtime",
         "Unity.DCET.FairyGUI.Runtime",
         "Unity.DCET.Lua.Runtime"
     ],

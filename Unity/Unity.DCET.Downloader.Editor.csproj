@@ -63,11 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\DCET.Downloader\Editor\BuildEditor.cs" />
-    <Compile Include="Packages\DCET.Downloader\Editor\BuildHelper.cs" />
-    <Compile Include="Packages\DCET.Downloader\Editor\FileServerEditor.cs" />
-    <Compile Include="Packages\DCET.Downloader\Editor\GlobalConfigEditor.cs" />
-    <None Include="Packages\DCET.Downloader\Editor\Unity.DCET.Downloader.Editor.asmdef" />
+    <Compile Include="Packages\DCET.AssetBundle\Editor\BuildEditor.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Editor\BuildHelper.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Editor\FileServerEditor.cs" />
+    <Compile Include="Packages\DCET.AssetBundle\Editor\GlobalConfigEditor.cs" />
+    <None Include="Packages\DCET.AssetBundle\Editor\Unity.DCET.AssetBundle.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>H:/Program Files/Unity2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -704,9 +704,9 @@
       <Project>{78EC5405-4AAA-1933-8EE9-A149A8F468EB}</Project>
       <Name>Unity.DCET.Core.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.DCET.Downloader.Runtime.csproj">
-      <Project>{E6BC9C59-AF6A-5A9D-06B7-3BEC288726E5}</Project>
-      <Name>Unity.DCET.Downloader.Runtime</Name>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Runtime.csproj">
+      <Project>{D1FC27D2-19A2-2B35-990D-088E7E112BB7}</Project>
+      <Name>Unity.DCET.AssetBundle.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.DCET.Core.Editor.csproj">
       <Project>{5BC53247-AB6C-0B59-23B1-0085B66E6AE1}</Project>

@@ -702,6 +702,10 @@
       <Project>{11B4BD84-292D-7644-C00D-BDF724143C5D}</Project>
       <Name>Unity.DCET.Core.Hotfix</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.DCET.AssetBundle.Hotfix.csproj">
+      <Project>{549D5BB2-DE19-A180-430F-29684BC675A7}</Project>
+      <Name>Unity.DCET.AssetBundle.Hotfix</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
