@@ -7,6 +7,7 @@
 */
 
 using BehaviorDesigner.Runtime.Tasks;
+using DCETRuntime;
 using ProtoBuf;
 using System;
 using System.Collections.Generic;
@@ -17,23 +18,15 @@ using System.Text;
 using UnityEngine;
 using XLua;
 
-public static class GenConfig
+public class XLuaGenConfigData
 {
-	public static List<string> assemblyNames = new List<string>()
-		{
-			"Unity.BehaviorDesigner.Runtime.dll",
-			"Unity.FairyGUI.Runtime.dll",
-			"Unity.DCET.Downloader.Runtime.dll",
-			"Unity.DCET.Core.Runtime.dll",
-			"Unity.DCET.FairyGUI.Runtime.dll",
-			"Unity.DCET.Message.Runtime.dll",
-			"Unity.DCET.Pathfinding.Runtime.dll",
-		};
+	public List<string> assemblyNames;
+	public List<string> blackTypes;
+}
 
-	public static List<Type> blackTypeList = new List<Type>()
-	{
-		typeof(Pathfinding.EditorResourceHelper),
-	};
+public static class XLuaGenConfig
+{
+	public const string path = @"./Assets/Res/GenConfig.txt";
 
 	[LuaCallCSharp]
 	public static List<Type> assemblyTypes
@@ -57,21 +50,38 @@ public static class GenConfig
 						continue;
 					}
 
-					if (assemblyNames.Contains(assembly.ManifestModule.Name))
+					if (File.Exists(path))
 					{
-						var types = assembly.GetTypes();
+						var xLuaGenConfigData = MongoHelper.FromJson<XLuaGenConfigData>(File.ReadAllText(path));
 
-						if (types != null)
+						if (xLuaGenConfigData != null)
 						{
-							foreach (var item in types)
+							if (xLuaGenConfigData.assemblyNames != null && xLuaGenConfigData.assemblyNames.Contains(assembly.ManifestModule.Name))
 							{
-								if (!list.Contains(item) && !blackTypeList.Contains(item))
+								var types = assembly.GetTypes();
+
+								if (types != null)
 								{
-									list.Add(item);
+									foreach (var item in types)
+									{
+										if (list.Contains(item))
+										{
+											continue;
+										}
+
+										if (xLuaGenConfigData.blackTypes != null && xLuaGenConfigData.blackTypes.Contains(item.FullName))
+										{
+											continue;
+										}
+
+										list.Add(item);
+									}
 								}
 							}
 						}
 					}
+
+					
 				}
 			}
 

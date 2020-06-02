@@ -66,11 +66,12 @@
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\StartUp.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\Window\LuaDiffScrollView.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\LuaProfiler\Window\LuaProfilerWindow.cs" />
-    <Compile Include="Packages\DCET.Lua\Editor\XLua\GenConfig.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\Generator.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\Hotfix.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\LinkXmlGen\LinkXmlGen.cs" />
     <Compile Include="Packages\DCET.Lua\Editor\XLua\TemplateRef.cs" />
+    <Compile Include="Packages\DCET.Lua\Editor\XLua\XLuaGenConfig.cs" />
+    <Compile Include="Packages\DCET.Lua\Editor\XLuaGenConfigEditor.cs" />
     <None Include="Packages\DCET.Lua\Editor\XLua\LinkXmlGen\LinkXmlGen.tpl.txt" />
     <None Include="Packages\DCET.Lua\Editor\XLua\Template\LuaClassWrapGCM.tpl.txt" />
     <None Include="Packages\DCET.Lua\Editor\XLua\Template\LuaWrapPusher.tpl.txt" />
