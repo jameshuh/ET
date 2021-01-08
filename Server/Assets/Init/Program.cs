@@ -60,6 +60,7 @@ namespace DCET
 				OuterConfig outerConfig = startConfig.GetComponent<OuterConfig>();
 				if (outerConfig != null)
 				{
+					Log.Debug("ip:"+outerConfig.Address);
 					// 外网消息组件
 					Game.Scene.AddComponent<NetOuterComponent, string>(outerConfig.Address);
 				}

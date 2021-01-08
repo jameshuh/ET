@@ -44,13 +44,15 @@ namespace DCETRuntime
 					luaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
 					luaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
 
-					if (Define.IsEditorMode)
+					if (!Define.IsAsync)
 					{
 						luaEnv.AddLoader(EditorLoader);
 					}
 					else
 					{
-						luaEnv.AddLoader(AssetBundleLoader);
+						//替换原来的加载函数
+						luaEnv.AddLoader(ABLuaLoader);
+						//luaEnv.AddLoader(AssetBundleLoader);
 					}
 				}
 
@@ -124,6 +126,38 @@ namespace DCETRuntime
 							return (textAsset as TextAsset).bytes;
 						}
 					}
+				}
+			}
+
+			return null;
+		}
+
+
+		private static byte[] ABLuaLoader(ref string filepath)
+		{
+            Log.Debug($"加载lua文件:{filepath}");
+            if (!string.IsNullOrWhiteSpace(filepath))
+			{
+				var luaFileName = filepath.Replace(luaExtensionName, "");
+				var splits = luaFileName.Split(dot);
+				string abname = $"{splits[0]}_lua.unity3d";
+				string resname = $"{splits[splits.Length - 1]}{luaExtensionName}";
+                Log.Debug($"abname:{abname},resname:{resname}");
+				if (splits.Length == 2)
+				{
+					//1.ab文件名:{splits[0]}_lua.unity3d
+					//2.资源名  :{splits[1]}{luaExtensionName}
+				}
+				else
+				{
+					//1.ab文件名:{splits[0]}_lua.unity3d
+					//2.资源名  :{splits[0]}{luaExtensionName}
+				}
+				var textAsset = AssetBundles.Default.LoadAsset(BundleNameToLower(abname), resname);
+				if (textAsset != null && textAsset is TextAsset)
+				{
+					//					filepath = Path.Combine(Application.dataPath, luaDir + filepath.Replace(dot, backSlash).Replace(luaSuffixName, luaExtensionName) + txtExtensionName);
+					return (textAsset as TextAsset).bytes;
 				}
 			}
 

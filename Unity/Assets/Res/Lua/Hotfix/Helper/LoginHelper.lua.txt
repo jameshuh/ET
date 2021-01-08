@@ -12,6 +12,7 @@ System.namespace("DCET", function (namespace)
     OnLoginAsync = function (account)
       System.async(function (async, account)
         System.try(function ()
+          DCET.Log.Debug("服务器地址:" .. DCETRuntime.GlobalConfigComponent.getInstance().GlobalProto.Address)
           local session = DCET.Game.Scene:GetComponent(DCET.NetOuterComponent):Create1(DCETRuntime.GlobalConfigComponent.getInstance().GlobalProto.Address)
 
           local default = DCET.C2R_Login()
@@ -27,7 +28,6 @@ System.namespace("DCET", function (namespace)
           extern.Key = r2CLogin.Key
           extern.GateId = r2CLogin.GateId
           local g2CLoginGate = System.cast(DCET.G2C_LoginGate, async:await(DCET.SessionComponent.Instance:getSession():Call(extern)))
-
           DCET.Log.Info("登陆gate成功!")
 
           -- 创建Player

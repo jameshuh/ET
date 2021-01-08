@@ -183,7 +183,7 @@ System.namespace("DCET", function (namespace)
           System.throw(System.Exception("assets bundle not found: " .. assetBundleName))
         end
 
-        if not assetBundle:getisStreamedSceneAssetBundle() then
+        if not assetBundle.isStreamedSceneAssetBundle then
           -- 异步load资源到内存cache住
           local assets = assetBundle:LoadAllAssets()
 
@@ -263,7 +263,7 @@ System.namespace("DCET", function (namespace)
             System.throw(System.Exception("assets bundle not found: " .. assetBundleName))
           end
 
-          if not assetBundle:getisStreamedSceneAssetBundle() then
+          if not assetBundle.isStreamedSceneAssetBundle then
             -- 异步load资源到内存cache住
             local assets
 

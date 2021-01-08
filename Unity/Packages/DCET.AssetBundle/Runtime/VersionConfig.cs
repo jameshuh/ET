@@ -16,7 +16,6 @@ namespace DCETRuntime
 		
 		public long TotalSize;
 		
-		[BsonIgnore]
 		public Dictionary<string, FileVersionInfo> FileInfoDict = new Dictionary<string, FileVersionInfo>();
 
 		public void EndInit()

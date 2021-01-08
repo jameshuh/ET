@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 16
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Lua.Runtime", "Unity.DCET.Lua.Runtime.csproj", "{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ProtoBuf.Runtime", "Unity.ProtoBuf.Runtime.csproj", "{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.MongoDB.Runtime", "Unity.MongoDB.Runtime.csproj", "{847D3640-7FC2-C576-ECC2-980D265728B0}"
@@ -16,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.FairyGUI.Runtime", "Unity.DCET.FairyGUI.Runtime.csproj", "{F57730E8-0F11-9C9D-04A0-CD3982B7B385}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Numeric.Hotfix", "Unity.DCET.Numeric.Hotfix.csproj", "{C987D1E0-E3D8-BDCD-5DDB-EC2F8BDD0A4D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Lua.Runtime", "Unity.DCET.Lua.Runtime.csproj", "{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.DCET.Pathfinding.Runtime", "Unity.DCET.Pathfinding.Runtime.csproj", "{52B6CC4C-CCAC-9244-49FF-415FA41D801C}"
 EndProject
@@ -69,6 +69,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA5D9E0-712B-DCB9-81F4-42AEE8A0BE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,10 +105,6 @@ Global
 		{C987D1E0-E3D8-BDCD-5DDB-EC2F8BDD0A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C987D1E0-E3D8-BDCD-5DDB-EC2F8BDD0A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C987D1E0-E3D8-BDCD-5DDB-EC2F8BDD0A4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6F5CA04-A394-F32F-3C46-EF1E70A5E171}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52B6CC4C-CCAC-9244-49FF-415FA41D801C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52B6CC4C-CCAC-9244-49FF-415FA41D801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52B6CC4C-CCAC-9244-49FF-415FA41D801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
