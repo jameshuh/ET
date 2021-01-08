@@ -32,12 +32,12 @@ System.namespace("DCET", function (namespace)
       DCET.Entity.__ctor__(this)
     end
     Update = function (this)
-      if not this.request:getisDone() then
+      if not this.request.isDone then
         return
       end
 
       local t = this.tcs
-      t:SetResult(this.request:getassetBundle())
+      t:SetResult(this.request.assetBundle)
     end
     Dispose = function (this)
       if this:getIsDisposed() then

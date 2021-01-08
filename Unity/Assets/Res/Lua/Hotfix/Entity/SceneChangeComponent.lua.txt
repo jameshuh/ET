@@ -5,7 +5,7 @@ System.namespace("DCET", function (namespace)
   namespace.class("SceneChangeComponentUpdateSystem", function (namespace)
     local Update
     Update = function (this, self)
-      if self.loadMapOperation:getisDone() then
+      if self.loadMapOperation.isDone then
         self.tcs:SetResult(true)
       end
     end
@@ -61,7 +61,7 @@ System.namespace("DCET", function (namespace)
       if this.loadMapOperation == nil then
         return 0
       end
-      return System.ToInt32(this.loadMapOperation:getprogress() * 100)
+      return System.ToInt32(this.loadMapOperation.progress * 100)
     end
     Finish = function (this)
       this.tcs:SetResult(true)

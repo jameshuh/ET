@@ -753,5 +753,26 @@ limitations under the License.
       </class>
     </namespace>
     <namespace name="System.Runtime.CompilerServices" Name="System" />
+    <namespace name="UnityEngine">
+      <class name="AssetBundle">
+        <property name="isStreamedSceneAssetBundle" IsField="true" />
+      </class>
+      <class name="AssetBundleCreateRequest">
+        <property name="assetBundle" IsField="true" />
+      </class>
+      <class name="AsyncOperation">
+        <property name="isDone" IsField="true" />
+        <property name="progress" IsField="true" />
+        <property name="allowSceneActivation" IsField="true" />
+      </class>
+      <class name="AssetBundleRequest">
+        <property name="allAssets" IsField="true" />
+        <property name="asset" IsField="true" />
+      </class>
+      <class name="Application">
+        <property name="dataPath" IsField="true" />
+        <property name="asset" IsField="true" />
+      </class>
+    </namespace> 
 </assembly>
 </meta>

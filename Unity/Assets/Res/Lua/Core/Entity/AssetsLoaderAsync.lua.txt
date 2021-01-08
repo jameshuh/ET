@@ -54,7 +54,7 @@ System.namespace("DCET", function (namespace)
       this.assetBundle = ab
     end
     Update = function (this)
-      if not this.request:getisDone() then
+      if not this.request.isDone then
         return
       end
 
@@ -73,7 +73,7 @@ System.namespace("DCET", function (namespace)
     LoadAllAssetsAsync = function (this)
       return System.async(function (async, this)
         async:await(InnerLoadAllAssetsAsync(this))
-        return this.request:getallAssets()
+        return this.request.allAssets
       end, nil, this)
     end
     InnerLoadAllAssetsAsync = function (this)

@@ -122,10 +122,14 @@ namespace DCETRuntime
 
 			if (assetBundles.ContainsKey(assetBundleName))
 			{
-				if (!assets.ContainsKey(assetBundleName) || !assets[assetBundleName].ContainsKey(assetName))
-				{
-					assetBundle = assetBundles[assetBundleName];
-				}
+
+				assetBundle = assetBundles[assetBundleName];
+				//下面的注释掉
+				//if (!assets.ContainsKey(assetBundleName) || !assets[assetBundleName].ContainsKey(assetName))
+				//{
+				//	assetBundle = assetBundles[assetBundleName];
+				//	Log.Debug("ab:" + (assetBundle == null));
+				//}
 			}
 			else
 			{
@@ -159,6 +163,7 @@ namespace DCETRuntime
 					{
 						if (asset)
 						{
+							//Log.Debug($"添加ab:{assetBundleName},res:{asset.name}");
 							assets[assetBundleName][asset.name] = asset;
 						}
 					}
@@ -172,6 +177,7 @@ namespace DCETRuntime
 
 			return null;
 		}
+
 
 		private static Object LoadEditorAsset(string assetBundleName, string assetName)
 		{
