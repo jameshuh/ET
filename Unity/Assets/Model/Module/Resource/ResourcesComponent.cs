@@ -385,8 +385,9 @@ namespace ET
 
             if (!Define.IsAsync)
             {
-                string[] realPath = null;
+
 #if UNITY_EDITOR
+                string[] realPath = null;
                 realPath = AssetDatabase.GetAssetPathsFromAssetBundle(assetBundleName);
                 foreach (string s in realPath)
                 {

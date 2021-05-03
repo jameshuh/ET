@@ -608,29 +608,32 @@ namespace ET
 		
 		public async ETTask Publish<T>(T a) where T: struct
 		{
-			List<object> iEvents;
-			if (!this.allEvents.TryGetValue(typeof(T), out iEvents))
+			using (var list = ListComponent<ETTask>.Create())
 			{
-				return;
-			}
-			using var list = ListComponent<ETTask>.Create();
-
-			foreach (object obj in iEvents)
-			{
-				if (!(obj is AEvent<T> aEvent))
+				List<object> iEvents;
+				if (!this.allEvents.TryGetValue(typeof(T), out iEvents))
 				{
-					Log.Error($"event error: {obj.GetType().Name}");
-					continue;
+					return;
 				}
-				list.List.Add(aEvent.Handle(a));
-			}
-			try
-			{
-				await ETTaskHelper.WaitAll(list.List);
-			}
-			catch (Exception e)
-			{
-				Log.Error(e);
+				//using var list = ListComponent<ETTask>.Create();
+
+				foreach (object obj in iEvents)
+				{
+					if (!(obj is AEvent<T> aEvent))
+					{
+						Log.Error($"event error: {obj.GetType().Name}");
+						continue;
+					}
+					list.List.Add(aEvent.Handle(a));
+				}
+				try
+				{
+					await ETTaskHelper.WaitAll(list.List);
+				}
+				catch (Exception e)
+				{
+					Log.Error(e);
+				}
 			}
 		}
 
