@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !FAIRYGUI
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,3 +69,4 @@ namespace ET
 		}
 	}
 }
+#endif

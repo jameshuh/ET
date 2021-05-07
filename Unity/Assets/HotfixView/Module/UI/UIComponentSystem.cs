@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if !FAIRYGUI
+using System.Collections.Generic;
 
 namespace ET
 {
@@ -42,3 +43,4 @@ namespace ET
 		}
 	}
 }
+#endif

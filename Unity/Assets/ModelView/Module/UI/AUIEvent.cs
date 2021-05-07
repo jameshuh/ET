@@ -1,3 +1,4 @@
+#if !FAIRYGUI
 namespace ET
 {
     public abstract class AUIEvent
@@ -6,3 +7,4 @@ namespace ET
         public abstract void OnRemove(UIComponent uiComponent);
     }
 }
+#endif

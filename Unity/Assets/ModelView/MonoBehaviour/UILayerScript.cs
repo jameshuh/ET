@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ET
 {
+#if !FAIRYGUI
     public enum UILayer
     {
         Hidden = 0,
@@ -14,4 +15,15 @@ namespace ET
     {
         public UILayer UILayer;
     }
+#else
+    public enum UILayer
+    {
+        Hidden = 0,
+        Low,
+        Mid,
+        High,
+        //Float,
+        All
+    }
+#endif
 }

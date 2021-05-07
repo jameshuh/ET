@@ -8,6 +8,8 @@ namespace ET
         
         public Transform Global;
         public Transform Unit;
+#if !FAIRYGUI
         public Transform UI;
+#endif
     }
 }

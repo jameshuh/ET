@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if !FAIRYGUI
+using System.Collections.Generic;
 
 namespace ET
 {
@@ -10,3 +11,4 @@ namespace ET
 		public Dictionary<string, UI> UIs = new Dictionary<string, UI>();
 	}
 }
+#endif

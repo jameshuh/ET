@@ -10,7 +10,9 @@ namespace ET
             
             self.Global = GameObject.Find("/Global").transform;
             self.Unit = GameObject.Find("/Global/Unit").transform;
+#if !FAIRYGUI
             self.UI = GameObject.Find("/Global/UI").transform;
+#endif
         }
     }
 }

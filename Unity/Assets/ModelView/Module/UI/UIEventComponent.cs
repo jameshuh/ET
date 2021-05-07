@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !FAIRYGUI
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,3 +17,4 @@ namespace ET
 		public Dictionary<int, Transform> UILayers = new Dictionary<int, Transform>();
 	}
 }
+#endif
