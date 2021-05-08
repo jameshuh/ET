@@ -56,6 +56,7 @@ namespace ET
 
         public const int ERR_Cancel = 200001;
 
+        public const int ERR_AccountOrPasswordError = 200002;
         public static bool IsRpcNeedThrowException(int error)
         {
             if (error == 0)

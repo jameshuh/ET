@@ -24,6 +24,7 @@ namespace ET
             {
                 case SceneType.Realm:
                     scene.AddComponent<NetKcpComponent, IPEndPoint>(startSceneConfig.OuterIPPort);
+                    scene.AddComponent<DBComponent, string, string>(startSceneConfig.StartZoneConfig.DBConnection, startSceneConfig.StartZoneConfig.DBName);
                     break;
                 case SceneType.Gate:
                     scene.AddComponent<NetKcpComponent, IPEndPoint>(startSceneConfig.OuterIPPort);

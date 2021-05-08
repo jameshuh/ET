@@ -30,6 +30,7 @@ namespace ET
         public GImage passwordBg;
         public GTextInput passwordInput;
         public FGUITitleButton loginButton;
+        public FGUITitleButton registButton;
         public GGroup content;
 
         public static FGUILogin CreateInstance(Scene domain)
@@ -94,6 +95,7 @@ namespace ET
                 passwordBg = (GImage)com.GetChild("passwordBg");
                 passwordInput = (GTextInput)com.GetChild("passwordInput");
                 loginButton = FGUITitleButton.Create(domain, com.GetChild("loginButton"));
+                registButton = FGUITitleButton.Create(domain, com.GetChild("registButton"));
                 content = (GGroup)com.GetChild("content");
             }
         }
@@ -117,6 +119,8 @@ namespace ET
             passwordInput = null;
             loginButton.Dispose();
             loginButton = null;
+            registButton.Dispose();
+            registButton = null;
             content = null;
         }
 

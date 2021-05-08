@@ -9,8 +9,26 @@ namespace ET
 	{
 		protected override async ETTask Run(Session session, C2R_Login request, R2C_Login response, Action reply)
 		{
-			// 随机分配一个Gate
-			StartSceneConfig config = RealmGateAddressHelper.GetGate(session.DomainZone());
+            string account = request.Account;
+            string password = request.Password;
+
+            if (string.IsNullOrEmpty(account) || string.IsNullOrEmpty(password))
+            {
+                response.Error = ErrorCode.ERR_AccountOrPasswordError;
+                reply();
+                return;
+            }
+
+            var accountList = await session.DomainScene().GetComponent<DBComponent>().Query<AccountInfo>(d => d.Account == account && d.Password == password);
+            if (accountList.Count <= 0)
+            {
+                response.Error = ErrorCode.ERR_AccountOrPasswordError;
+                reply();
+                return;
+            }
+
+            // 随机分配一个Gate
+            StartSceneConfig config = RealmGateAddressHelper.GetGate(session.DomainZone());
 			//Log.Debug($"gate address: {MongoHelper.ToJson(config)}");
 			
 			// 向gate请求一个key,客户端可以拿着这个key连接gate
